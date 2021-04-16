@@ -16,15 +16,17 @@ class App extends Component {
     this.state = {
       posts: [
         {
-          avatarURL: 'reallylongurl.com',
-          fullname: 'Aaron',
-          email: 'Hello',
+          avatarURL:
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Steve_Jobs_Headshot_2010-CROP_%28cropped_2%29.jpg/1920px-Steve_Jobs_Headshot_2010-CROP_%28cropped_2%29.jpg',
+          fullname: 'Steve Jobs',
+          email: 'steve@mac.com',
           phone: 2222222222,
         },
         {
-          avatarURL: 'testURLlforavatar.net',
-          fullname: 'Mark',
-          email: 'test@test.com',
+          avatarURL:
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Thomas_Edison2.jpg/1280px-Thomas_Edison2.jpg',
+          fullname: 'Thomas Edison',
+          email: 'lightbulb@test.com',
           phone: 7777777777,
         },
       ],
