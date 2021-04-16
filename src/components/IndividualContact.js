@@ -1,15 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const IndividualContact = ({ match }) => {
-  console.log(match);
+const IndividualContact = ({ match, contacts }) => {
   const { id } = match.params;
-  console.log(id);
-  return <h2>test</h2>;
+  const [contact] = contacts.filter((c) => c.id === parseInt(id));
+  return (
+    <div>
+      <img src={contact.image_url} alt="..." />
+      <h2>{contact.name}</h2>
+      <h4>{contact.email}</h4>
+      <h4>{contact.phone_number}</h4>
+    </div>
+  );
 };
 
 IndividualContact.propTypes = {
   match: PropTypes.object,
+  contacts: PropTypes.array,
 };
 
 export default IndividualContact;

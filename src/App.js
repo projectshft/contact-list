@@ -51,7 +51,12 @@ function App() {
           path="/contacts/new"
           render={() => <NewContact addContact={addContact} />}
         />
-        <Route path="/contacts/:id" component={IndividualContact} />
+        <Route
+          path="/contacts/:id"
+          render={({ match }) => (
+            <IndividualContact contacts={contacts} match={match} />
+          )}
+        />
         <Route path="/contacts/:id/edit" component={EditContact} />
         <Redirect to="/contacts" />
       </Switch>
