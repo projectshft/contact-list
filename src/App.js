@@ -42,6 +42,12 @@ function App() {
     console.log(newContactInfo);
   };
 
+  const deleteContact = (id) => {
+    setContacts((prevState) =>
+      [...prevState].filter((c) => c.id !== parseInt(id))
+    );
+  };
+
   return (
     <div className="App container">
       <Header />
@@ -49,7 +55,9 @@ function App() {
         <Route
           exact
           path="/contacts"
-          render={() => <Home contacts={contacts} />}
+          render={() => (
+            <Home contacts={contacts} deleteContact={deleteContact} />
+          )}
         />
         <Route
           path="/contacts/new"

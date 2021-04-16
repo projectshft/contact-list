@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 import { Link, Redirect } from 'react-router-dom';
 import Contact from './Contact';
 
-const Home = (props) => {
-  const { contacts } = props;
-
+const Home = ({ contacts, deleteContact }) => {
   const [redirect, setRedirect] = useState(false);
   const handleAddContactClick = () => {
     setRedirect(true);
   };
 
-  const contactList = contacts.map((c) => <Contact contact={c} />);
+  const contactList = contacts.map((c) => (
+    <Contact contact={c} deleteContact={deleteContact} />
+  ));
 
   if (redirect) {
     return <Redirect to="/contacts/new" />;
@@ -76,6 +76,7 @@ const Home = (props) => {
 
 Home.propTypes = {
   contacts: PropTypes.array.isRequired,
+  deleteContact: PropTypes.func,
 };
 
 export default Home;
