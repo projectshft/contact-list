@@ -16,6 +16,10 @@ const EditContact = ({ match, contacts, editContact }) => {
   // TODO: add validation
 
   const handleEditContactClick = () => {
+    if (!nameInput || !imageURLInput || !emailInput || !phoneNumberInput) {
+      alert('No field can be left blank');
+      return;
+    }
     const updatedContactInfo = {
       name: nameInput,
       image_url: imageURLInput,

@@ -13,6 +13,10 @@ const NewContact = ({ addContact }) => {
   const generateId = () => Math.round(Math.random() * 100000000);
 
   const handleAddContactClick = () => {
+    if (!nameInput || !imageURLInput || !emailInput || !phoneNumberInput) {
+      alert('All Fields are Required');
+      return;
+    }
     const newContact = {
       name: nameInput,
       image_url: imageURLInput,
