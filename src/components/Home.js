@@ -27,7 +27,7 @@ const Home = ({ contacts, deleteContact }) => {
         >
           Add New Contact
         </button>
-        <table className="table table-hover table-striped">
+        <table className="table table-hover table-striped mt-3">
           <thead>
             <tr>
               <th scope="col">Profile Pic</th>
