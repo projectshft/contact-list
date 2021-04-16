@@ -1,0 +1,32 @@
+{
+  "contacts": [
+    {
+      "id": 70219577,
+      "name": "Albert Einstein",
+      "image_url": "https://en.wikipedia.org/wiki/Albert_Einstein#/media/File:Einstein_1921_by_F_Schmutzer_-_restoration.jpg",
+      "email": "aeinstein@example.com",
+      "phone_number": "15555555555"
+    },
+    {
+      "id": 1234568,
+      "name": "John Doe",
+      "image_url": "https://en.wikipedia.org/wiki/Albert_Einstein#/media/File:Einstein_1921_by_F_Schmutzer_-_restoration.jpg",
+      "email": "aeinstein@example.com",
+      "phone_number": "19999999999"
+    },
+    {
+      "id": 100012345,
+      "name": "Mr. Contact",
+      "image_url": "https://en.wikipedia.org/wiki/Albert_Einstein#/media/File:Einstein_1921_by_F_Schmutzer_-_restoration.jpg",
+      "email": "aeinstein@example.com",
+      "phone_number": "12222222222"
+    },
+    {
+      "id": 9999999,
+      "name": "Steve Jobs",
+      "image_url": "https://en.wikipedia.org/wiki/Albert_Einstein#/media/File:Einstein_1921_by_F_Schmutzer_-_restoration.jpg",
+      "email": "aeinstein@example.com",
+      "phone_number": "13333333333"
+    }
+  ]
+}
