@@ -5,16 +5,9 @@ import Home from './components/Home';
 import IndividualContact from './components/IndividualContact';
 import NewContact from './components/NewContact';
 import EditContact from './components/EditContact';
+import Header from './components/Header';
 
-const Header = () => (
-  <div className="row">
-    <div className="col-md-12 text-center">
-      <h1>Your Contact List</h1>
-    </div>
-  </div>
-);
-
-function App() {
+const App = () => {
   const [contacts, setContacts] = useState([
     {
       id: 70219577,
@@ -33,10 +26,12 @@ function App() {
     },
   ]);
 
+  // Adds a new contact to contacts array
   const addContact = (newContact) => {
     setContacts(contacts.concat([newContact]));
   };
 
+  // Updates contacts array with edited contact
   const editContact = (newContactInfo) => {
     setContacts((prevState) =>
       [...prevState].map((c) =>
@@ -45,6 +40,7 @@ function App() {
     );
   };
 
+  // Removes contact with given id from contacts array
   const deleteContact = (id) => {
     setContacts((prevState) =>
       [...prevState].filter((c) => c.id !== parseInt(id))
@@ -87,6 +83,6 @@ function App() {
       </Switch>
     </div>
   );
-}
+};
 
 export default App;

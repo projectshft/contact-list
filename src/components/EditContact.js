@@ -3,9 +3,12 @@ import PropTypes from 'prop-types';
 import { Link, Redirect } from 'react-router-dom';
 
 const EditContact = ({ match, contacts, editContact }) => {
+  // Grab the id of the clicked contact
   const { id } = match.params;
+  // Find the object with the data of the clicked contact
   const [contact] = contacts.filter((c) => c.id === parseInt(id));
 
+  // Sets the initial values of the inputs to the current contact data
   const [nameInput, setNameInput] = useState(contact.name);
   const [emailInput, setEmailInput] = useState(contact.email);
   const [phoneNumberInput, setPhoneNumberInput] = useState(
@@ -13,8 +16,8 @@ const EditContact = ({ match, contacts, editContact }) => {
   );
   const [imageURLInput, setImageURLInput] = useState(contact.image_url);
   const [redirect, setRedirect] = useState(false);
-  // TODO: add validation
 
+  // On clicking edit button, updates contacts with edited contact data
   const handleEditContactClick = () => {
     if (!nameInput || !imageURLInput || !emailInput || !phoneNumberInput) {
       alert('No field can be left blank');
@@ -31,8 +34,9 @@ const EditContact = ({ match, contacts, editContact }) => {
     setRedirect(true);
   };
 
+  // Goes back to main contacts page once user has successfully updated contact
   if (redirect) {
-    return <Redirect to="/contacts" />;
+    return <Redirect push to="/contacts" />;
   }
 
   return (

@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const IndividualContact = ({ match, contacts }) => {
+  // Grabs the id of the clicked contact
   const { id } = match.params;
+  // Finds the object holding the data for clicked contact
   const [contact] = contacts.filter((c) => c.id === parseInt(id));
   return (
     <div className="row">

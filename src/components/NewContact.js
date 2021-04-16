@@ -8,10 +8,11 @@ const NewContact = ({ addContact }) => {
   const [phoneNumberInput, setPhoneNumberInput] = useState('');
   const [imageURLInput, setImageURLInput] = useState('');
   const [redirect, setRedirect] = useState(false);
-  // TODO: add validation
 
+  // Generates an id for when a new contact is created
   const generateId = () => Math.round(Math.random() * 100000000);
 
+  // Adds new contact to the contacts array with user provided information
   const handleAddContactClick = () => {
     if (!nameInput || !imageURLInput || !emailInput || !phoneNumberInput) {
       alert('All Fields are Required');
@@ -28,8 +29,9 @@ const NewContact = ({ addContact }) => {
     setRedirect(true);
   };
 
+  // Upon successful addition of a new contact, redirects to the main contacts page
   if (redirect) {
-    return <Redirect to="/contacts" />;
+    return <Redirect push to="/contacts" />;
   }
 
   return (

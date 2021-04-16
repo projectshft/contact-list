@@ -1,20 +1,23 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import Contact from './Contact';
 
 const Home = ({ contacts, deleteContact }) => {
   const [redirect, setRedirect] = useState(false);
-  const handleAddContactClick = () => {
-    setRedirect(true);
-  };
 
+  // Creates the list of contacts by creating a contact component for each element in contacts array
   const contactList = contacts.map((c) => (
     <Contact contact={c} deleteContact={deleteContact} />
   ));
 
+  // Redirects to the add contact page when user clicks add new contact button
+  const handleAddContactClick = () => {
+    setRedirect(true);
+  };
+
   if (redirect) {
-    return <Redirect to="/contacts/new" />;
+    return <Redirect push to="/contacts/new" />;
   }
 
   return (
@@ -43,36 +46,6 @@ const Home = ({ contacts, deleteContact }) => {
     </div>
   );
 };
-
-// <table class="table table-hover">
-//   <thead>
-//     <tr>
-//       <th scope="col">#</th>
-//       <th scope="col">First</th>
-//       <th scope="col">Last</th>
-//       <th scope="col">Handle</th>
-//     </tr>
-//   </thead>
-//   <tbody>
-//     <tr>
-//       <th scope="row">1</th>
-//       <td>Mark</td>
-//       <td>Otto</td>
-//       <td>@mdo</td>
-//     </tr>
-//     <tr>
-//       <th scope="row">2</th>
-//       <td>Jacob</td>
-//       <td>Thornton</td>
-//       <td>@fat</td>
-//     </tr>
-//     <tr>
-//       <th scope="row">3</th>
-//       <td colspan="2">Larry the Bird</td>
-//       <td>@twitter</td>
-//     </tr>
-//   </tbody>
-// </table>
 
 Home.propTypes = {
   contacts: PropTypes.array.isRequired,

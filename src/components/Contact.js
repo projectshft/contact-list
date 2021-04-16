@@ -14,8 +14,9 @@ const Contact = ({ contact, deleteContact }) => {
     deleteContact(contact.id);
   };
 
+  // Redirects to a individual contact page for the clicked contact
   if (redirect) {
-    return <Redirect to={`/contacts/${contact.id}`} />;
+    return <Redirect push to={`/contacts/${contact.id}`} />;
   }
 
   return (
