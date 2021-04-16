@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 const Contact = ({ contact }) => {
   const [redirect, setRedirect] = useState(false);
@@ -26,6 +26,11 @@ const Contact = ({ contact }) => {
       <td>{contact.name}</td>
       <td>{contact.email}</td>
       <td>{contact.phone_number}</td>
+      <td>
+        <Link to={`/contacts/${contact.id}/edit`}>Edit</Link>
+        <br />
+        delete
+      </td>
     </tr>
   );
 };

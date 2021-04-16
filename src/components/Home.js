@@ -34,6 +34,7 @@ const Home = (props) => {
               <th scope="col">Name</th>
               <th scope="col">Email</th>
               <th scope="col">Phone Number</th>
+              <th scope="col">Options:</th>
             </tr>
           </thead>
           <tbody>{contactList}</tbody>

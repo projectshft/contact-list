@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 const NewContact = ({ addContact }) => {
   const [nameInput, setNameInput] = useState('');
@@ -32,6 +32,9 @@ const NewContact = ({ addContact }) => {
     <div className="row">
       <div className="col-md-6 new-contact-form text-left">
         <h2>Add New Contact</h2>
+        <p>
+          <Link to="/contacts">Go Back</Link>
+        </p>
         <div className="form-group">
           <label htmlFor="name-input">
             Full Name

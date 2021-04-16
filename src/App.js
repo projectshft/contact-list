@@ -38,6 +38,10 @@ function App() {
     setContacts(contacts.concat([newContact]));
   };
 
+  const editContact = (newContactInfo) => {
+    console.log(newContactInfo);
+  };
+
   return (
     <div className="App container">
       <Header />
@@ -52,12 +56,22 @@ function App() {
           render={() => <NewContact addContact={addContact} />}
         />
         <Route
+          exact
           path="/contacts/:id"
           render={({ match }) => (
             <IndividualContact contacts={contacts} match={match} />
           )}
         />
-        <Route path="/contacts/:id/edit" component={EditContact} />
+        <Route
+          path="/contacts/:id/edit"
+          render={({ match }) => (
+            <EditContact
+              contacts={contacts}
+              match={match}
+              editContact={editContact}
+            />
+          )}
+        />
         <Redirect to="/contacts" />
       </Switch>
     </div>
