@@ -39,7 +39,11 @@ function App() {
   };
 
   const editContact = (newContactInfo) => {
-    console.log(newContactInfo);
+    setContacts((prevState) =>
+      [...prevState].map((c) =>
+        c.id === newContactInfo.id ? newContactInfo : c
+      )
+    );
   };
 
   const deleteContact = (id) => {

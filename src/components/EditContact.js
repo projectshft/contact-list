@@ -15,27 +15,16 @@ const EditContact = ({ match, contacts, editContact }) => {
   const [redirect, setRedirect] = useState(false);
   // TODO: add validation
 
-  // const handleAddContactClick = () => {
-  //   const newContact = {
-  //     name: nameInput,
-  //     image_url: imageURLInput,
-  //     email: emailInput,
-  //     phone_number: phoneNumberInput,
-  //     id: generateId(),
-  //   };
-  //   addContact(newContact);
-  //   setRedirect(true);
-  // };
-
   const handleEditContactClick = () => {
     const updatedContactInfo = {
       name: nameInput,
       image_url: imageURLInput,
       email: emailInput,
       phone_number: phoneNumberInput,
-      id,
+      id: parseInt(id),
     };
     editContact(updatedContactInfo);
+    setRedirect(true);
   };
 
   if (redirect) {
