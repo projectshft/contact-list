@@ -10,7 +10,6 @@ const Post = ({ post }) => {
     history.push(contactDetailURL);
   };
 
-  console.log(post);
   return (
     <tr onClick={handleContactClick}>
       <td id={post.id}>
