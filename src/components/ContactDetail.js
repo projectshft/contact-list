@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
 
 const ContactDetail = (props) => {
@@ -20,6 +20,12 @@ const ContactDetail = (props) => {
       <p>{currentContact[0].fullname}</p>
       <p>{currentContact[0].email}</p>
       <p>{currentContact[0].phone}</p>
+      <br />
+      <Link to="/contacts">
+        <button type="button" className="btn btn-primary">
+          Go Back
+        </button>
+      </Link>
     </div>
   );
 };
