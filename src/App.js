@@ -35,11 +35,20 @@ class App extends Component {
     };
 
     this.addPost = this.addPost.bind(this);
+    this.deletePost = this.deletePost.bind(this);
   }
 
   addPost(post) {
     const { posts } = this.state;
     this.setState({ posts: posts.concat([post]) });
+  }
+
+  deletePost(id) {
+    const { posts } = this.state;
+    const allOtherContacts = posts.filter(function (contacts) {
+      return contacts.id !== parseInt(id, 10);
+    });
+    this.setState({ posts: allOtherContacts });
   }
 
   render() {
@@ -62,7 +71,7 @@ class App extends Component {
                     <ContactForm posts={posts} addPost={this.addPost} />
                   </Route>
                   <Route exact path="/contacts/:id">
-                    <ContactDetail posts={posts} />
+                    <ContactDetail posts={posts} deletePost={this.deletePost} />
                   </Route>
                 </Switch>
               </div>

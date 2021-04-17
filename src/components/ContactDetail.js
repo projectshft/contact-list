@@ -8,6 +8,11 @@ const ContactDetail = (props) => {
     return contacts.id === parseInt(id, 10);
   });
   const editLink = `${id}/edit`;
+  const { deletePost } = props;
+
+  const handleClick = () => {
+    deletePost(id);
+  };
 
   return (
     <div>
@@ -29,6 +34,15 @@ const ContactDetail = (props) => {
                     Go Back
                   </button>
                 </Link>
+                <Link to="/contacts">
+                  <button
+                    type="button"
+                    onClick={handleClick}
+                    className="btn btn-primary"
+                  >
+                    Delete
+                  </button>
+                </Link>
                 <Link to={editLink}>
                   <button type="button" className="btn btn-primary">
                     Edit
@@ -45,5 +59,6 @@ const ContactDetail = (props) => {
 
 ContactDetail.propTypes = {
   posts: PropTypes.any,
+  deletePost: PropTypes.any,
 };
 export default ContactDetail;
