@@ -17,28 +17,21 @@ class ContactForm extends Component {
   }
 
   handleClick() {
-    console.log('click');
-
-    const { fullname } = this.state;
-    const { email } = this.state;
-    const { phone } = this.state;
-    const { avatarURL } = this.state;
+    const generateId = () => Math.round(Math.random() * 100000000);
+    const { fullname, email, phone, avatarURL } = this.state;
     const { addPost } = this.props;
     const post = {
       avatarURL,
       fullname,
       email,
       phone,
+      id: generateId(),
     };
     addPost(post);
-    console.log(this.props);
   }
 
   render() {
-    const { fullname } = this.state;
-    const { email } = this.state;
-    const { phone } = this.state;
-    const { avatarURL } = this.state;
+    const { fullname, email, phone, avatarURL } = this.state;
     return (
       <div className="row justify-content-center">
         <div className="col-md-8 self-align-center">
@@ -106,7 +99,7 @@ class ContactForm extends Component {
 }
 
 ContactForm.propTypes = {
-  addPost: PropTypes.node,
+  addPost: PropTypes.any,
 };
 
 export default ContactForm;

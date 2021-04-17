@@ -3,11 +3,11 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  // Link,
   Redirect,
 } from 'react-router-dom';
 import ContactForm from './components/ContactForm';
 import ContactList from './components/ContactList';
+import ContactDetail from './components/ContactDetail';
 
 class App extends Component {
   constructor() {
@@ -21,6 +21,7 @@ class App extends Component {
           fullname: 'Steve Jobs',
           email: 'steve@mac.com',
           phone: 2222222222,
+          id: 12345,
         },
         {
           avatarURL:
@@ -28,6 +29,7 @@ class App extends Component {
           fullname: 'Thomas Edison',
           email: 'lightbulb@test.com',
           phone: 7777777777,
+          id: 6789,
         },
       ],
     };
@@ -38,7 +40,6 @@ class App extends Component {
   addPost(post) {
     const { posts } = this.state;
     this.setState({ posts: posts.concat([post]) });
-    console.log(posts);
   }
 
   render() {
@@ -58,6 +59,9 @@ class App extends Component {
                   </Route>
                   <Route exact path="/new">
                     <ContactForm posts={posts} addPost={this.addPost} />
+                  </Route>
+                  <Route exact path="/contacts/:id">
+                    <ContactDetail posts={posts} />
                   </Route>
                 </Switch>
               </div>

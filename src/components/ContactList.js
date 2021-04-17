@@ -18,7 +18,7 @@ const ContactList = (props) => {
         </button>
       </Link>
       <br />
-      <table className="table table-striped table-borded">
+      <table className="table table-hover table-striped table-borded">
         <thead>
           <tr>
             <th scope="col">Profile Pic</th>
@@ -34,7 +34,7 @@ const ContactList = (props) => {
 };
 
 ContactList.propTypes = {
-  posts: PropTypes.node,
+  posts: PropTypes.any,
 };
 
 export default ContactList;
