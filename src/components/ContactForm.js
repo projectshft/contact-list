@@ -35,8 +35,6 @@ class ContactForm extends Component {
     return (
       <div className="row justify-content-center">
         <div className="col-md-8 self-align-center">
-          <div className="h1 text-center">New Contact</div>
-
           <form className="post-form">
             <div className="form-group">
               <p>Full Name</p>

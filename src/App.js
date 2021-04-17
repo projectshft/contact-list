@@ -49,6 +49,7 @@ class App extends Component {
         <Router>
           <div className="row justify-content-md-center">
             <div className="col-md-8 self-align-center">
+              <div className="h1 text-center">Contact List</div>
               <div>
                 <Switch>
                   <Route exact path="/">

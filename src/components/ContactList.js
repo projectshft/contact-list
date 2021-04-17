@@ -11,14 +11,14 @@ const ContactList = (props) => {
 
   return (
     <div>
-      <div className="h1 text-center">Contact List</div>
       <Link to="/new">
         <button type="button" className="btn btn-primary">
           Add Contact
         </button>
       </Link>
       <br />
-      <table className="table table-hover table-striped table-borded">
+      <br />
+      <table className="table table-hover table-striped table-bordered">
         <thead>
           <tr>
             <th scope="col">Profile Pic</th>

@@ -10,7 +10,6 @@ const ContactDetail = (props) => {
 
   return (
     <div>
-      <div className="h1 text-center">Contact Deatil</div>
       <img
         src={currentContact[0].avatarURL}
         alt="File not found"
