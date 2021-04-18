@@ -1,25 +1,110 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from 'react-router-dom';
+import ContactForm from './components/ContactForm';
+import ContactList from './components/ContactList';
+import ContactDetail from './components/ContactDetail';
+import ContactEdit from './components/ContactEdit';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      contacts: [
+        {
+          avatarURL:
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Steve_Jobs_Headshot_2010-CROP_%28cropped_2%29.jpg/1920px-Steve_Jobs_Headshot_2010-CROP_%28cropped_2%29.jpg',
+          fullname: 'Steve Jobs',
+          email: 'steve@mac.com',
+          phone: 2222222222,
+          id: 12345,
+        },
+        {
+          avatarURL:
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Thomas_Edison2.jpg/1280px-Thomas_Edison2.jpg',
+          fullname: 'Thomas Edison',
+          email: 'lightbulb@test.com',
+          phone: 7777777777,
+          id: 6789,
+        },
+      ],
+    };
+
+    this.addContact = this.addContact.bind(this);
+    this.deleteContact = this.deleteContact.bind(this);
+    this.editContact = this.editContact.bind(this);
+  }
+
+  addContact(newContact) {
+    const { contacts } = this.state;
+    this.setState({ contacts: contacts.concat([newContact]) });
+  }
+
+  /* returns all contacts which do not match the deleted contacts id and updates state to exclude the deleted contact */
+  deleteContact(id) {
+    const { contacts } = this.state;
+    const allOtherContacts = contacts.filter(
+      (contact) => contact.id !== parseInt(id, 10)
+    );
+    this.setState({ contacts: allOtherContacts });
+  }
+
+  /*  maps current contact list to new array where the edited contact is returned in place of the original */
+  editContact(editedContact) {
+    const { contacts } = this.state;
+    const updatedContactList = contacts.map((contact) =>
+      contact.id === editedContact.id ? editedContact : contact
+    );
+    this.setState({ contacts: updatedContactList });
+  }
+
+  render() {
+    const { contacts } = this.state;
+    return (
+      <div>
+        <Router>
+          <div className="row justify-content-md-center">
+            <div className="col-md-8 self-align-center">
+              <div className="h1 text-center">Contact List</div>
+              <div>
+                <Switch>
+                  <Route exact path="/">
+                    <Redirect to="/contacts" />
+                  </Route>
+                  <Route exact path="/contacts">
+                    <ContactList contacts={contacts} />
+                  </Route>
+                  <Route exact path="/new">
+                    <ContactForm
+                      contacts={contacts}
+                      addContact={this.addContact}
+                    />
+                  </Route>
+                  <Route exact path="/contacts/:id">
+                    <ContactDetail
+                      contacts={contacts}
+                      deleteContact={this.deleteContact}
+                    />
+                  </Route>
+                  <Route exact path="/contacts/:id/edit">
+                    <ContactEdit
+                      contacts={contacts}
+                      editContact={this.editContact}
+                    />
+                  </Route>
+                </Switch>
+              </div>
+            </div>
+          </div>
+        </Router>
+      </div>
+    );
+  }
 }
 
 export default App;
