@@ -54,15 +54,12 @@ class App extends Component {
     this.setState({ contacts: allOtherContacts });
   }
 
-  /*   returns all contacts which do not match the edited contacts id
-  adds the  edited contact to the list of otherContacts and updates state, */
+  /*   maps current contact list to new array where the edited contact is returned in place of the original */
   editContact(editedContact) {
     const { contacts } = this.state;
-    const otherContacts = contacts.filter(function (contact) {
-      return contact.id !== parseInt(editedContact.id, 10);
+    const updatedContactList = contacts.map(function (contact) {
+      return contact.id === editedContact.id ? editedContact : contact;
     });
-
-    const updatedContactList = otherContacts.concat(editedContact);
     this.setState({ contacts: updatedContactList });
   }
 
