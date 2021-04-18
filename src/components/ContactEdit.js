@@ -7,11 +7,11 @@ const ContactEdit = (props) => {
   const { id } = useParams();
   const { contacts } = props;
   /* returns the clicked contact by matching its id to that of the current url */
-  const currentContact = contacts.filter(function (contact) {
+  const currentContact = contacts.find(function (contact) {
     return contact.id === parseInt(id, 10);
   });
 
-  const [clickedContact, setEdit] = useState(currentContact[0]);
+  const [clickedContact, setEdit] = useState(currentContact);
 
   /* alerts for empty fileds, calls editContact on the edited contact and navigates to /contacts */
   const { editContact } = props;
