@@ -5,6 +5,8 @@ import { useHistory } from 'react-router-dom';
 const ContactRow = ({ contact }) => {
   const history = useHistory();
 
+  /* generates a url for the contact with its id
+  and naviagates to the contactDetail page for that contact */
   const handleContactClick = (e) => {
     const contactDetailURL = `/contacts/${e.target.id}`;
     history.push(contactDetailURL);

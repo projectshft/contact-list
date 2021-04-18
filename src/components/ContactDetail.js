@@ -5,7 +5,7 @@ const ContactDetail = (props) => {
   const { id } = useParams();
   const history = useHistory();
   const { contacts } = props;
-
+  /* returns contact with id matching that of url */
   const currentContact = contacts.filter(function (contact) {
     return contact.id === parseInt(id, 10);
   });

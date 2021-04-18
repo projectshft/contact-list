@@ -13,10 +13,11 @@ class ContactForm extends Component {
       avatarURL: '',
     };
 
-    this.handleClick = this.handleClick.bind(this);
+    this.handleCreateContactClick = this.handleCreateContactClick.bind(this);
   }
 
-  handleClick() {
+  /* alerts for empty fileds, generates new contact object with random id, calls addContact on the generated contact and navigates back to /contacts */
+  handleCreateContactClick() {
     const generateId = () => Math.round(Math.random() * 100000000);
     const { fullname, email, phone, avatarURL } = this.state;
     if (!avatarURL || !fullname || !email || !phone) {
@@ -31,7 +32,6 @@ class ContactForm extends Component {
         id: generateId(),
       };
       addContact(contact);
-
       const { history } = this.props;
       history.push('/contacts');
     }
@@ -88,7 +88,7 @@ class ContactForm extends Component {
             </div>
 
             <button
-              onClick={this.handleClick}
+              onClick={this.handleCreateContactClick}
               type="button"
               className="btn btn-primary"
             >

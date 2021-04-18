@@ -6,12 +6,15 @@ const ContactEdit = (props) => {
   const history = useHistory();
   const { id } = useParams();
   const { contacts } = props;
+  /* returns the clicked contact by matching its id to that of the current url */
   const currentContact = contacts.filter(function (contact) {
     return contact.id === parseInt(id, 10);
   });
-  const [clickedContact, setEdit] = useState(currentContact[0]);
-  const { editContact } = props;
 
+  const [clickedContact, setEdit] = useState(currentContact[0]);
+
+  /* alerts for empty fileds, calls editContact on the edited contact and navigates to /contacts */
+  const { editContact } = props;
   const handleClick = () => {
     if (
       !clickedContact.avatarURL ||
@@ -36,9 +39,10 @@ const ContactEdit = (props) => {
               className="form-control"
               defaultValue={clickedContact.fullname}
               onChange={(event) => {
-                const spread = { ...clickedContact };
-                spread.fullname = event.target.value;
-                setEdit(spread);
+                /*  destructured spread of other values */
+                const editContactValues = { ...clickedContact };
+                editContactValues.fullname = event.target.value;
+                setEdit(editContactValues);
               }}
             />
             <br />
@@ -47,9 +51,9 @@ const ContactEdit = (props) => {
               className="form-control"
               defaultValue={clickedContact.phone}
               onChange={(event) => {
-                const spread = { ...clickedContact };
-                spread.phone = event.target.value;
-                setEdit(spread);
+                const editContactValues = { ...clickedContact };
+                editContactValues.phone = event.target.value;
+                setEdit(editContactValues);
               }}
             />
 
@@ -59,9 +63,9 @@ const ContactEdit = (props) => {
               className="form-control"
               defaultValue={clickedContact.email}
               onChange={(event) => {
-                const spread = { ...clickedContact };
-                spread.email = event.target.value;
-                setEdit(spread);
+                const editContactValues = { ...clickedContact };
+                editContactValues.email = event.target.value;
+                setEdit(editContactValues);
               }}
             />
             <br />
@@ -70,9 +74,9 @@ const ContactEdit = (props) => {
               className="form-control"
               defaultValue={clickedContact.avatarURL}
               onChange={(event) => {
-                const spread = { ...clickedContact };
-                spread.avatarURL = event.target.value;
-                setEdit(spread);
+                const editContactValues = { ...clickedContact };
+                editContactValues.avatarURL = event.target.value;
+                setEdit(editContactValues);
               }}
             />
             <br />
