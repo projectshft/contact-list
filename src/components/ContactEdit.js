@@ -15,7 +15,7 @@ const ContactEdit = (props) => {
 
   /* alerts for empty fileds, calls editContact on the edited contact and navigates to /contacts */
   const { editContact } = props;
-  const handleClick = () => {
+  const handleSaveEditClick = () => {
     if (
       !clickedContact.avatarURL ||
       !clickedContact.fullname ||
@@ -84,7 +84,7 @@ const ContactEdit = (props) => {
             <button
               type="button"
               className="btn btn-primary"
-              onClick={handleClick}
+              onClick={handleSaveEditClick}
             >
               Save Edit
             </button>
