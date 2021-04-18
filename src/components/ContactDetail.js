@@ -6,7 +6,7 @@ const ContactDetail = (props) => {
   const history = useHistory();
   const { contacts } = props;
   /* returns contact with id matching that of url */
-  const currentContact = contacts.filter(function (contact) {
+  const currentContact = contacts.find(function (contact) {
     return contact.id === parseInt(id, 10);
   });
   const editLink = `${id}/edit`;
@@ -19,13 +19,13 @@ const ContactDetail = (props) => {
           <div className="card">
             <img
               className="card-img-top"
-              src={currentContact[0].avatarURL}
+              src={currentContact.avatarURL}
               alt="File not found"
             />
             <div className="card-body">
-              <h5 className="card-title">{currentContact[0].fullname}</h5>
-              <p className="card-text">{currentContact[0].email}</p>
-              <p className="card-text">{currentContact[0].phone}</p>
+              <h5 className="card-title">{currentContact.fullname}</h5>
+              <p className="card-text">{currentContact.email}</p>
+              <p className="card-text">{currentContact.phone}</p>
               <div className="row justify-content-around">
                 <Link to="/contacts">
                   <button type="button" className="btn btn-primary">
