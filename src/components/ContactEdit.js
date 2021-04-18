@@ -1,18 +1,21 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
 import { useState } from 'react';
 
 const ContactEdit = (props) => {
+  const history = useHistory();
   const { id } = useParams();
   const { contacts } = props;
   const currentContact = contacts.filter(function (contact) {
     return contact.id === parseInt(id, 10);
   });
-  const [thePost, setEdit] = useState(currentContact[0]);
+  const [clickedContact, setEdit] = useState(currentContact[0]);
   const { editContact } = props;
 
   const handleClick = () => {
-    editContact(thePost);
+    editContact(clickedContact);
+
+    history.push('/contacts');
   };
 
   return (
@@ -23,22 +26,22 @@ const ContactEdit = (props) => {
             <p>Full Name</p>
             <input
               className="form-control"
-              defaultValue={thePost.fullname}
+              defaultValue={clickedContact.fullname}
               onChange={(event) => {
-                const s = { ...thePost };
-                s.fullname = event.target.value;
-                setEdit(s);
+                const spread = { ...clickedContact };
+                spread.fullname = event.target.value;
+                setEdit(spread);
               }}
             />
             <br />
             <p>Email Address</p>
             <input
               className="form-control"
-              defaultValue={thePost.phone}
+              defaultValue={clickedContact.phone}
               onChange={(event) => {
-                const s = { ...thePost };
-                s.phone = event.target.value;
-                setEdit(s);
+                const spread = { ...clickedContact };
+                spread.phone = event.target.value;
+                setEdit(spread);
               }}
             />
 
@@ -46,34 +49,33 @@ const ContactEdit = (props) => {
             <p>Phone Number</p>
             <input
               className="form-control"
-              defaultValue={thePost.email}
+              defaultValue={clickedContact.email}
               onChange={(event) => {
-                const s = { ...thePost };
-                s.email = event.target.value;
-                setEdit(s);
+                const spread = { ...clickedContact };
+                spread.email = event.target.value;
+                setEdit(spread);
               }}
             />
             <br />
             <p>Avatar URL</p>
             <input
               className="form-control"
-              defaultValue={thePost.avatarURL}
+              defaultValue={clickedContact.avatarURL}
               onChange={(event) => {
-                const s = { ...thePost };
-                s.avatarURL = event.target.value;
-                setEdit(s);
+                const spread = { ...clickedContact };
+                spread.avatarURL = event.target.value;
+                setEdit(spread);
               }}
             />
             <br />
-            <Link to="/">
-              <button
-                type="button"
-                onClick={handleClick}
-                className="btn btn-primary"
-              >
-                Save Edit
-              </button>
-            </Link>
+
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={handleClick}
+            >
+              Save Edit
+            </button>
           </div>
         </form>
       </div>
@@ -85,4 +87,5 @@ ContactEdit.propTypes = {
   contacts: PropTypes.any,
   editContact: PropTypes.any,
 };
+
 export default ContactEdit;
