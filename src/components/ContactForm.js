@@ -18,7 +18,6 @@ class ContactForm extends Component {
 
   /* alerts for empty fileds, generates new contact object with random id, calls addContact on the generated contact and navigates back to /contacts */
   handleCreateContactClick() {
-    const generateId = () => Math.round(Math.random() * 100000000);
     const { fullname, email, phone, avatarURL } = this.state;
     if (!avatarURL || !fullname || !email || !phone) {
       alert('Please fill out all fields');
@@ -29,7 +28,7 @@ class ContactForm extends Component {
         fullname,
         email,
         phone,
-        id: generateId(),
+        id: Math.round(Math.random() * 100000000),
       };
       addContact(contact);
       const { history } = this.props;

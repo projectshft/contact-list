@@ -54,7 +54,7 @@ class App extends Component {
     this.setState({ contacts: allOtherContacts });
   }
 
-  /*   maps current contact list to new array where the edited contact is returned in place of the original */
+  /*  maps current contact list to new array where the edited contact is returned in place of the original */
   editContact(editedContact) {
     const { contacts } = this.state;
     const updatedContactList = contacts.map(function (contact) {
