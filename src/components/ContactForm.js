@@ -22,7 +22,6 @@ class ContactForm extends Component {
     if (!avatarURL || !fullname || !email || !phone) {
       alert('Please fill out all fields');
     } else {
-      const { addContact } = this.props;
       const contact = {
         avatarURL,
         fullname,
@@ -30,6 +29,7 @@ class ContactForm extends Component {
         phone,
         id: Math.round(Math.random() * 100000000),
       };
+      const { addContact } = this.props;
       addContact(contact);
       const { history } = this.props;
       history.push('/contacts');

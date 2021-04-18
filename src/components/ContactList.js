@@ -5,7 +5,6 @@ import ContactRow from './ContactRow';
 
 const ContactList = (props) => {
   const { contacts } = props;
-
   // returns individual contact rows for each contact
   const contactItems = contacts.map((contact, index) => (
     <ContactRow key={index} contact={contact} />
