@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
 
 class ContactForm extends Component {
@@ -19,15 +19,22 @@ class ContactForm extends Component {
   handleClick() {
     const generateId = () => Math.round(Math.random() * 100000000);
     const { fullname, email, phone, avatarURL } = this.state;
-    const { addContact } = this.props;
-    const contact = {
-      avatarURL,
-      fullname,
-      email,
-      phone,
-      id: generateId(),
-    };
-    addContact(contact);
+    if (!avatarURL || !fullname || !email || !phone) {
+      alert('Please fill out all fields');
+    } else {
+      const { addContact } = this.props;
+      const contact = {
+        avatarURL,
+        fullname,
+        email,
+        phone,
+        id: generateId(),
+      };
+      addContact(contact);
+
+      const { history } = this.props;
+      history.push('/contacts');
+    }
   }
 
   render() {
@@ -80,15 +87,13 @@ class ContactForm extends Component {
               />
             </div>
 
-            <Link to="/">
-              <button
-                onClick={this.handleClick}
-                type="button"
-                className="btn btn-primary"
-              >
-                Create New Contact
-              </button>
-            </Link>
+            <button
+              onClick={this.handleClick}
+              type="button"
+              className="btn btn-primary"
+            >
+              Create New Contact
+            </button>
           </form>
         </div>
       </div>
@@ -97,7 +102,8 @@ class ContactForm extends Component {
 }
 
 ContactForm.propTypes = {
-  addContact: PropTypes.any,
+  addContact: PropTypes.func,
+  history: PropTypes.object,
 };
 
-export default ContactForm;
+export default withRouter(ContactForm);

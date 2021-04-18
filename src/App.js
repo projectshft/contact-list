@@ -53,12 +53,12 @@ class App extends Component {
     this.setState({ contacts: allOtherContacts });
   }
 
-  editContact(edit) {
+  editContact(editedContact) {
     const { contacts } = this.state;
     const otherContacts = contacts.filter(function (contact) {
-      return contact.id !== parseInt(edit.id, 10);
+      return contact.id !== parseInt(editedContact.id, 10);
     });
-    const updatedContactList = otherContacts.concat(edit);
+    const updatedContactList = otherContacts.concat(editedContact);
     this.setState({ contacts: updatedContactList });
   }
 

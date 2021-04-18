@@ -13,8 +13,17 @@ const ContactEdit = (props) => {
   const { editContact } = props;
 
   const handleClick = () => {
-    editContact(clickedContact);
-    history.push('/contacts');
+    if (
+      !clickedContact.avatarURL ||
+      !clickedContact.fullname ||
+      !clickedContact.email ||
+      !clickedContact.phone
+    ) {
+      alert('Please fill out all fields');
+    } else {
+      editContact(clickedContact);
+      history.push('/contacts');
+    }
   };
 
   return (
@@ -83,8 +92,8 @@ const ContactEdit = (props) => {
 };
 
 ContactEdit.propTypes = {
-  contacts: PropTypes.any,
-  editContact: PropTypes.any,
+  contacts: PropTypes.array,
+  editContact: PropTypes.func,
 };
 
 export default ContactEdit;

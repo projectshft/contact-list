@@ -29,7 +29,7 @@ const ContactRow = ({ contact }) => {
 };
 
 ContactRow.propTypes = {
-  contact: PropTypes.any,
+  contact: PropTypes.object,
 };
 
 export default ContactRow;

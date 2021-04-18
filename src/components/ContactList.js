@@ -34,7 +34,7 @@ const ContactList = (props) => {
 };
 
 ContactList.propTypes = {
-  contacts: PropTypes.any,
+  contacts: PropTypes.array,
 };
 
 export default ContactList;

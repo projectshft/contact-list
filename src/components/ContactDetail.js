@@ -5,11 +5,13 @@ const ContactDetail = (props) => {
   const { id } = useParams();
   const history = useHistory();
   const { contacts } = props;
+  console.log(typeof contacts);
   const currentContact = contacts.filter(function (contact) {
     return contact.id === parseInt(id, 10);
   });
   const editLink = `${id}/edit`;
   const { deleteContact } = props;
+  console.log(typeof deleteContact);
 
   return (
     <div>
@@ -63,7 +65,7 @@ const ContactDetail = (props) => {
 };
 
 ContactDetail.propTypes = {
-  contacts: PropTypes.any,
-  deleteContact: PropTypes.any,
+  contacts: PropTypes.array,
+  deleteContact: PropTypes.func,
 };
 export default ContactDetail;
