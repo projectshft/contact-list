@@ -1,10 +1,25 @@
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
+const addTableRow = (contact, index) => {
+  return (
+    <tr key={index}>
+      <td >
+        <img className="profile-picture" src={contact.profilePicture} width="150" ></img>
+      </td>
+      <td>
+        <Link to={`/contacts/${index}`}>{contact.name}</Link>
+      </td>
+      <td>{contact.phoneNumber}</td>
+      <td>{contact.email}</td>
+    </tr>
+  )
+}
 
 const ContactsList = ({ contacts }) => (
-  <div className="container">
-
-    <table className="table table-bordered col-md-6 offset-md-3">
+  < div className="container contact-list" >
+    <h1>Contact List</h1>
+    <br />
+    <table className="table table-bordered col-md-8 offset-md-2">
       <thead>
         <tr>
           <th>Profile Picture</th>
@@ -14,59 +29,18 @@ const ContactsList = ({ contacts }) => (
         </tr>
       </thead>
 
-
       <tbody>
-        {contacts.map(contact => (
-          <tr key={contact.number}>
-            <Link to={`/contacts/${contact.number}`}>
-              <td>
-                <img className="profile-picture" src={contact.profilePicture} width="150" ></img>
-              </td>
-              <td>{contact.name}</td>
-              <td>{contact.phoneNumber}</td>
-              <td>{contact.email}</td>
-            </Link>
-          </tr>
-        ))}
+        {contacts.map((contact, index) => {
+          return addTableRow(contact, index)
+        }
+        )}
       </tbody>
     </table>
 
-    <div className="addNewButton col-md-6 offset-md-3">
-      <Link to='/contacts/new'>Add New Contact</Link>
+    <div className="addNewButton col-md-8 offset-md-2">
+      <button type="button" className="btn btn-warning"><Link to='/contacts/new' >Add New Contact</Link></button>
     </div>
-
-  </div>
+  </div >
 );
 
-export default ContactsList
-
-// const ContactsList = ({ contacts }) => (
-//   contacts.map(c => (
-//     <div>
-//       <Link to={`/contacts/${c.number}`}>
-//         <table className="table table-bordered col-md-6 offset-md-3">
-//           <thead>
-//             <tr>
-//               <th>Profile Picture</th>
-//               <th>Name</th>
-//               <th>Phone Number</th>
-//               <th>Email Address</th>
-//             </tr>
-//           </thead>
-//           <tbody>
-//             <td>
-//               <img className="profile-picture" src={c.profilePicture} width="150" ></img>
-//             </td>
-//             <td>{c.name}</td>
-//             <td>{c.phoneNumber}</td>
-//             <td>{c.email}</td>
-
-//           </tbody>
-//         </table>
-//       </Link>
-//       <Link to='/contacts/new'>Add New Contact</Link>
-//     </div>
-//   ))
-// );
-
-// export default ContactsList
+export default ContactsList;
