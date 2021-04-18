@@ -45,7 +45,7 @@ class App extends Component {
     this.setState({ contacts: contacts.concat([newContact]) });
   }
 
-  /* returns all contacts which do not match the delted contacts id and updates state to exclude the deleted contact */
+  /* returns all contacts which do not match the deleted contacts id and updates state to exclude the deleted contact */
   deleteContact(id) {
     const { contacts } = this.state;
     const allOtherContacts = contacts.filter(function (contact) {
