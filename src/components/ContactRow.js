@@ -2,7 +2,7 @@ import React from 'react';
 import { PropTypes } from 'prop-types';
 import { useHistory } from 'react-router-dom';
 
-const Post = ({ contact }) => {
+const ContactRow = ({ contact }) => {
   const history = useHistory();
 
   const handleContactClick = (e) => {
@@ -28,8 +28,8 @@ const Post = ({ contact }) => {
   );
 };
 
-Post.propTypes = {
+ContactRow.propTypes = {
   contact: PropTypes.any,
 };
 
-export default Post;
+export default ContactRow;

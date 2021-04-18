@@ -14,7 +14,6 @@ const ContactEdit = (props) => {
 
   const handleClick = () => {
     editContact(clickedContact);
-
     history.push('/contacts');
   };
 

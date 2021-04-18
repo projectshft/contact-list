@@ -37,7 +37,7 @@ const ContactDetail = (props) => {
                   onClick={() => {
                     if (
                       window.confirm(
-                        'Are you sure you wish to delete this item?'
+                        'Are you sure you wish to delete this contact'
                       )
                     ) {
                       deleteContact(id);
