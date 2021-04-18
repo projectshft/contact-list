@@ -7,9 +7,9 @@ const ContactEdit = (props) => {
   const { id } = useParams();
   const { contacts } = props;
   /* returns the clicked contact by matching its id to that of the current url */
-  const currentContact = contacts.find(function (contact) {
-    return contact.id === parseInt(id, 10);
-  });
+  const currentContact = contacts.find(
+    (contact) => contact.id === parseInt(id, 10)
+  );
 
   const [clickedContact, setEdit] = useState(currentContact);
 

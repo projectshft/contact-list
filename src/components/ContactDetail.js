@@ -6,9 +6,9 @@ const ContactDetail = (props) => {
   const history = useHistory();
   const { contacts } = props;
   /* returns contact with id matching that of url */
-  const currentContact = contacts.find(function (contact) {
-    return contact.id === parseInt(id, 10);
-  });
+  const currentContact = contacts.find(
+    (contact) => contact.id === parseInt(id, 10)
+  );
   const editLink = `${id}/edit`;
   const { deleteContact } = props;
 

@@ -48,18 +48,18 @@ class App extends Component {
   /* returns all contacts which do not match the deleted contacts id and updates state to exclude the deleted contact */
   deleteContact(id) {
     const { contacts } = this.state;
-    const allOtherContacts = contacts.filter(function (contact) {
-      return contact.id !== parseInt(id, 10);
-    });
+    const allOtherContacts = contacts.filter(
+      (contact) => contact.id !== parseInt(id, 10)
+    );
     this.setState({ contacts: allOtherContacts });
   }
 
   /*  maps current contact list to new array where the edited contact is returned in place of the original */
   editContact(editedContact) {
     const { contacts } = this.state;
-    const updatedContactList = contacts.map(function (contact) {
-      return contact.id === editedContact.id ? editedContact : contact;
-    });
+    const updatedContactList = contacts.map((contact) =>
+      contact.id === editedContact.id ? editedContact : contact
+    );
     this.setState({ contacts: updatedContactList });
   }
 
