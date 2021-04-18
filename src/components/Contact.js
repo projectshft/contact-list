@@ -2,7 +2,7 @@ import React from 'react';
 import { PropTypes } from 'prop-types';
 import { useHistory } from 'react-router-dom';
 
-const Post = ({ post }) => {
+const Post = ({ contact }) => {
   const history = useHistory();
 
   const handleContactClick = (e) => {
@@ -12,24 +12,24 @@ const Post = ({ post }) => {
 
   return (
     <tr onClick={handleContactClick}>
-      <td id={post.id}>
+      <td id={contact.id}>
         <img
-          src={post.avatarURL}
+          src={contact.avatarURL}
           alt="File not found"
           width="200"
           height="200"
-          id={post.id}
+          id={contact.id}
         />
       </td>
-      <td id={post.id}>{post.fullname}</td>
-      <td id={post.id}>{post.email}</td>
-      <td id={post.id}>{post.phone}</td>
+      <td id={contact.id}>{contact.fullname}</td>
+      <td id={contact.id}>{contact.email}</td>
+      <td id={contact.id}>{contact.phone}</td>
     </tr>
   );
 };
 
 Post.propTypes = {
-  post: PropTypes.any,
+  contact: PropTypes.any,
 };
 
 export default Post;

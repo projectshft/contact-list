@@ -4,9 +4,9 @@ import { PropTypes } from 'prop-types';
 import Post from './Contact';
 
 const ContactList = (props) => {
-  const { posts } = props;
-  const postItems = posts.map((post, index) => (
-    <Post key={index} index={index} post={post} />
+  const { contacts } = props;
+  const contactItems = contacts.map((contact, index) => (
+    <Post key={index} index={index} contact={contact} />
   ));
 
   return (
@@ -27,14 +27,14 @@ const ContactList = (props) => {
             <th scope="col">Phone Number</th>
           </tr>
         </thead>
-        <tbody>{postItems}</tbody>
+        <tbody>{contactItems}</tbody>
       </table>
     </div>
   );
 };
 
 ContactList.propTypes = {
-  posts: PropTypes.any,
+  contacts: PropTypes.any,
 };
 
 export default ContactList;

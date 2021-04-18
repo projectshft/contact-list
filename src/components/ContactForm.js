@@ -19,15 +19,15 @@ class ContactForm extends Component {
   handleClick() {
     const generateId = () => Math.round(Math.random() * 100000000);
     const { fullname, email, phone, avatarURL } = this.state;
-    const { addPost } = this.props;
-    const post = {
+    const { addContact } = this.props;
+    const contact = {
       avatarURL,
       fullname,
       email,
       phone,
       id: generateId(),
     };
-    addPost(post);
+    addContact(contact);
   }
 
   render() {
@@ -35,7 +35,7 @@ class ContactForm extends Component {
     return (
       <div className="row justify-content-center">
         <div className="col-md-8 self-align-center">
-          <form className="post-form">
+          <form className="contact-form">
             <div className="form-group">
               <p>Full Name</p>
               <input
@@ -97,7 +97,7 @@ class ContactForm extends Component {
 }
 
 ContactForm.propTypes = {
-  addPost: PropTypes.any,
+  addContact: PropTypes.any,
 };
 
 export default ContactForm;

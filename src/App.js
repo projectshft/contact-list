@@ -8,13 +8,14 @@ import {
 import ContactForm from './components/ContactForm';
 import ContactList from './components/ContactList';
 import ContactDetail from './components/ContactDetail';
+import ContactEdit from './components/ContactEdit';
 
 class App extends Component {
   constructor() {
     super();
 
     this.state = {
-      posts: [
+      contacts: [
         {
           avatarURL:
             'https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Steve_Jobs_Headshot_2010-CROP_%28cropped_2%29.jpg/1920px-Steve_Jobs_Headshot_2010-CROP_%28cropped_2%29.jpg',
@@ -34,25 +35,35 @@ class App extends Component {
       ],
     };
 
-    this.addPost = this.addPost.bind(this);
-    this.deletePost = this.deletePost.bind(this);
+    this.addContact = this.addContact.bind(this);
+    this.deleteContact = this.deleteContact.bind(this);
+    this.editContact = this.editContact.bind(this);
   }
 
-  addPost(post) {
-    const { posts } = this.state;
-    this.setState({ posts: posts.concat([post]) });
+  addContact(newContact) {
+    const { contacts } = this.state;
+    this.setState({ contacts: contacts.concat([newContact]) });
   }
 
-  deletePost(id) {
-    const { posts } = this.state;
-    const allOtherContacts = posts.filter(function (contacts) {
-      return contacts.id !== parseInt(id, 10);
+  deleteContact(id) {
+    const { contacts } = this.state;
+    const allOtherContacts = contacts.filter(function (contact) {
+      return contact.id !== parseInt(id, 10);
     });
-    this.setState({ posts: allOtherContacts });
+    this.setState({ contacts: allOtherContacts });
+  }
+
+  editContact(edit) {
+    const { contacts } = this.state;
+    const otherContacts = contacts.filter(function (contact) {
+      return contact.id !== parseInt(edit.id, 10);
+    });
+    const updatedContactList = otherContacts.concat(edit);
+    this.setState({ contacts: updatedContactList });
   }
 
   render() {
-    const { posts } = this.state;
+    const { contacts } = this.state;
     return (
       <div>
         <Router>
@@ -65,13 +76,25 @@ class App extends Component {
                     <Redirect to="/contacts" />
                   </Route>
                   <Route exact path="/contacts">
-                    <ContactList posts={posts} />
+                    <ContactList contacts={contacts} />
                   </Route>
                   <Route exact path="/new">
-                    <ContactForm posts={posts} addPost={this.addPost} />
+                    <ContactForm
+                      contacts={contacts}
+                      addContact={this.addContact}
+                    />
                   </Route>
                   <Route exact path="/contacts/:id">
-                    <ContactDetail posts={posts} deletePost={this.deletePost} />
+                    <ContactDetail
+                      contacts={contacts}
+                      deleteContact={this.deleteContact}
+                    />
+                  </Route>
+                  <Route exact path="/contacts/:id/edit">
+                    <ContactEdit
+                      contacts={contacts}
+                      editContact={this.editContact}
+                    />
                   </Route>
                 </Switch>
               </div>

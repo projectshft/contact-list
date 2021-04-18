@@ -3,15 +3,15 @@ import { PropTypes } from 'prop-types';
 
 const ContactDetail = (props) => {
   const { id } = useParams();
-  const { posts } = props;
-  const currentContact = posts.filter(function (contacts) {
-    return contacts.id === parseInt(id, 10);
+  const { contacts } = props;
+  const currentContact = contacts.filter(function (contact) {
+    return contact.id === parseInt(id, 10);
   });
   const editLink = `${id}/edit`;
-  const { deletePost } = props;
+  const { deleteContact } = props;
 
   const handleClick = () => {
-    deletePost(id);
+    deleteContact(id);
   };
 
   return (
@@ -58,7 +58,7 @@ const ContactDetail = (props) => {
 };
 
 ContactDetail.propTypes = {
-  posts: PropTypes.any,
-  deletePost: PropTypes.any,
+  contacts: PropTypes.any,
+  deleteContact: PropTypes.any,
 };
 export default ContactDetail;
