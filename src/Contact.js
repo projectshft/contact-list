@@ -17,13 +17,6 @@ const Contact = ({ contactId, contacts }) => {
       <h6>Phone Number: {contact.phoneNumber}</h6>
       <Link to='/contacts'>Back</Link>
     </div>
-
-    // <tr>
-    //   
-    //   <td>{contact.name}</td>
-    //   <td>{contact.phoneNumber}</td>
-    //   <td>{contact.email}</td>
-    // </tr>
   )
 }
 
