@@ -1,0 +1,39 @@
+{
+  "contacts": [
+    {
+      "id": 70219577,
+      "name": "Ronald McDonald",
+      "image_url": "https://media.npr.org/assets/img/2011/05/20/ronaldmcdonald-48660cb3c334263d2993db4d38227592b5c53587-s800-c85.jpg",
+      "email": "ronniemac@mcdonalds.com",
+      "phone_number": "678.432.5678"
+    },
+    {
+      "id": 70799577,
+      "name": "Joe Exotic",
+      "image_url": "https://media2.s-nbcnews.com/i/newscms/2020_04/3197751/200122-joseph-maldonado-passage-al-1451_88a5b6b76087a298f4bf9b3b4335272b.jpg",
+      "email": "joe@sketchyzoo.com",
+      "phone_number": "785.309.2314"
+    },
+    {
+      "id": 70244477,
+      "name": "Bob Ross",
+      "image_url": "https://yt3.ggpht.com/ytc/AAUvwnhkZjfj3AhZNOvbxzIzVLTKZZHGLAlIHVstuYx1=s900-c-k-c0x00ffffff-no-rj",
+      "email": "bob@thejoyofpainting.org",
+      "phone_number": "110.967.3986"
+    },
+    {
+      "id": 70321577,
+      "name": "Michael Jordan",
+      "image_url": "https://www.biography.com/.image/t_share/MTY2Njc5NDYzOTQ4NDYxNDA4/michael-jordan.jpg",
+      "email": "mjordan@unc.edu",
+      "phone_number": "462.768.0934"
+    },
+    {
+      "id": 50259557,
+      "name": "Albert Einstein",
+      "image_url": "https://cdn.mos.cms.futurecdn.net/c7dppKDbG3JXuMfybV5tUX-320-80.jpg",
+      "email": "aeinstein@example.com",
+      "phone_number": "109.345.2458"
+    }
+  ]
+}
