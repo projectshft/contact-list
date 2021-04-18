@@ -12,7 +12,7 @@ const Post = ({ contact }) => {
 
   return (
     <tr onClick={handleContactClick}>
-      <td id={contact.id}>
+      <td id={contact.id} className="text-center">
         <img
           src={contact.avatarURL}
           alt="File not found"

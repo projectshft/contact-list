@@ -16,68 +16,66 @@ const ContactEdit = (props) => {
   };
 
   return (
-    <div>
-      <div className="row justify-content-md-center">
-        <div className="col-md-4 self-align-center">
-          <p>edit view</p>
-          <Link to="/">
-            <button
-              type="button"
-              onClick={handleClick}
-              className="btn btn-primary"
-            >
-              Save Edit
-            </button>
-          </Link>
+    <div className="row justify-content-center">
+      <div className="col-md-8 self-align-center">
+        <form className="contact-form">
+          <div className="form-group">
+            <p>Full Name</p>
+            <input
+              className="form-control"
+              defaultValue={thePost.fullname}
+              onChange={(event) => {
+                const s = { ...thePost };
+                s.fullname = event.target.value;
+                setEdit(s);
+              }}
+            />
+            <br />
+            <p>Email Address</p>
+            <input
+              className="form-control"
+              defaultValue={thePost.phone}
+              onChange={(event) => {
+                const s = { ...thePost };
+                s.phone = event.target.value;
+                setEdit(s);
+              }}
+            />
 
-          <input
-            className="form-control"
-            defaultValue={thePost.fullname}
-            placeholder=""
-            onChange={(event) => {
-              const s = { ...thePost };
-              s.fullname = event.target.value;
-              setEdit(s);
-            }}
-          />
-          <br />
-
-          <input
-            className="form-control"
-            defaultValue={thePost.phone}
-            placeholder=""
-            onChange={(event) => {
-              const s = { ...thePost };
-              s.phone = event.target.value;
-              setEdit(s);
-            }}
-          />
-
-          <br />
-          <input
-            className="form-control"
-            defaultValue={thePost.email}
-            placeholder=""
-            onChange={(event) => {
-              const s = { ...thePost };
-              s.email = event.target.value;
-              setEdit(s);
-            }}
-          />
-          <br />
-
-          <input
-            className="form-control"
-            defaultValue={thePost.avatarURL}
-            placeholder=""
-            onChange={(event) => {
-              const s = { ...thePost };
-              s.avatarURL = event.target.value;
-              setEdit(s);
-            }}
-          />
-          <br />
-        </div>
+            <br />
+            <p>Phone Number</p>
+            <input
+              className="form-control"
+              defaultValue={thePost.email}
+              onChange={(event) => {
+                const s = { ...thePost };
+                s.email = event.target.value;
+                setEdit(s);
+              }}
+            />
+            <br />
+            <p>Avatar URL</p>
+            <input
+              className="form-control"
+              defaultValue={thePost.avatarURL}
+              onChange={(event) => {
+                const s = { ...thePost };
+                s.avatarURL = event.target.value;
+                setEdit(s);
+              }}
+            />
+            <br />
+            <Link to="/">
+              <button
+                type="button"
+                onClick={handleClick}
+                className="btn btn-primary"
+              >
+                Save Edit
+              </button>
+            </Link>
+          </div>
+        </form>
       </div>
     </div>
   );
