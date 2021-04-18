@@ -28,7 +28,8 @@ const ContactEdit = (props) => {
       history.push('/contacts');
     }
   };
-
+  /*  destructured spread of other values */
+  const editContactValues = { ...clickedContact };
   return (
     <div className="row justify-content-center">
       <div className="col-md-8 self-align-center">
@@ -39,8 +40,6 @@ const ContactEdit = (props) => {
               className="form-control"
               defaultValue={clickedContact.fullname}
               onChange={(event) => {
-                /*  destructured spread of other values */
-                const editContactValues = { ...clickedContact };
                 editContactValues.fullname = event.target.value;
                 setEdit(editContactValues);
               }}
@@ -51,7 +50,6 @@ const ContactEdit = (props) => {
               className="form-control"
               defaultValue={clickedContact.phone}
               onChange={(event) => {
-                const editContactValues = { ...clickedContact };
                 editContactValues.phone = event.target.value;
                 setEdit(editContactValues);
               }}
@@ -63,7 +61,6 @@ const ContactEdit = (props) => {
               className="form-control"
               defaultValue={clickedContact.email}
               onChange={(event) => {
-                const editContactValues = { ...clickedContact };
                 editContactValues.email = event.target.value;
                 setEdit(editContactValues);
               }}
@@ -74,7 +71,6 @@ const ContactEdit = (props) => {
               className="form-control"
               defaultValue={clickedContact.avatarURL}
               onChange={(event) => {
-                const editContactValues = { ...clickedContact };
                 editContactValues.avatarURL = event.target.value;
                 setEdit(editContactValues);
               }}
