@@ -8,23 +8,26 @@ import EditContact from './components/EditContact';
 import Header from './components/Header';
 
 const App = () => {
-  const [contacts, setContacts] = useState([
-    {
-      id: 70219577,
-      name: 'Albert Einstein',
-      image_url: 'https://www.atomicarchive.com/img/bios/einstein.jpg',
-      email: 'aeinstein@example.com',
-      phone_number: '15555555555',
-    },
-    {
-      id: 2,
-      name: 'Albert Einstein',
-      image_url:
-        'https://thumbor.forbes.com/thumbor/fit-in/1200x0/filters%3Aformat%28jpg%29/https%3A%2F%2Fblogs-images.forbes.com%2Frainerzitelmann%2Ffiles%2F2019%2F06%2FE0MG76-e1560965378507-1200x1270.jpg',
-      email: 'aeinstein@example.com',
-      phone_number: '15555555555',
-    },
-  ]);
+  const [contacts, setContacts] = useState([]);
+
+  // Sample Contacts:
+  // [
+  //   {
+  //     id: 70219577,
+  //     name: 'Albert Einstein',
+  //     image_url: 'https://www.atomicarchive.com/img/bios/einstein.jpg',
+  //     email: 'aeinstein@example.com',
+  //     phone_number: '15555555555',
+  //   },
+  //   {
+  //     id: 2,
+  //     name: 'Albert Einstein',
+  //     image_url:
+  //       'https://thumbor.forbes.com/thumbor/fit-in/1200x0/filters%3Aformat%28jpg%29/https%3A%2F%2Fblogs-images.forbes.com%2Frainerzitelmann%2Ffiles%2F2019%2F06%2FE0MG76-e1560965378507-1200x1270.jpg',
+  //     email: 'aeinstein@example.com',
+  //     phone_number: '15555555555',
+  //   },
+  // ]
 
   // Adds a new contact to contacts array
   const addContact = (newContact) => {

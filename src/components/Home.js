@@ -8,7 +8,7 @@ const Home = ({ contacts, deleteContact }) => {
 
   // Creates the list of contacts by creating a contact component for each element in contacts array
   const contactList = contacts.map((c) => (
-    <Contact contact={c} deleteContact={deleteContact} />
+    <Contact contact={c} deleteContact={deleteContact} key={c.id} />
   ));
 
   // Redirects to the add contact page when user clicks add new contact button

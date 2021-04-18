@@ -29,7 +29,6 @@ const Contact = ({ contact, deleteContact }) => {
   return (
     <>
       <tr
-        key={contact.id}
         idnum={contact.id}
         onClick={handleContactClick}
         style={{ cursor: 'pointer' }}
