@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
@@ -6,14 +6,14 @@ import {
   BrowserRouter,
   Switch,
   Route,
-  Link,
   useHistory,
 } from "react-router-dom";
 import ContactForm from "./components/Contact-Form";
-import Contact from "./components/render-contact";
-
+import Contacts from "./components/render-contact";
+import Contact from "./components/Contact"
 import { UserProvider } from "./context/User";
 
+// Parent component
 const App = () => (
   <div>
     <UserProvider>
@@ -22,6 +22,7 @@ const App = () => (
   </div>
 );
 
+// routes for home and contact form
 const Main = () => (
   <main>
     <Switch>
@@ -31,6 +32,7 @@ const Main = () => (
   </main>
 );
 
+// component where everything gets rendered to
 const ContactsViewHeader = () => {
   let history = useHistory();
 
@@ -47,7 +49,7 @@ const ContactsViewHeader = () => {
         Add Contact
       </button>
       <div className="mt-4 px-2 py-3 ">
-        <Contact />
+        <Contacts />
       </div>
     </div>
   );

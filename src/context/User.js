@@ -1,12 +1,16 @@
 import React, { useState, createContext } from "react";
 
+//creates the context
 const UserContext = createContext();
 
+// exports the context providor to the parent
 export const UserProvider = ({ children }) => {
+  
+  // state for contacts in indexed object arrays
   const [userList, setUserList] = useState([]);
-
-  const addUser = (_user) => {
-    setUserList([_user, ...userList]);
+// function to add the contact
+  const addUser = (user) => {
+    setUserList([user, ...userList]);
   };
 
   return (

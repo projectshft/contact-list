@@ -26,13 +26,14 @@ code {
 td:last-child {
   overflow: hidden;
   max-width: 200px;
+  max-height: 20px;
   text-overflow: ellipsis;
   cursor: pointer;
 }
 
 .form__wrapper {
   position: relative;
-  margin-top: 5rem;
+  margin-top: 5px;
 }
 
 .alert__wrapper {
@@ -40,3 +41,14 @@ td:last-child {
   top: -4rem;
   width: 100%;
 }
+
+.img-row{
+  width:100px;
+  height:100px;
+}
+
+.img-row img{
+  max-height: 100%;
+  max-height: 100%;
+}
+
