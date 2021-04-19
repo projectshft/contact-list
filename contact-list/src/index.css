@@ -15,3 +15,8 @@ code {
 h1 {
   text-align: center;
 }
+
+td img {
+  height: 100px;
+  width: 100px;
+}
