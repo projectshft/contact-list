@@ -13,7 +13,7 @@ const addTableRow = (contact, index) => {
       <td>{contact.email}</td>
     </tr>
   )
-}
+};
 
 const ContactsList = ({ contacts }) => (
   < div className="container contact-list" >

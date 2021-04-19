@@ -19,6 +19,12 @@ const ContactForm = (props) => {
     props.history.push('/contacts')
   }
 
+  ContactForm.propTypes = {
+    name: PropTypes.string,
+    phoneNumber: PropTypes.number.isRequired,
+    email: PropTypes.string,
+  }
+
   return (
     <div >
 
@@ -26,7 +32,7 @@ const ContactForm = (props) => {
         <h3>Add a New Contact</h3>
         <br />
         <div className="form-group">
-          <input
+          <input required
             onChange={event => setName(event.target.value)}
             type="text" id="name-text" className="form-control" placeholder="Insert name" />
 
@@ -34,19 +40,19 @@ const ContactForm = (props) => {
 
           <input
             onChange={event => setEmail(event.target.value)}
-            type="text" id="email-text" className="form-control" placeholder="Insert email" />
+            type="text" id="email-text" className="form-control" placeholder="Insert email" required />
 
           <br />
 
           <input
             onChange={event => setPhoneNumber(event.target.value)}
-            type="text" id="phone-number" className="form-control" placeholder="Insert phone number" />
+            type="text" id="phone-number" className="form-control" placeholder="Insert phone number" required />
 
           <br />
 
           <input
             onChange={event => setProfilePicture(event.target.value)}
-            type="url" id="pic-link" className="form-control" placeholder="Insert profile picture" />
+            type="url" id="pic-link" className="form-control" placeholder="Insert profile picture" required />
         </div>
 
         <button onClick={handleClick} type="button" className="btn btn-primary add-post">Add Contact</button>
@@ -55,10 +61,4 @@ const ContactForm = (props) => {
   )
 };
 
-ContactForm.propTypes = {
-  name: PropTypes.string,
-  phoneNumber: PropTypes.number.isRequired,
-  email: PropTypes.string,
-}
-
-export default ContactForm
+export default ContactForm;
