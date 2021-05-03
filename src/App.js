@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { Switch, Route } from 'react-router-dom'
+import React, { useState } from 'react'
+import ContactNew from './ContactNew'
+import Home from './Home'
+import Contacts from './Contacts'
 
-function App() {
+const App = () => {
+  const [contacts, setContacts] = useState([
+    { number: 1, name: "Bob Jones", email: "bob@yahoo.com", phone: "555-555-5555"},
+    { number: 2, name: "Jake Smith", email: "js@google.com", phone: "555-555-5555"}
+    ])
+
+  const addContact = (contact) => {
+    setContacts(contacts => {
+      return [...contacts, contact]
+    });
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Switch>
+        <Route exact path='/' component={Home}/>
+        <Route path='/contacts' render={() => (
+          <Contacts addContact={addContact} contacts={contacts} />
+        )}/>
+        <Route path='/contactNew' component={ContactNew}/>
+        </Switch>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
