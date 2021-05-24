@@ -10,8 +10,9 @@ import {
 } from "react-router-dom";
 import ContactForm from "./components/Contact-Form";
 import Contacts from "./components/render-contact";
-import Contact from "./components/Contact"
 import { UserProvider } from "./context/User";
+import Contact from "./components/Contact";
+// import Test from "./components/test"
 
 // Parent component
 const App = () => (
@@ -22,18 +23,20 @@ const App = () => (
   </div>
 );
 
-// routes for home and contact form
+// routes for contact form contacts view and contact detail
 const Main = () => (
   <main>
+    <ContactsHeader/>
     <Switch>
-      <Route exact path="/" component={ContactsViewHeader}></Route>
-      <Route path="/contact-form" component={ContactForm}></Route>
+      <Route path="/contact-form" component={ContactForm} />
+      <Route path="/contacts" component={Contacts} />
+      <Route path="/contact/:contactId" component={Contact} />
     </Switch>
   </main>
 );
 
-// component where everything gets rendered to
-const ContactsViewHeader = () => {
+// Contacts header which stays on top of page
+const ContactsHeader = () => {
   let history = useHistory();
 
   return (
@@ -49,7 +52,6 @@ const ContactsViewHeader = () => {
         Add Contact
       </button>
       <div className="mt-4 px-2 py-3 ">
-        <Contacts />
       </div>
     </div>
   );

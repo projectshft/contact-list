@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext} from "react";
 import { useHistory } from "react-router-dom";
 import UserContext from "../context/User";
 
@@ -20,17 +20,13 @@ const ContactForm = () => {
   const [showMsg, setShowMsg] = useState(false);
   const [message, setMessage] = useState("");
 
-  // lets us route to different components
+  // history of routes to route to
   let history = useHistory();
   
   //on click of button add contact
   const onAddContact = (e) => {
     e.preventDefault();
-
-    // this did not update the id value not sure why
-    setValues({...values, id: Math.round(Math.random() * 100000)})
-    console.log(values.id);
-
+  
     // if the state that was grabbed from inputs is not blank...
     if (
       values.name !== "" &&
@@ -38,13 +34,19 @@ const ContactForm = () => {
       values.number !== "" &&
       values.imageUrl !== ""
     ) {
+      // creates a random id 
+      const random = Math.round(Math.random() * 100000)
+      setValues((prevState) => prevState.id = random)
+      
+    
+
       // run addUser which exports to context 
       addUser(values);
       // gives a message of contact added
       setMessage("Contact Added");
       //routes back to home page after showing message
       setTimeout(() => {
-        cancelBtn();
+        history.push('/contacts')
       }, 850)
       
       // case for if fields are empty
@@ -57,17 +59,17 @@ const ContactForm = () => {
 
   // uses history to route back to home component
   const cancelBtn = (e) => {
-    return history.push("/");
+    return history.push("/contacts");
   };
 
   // grabs the values of the inputs and sets them to state
-  const handleName = (e) => setValues({ ...values, name: e.target.value });
+  const handleName = (e) => setValues({ ...values, name: e.target.value});
 
   const handleEmail = (e) => setValues({ ...values, email: e.target.value });
 
   const handleNumber = (e) => setValues({ ...values, number: e.target.value });
 
-  const handleImageUrl = (e) => setValues({ ...values, imageUrl: e.target.value });
+  const handleImageUrl = (e) => setValues({ ...values, imageUrl: e.target.value } );
 
   return (
     // the alert messages of the cases
@@ -89,7 +91,7 @@ const ContactForm = () => {
             className="form-control"
             id="full-name"
             value={values.name}
-            onChange={handleName}
+            onChange={handleName }
           />
         </div>
 
@@ -143,6 +145,7 @@ const ContactForm = () => {
           Cancel
         </button>
       </form>
+      
     </div>
   );
 };
