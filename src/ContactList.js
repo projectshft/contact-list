@@ -1,4 +1,5 @@
 import { useHistory, Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import "./index.css";
 
 const ContactList = ({ contacts }) => {
@@ -28,8 +29,8 @@ const ContactList = ({ contacts }) => {
             {contacts.map((contact) => (
               <tr
                 onClick={() => handleRowClick(contact)}
-                key={contact.id}
                 className="contact"
+                key={contact.id}
               >
                 <td>
                   <img
@@ -48,6 +49,10 @@ const ContactList = ({ contacts }) => {
       </div>
     </div>
   );
+};
+
+ContactList.propTypes = {
+  contacts: PropTypes.array,
 };
 
 export default ContactList;

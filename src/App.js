@@ -5,7 +5,7 @@ import Home from "./Home";
 const App = () => {
   const [contacts, setContact] = useState([
     {
-      id: 193746284,
+      id: "193746sdf284",
       name: "Lauren Nicholls",
       image_url:
         "https://12ax7web.s3.amazonaws.com/accounts/1/products/1986199880919/Stay-Weird-Stitch_800x800_SEPS-1000x1000.jpg",
@@ -13,7 +13,7 @@ const App = () => {
       phone_number: "5555555555",
     },
     {
-      id: 138746736,
+      id: "138746sdf736",
       name: "Bryan Nicholls",
       image_url:
         "https://i.natgeofe.com/k/a9236635-6a24-466f-81d8-dc4f36d5053a/chipmunk-cheeks.jpg",

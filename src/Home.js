@@ -1,4 +1,5 @@
 import { Switch, Route } from "react-router-dom";
+import PropTypes from "prop-types";
 import Contact from "./Contact";
 import ContactNew from "./ContactNew";
 import ContactList from "./ContactList";
@@ -18,10 +19,7 @@ const Home = ({ contacts, addContact }) => (
     <Route
       path="/contacts/:id"
       render={(routerProps) => (
-        <Contact
-          contactId={parseInt(routerProps.match.params.id)}
-          contacts={contacts}
-        />
+        <Contact contactId={routerProps.match.params.id} contacts={contacts} />
       )}
     />
     <Route
@@ -31,5 +29,10 @@ const Home = ({ contacts, addContact }) => (
     />
   </Switch>
 );
+
+Home.propTypes = {
+  contacts: PropTypes.array,
+  addContact: PropTypes.func,
+};
 
 export default Home;

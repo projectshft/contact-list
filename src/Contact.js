@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import React from "react";
+import PropTypes from "prop-types";
 import _ from "lodash";
 import "./index.css";
 
@@ -28,10 +29,15 @@ const Contact = ({ contactId, contacts }) => {
         </div>
       </div>
       <div className="row">
-        <Link to="/contacts"> Back to Contact List</Link>
+        <Link to="/contacts">Back to Contact List</Link>
       </div>
     </div>
   );
+};
+
+Contact.propTypes = {
+  contactId: PropTypes.string,
+  contacts: PropTypes.array,
 };
 
 export default Contact;
