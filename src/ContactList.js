@@ -1,4 +1,5 @@
 import { useHistory, Link } from "react-router-dom";
+import "./index.css";
 
 const ContactList = ({ contacts }) => {
   const history = useHistory();
@@ -8,7 +9,7 @@ const ContactList = ({ contacts }) => {
 
   return (
     <div>
-      <button type="button" className="btn btn-info">
+      <button type="button" className="btn btn-dark add-contact-button">
         <Link to="/new">Add a Contact</Link>
       </button>
       <div className="row justify-content-md-center">

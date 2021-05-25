@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: black;
 }
 
 code {
@@ -14,6 +15,7 @@ code {
 
 h1 {
   text-align: center;
+  color: white;
 }
 
 td img {
@@ -26,4 +28,36 @@ td {
 
 .contact {
   cursor: pointer;
+}
+
+.contact:hover {
+  background-color: gray;
+}
+
+.contact-list-link {
+  justify-content: flex-end;
+  margin-right: 190px;
+}
+
+label {
+  margin-top: 20px;
+}
+
+.submit {
+  margin-top: 20px;
+}
+
+.add-contact-button {
+  margin-bottom: 20px;
+  margin-left: 70px;
+}
+
+.add-contact-button a {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+
+.add-contact-button:hover {
+  background-color: forestgreen;
 }

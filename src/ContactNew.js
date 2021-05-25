@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
+import "./index.css";
 
 const ContactNew = (props) => {
   const [name, setName] = useState("");
@@ -24,46 +25,54 @@ const ContactNew = (props) => {
   };
 
   return (
-    <div>
-      <form>
-        <label>Full Name</label>
-        <input
-          type="text"
-          className="form-control"
-          placeholder="Enter Name"
-          onChange={(event) => setName(event.target.value)}
-        />
-        <br />
-        <label>Email Address</label>
-        <input
-          type="text"
-          className="form-control"
-          placeHolder="Enter Email"
-          onChange={(event) => setEmail(event.target.value)}
-        />
-        <br />
-        <label>Phone Number</label>
-        <input
-          type="text"
-          className="form-control"
-          placeHolder="Enter Phone"
-          onChange={(event) => setPhoneNumber(event.target.value)}
-        />
-        <br />
-        <label>Image URL</label>
-        <input
-          type="text"
-          className="form-control"
-          placeHolder="Image URL"
-          onChange={(event) => setImageUrl(event.target.value)}
-        />
-        <br />
-        <button type="button" onClick={handleSubmitNewContactClick}>
-          Submit
-        </button>
-      </form>
-
-      <Link to="/">Contact List</Link>
+    <div className="container">
+      <div className="row contact-list-link">
+        <Link to="/">Back to Contact List</Link>
+      </div>
+      <div className="row justify-content-md-center">
+        <form className="row col-8">
+          <label>Full Name</label>
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Enter Name"
+            onChange={(event) => setName(event.target.value)}
+          />
+          <br />
+          <label>Email Address</label>
+          <input
+            name="email"
+            type="text"
+            className="form-control"
+            placeHolder="Enter Email"
+            onChange={(event) => setEmail(event.target.value)}
+          />
+          <br />
+          <label>Phone Number</label>
+          <input
+            type="text"
+            className="form-control"
+            placeHolder="Enter Phone"
+            onChange={(event) => setPhoneNumber(event.target.value)}
+          />
+          <br />
+          <label>Image URL</label>
+          <input
+            type="text"
+            className="form-control"
+            placeHolder="Image URL"
+            onChange={(event) => setImageUrl(event.target.value)}
+          />
+          <br />
+          <button
+            type="button"
+            className="btn btn-primary submit"
+            onClick={handleSubmitNewContactClick}
+          >
+            Submit
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
