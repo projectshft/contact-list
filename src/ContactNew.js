@@ -66,7 +66,7 @@ const ContactNew = (props) => {
           <br />
           <button
             type="button"
-            className="btn btn-primary submit"
+            className="btn btn-dark submit"
             onClick={handleSubmitNewContactClick}
           >
             Submit

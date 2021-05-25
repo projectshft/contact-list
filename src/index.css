@@ -13,9 +13,19 @@ code {
     monospace;
 }
 
+div {
+  font-family: "Montserrat";
+}
+
 h1 {
   text-align: center;
   color: white;
+  font-family: "Caveat Brush", cursive;
+  font-size: 75px;
+}
+
+th {
+  font-size: 24px;
 }
 
 td img {
@@ -28,6 +38,7 @@ td {
 
 .contact {
   cursor: pointer;
+  font-size: 20px;
 }
 
 .contact:hover {
@@ -41,15 +52,19 @@ td {
 
 label {
   margin-top: 20px;
+  color: white;
 }
 
 .submit {
   margin-top: 20px;
 }
 
+.submit:hover {
+  background-color: forestgreen;
+}
+
 .add-contact-button {
   margin-bottom: 20px;
-  margin-left: 70px;
 }
 
 .add-contact-button a {
@@ -60,4 +75,27 @@ label {
 
 .add-contact-button:hover {
   background-color: forestgreen;
+}
+
+.individual-contact {
+  background-color: rgba(87, 85, 85, 0.53);
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+.individual-contact img {
+  width: 100%;
+}
+
+.contact-info {
+  width: 100%;
+}
+
+.contact-info h2 {
+  margin-bottom: 0px;
+}
+
+.contact-info h4 {
+  margin-bottom: 0px;
 }

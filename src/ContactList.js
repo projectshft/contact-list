@@ -8,12 +8,14 @@ const ContactList = ({ contacts }) => {
   };
 
   return (
-    <div>
-      <button type="button" className="btn btn-dark add-contact-button">
-        <Link to="/new">Add a Contact</Link>
-      </button>
-      <div className="row justify-content-md-center">
-        <table className="col-10 table table-dark table-primary">
+    <div className="col-10 offset-1 justify-content-md-center">
+      <div className="row">
+        <button type="button" className="btn btn-dark add-contact-button">
+          <Link to="/new">Add a Contact</Link>
+        </button>
+      </div>
+      <div className="row">
+        <table className=" table table-dark table-primary">
           <thead>
             <tr>
               <th scope="col">Profile Pic</th>
