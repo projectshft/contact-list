@@ -28,7 +28,7 @@ const Contact = ({ contactId, contacts }) => {
         </div>
       </div>
       <div className="row">
-        <Link to="/"> Back to Contact List</Link>
+        <Link to="/contacts"> Back to Contact List</Link>
       </div>
     </div>
   );

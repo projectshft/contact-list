@@ -6,7 +6,7 @@ import ContactList from "./ContactList";
 const Home = ({ contacts, addContact }) => (
   <Switch>
     <Route
-      path="/new"
+      path="/contacts/new"
       render={(routerProps) => (
         <ContactNew
           history={routerProps.history}
@@ -16,7 +16,7 @@ const Home = ({ contacts, addContact }) => (
       )}
     />
     <Route
-      path="/:id"
+      path="/contacts/:id"
       render={(routerProps) => (
         <Contact
           contactId={parseInt(routerProps.match.params.id)}
@@ -24,7 +24,11 @@ const Home = ({ contacts, addContact }) => (
         />
       )}
     />
-    <Route exact path="/" render={() => <ContactList contacts={contacts} />} />
+    <Route
+      exact
+      path="/contacts"
+      render={() => <ContactList contacts={contacts} />}
+    />
   </Switch>
 );
 

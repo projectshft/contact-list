@@ -33,7 +33,7 @@ const App = () => {
       <h1>Contact List</h1>
       <Switch>
         <Route
-          path="/"
+          path="/contacts"
           render={() => <Home addContact={addContact} contacts={contacts} />}
         />
       </Switch>

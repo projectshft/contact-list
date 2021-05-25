@@ -7,7 +7,7 @@ const ContactNew = (props) => {
   const [email, setEmail] = useState("");
   const [phone_number, setPhoneNumber] = useState("");
   const [image_url, setImageUrl] = useState("");
-  const [id, setId] = useState();
+  const [id, setId] = useState("");
 
   const handleSubmitNewContactClick = () => {
     const generateContactId = Math.round(Math.random() * 100000000);
@@ -21,13 +21,13 @@ const ContactNew = (props) => {
       id,
     });
 
-    props.history.push("/");
+    props.history.push("/contacts");
   };
 
   return (
     <div className="container">
       <div className="row contact-list-link">
-        <Link to="/">Back to Contact List</Link>
+        <Link to="/contacts">Back to Contact List</Link>
       </div>
       <div className="row justify-content-md-center">
         <form className="row col-8">

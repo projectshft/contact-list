@@ -4,14 +4,14 @@ import "./index.css";
 const ContactList = ({ contacts }) => {
   const history = useHistory();
   const handleRowClick = (contact) => {
-    history.push(`/${contact.id}`);
+    history.push(`/contacts/${contact.id}`);
   };
 
   return (
     <div className="col-10 offset-1 justify-content-md-center">
       <div className="row">
         <button type="button" className="btn btn-dark add-contact-button">
-          <Link to="/new">Add a Contact</Link>
+          <Link to="/contacts/new">Add a Contact</Link>
         </button>
       </div>
       <div className="row">
