@@ -1,18 +1,50 @@
-import { Link } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
-const ContactList = ({ contacts }) => (
-  <div>
-    <h1>Contact List</h1>
-    <ul>
-      {contacts.map((contact) => (
-        <li key={contact.id}>
-          <Link to={`/${contact.id}`}>
-            {contact.name} {contact.email} {contact.phone_number}
-          </Link>
-        </li>
-      ))}
-    </ul>
-  </div>
-);
+const ContactList = ({ contacts }) => {
+  const history = useHistory();
+  const handleRowClick = (contact) => {
+    history.push(`/${contact.id}`);
+  };
+
+  return (
+    <div>
+      <button type="button" className="btn btn-info">
+        <Link to="/new">Add a Contact</Link>
+      </button>
+      <div className="row justify-content-md-center">
+        <table className="col-10 table table-dark table-primary">
+          <thead>
+            <tr>
+              <th scope="col">Profile Pic</th>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Phone #</th>
+            </tr>
+          </thead>
+          <tbody>
+            {contacts.map((contact) => (
+              <tr
+                onClick={() => handleRowClick(contact)}
+                key={contact.id}
+                className="contact"
+              >
+                <td>
+                  <img
+                    src={contact.image_url}
+                    alt="image_url"
+                    className="rounded d-block"
+                  />
+                </td>
+                <td>{contact.name}</td>
+                <td>{contact.email}</td>
+                <td>{contact.phone_number}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+};
 
 export default ContactList;

@@ -3,8 +3,6 @@ import React, { useState } from "react";
 import Home from "./Home";
 
 const App = () => {
-  // const [headings, setHeadings] = useState(['Profile Pic', 'Name', 'Email', 'Phone #']);
-
   const [contacts, setContact] = useState([
     {
       id: 193746284,
@@ -32,6 +30,7 @@ const App = () => {
 
   return (
     <div>
+      <h1>Contact List</h1>
       <Switch>
         <Route
           path="/"

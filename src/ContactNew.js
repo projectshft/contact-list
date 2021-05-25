@@ -31,7 +31,6 @@ const ContactNew = (props) => {
           type="text"
           className="form-control"
           placeholder="Enter Name"
-          required
           onChange={(event) => setName(event.target.value)}
         />
         <br />
@@ -40,7 +39,6 @@ const ContactNew = (props) => {
           type="text"
           className="form-control"
           placeHolder="Enter Email"
-          required
           onChange={(event) => setEmail(event.target.value)}
         />
         <br />
@@ -49,7 +47,6 @@ const ContactNew = (props) => {
           type="text"
           className="form-control"
           placeHolder="Enter Phone"
-          required
           onChange={(event) => setPhoneNumber(event.target.value)}
         />
         <br />
@@ -58,7 +55,6 @@ const ContactNew = (props) => {
           type="text"
           className="form-control"
           placeHolder="Image URL"
-          required
           onChange={(event) => setImageUrl(event.target.value)}
         />
         <br />
