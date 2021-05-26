@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+
+.header {
+  text-align: center;
+}
+
+@import './_contact.css';
+@import './_ContactForm.css';

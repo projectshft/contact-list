@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import {Switch, Route} from 'react-router-dom'; 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './Styles/App.css';
+import ContactForm from './components/ContactForm';
+import Home from './components/Home'; 
+import List from './components/List';
 
-function App() {
+//add data 
+import data from './data';
+
+
+const App = () => {
+  //state
+  const [contacts, setContacts] = useState(data()); 
+
+  const addContact = (contact) => {
+    setContacts([...contacts, contact]); 
+  }; 
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Switch>
+
+      <Route exact path="/"  render={() => (
+          <Home contacts={contacts} /> 
+        )} />
+
+      <Route exact path="/"  render={() => (
+        <List contacts={contacts} /> 
+      )} />
+
+      <Route path="/contact-form" render={() => (
+        <ContactForm addContact={addContact} />
+      )} />
+    </Switch>
   );
-}
+};
 
 export default App;
