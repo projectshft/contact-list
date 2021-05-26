@@ -2,10 +2,10 @@ import { useHistory, Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import "./index.css";
 
-const ContactList = ({ contacts, deleteContact }) => {
+const ContactList = ({ contacts, confirmDeleteContact, editContact }) => {
   const history = useHistory();
 
-  const handleRowClick = (contact) => {
+  const handleViewClick = (contact) => {
     history.push(`/contacts/${contact.id}`);
   };
 
@@ -47,19 +47,24 @@ const ContactList = ({ contacts, deleteContact }) => {
                   <button
                     type="button"
                     className="btn btn-primary"
-                    onClick={() => handleRowClick(contact)}
+                    onClick={() => handleViewClick(contact)}
                   >
                     View
                   </button>
                   <br />
                   <button type="button" className="btn btn-success">
-                    Edit
+                    <Link
+                      to={`/contacts/${contact.id}/edit`}
+                      // onClick={() => editContact(contact)}
+                    >
+                      Edit
+                    </Link>
                   </button>
                   <br />
                   <button
                     type="button"
                     className="btn btn-danger text-nowrap"
-                    onClick={() => deleteContact(contact)}
+                    onClick={() => confirmDeleteContact(contact)}
                   >
                     Delete
                   </button>

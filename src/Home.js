@@ -3,8 +3,9 @@ import PropTypes from "prop-types";
 import Contact from "./Contact";
 import ContactNew from "./ContactNew";
 import ContactList from "./ContactList";
+import ContactEdit from "./ContactEdit";
 
-const Home = ({ contacts, addContact, deleteContact }) => (
+const Home = ({ contacts, addContact, confirmDeleteContact, editContact }) => (
   <Switch>
     <Route
       path="/contacts/new"
@@ -17,16 +18,31 @@ const Home = ({ contacts, addContact, deleteContact }) => (
       )}
     />
     <Route
+      exact
       path="/contacts/:id"
       render={(routerProps) => (
         <Contact contactId={routerProps.match.params.id} contacts={contacts} />
       )}
     />
     <Route
+      path="/contacts/:id/edit"
+      render={(routerProps) => (
+        <ContactEdit
+          history={routerProps.history}
+          contactId={routerProps.match.params.id}
+          contacts={contacts}
+          editContact={editContact}
+        />
+      )}
+    />
+    <Route
       exact
       path="/contacts"
       render={() => (
-        <ContactList contacts={contacts} deleteContact={deleteContact} />
+        <ContactList
+          contacts={contacts}
+          confirmDeleteContact={confirmDeleteContact}
+        />
       )}
     />
   </Switch>

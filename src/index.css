@@ -55,14 +55,6 @@ label {
   color: white;
 }
 
-.submit {
-  margin-top: 20px;
-}
-
-.submit:hover {
-  background-color: forestgreen;
-}
-
 .individual-contact {
   background-color: rgba(87, 85, 85, 0.53);
   color: white;
@@ -91,17 +83,40 @@ button {
   margin-top: 5px;
 }
 
-.add-contact-button {
-  margin-bottom: 20px;
-  width: 150px;
-}
-
-.add-contact-button a {
+button a {
   text-decoration: none;
   color: white;
   cursor: pointer;
 }
 
+button a:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.add-contact-button {
+  margin-bottom: 20px;
+  width: 150px;
+}
+
 .add-contact-button:hover {
+  background-color: forestgreen;
+}
+
+.submit {
+  margin-top: 20px;
+  width: 100px;
+}
+
+.submit:hover {
+  background-color: forestgreen;
+}
+
+.update {
+  width: 175px;
+  margin-top: 25px;
+}
+
+.update:hover {
   background-color: forestgreen;
 }
