@@ -28,13 +28,25 @@ const App = () => {
     });
   };
 
+  const deleteContact = (contact) => {
+    const id = contact.id;
+    const updatedContacts = contacts.filter((contact) => contact.id !== id);
+    setContact(updatedContacts);
+  };
+
   return (
     <div>
       <h1>Contact List</h1>
       <Switch>
         <Route
           path="/contacts"
-          render={() => <Home addContact={addContact} contacts={contacts} />}
+          render={() => (
+            <Home
+              addContact={addContact}
+              deleteContact={deleteContact}
+              contacts={contacts}
+            />
+          )}
         />
       </Switch>
     </div>

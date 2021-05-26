@@ -63,20 +63,6 @@ label {
   background-color: forestgreen;
 }
 
-.add-contact-button {
-  margin-bottom: 20px;
-}
-
-.add-contact-button a {
-  text-decoration: none;
-  color: white;
-  cursor: pointer;
-}
-
-.add-contact-button:hover {
-  background-color: forestgreen;
-}
-
 .individual-contact {
   background-color: rgba(87, 85, 85, 0.53);
   color: white;
@@ -98,4 +84,24 @@ label {
 
 .contact-info h4 {
   margin-bottom: 0px;
+}
+
+button {
+  width: 75px;
+  margin-top: 5px;
+}
+
+.add-contact-button {
+  margin-bottom: 20px;
+  width: 150px;
+}
+
+.add-contact-button a {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+
+.add-contact-button:hover {
+  background-color: forestgreen;
 }
