@@ -1,27 +1,34 @@
 import React from 'react';
 import Contact from './Contact';
+import propTypes from 'prop-types';
 
-const ContactList = ({contacts}) => {
+const ContactList = ({contacts, setContacts}) => {
+
+  ContactList.propTypes = {
+    contacts: propTypes.array
+  };  
  
   const contactItems = contacts.map((contact) => {
     return (
-      <Contact contact={contact} key={contact.id} contacts={contacts} />
+      <Contact contact={contact} key={contact.id} contacts={contacts} setContacts={setContacts} />
     );
   });
 
   return (
-    <div className="col-md-10 offset-1">
+    <div>
     
-      <table className="table">
+      <table className="table table-hover">
         <thead className="table-haeader">
           <tr>
             <th>Picture</th>
             <th>Name</th>
             <th>Email</th>
             <th>Phone Number</th>
+            <th>Details</th>
+            <th>Actions</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="body">
           {contactItems}
         </tbody>
      </table>

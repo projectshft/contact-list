@@ -47,7 +47,7 @@ const ContactForm = (props) => {
             <input type="text" className="form-control" placeholder="Image URL" value={picture} onChange={(e) => setPicture(e.target.value)}/>
           </div>
 
-          <button onClick={submitContactHandler} type="submit" className="btn btn-primary">Submit</button>
+          <Link to="/"><button onClick={submitContactHandler} type="submit" className="btn btn-primary">Submit</button></Link>
 
         </form>
 

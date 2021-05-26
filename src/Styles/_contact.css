@@ -1,14 +1,13 @@
 .contact-image {
-  width: 40%; 
-  cursor: pointer;
+  width: 45%; 
 }
 
 td {
-  width: 30%;
+  width: 20%;
+  vertical-align: middle;
 }
 
 th {
-  width: 10%; 
   font-size: 13.5px;
 }
 

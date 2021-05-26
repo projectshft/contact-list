@@ -21,10 +21,10 @@ const App = () => {
     <Switch>
 
       <Route exact path="/"  render={() => (
-         <Home contacts={contacts} /> 
+         <Home contacts={contacts} setContacts={setContacts}/> 
         )} />
 
-      <Route path="/contact-form" render={() => (
+      <Route path="/contacts/new" render={() => (
         <ContactForm addContact={addContact} />
       )} />
 
