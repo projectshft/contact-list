@@ -4,11 +4,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './Styles/App.css';
 import ContactForm from './components/ContactForm';
 import Home from './components/Home'; 
-import List from './components/List';
+import List from './components/List'; 
 
 //add data 
 import data from './data';
-
 
 const App = () => {
   //state
@@ -22,15 +21,15 @@ const App = () => {
     <Switch>
 
       <Route exact path="/"  render={() => (
-          <Home contacts={contacts} /> 
+         <Home contacts={contacts} /> 
         )} />
-
-      <Route exact path="/"  render={() => (
-        <List contacts={contacts} /> 
-      )} />
 
       <Route path="/contact-form" render={() => (
         <ContactForm addContact={addContact} />
+      )} />
+
+      <Route path="/contacts/:id" render={() => (
+        <List contacts={contacts} />
       )} />
     </Switch>
   );

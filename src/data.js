@@ -4,22 +4,22 @@ function contacts() {
     {
       name: "SpongeBob",
       id: uuidv4(),
-      image_url: "https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/SpongeBob_SquarePants_character.svg/1200px-SpongeBob_SquarePants_character.svg.png",
-      email: "sbss@gmail.com",
+      image_url: "https://i.dailymail.co.uk/i/newpix/2018/03/30/05/4AAF837B00000578-0-image-a-159_1522385871133.jpg",
+      email: 'bob_pinapple@gmail.com',
       phone_number: "1235555555"
     },
     {
       name: "Rocko",
       id: uuidv4(),
-      image_url: "https://static.wikia.nocookie.net/rockosmodernlife/images/5/5e/Rocko_Wallaby.png/revision/latest?cb=20130920192204",
+      image_url: "https://cdn.vox-cdn.com/thumbor/7dT8hU14NtyekTg9g7CLafCGeto=/1400x1400/filters:format(png)/cdn.vox-cdn.com/uploads/chorus_asset/file/18337615/rocko.png",
       email: "rocko@gmail.com",
       phone_number: "4444444444"
     },
     {
       name: "Doug",
       id: uuidv4(),
-      image_url: "https://cdn.costumewall.com/wp-content/uploads/2015/10/doug-funnie.jpg",
-      email: "the_doug@gmail.com",
+      image_url: "https://images.squarespace-cdn.com/content/v1/58a15beee6f2e1990ac9d097/1569964283367-HLYF2LIW0Y3KPRYQVMIM/ke17ZwdGBToddI8pDm48kJAj7TXu-xMRjSHpLB4WYFlZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpx6WvZJQsPBLsoI_bgKee144L4oa4mnLR2Uqqn11Qs1kiIf4CkQA_Okt3Nmz-r5RqM/doug.jpeg?format=500w",
+      email: 'doug@gmail.com', 
       phone_number: "3333333333"
     },
     {
@@ -32,7 +32,8 @@ function contacts() {
     {
       name: "Arnold",
       id: uuidv4(),
-      image_url: "https://images-na.ssl-images-amazon.com/images/S/sgp-catalog-images/region_US/viacom-HEYARNOLD_SEASON_002-Full-Image_GalleryBackground-en-us-1605029076421._SX1080_.jpg",
+      image_url: "https://cdn.vox-cdn.com/thumbor/ms6A2qSei9tLire9yacqj2PHy7g=/0x0:2000x1334/1400x1400/filters:focal(744x446:1064x766):format(jpeg)/cdn.vox-cdn.com/uploads/chorus_image/image/55825801/hey_arnold_main.0.jpg",
+      email: 'hey_arnold@gmail.com',
       phone_number: "7777777777",
     },
   ];

@@ -1,13 +1,14 @@
-import React from 'react'; 
-import { Link } from 'react-router-dom'
+import {Link} from 'react-router-dom'; 
 import ContactList from './ContactList'; 
 
 const Home = ({contacts}) => {
+
   return (
-    <div>
+    <div className="home">
       <h1 className="header">Contact List</h1>
-      <Link to="/contact-form" className="btn btn-primary btn">Add Contact</Link>
+      <Link to="/contact-form" className="btn btn-primary btn add-button">Add Contact</Link>
       <ContactList contacts={contacts} />
+      
     </div>
   );
 };
