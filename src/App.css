@@ -9,3 +9,7 @@ h1 {
 .btn-sm {
   margin: 5px;
 }
+
+.form-group {
+  margin-bottom: 20px;
+}
