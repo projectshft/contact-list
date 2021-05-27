@@ -5,7 +5,7 @@ import ContactNew from "./ContactNew";
 import ContactList from "./ContactList";
 import ContactEdit from "./ContactEdit";
 
-const Home = ({ contacts, addContact, confirmDeleteContact, editContact }) => (
+const Home = ({ contacts, addContact, deleteContact, editContact }) => (
   <Switch>
     <Route
       path="/contacts/new"
@@ -39,10 +39,7 @@ const Home = ({ contacts, addContact, confirmDeleteContact, editContact }) => (
       exact
       path="/contacts"
       render={() => (
-        <ContactList
-          contacts={contacts}
-          confirmDeleteContact={confirmDeleteContact}
-        />
+        <ContactList contacts={contacts} deleteContact={deleteContact} />
       )}
     />
   </Switch>

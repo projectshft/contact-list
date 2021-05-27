@@ -28,7 +28,7 @@ const ContactNew = (props) => {
       <div className="row contact-list-link">
         <Link to="/contacts">Back to Contact List</Link>
       </div>
-      <div className="row justify-content-md-center">
+      <div className="row justify-content-md-center form">
         <form className="row col-8" onSubmit={handleSubmitNewContactClick}>
           <label>Full Name</label>
           <input

@@ -12,23 +12,23 @@ const Contact = ({ contactId, contacts }) => {
   }
 
   return (
-    <div className="col-6 offset-3 justify-content-md-center">
+    <div className="container contact col-4 offset-4">
       <div className="row individual-contact">
         <img
           src={contact.image_url}
           alt="image_url"
           className="rounded d-block"
         />
-        <div className="contact-info">
-          <br />
-          <h2>{contact.name}</h2>
-          <br />
-          <h4>{contact.email}</h4>
-          <br />
-          <h4>{contact.phone_number}</h4>
-        </div>
       </div>
-      <div className="row">
+      <div className="row contact-info">
+        <br />
+        <h2>{contact.name}</h2>
+        <br />
+        <h4 class="email">{contact.email}</h4>
+        <br />
+        <h4>{contact.phone_number}</h4>
+      </div>
+      <div className="row back-button">
         <Link to="/contacts">Back to Contact List</Link>
       </div>
     </div>

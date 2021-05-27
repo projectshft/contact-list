@@ -25,7 +25,7 @@ h1 {
 }
 
 th {
-  font-size: 24px;
+  font-size: 3vh;
 }
 
 td img {
@@ -37,7 +37,6 @@ td {
 }
 
 .contact {
-  cursor: pointer;
   font-size: 20px;
 }
 
@@ -46,8 +45,12 @@ td {
 }
 
 .contact-list-link {
-  justify-content: flex-end;
-  margin-right: 190px;
+  justify-content: center;
+}
+
+.form {
+  min-width: 450px;
+  justify-content: center;
 }
 
 label {
@@ -55,19 +58,36 @@ label {
   color: white;
 }
 
+.contact-container {
+  display: flex;
+  flex-flow: column;
+}
+
 .individual-contact {
+  display: flex;
   background-color: rgba(87, 85, 85, 0.53);
   color: white;
-  padding: 10px;
+  padding-top: 20px;
   text-align: center;
+  justify-content: center;
 }
 
 .individual-contact img {
-  width: 100%;
+  max-width: 50%;
+}
+
+.back-button {
+  justify-content: center;
 }
 
 .contact-info {
-  width: 100%;
+  text-align: center;
+  flex-flow: column;
+  display: flex;
+  background-color: rgba(87, 85, 85, 0.53);
+  padding-bottom: 20px;
+  color: white;
+  word-wrap: break-word;
 }
 
 .contact-info h2 {
@@ -76,6 +96,10 @@ label {
 
 .contact-info h4 {
   margin-bottom: 0px;
+}
+
+.no-contacts {
+  color: white;
 }
 
 button {
