@@ -3,8 +3,17 @@ import { Link } from "react-router-dom";
 import { ContactContext } from "./App";
 
 export default function ContactProfile(props) {
-  const { handleContactDelete } = useContext(ContactContext);
+  const { handleContactDelete, contacts } = useContext(ContactContext);
   const id = parseInt(props.match.params.id);
+  const contact = contacts.find((c) => c.id === id);
+
+  if (!contact) {
+    return (
+      <div>
+        <p>Contact Not Found</p>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -24,9 +33,11 @@ export default function ContactProfile(props) {
               <p className="card-text">
                 {props.history.location.state.phone_number}
               </p>
-              <button className="btn btn-sm btn-outline-info">
-                Edit Contact
-              </button>
+              <Link to={`/contacts/${id}/edit`}>
+                <button className="btn btn-sm btn-outline-info">
+                  Edit Contact
+                </button>
+              </Link>
               <Link to="/contacts">
                 <button
                   onClick={() => handleContactDelete(id)}

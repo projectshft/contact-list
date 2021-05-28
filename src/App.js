@@ -5,6 +5,7 @@ import ContactList from "./ContactList";
 import { Route, BrowserRouter, Switch } from "react-router-dom";
 import ContactProfile from "./ContactProfile";
 import AddContact from "./AddContact";
+import EditContact from "./EditContact";
 
 export const ContactContext = React.createContext();
 
@@ -15,6 +16,7 @@ function App() {
     contacts: contacts,
     handleContactAdd,
     handleContactDelete,
+    handleContactEdit,
   };
 
   function handleContactAdd(newContact) {
@@ -28,6 +30,26 @@ function App() {
     setContacts(newContactList);
   }
 
+  function handleContactEdit(
+    id,
+    editName,
+    editImage_url,
+    editEmail,
+    editPhone_number
+  ) {
+    const contactList = [...contacts];
+    const indexToEdit = contactList.findIndex((c) => c.id === id);
+    const editedContact = {
+      id,
+      name: editName,
+      image_url: editImage_url,
+      email: editEmail,
+      phone_number: editPhone_number,
+    };
+    contactList[indexToEdit] = editedContact;
+    setContacts(contactList);
+  }
+
   return (
     <div>
       <h1>Contact List</h1>
@@ -36,6 +58,7 @@ function App() {
           <ContactContext.Provider value={contactContextValue}>
             <Switch>
               <Route path="/contacts/new" component={AddContact} />
+              <Route path="/contacts/:id/edit" component={EditContact} />
               <Route path="/contacts/:id" component={ContactProfile} />
               <Route path="/contacts" component={ContactList} />
               <Route path="/" component={ContactList} />
@@ -58,13 +81,6 @@ const contactsApi = {
       phone_number: "15555555555",
     },
   ],
-  all: function () {
-    return this.contacts;
-  },
-  get: function (id) {
-    const isContact = (c) => c.id === id;
-    return this.contacts.find(isContact);
-  },
 };
 
 export default App;
