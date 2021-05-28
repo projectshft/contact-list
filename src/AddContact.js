@@ -1,7 +1,29 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { ContactContext } from "./App";
 
 export default function AddContact() {
+  const { handleContactAdd } = useContext(ContactContext);
+  const [name, setName] = useState("");
+  const [image_url, setImageUrl] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone_number, setPhoneNumber] = useState("");
+
+  function createNewContact(name, image_url, email, phone_number) {
+    const generateId = () => Math.round(Math.random() * 100000000);
+    const newContact = {
+      id: generateId(),
+      name,
+      image_url,
+      email,
+      phone_number,
+    };
+
+    if (name && image_url && email && phone_number) {
+      handleContactAdd(newContact);
+    }
+  }
+
   return (
     <div className="container">
       <div className="row">
@@ -18,6 +40,8 @@ export default function AddContact() {
                 type="text"
                 className="form-control"
                 id="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 placeholder="Name"
               />
             </div>
@@ -27,6 +51,8 @@ export default function AddContact() {
                 type="email"
                 className="form-control"
                 id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter email"
               />
             </div>
@@ -36,6 +62,8 @@ export default function AddContact() {
                 type="tel"
                 className="form-control"
                 id="phoneNumber"
+                value={phone_number}
+                onChange={(e) => setPhoneNumber(e.target.value)}
                 placeholder="Phone Number"
               />
             </div>
@@ -45,12 +73,22 @@ export default function AddContact() {
                 type="text"
                 className="form-control"
                 id="imageUrl"
+                value={image_url}
+                onChange={(e) => setImageUrl(e.target.value)}
                 placeholder="Image URL"
               />
             </div>
-            <button type="button" className="btn btn-primary">
-              Add Contact
-            </button>
+            <Link to="/contacts">
+              <button
+                onClick={() =>
+                  createNewContact(name, image_url, email, phone_number)
+                }
+                type="button"
+                className="btn btn-primary"
+              >
+                Add Contact
+              </button>
+            </Link>
           </form>
         </div>
       </div>

@@ -1,13 +1,14 @@
 import React, { useContext } from "react";
 import { ContactContext } from "./App";
-import Contact from "./Contact";
+import ContactRow from "./ContactRow";
 import { Link } from "react-router-dom";
 
 export default function ContactList() {
-  const contacts = useContext(ContactContext);
+  const { contacts } = useContext(ContactContext);
+
   return (
     <>
-      <Link to="/new">
+      <Link to="/contacts/new">
         <button type="button" className="btn btn-primary">
           Add Contact
         </button>
@@ -19,12 +20,15 @@ export default function ContactList() {
             <th scope="col">Name</th>
             <th scope="col">Email</th>
             <th scope="col">Phone Number</th>
-            <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
           {contacts.map((contact) => (
-            <Contact key={contact.id} {...contact} />
+            <ContactRow
+              onClick={() => console.log("clicked")}
+              key={contact.id}
+              {...contact}
+            />
           ))}
         </tbody>
       </table>
