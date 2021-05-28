@@ -12,16 +12,16 @@ import data from './data';
 const App = () => {
   //state
   const [contacts, setContacts] = useState(data()); 
-  const [editStatus, setEditStatus]= useState(false); 
+  const [editStatus, setEditStatus]= useState(false); //?
 
   const addContact = (contact) => {
-    setContacts([...contacts, contact]); 
+    const newContacts = [...contacts];
+    setContacts([...newContacts, contact]); 
   }; 
 
   const editContact = (index, contact) => {
-    //selected contact
     const newContacts = [...contacts]; 
-     newContacts[index]= contact;
+    newContacts[index]= contact;
     setContacts(newContacts); 
   }; 
 
@@ -40,9 +40,6 @@ const App = () => {
         <List contacts={contacts} editContact={editContact} editStatus={editStatus} setEditStatus={setEditStatus} />
       )} />
 
-      <Route path="/contacts/:id/edit" render={() => (
-        <List  />
-      )} />
     </Switch>
   );
 };

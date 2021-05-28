@@ -16,7 +16,6 @@ const ContactList = ({contacts, setContacts, setEditStatus, editStatus}) => {
 
   return (
     <div>
-    
       <table className="table table-hover">
         <thead className="table-haeader">
           <tr>
@@ -32,7 +31,6 @@ const ContactList = ({contacts, setContacts, setEditStatus, editStatus}) => {
           {contactItems}
         </tbody>
      </table>
-
     </div>
   );
 };

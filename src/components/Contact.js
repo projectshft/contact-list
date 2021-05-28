@@ -18,7 +18,7 @@ const Contact = ({contact, contacts, setContacts, setEditStatus, editStatus}) =>
   };
 
   return (
-    <tr>
+    <tr className="contact-row">
       <td><img src={contact.image_url} alt={contact.name} className="contact-image" /></td>
       <td className="table-text">{contact.name}</td>
       <td className="table-text">{contact.email}</td>
