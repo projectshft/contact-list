@@ -122,6 +122,7 @@ const ContactList = ({ contacts, deleteContact }) => {
 
 ContactList.propTypes = {
   contacts: PropTypes.array,
+  deleteContact: PropTypes.func,
 };
 
 export default ContactList;

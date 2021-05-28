@@ -56,6 +56,7 @@ const ContactNew = (props) => {
             className="form-control"
             placeholder="XXX-XXX-XXXX"
             required
+            title="XXX-XXX-XXXX"
             onChange={(event) => setPhoneNumber(event.target.value)}
           />
           <br />

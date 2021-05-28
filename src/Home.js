@@ -48,6 +48,8 @@ const Home = ({ contacts, addContact, deleteContact, editContact }) => (
 Home.propTypes = {
   contacts: PropTypes.array,
   addContact: PropTypes.func,
+  deleteContact: PropTypes.func,
+  editContact: PropTypes.func,
 };
 
 export default Home;
