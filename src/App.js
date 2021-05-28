@@ -12,16 +12,24 @@ import data from './data';
 const App = () => {
   //state
   const [contacts, setContacts] = useState(data()); 
+  const [editStatus, setEditStatus]= useState(false); 
 
   const addContact = (contact) => {
     setContacts([...contacts, contact]); 
+  }; 
+
+  const editContact = (index, contact) => {
+    //selected contact
+    const newContacts = [...contacts]; 
+     newContacts[index]= contact;
+    setContacts(newContacts); 
   }; 
 
   return (
     <Switch>
 
       <Route exact path="/"  render={() => (
-         <Home contacts={contacts} setContacts={setContacts}/> 
+         <Home contacts={contacts} setContacts={setContacts} setEditStatus={setEditStatus} editStatus={editStatus} /> 
         )} />
 
       <Route path="/contacts/new" render={() => (
@@ -29,7 +37,11 @@ const App = () => {
       )} />
 
       <Route path="/contacts/:id" render={() => (
-        <List contacts={contacts} />
+        <List contacts={contacts} editContact={editContact} editStatus={editStatus} setEditStatus={setEditStatus} />
+      )} />
+
+      <Route path="/contacts/:id/edit" render={() => (
+        <List  />
       )} />
     </Switch>
   );

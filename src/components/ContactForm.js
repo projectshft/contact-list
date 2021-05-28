@@ -19,6 +19,7 @@ const ContactForm = (props) => {
     });
 
     e.preventDefault(); 
+  
    // props.history.push('/');
   };
 
@@ -51,7 +52,7 @@ const ContactForm = (props) => {
 
         </form>
 
-        <Link to="/" className="btn btn-primary btn">Home</Link>
+        <Link to="/" className="btn btn-primary btn" >Home</Link>
 
       </div>
     </div>

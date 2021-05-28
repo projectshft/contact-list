@@ -11,3 +11,17 @@ th {
   font-size: 13.5px;
 }
 
+.btn-sm {
+  background: transparent;
+  color: rgb(65, 65, 65); 
+  border: 1px solid rgb(65, 65, 65);
+  cursor: pointer;
+  padding: 0.5 rem; 
+  transition: all 0.5 ease;
+}
+
+.btn-sm:hover {
+  background: rgb(65, 65, 65);
+  color: white; 
+}
+

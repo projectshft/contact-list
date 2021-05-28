@@ -2,7 +2,7 @@ import React from 'react';
 import Contact from './Contact';
 import propTypes from 'prop-types';
 
-const ContactList = ({contacts, setContacts}) => {
+const ContactList = ({contacts, setContacts, setEditStatus, editStatus}) => {
 
   ContactList.propTypes = {
     contacts: propTypes.array
@@ -10,7 +10,7 @@ const ContactList = ({contacts, setContacts}) => {
  
   const contactItems = contacts.map((contact) => {
     return (
-      <Contact contact={contact} key={contact.id} contacts={contacts} setContacts={setContacts} />
+      <Contact contact={contact} key={contact.id} contacts={contacts} setContacts={setContacts} setEditStatus={setEditStatus} editStatus={editStatus} />
     );
   });
 

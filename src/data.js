@@ -6,21 +6,21 @@ function contacts() {
       id: uuidv4(),
       image_url: "https://i.dailymail.co.uk/i/newpix/2018/03/30/05/4AAF837B00000578-0-image-a-159_1522385871133.jpg",
       email: 'bob_pineapple@gmail.com',
-      phone_number: "123-555-5555"
+      phone_number: "123-555-5555",
     },
     {
       name: "Rocko",
       id: uuidv4(),
       image_url: "https://cdn.vox-cdn.com/thumbor/7dT8hU14NtyekTg9g7CLafCGeto=/1400x1400/filters:format(png)/cdn.vox-cdn.com/uploads/chorus_asset/file/18337615/rocko.png",
       email: "rocko@gmail.com",
-      phone_number: "444-444-4444"
+      phone_number: "444-444-4444",
     },
     {
       name: "Doug",
       id: uuidv4(),
       image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzwDO2A03EBHOmtfD4BXJ9AXrzTFFAcE8eHJRABUgqolCldbmxCIQHA16rOxqd8EurRDs&usqp=CAU",
       email: 'doug@gmail.com', 
-      phone_number: "333-333-3333"
+      phone_number: "333-333-3333",
     },
     {
       name: "Angelica",
