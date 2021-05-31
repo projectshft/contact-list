@@ -2,22 +2,17 @@ import React from 'react';
 import Contact from './Contact';
 import propTypes from 'prop-types';
 
-const ContactList = ({contacts, setContacts, setEditStatus, editStatus}) => {
+const ContactList = ({contacts, setContacts}) => {
 
   ContactList.propTypes = {
-    contacts: propTypes.array
+    contacts: propTypes.array,
+    setContacts: propTypes.func
   };  
- 
-  const contactItems = contacts.map((contact) => {
-    return (
-      <Contact contact={contact} key={contact.id} contacts={contacts} setContacts={setContacts} setEditStatus={setEditStatus} editStatus={editStatus} />
-    );
-  });
 
   return (
     <div>
       <table className="table table-hover">
-        <thead className="table-haeader">
+        <thead className="table-header">
           <tr>
             <th>Picture</th>
             <th>Name</th>
@@ -27,8 +22,12 @@ const ContactList = ({contacts, setContacts, setEditStatus, editStatus}) => {
             <th>Actions</th>
           </tr>
         </thead>
-        <tbody className="body">
-          {contactItems}
+        <tbody className="table-body">
+          {contacts.map((contact) => {
+            return (
+              <Contact contact={contact} key={contact.id} contacts={contacts} setContacts={setContacts} />
+            );
+          })}
         </tbody>
      </table>
     </div>

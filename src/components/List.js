@@ -1,21 +1,26 @@
 import React from 'react';
 import {Switch, Route} from 'react-router-dom';
-import ContactItem from './ContactItem';
+import ContactInfo from './ContactInfo';
 import EditContactForm from './EditContactForm'; 
+import ContactForm from './ContactForm'; 
 
-const List = ({contacts, editContact, editStatus, setEditStatus}) => {
+const List = ({contacts, addContact, editContact}) => {
 
   return (
     <div>
       <Switch>
 
+      <Route path="/contacts/new" render={(routerProps) => (
+        <ContactForm addContact={addContact} history={routerProps.history} />
+      )} />
+
       <Route exact path='/contacts/:id' render={(routerProps) => (
-        <ContactItem selectedContactId={routerProps.match.params.id} contacts={contacts} />
+        <ContactInfo selectedContactId={routerProps.match.params.id} contacts={contacts} />
       )}/>
 
       <Route path="/contacts/:id/edit" render={(routerProps) => (
-        <EditContactForm editContact={editContact} contacts={contacts} editStatus={editStatus} setEditStatus={setEditStatus} selectedContactId={routerProps.match.params.id} />
-        )}/>
+        <EditContactForm editContact={editContact} contacts={contacts} selectedContactId={routerProps.match.params.id} history={routerProps.history}/>
+      )}/>
 
       </Switch>
     </div>

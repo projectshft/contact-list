@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
-import {Switch, Route} from 'react-router-dom'; 
+import {Switch, Route, Redirect} from 'react-router-dom'; 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Styles/App.css';
-import ContactForm from './components/ContactForm';
 import Home from './components/Home'; 
 import List from './components/List'; 
 
@@ -12,7 +11,6 @@ import data from './data';
 const App = () => {
   //state
   const [contacts, setContacts] = useState(data()); 
-  const [editStatus, setEditStatus]= useState(false); //?
 
   const addContact = (contact) => {
     const newContacts = [...contacts];
@@ -28,17 +26,15 @@ const App = () => {
   return (
     <Switch>
 
-      <Route exact path="/"  render={() => (
-         <Home contacts={contacts} setContacts={setContacts} setEditStatus={setEditStatus} editStatus={editStatus} /> 
-        )} />
-
-      <Route path="/contacts/new" render={() => (
-        <ContactForm addContact={addContact} />
+      <Route exact path="/contacts"  render={() => (
+         <Home contacts={contacts} setContacts={setContacts} /> 
       )} />
 
-      <Route path="/contacts/:id" render={() => (
-        <List contacts={contacts} editContact={editContact} editStatus={editStatus} setEditStatus={setEditStatus} />
+      <Route path="/contacts/" render={() => (
+        <List contacts={contacts} addContact={addContact} editContact={editContact}  />
       )} />
+
+      <Redirect to="/contacts" />
 
     </Switch>
   );

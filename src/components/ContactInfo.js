@@ -1,7 +1,14 @@
-import React from 'react'
+import React from 'react';
 import {Link} from 'react-router-dom';
+import propTypes from 'prop-types';
 
-const ContactItem = ({selectedContactId, contacts}) => {
+//detailed view of contact
+const ContactInfo= ({selectedContactId, contacts}) => {
+
+  ContactInfo.propTypes = {
+    selectedContactId: propTypes.string,
+    contacts: propTypes.array,
+  };  
  
   const contact = contacts.find(c => c.id === selectedContactId); 
  
@@ -18,4 +25,4 @@ const ContactItem = ({selectedContactId, contacts}) => {
   );
 };
 
-export default ContactItem;
+export default ContactInfo;

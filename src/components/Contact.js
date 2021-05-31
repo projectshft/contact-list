@@ -2,10 +2,12 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import propTypes from 'prop-types';
 
-const Contact = ({contact, contacts, setContacts, setEditStatus, editStatus}) => {
+const Contact = ({contact, contacts, setContacts}) => {
 
   Contact.propTypes = {
-    contact: propTypes.object
+    contact: propTypes.object,
+    contacts: propTypes.array,
+    setContacts: propTypes.func
   };  
 
   const deleteButtonHandler = () => {
@@ -13,22 +15,19 @@ const Contact = ({contact, contacts, setContacts, setEditStatus, editStatus}) =>
     setContacts(newContacts); 
   };
   
-  const editButtonHandler = () => {
-    setEditStatus(!editStatus); 
-  };
-
   return (
     <tr className="contact-row">
       <td><img src={contact.image_url} alt={contact.name} className="contact-image" /></td>
-      <td className="table-text">{contact.name}</td>
-      <td className="table-text">{contact.email}</td>
-      <td className="table-text">{contact.phone_number}</td>
+      <td>{contact.name}</td>
+      <td>{contact.email}</td>
+      <td>{contact.phone_number}</td>
       <td>
         <Link to={`/contacts/${contact.id}`}><button className = "btn-primary btn btn-sm">Info</button></Link>
       </td>
       <td>
-        <Link to={`/contacts/${contact.id}/edit`}><button onClick={editButtonHandler} className="btn-primary btn btn-sm edit actions">Edit</button></Link>
-        <button onClick={deleteButtonHandler} className = "btn-primary btn btn-sm delete actions">Delete</button>
+        <Link to={`/contacts/${contact.id}/edit`}><button className="btn-primary btn btn-sm edit">Edit</button></Link>
+        
+        <button onClick={deleteButtonHandler} className="btn-primary btn btn-sm delete">Delete</button>
       </td>
     </tr>
   );
