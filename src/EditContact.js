@@ -8,10 +8,10 @@ export default function EditContact(props) {
   const contact = contacts.find((c) => c.id === id);
   const { name, image_url, email, phone_number } = contact;
 
-  const [editName, setName] = useState(name);
-  const [editEmail, setEmail] = useState(email);
-  const [editImage_url, setImageUrl] = useState(image_url);
-  const [editPhone_number, setPhoneNumber] = useState(phone_number);
+  const [editedName, setName] = useState(name);
+  const [editedEmail, setEmail] = useState(email);
+  const [editedImage_url, setImageUrl] = useState(image_url);
+  const [editedPhone_number, setPhoneNumber] = useState(phone_number);
 
   return (
     <div className="container">
@@ -29,7 +29,7 @@ export default function EditContact(props) {
                 type="text"
                 className="form-control"
                 id="name"
-                value={editName}
+                value={editedName}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Name"
               />
@@ -40,7 +40,7 @@ export default function EditContact(props) {
                 type="email"
                 className="form-control"
                 id="email"
-                value={editEmail}
+                value={editedEmail}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter email"
               />
@@ -51,7 +51,7 @@ export default function EditContact(props) {
                 type="tel"
                 className="form-control"
                 id="phoneNumber"
-                value={editPhone_number}
+                value={editedPhone_number}
                 onChange={(e) => setPhoneNumber(e.target.value)}
                 placeholder="Phone Number"
               />
@@ -62,7 +62,7 @@ export default function EditContact(props) {
                 type="text"
                 className="form-control"
                 id="imageUrl"
-                value={editImage_url}
+                value={editedImage_url}
                 onChange={(e) => setImageUrl(e.target.value)}
                 placeholder="Image URL"
               />
@@ -72,10 +72,10 @@ export default function EditContact(props) {
                 onClick={() =>
                   handleContactEdit(
                     id,
-                    editName,
-                    editImage_url,
-                    editEmail,
-                    editPhone_number
+                    editedName,
+                    editedImage_url,
+                    editedEmail,
+                    editedPhone_number
                   )
                 }
                 type="button"

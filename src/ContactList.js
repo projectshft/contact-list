@@ -24,11 +24,7 @@ export default function ContactList() {
         </thead>
         <tbody>
           {contacts.map((contact) => (
-            <ContactRow
-              onClick={() => console.log("clicked")}
-              key={contact.id}
-              {...contact}
-            />
+            <ContactRow key={contact.id} {...contact} />
           ))}
         </tbody>
       </table>

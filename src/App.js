@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
 import ContactList from "./ContactList";
-import { Route, BrowserRouter, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import ContactProfile from "./ContactProfile";
 import AddContact from "./AddContact";
 import EditContact from "./EditContact";
@@ -32,19 +32,19 @@ function App() {
 
   function handleContactEdit(
     id,
-    editName,
-    editImage_url,
-    editEmail,
-    editPhone_number
+    editedName,
+    editedImage_url,
+    editedEmail,
+    editedPhone_number
   ) {
     const contactList = [...contacts];
     const indexToEdit = contactList.findIndex((c) => c.id === id);
     const editedContact = {
       id,
-      name: editName,
-      image_url: editImage_url,
-      email: editEmail,
-      phone_number: editPhone_number,
+      name: editedName,
+      image_url: editedImage_url,
+      email: editedEmail,
+      phone_number: editedPhone_number,
     };
     contactList[indexToEdit] = editedContact;
     setContacts(contactList);
@@ -54,17 +54,15 @@ function App() {
     <div>
       <h1>Contact List</h1>
       <div className="container">
-        <BrowserRouter>
-          <ContactContext.Provider value={contactContextValue}>
-            <Switch>
-              <Route path="/contacts/new" component={AddContact} />
-              <Route path="/contacts/:id/edit" component={EditContact} />
-              <Route path="/contacts/:id" component={ContactProfile} />
-              <Route path="/contacts" component={ContactList} />
-              <Route path="/" component={ContactList} />
-            </Switch>
-          </ContactContext.Provider>
-        </BrowserRouter>
+        <ContactContext.Provider value={contactContextValue}>
+          <Switch>
+            <Route path="/contacts/new" component={AddContact} />
+            <Route path="/contacts/:id/edit" component={EditContact} />
+            <Route path="/contacts/:id" component={ContactProfile} />
+            <Route path="/contacts" component={ContactList} />
+            <Route path="/" component={ContactList} />
+          </Switch>
+        </ContactContext.Provider>
       </div>
     </div>
   );
@@ -78,7 +76,7 @@ const contactsApi = {
       image_url:
         "https://pbs.twimg.com/profile_images/1364965517526769664/5fwOCY83_400x400.jpg",
       email: "amhayslip@parsity.com",
-      phone_number: "15555555555",
+      phone_number: 15555555555,
     },
   ],
 };

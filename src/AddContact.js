@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { ContactContext } from "./App";
+import { useHistory } from "react-router-dom";
 
 export default function AddContact() {
   const { handleContactAdd } = useContext(ContactContext);
@@ -8,6 +9,13 @@ export default function AddContact() {
   const [image_url, setImageUrl] = useState("");
   const [email, setEmail] = useState("");
   const [phone_number, setPhoneNumber] = useState("");
+
+  const history = useHistory();
+
+  function changeRoute() {
+    const path = `/contacts`;
+    history.push(path);
+  }
 
   function createNewContact(name, image_url, email, phone_number) {
     const generateId = () => Math.round(Math.random() * 100000000);
@@ -19,9 +27,8 @@ export default function AddContact() {
       phone_number,
     };
 
-    if (name && image_url && email && phone_number) {
-      handleContactAdd(newContact);
-    }
+    handleContactAdd(newContact);
+    changeRoute();
   }
 
   return (
@@ -78,17 +85,18 @@ export default function AddContact() {
                 placeholder="Image URL"
               />
             </div>
-            <Link to="/contacts">
-              <button
-                onClick={() =>
-                  createNewContact(name, image_url, email, phone_number)
+
+            <button
+              onClick={() => {
+                if (name && image_url && email && phone_number) {
+                  createNewContact(name, image_url, email, phone_number);
                 }
-                type="button"
-                className="btn btn-primary"
-              >
-                Add Contact
-              </button>
-            </Link>
+              }}
+              type="button"
+              className="btn btn-primary"
+            >
+              Add Contact
+            </button>
           </form>
         </div>
       </div>
