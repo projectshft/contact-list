@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { ContactContext } from "./App";
+import DeleteConfirmationModal from "./DeleteConfirmationModal";
 
 export default function ContactProfile(props) {
-  const { handleContactDelete, contacts } = useContext(ContactContext);
+  const { contacts } = useContext(ContactContext);
   const id = parseInt(props.match.params.id);
   const contact = contacts.find((c) => c.id === id);
 
@@ -11,6 +12,11 @@ export default function ContactProfile(props) {
     return (
       <div>
         <p>Contact Not Found</p>
+        <Link to="/">
+          <button type="button" className="btn btn-secondary">
+            Home
+          </button>
+        </Link>
       </div>
     );
   }
@@ -38,14 +44,7 @@ export default function ContactProfile(props) {
                   Edit Contact
                 </button>
               </Link>
-              <Link to="/contacts">
-                <button
-                  onClick={() => handleContactDelete(id)}
-                  className="btn btn-sm btn-outline-danger"
-                >
-                  Delete Contact
-                </button>
-              </Link>
+              <DeleteConfirmationModal id={id} />
             </div>
           </div>
         </div>
