@@ -25,8 +25,7 @@ function App() {
   }
 
   function handleContactDelete(id) {
-    const contactList = [...contacts];
-    const newContactList = contactList.filter((c) => c.id !== id);
+    const newContactList = contacts.filter((c) => c.id !== id);
     setContacts(newContactList);
   }
 
@@ -76,7 +75,7 @@ const contactsApi = {
       image_url:
         "https://pbs.twimg.com/profile_images/1364965517526769664/5fwOCY83_400x400.jpg",
       email: "amhayslip@parsity.com",
-      phone_number: 15555555555,
+      phone_number: "15555555555",
     },
   ],
 };

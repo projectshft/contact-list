@@ -1,14 +1,17 @@
 import React, { useContext, useState } from "react";
 import { Modal, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { ContactContext } from "./App";
+import PropTypes from "prop-types";
 
 export default function DeleteConfirmationModal({ id }) {
   const { handleContactDelete } = useContext(ContactContext);
   const [show, setShow] = useState(false);
+  const history = useHistory();
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const goToContacts = () => history.push("/contacts");
 
   return (
     <>
@@ -24,18 +27,21 @@ export default function DeleteConfirmationModal({ id }) {
           <Button variant="secondary" onClick={handleClose}>
             Cancel
           </Button>
-          <Link to="/contacts">
-            <Button
-              variant="danger"
-              onClick={() => {
-                handleContactDelete(id);
-              }}
-            >
-              Yes, Delete Contact
-            </Button>
-          </Link>
+          <Button
+            variant="danger"
+            onClick={() => {
+              handleContactDelete(id);
+              goToContacts();
+            }}
+          >
+            Yes, Delete Contact
+          </Button>
         </Modal.Footer>
       </Modal>
     </>
   );
 }
+
+DeleteConfirmationModal.propTypes = {
+  id: PropTypes.number.isRequired,
+};

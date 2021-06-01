@@ -1,7 +1,6 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
-import { ContactContext } from "./App";
 import { useHistory } from "react-router-dom";
+import { ContactContext } from "./App";
 
 export default function AddContact() {
   const { handleContactAdd } = useContext(ContactContext);
@@ -12,9 +11,12 @@ export default function AddContact() {
 
   const history = useHistory();
 
-  function changeRoute() {
-    const path = `/contacts`;
-    history.push(path);
+  function goToContacts() {
+    history.push(`/contacts`);
+  }
+
+  function goHome() {
+    history.push(`/`);
   }
 
   function createNewContact(name, image_url, email, phone_number) {
@@ -28,18 +30,16 @@ export default function AddContact() {
     };
 
     handleContactAdd(newContact);
-    changeRoute();
+    goToContacts();
   }
 
   return (
     <div className="container">
       <div className="row">
         <div className="col-md-6 offset-md-3">
-          <Link to="/">
-            <button type="button" className="btn btn-secondary">
-              Back
-            </button>
-          </Link>
+          <button onClick={goHome} type="button" className="btn btn-secondary">
+            Back
+          </button>
           <form>
             <div className="form-group">
               <label htmlFor="name">Full Name</label>

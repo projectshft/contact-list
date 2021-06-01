@@ -1,18 +1,22 @@
 import React, { useContext } from "react";
 import { ContactContext } from "./App";
 import ContactRow from "./ContactRow";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 export default function ContactList() {
   const { contacts } = useContext(ContactContext);
+  const history = useHistory();
+
+  const changeRoute = () => {
+    history.push("/contacts/new");
+  };
 
   return (
     <>
-      <Link to="/contacts/new">
-        <button type="button" className="btn btn-primary">
-          Add Contact
-        </button>
-      </Link>
+      <button onClick={changeRoute} type="button" className="btn btn-primary">
+        Add Contact
+      </button>
+
       <table className="table table-striped table-bordered">
         <thead>
           <tr>
@@ -24,7 +28,7 @@ export default function ContactList() {
         </thead>
         <tbody>
           {contacts.map((contact) => (
-            <ContactRow key={contact.id} {...contact} />
+            <ContactRow key={contact.id} contact={contact} />
           ))}
         </tbody>
       </table>

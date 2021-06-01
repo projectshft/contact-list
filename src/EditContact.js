@@ -1,27 +1,35 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { ContactContext } from "./App";
+import PropTypes from "prop-types";
 
 export default function EditContact(props) {
   const { contacts, handleContactEdit } = useContext(ContactContext);
   const id = parseInt(props.match.params.id);
   const contact = contacts.find((c) => c.id === id);
   const { name, image_url, email, phone_number } = contact;
+  const history = useHistory();
 
   const [editedName, setName] = useState(name);
   const [editedEmail, setEmail] = useState(email);
   const [editedImage_url, setImageUrl] = useState(image_url);
   const [editedPhone_number, setPhoneNumber] = useState(phone_number);
 
+  function goToContacts() {
+    history.push(`/contacts`);
+  }
+
+  function goHome() {
+    history.push(`/`);
+  }
+
   return (
     <div className="container">
       <div className="row">
         <div className="col-md-6 offset-md-3">
-          <Link to="/">
-            <button type="button" className="btn btn-secondary">
-              Back
-            </button>
-          </Link>
+          <button onClick={goHome} type="button" className="btn btn-secondary">
+            Back
+          </button>
           <form>
             <div className="form-group">
               <label htmlFor="name">Full Name</label>
@@ -67,26 +75,33 @@ export default function EditContact(props) {
                 placeholder="Image URL"
               />
             </div>
-            <Link to="/contacts">
-              <button
-                onClick={() =>
-                  handleContactEdit(
-                    id,
-                    editedName,
-                    editedImage_url,
-                    editedEmail,
-                    editedPhone_number
-                  )
-                }
-                type="button"
-                className="btn btn-primary"
-              >
-                Save Changes
-              </button>
-            </Link>
+            <button
+              onClick={() => {
+                handleContactEdit(
+                  id,
+                  editedName,
+                  editedImage_url,
+                  editedEmail,
+                  editedPhone_number
+                );
+                goToContacts();
+              }}
+              type="button"
+              className="btn btn-primary"
+            >
+              Save Changes
+            </button>
           </form>
         </div>
       </div>
     </div>
   );
 }
+
+EditContact.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    }),
+  }),
+};
