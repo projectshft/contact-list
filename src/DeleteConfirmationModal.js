@@ -11,7 +11,6 @@ export default function DeleteConfirmationModal({ id }) {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const goToContacts = () => history.push("/contacts");
 
   return (
     <>
@@ -31,7 +30,7 @@ export default function DeleteConfirmationModal({ id }) {
             variant="danger"
             onClick={() => {
               handleContactDelete(id);
-              goToContacts();
+              history.push("/contacts");
             }}
           >
             Yes, Delete Contact

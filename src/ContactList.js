@@ -7,13 +7,13 @@ export default function ContactList() {
   const { contacts } = useContext(ContactContext);
   const history = useHistory();
 
-  const changeRoute = () => {
-    history.push("/contacts/new");
-  };
-
   return (
     <>
-      <button onClick={changeRoute} type="button" className="btn btn-primary">
+      <button
+        onClick={() => history.push("/contacts/new")}
+        type="button"
+        className="btn btn-primary"
+      >
         Add Contact
       </button>
 

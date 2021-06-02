@@ -15,19 +15,15 @@ export default function EditContact(props) {
   const [editedImage_url, setImageUrl] = useState(image_url);
   const [editedPhone_number, setPhoneNumber] = useState(phone_number);
 
-  function goToContacts() {
-    history.push(`/contacts`);
-  }
-
-  function goHome() {
-    history.push(`/`);
-  }
-
   return (
     <div className="container">
       <div className="row">
         <div className="col-md-6 offset-md-3">
-          <button onClick={goHome} type="button" className="btn btn-secondary">
+          <button
+            onClick={() => history.push(`/`)}
+            type="button"
+            className="btn btn-secondary"
+          >
             Back
           </button>
           <form>
@@ -84,7 +80,7 @@ export default function EditContact(props) {
                   editedEmail,
                   editedPhone_number
                 );
-                goToContacts();
+                history.push(`/contacts`);
               }}
               type="button"
               className="btn btn-primary"

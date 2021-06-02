@@ -10,19 +10,15 @@ export default function ContactProfile(props) {
   const contact = contacts.find((c) => c.id === id);
   const history = useHistory();
 
-  function goToEdit() {
-    history.push(`/contacts/${id}/edit`);
-  }
-
-  function goHome() {
-    history.push(`/`);
-  }
-
   if (!contact) {
     return (
       <div>
         <p>Contact Not Found</p>
-        <button onClick={goHome} type="button" className="btn btn-secondary">
+        <button
+          onClick={() => history.push(`/`)}
+          type="button"
+          className="btn btn-secondary"
+        >
           Home
         </button>
       </div>
@@ -44,7 +40,7 @@ export default function ContactProfile(props) {
               <p className="card-text">{contact.email}</p>
               <p className="card-text">{contact.phone_number}</p>
               <button
-                onClick={goToEdit}
+                onClick={() => history.push(`/contacts/${id}/edit`)}
                 className="btn btn-sm btn-outline-info"
               >
                 Edit Contact
@@ -55,7 +51,7 @@ export default function ContactProfile(props) {
         </div>
       </div>
       <button
-        onClick={goHome}
+        onClick={() => history.push(`/`)}
         type="button"
         className="btn btn-sm btn-secondary text-center"
       >

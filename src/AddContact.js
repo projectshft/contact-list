@@ -11,14 +11,6 @@ export default function AddContact() {
 
   const history = useHistory();
 
-  function goToContacts() {
-    history.push(`/contacts`);
-  }
-
-  function goHome() {
-    history.push(`/`);
-  }
-
   function createNewContact(name, image_url, email, phone_number) {
     const generateId = () => Math.round(Math.random() * 100000000);
     const newContact = {
@@ -30,14 +22,18 @@ export default function AddContact() {
     };
 
     handleContactAdd(newContact);
-    goToContacts();
+    history.push(`/contacts`);
   }
 
   return (
     <div className="container">
       <div className="row">
         <div className="col-md-6 offset-md-3">
-          <button onClick={goHome} type="button" className="btn btn-secondary">
+          <button
+            onClick={() => history.push(`/`)}
+            type="button"
+            className="btn btn-secondary"
+          >
             Back
           </button>
           <form>

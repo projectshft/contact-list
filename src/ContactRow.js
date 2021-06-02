@@ -6,13 +6,9 @@ export default function ContactRow({ contact }) {
   const { id, name, image_url, email, phone_number } = contact;
   const history = useHistory();
 
-  function goToProfile() {
-    history.push(`/contacts/${id}`);
-  }
-
   return (
     <>
-      <tr onClick={goToProfile}>
+      <tr onClick={() => history.push(`/contacts/${id}`)}>
         <td>
           <img src={image_url} alt="person" height="150" />
         </td>
