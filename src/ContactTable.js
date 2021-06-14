@@ -1,22 +1,15 @@
 import React from "react";
 import { Switch, Link } from "react-router-dom";
+import TableBuilder from "./TableBuilder.js";
 
 export default function ContactTable() {
   return (
-    <div className="ContactTable">  
+    <div className="ContactTable">
       <div className="container">
         <div className="row">
-          <div className="col-md-6 offset-md-6"></div>
-          <table className="table table-striped table-bordered">
-            <thead>
-              <tr>
-                <th scope="col">Profile Pic</th>
-                <th scope="col">Name</th>
-                <th scope="col">E-mail</th>
-                <th scope="col">Phone Number</th>
-              </tr>
-            </thead>
-          </table>
+          <div className="col-md-6 offset-md-6">
+            <TableBuilder />
+          </div>
         </div>
       </div>
     </div>

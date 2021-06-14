@@ -1,6 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+// ////
+// import PropTypes from "prop-types";
+
+// Hello.propTypes = {
+//   // `name` must be a string, and it can't be `null` or `undefined`!
+//   name: PropTypes.string.isRequired,
+// };
+
+// Hello.propTypes = {
+//   name: PropTypes.string.isRequired,
+//   //we simply state that this component should expect an array of objects to be passed as props
+//   apiData: PropTypes.arrayOf(PropTypes.object).isRequired,
+// };
+// ////
+
 export default function AddContact() {
   return (
     <div className="AddContact">
