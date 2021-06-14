@@ -1,12 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function ButtonAddContact() {
   return (
     <div className="ButtonAddContact">
       <div className="row">
-        <div className="col-md-6 offset-md-3">
-          <button className="btn btn-primary">Add Contact</button>
-        </div>
+        <Link to="/AddContact">
+          <div className="col-md-6 offset-md-3">
+            <button className="btn btn-primary">Add Contact</button>
+          </div>
+        </Link>
         <br></br>
       </div>
     </div>

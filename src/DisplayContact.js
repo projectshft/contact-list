@@ -1,13 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-export default function DisplayContact() {
+export default function DisplayContact(props) {
+
   return (
     <div className="DisplayContact">
       <div className="row">
         <div className="col-md-6 mx-auto">
-          <div
-            className="border border-secondary"
-          >
+          <div className="border border-secondary">
             <ul>
               <li>URL</li>
               <li>
@@ -21,8 +21,11 @@ export default function DisplayContact() {
               </li>
             </ul>
           </div>
+          <Link to="/">Back</Link>
         </div>
       </div>
     </div>
   );
 }
+
+

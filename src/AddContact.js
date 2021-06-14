@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function AddContact() {
   return (
@@ -31,9 +32,14 @@ export default function AddContact() {
               <br />
             </div>
 
-            <button type="button" className="btn btn-primary add-contact">
-              Add Contact
-            </button>
+            <Link to="/">
+              <button
+                type="button"
+                className="btn btn-primary add-contact-and-return"
+              >
+                Add Contact
+              </button>
+            </Link>
           </form>
         </div>
       </div>

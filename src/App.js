@@ -2,7 +2,7 @@ import './App.css';
 import ContactList from './ContactList.js';
 import AddContact from './AddContact.js';
 import DisplayContact from './DisplayContact.js';
-import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 export default function App() {
   return (
