@@ -1,8 +1,13 @@
 import './App.css';
+import ContactList from './ContactList.js';
+import AddContact from './AddContact.js';
+import DisplayContact from './DisplayContact.js';
+import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
+    <BrowserRouter>
+      <div className="App">
       <div className="row">
         <header className="App-header">
           <div
@@ -17,28 +22,13 @@ function App() {
         </header>
       </div>
 
-      <div className="row">
-        <div className="col-md-6 offset-md-3">
-          <button className="btn btn-primary">Add Contact</button>
-        </div>
+        <Switch>
+          <Route exact path='/' component={ContactList} />
+          <Route path='/AddContact' component={AddContact} />
+          <Route path='/DisplayContact' component={DisplayContact} />
+        </Switch>
       </div>
-
-      <div className="container">
-        <div className="row">
-          <div className="col-md-6 offset-md-3"></div>
-          <table className="table table-striped table-bordered">
-            <thead>
-              <tr>
-                <th scope="col">Profile Pic</th>
-                <th scope="col">Name</th>
-                <th scope="col">E-mail</th>
-                <th scope="col">Phone Number</th>
-              </tr>
-            </thead>
-          </table>
-        </div>
-      </div>
-    </div>
+    </BrowserRouter>
+  
   );}
 
-export default App;
