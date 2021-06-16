@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ContactsStateData } from "ContactsStateData.js"
+import { ContactsStateData } from "./ContactsStateData.js"
 
 // ////
 // import PropTypes from "prop-types";

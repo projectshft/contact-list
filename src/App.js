@@ -1,7 +1,7 @@
 import './App.css';
 import ContactList from './ContactList.js';
 import AddContact from './AddContact.js';
-import DisplaySwitch from './DisplaySwitch.js';
+import DisplayContact from './DisplayContact.js';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 export default function App() {
@@ -25,7 +25,7 @@ export default function App() {
         <Switch>
           <Route exact path='/' component={ContactList} />
           <Route path='/add-contact' component={AddContact} />
-          <Route path='/display-contact' component={DisplaySwitch} />
+          <Route path='/display-contact' component={DisplayContact} />
         </Switch>
       </div>
     </BrowserRouter>

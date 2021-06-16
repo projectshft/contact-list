@@ -21,10 +21,14 @@ export default function TableBuilder() {
   </Switch>
 ); */}
         {ContactsStateData.map((c) => {
-          return ( 
+          return (
             <tr key={c.id}>
-              <td>{c.name}</td>
-              <td><img src={c.image_url} /></td>
+              <td>
+                <Link to="/display-contact">{c.name}</Link>
+              </td>
+              <td>
+                <img src={c.image_url} alt="{c.name} headshot"/>
+              </td>
               <td>{c.email}</td>
               <td>{c.phone_number}</td>
             </tr>

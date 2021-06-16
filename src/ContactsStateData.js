@@ -1,7 +1,3 @@
-// state is a js array with all and get methods, I don't think this is correct though
-// trying to use the React Router 3 lesson
-import React, { useState } from 'react';
-
 export const ContactsStateData = [
       {
         id: Math.round(Math.random() * 100000000), // or use uuid
