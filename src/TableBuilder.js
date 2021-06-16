@@ -14,17 +14,11 @@ export default function TableBuilder() {
         </tr>
       </thead>
       <tbody>
-{/* const Roster = () => (
-  <Switch>
-    <Route exact path="/roster" component={FullRoster} />
-    <Route path="/roster/:number" component={Player} />
-  </Switch>
-); */}
-        {ContactsStateData.map((c) => {
+        {ContactsStateData.all().map(c => {
           return (
             <tr key={c.id}>
               <td>
-                <Link to="/display-contact">{c.name}</Link>
+                <Link to={`/display-contact/${c.id}`}>{c.name}</Link>
               </td>
               <td>
                 <img src={c.image_url} alt="{c.name} headshot"/>

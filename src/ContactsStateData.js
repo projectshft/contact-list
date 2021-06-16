@@ -1,4 +1,5 @@
-export const ContactsStateData = [
+export const ContactsStateData = {
+  people: [
       {
         id: Math.round(Math.random() * 100000000), // or use uuid
         name: "Adam Conley",
@@ -15,8 +16,17 @@ export const ContactsStateData = [
         email: "adehorta@dbuls.com",
         phone_number: "15555555555",
       },
-    ]
+    ],
+    all: function() {
+      return this.people;
+    },
+    get: function(id) {
+      const isPerson = p => p.id === id;
+      return this.people.find(isPerson);
+    }
+  };
 
+  
 // export {
 //   get: (//write funtion to return the data),
 //   set: (// argument would be new item, destructure data and  const handleAdd = (todo) => {
