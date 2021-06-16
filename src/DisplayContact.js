@@ -1,13 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { ContactsStateData } from "./ContactsStateData";
 
 export default function DisplayContact(props) {
-
+  console.log()
+  // bring data into component and then filter or find in the function here and then have that - mimic Player from the React baseball example
   return (
     <div className="DisplayContact">
       <div className="row">
         <div className="col-md-6 mx-auto">
           <div className="border border-secondary">
+            < filter by id ></filter>
             <ul>
               <li>URL</li>
               <li>

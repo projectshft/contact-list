@@ -1,5 +1,6 @@
 import React from "react";
-import ContactsStateData from "./ContactsStateData";
+import { Link } from "react-router-dom";
+import { ContactsStateData } from "./ContactsStateData";
 
 export default function TableBuilder() {
   return (
@@ -13,13 +14,21 @@ export default function TableBuilder() {
         </tr>
       </thead>
       <tbody>
-        {ContactsStateData.all().map((c) => {
-          <tr key={c.id}>
-            <td>{c.name}</td>
-            <td>{c.image_url}</td>
-            <td>{c.email}</td>
-            <td>{c.phone_number}</td>
-          </tr>
+{/* const Roster = () => (
+  <Switch>
+    <Route exact path="/roster" component={FullRoster} />
+    <Route path="/roster/:number" component={Player} />
+  </Switch>
+); */}
+        {ContactsStateData.map((c) => {
+          return ( 
+            <tr key={c.id}>
+              <td>{c.name}</td>
+              <td><img src={c.image_url} /></td>
+              <td>{c.email}</td>
+              <td>{c.phone_number}</td>
+            </tr>
+          );
         })}
       </tbody>
     </table>

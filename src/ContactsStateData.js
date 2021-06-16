@@ -1,7 +1,8 @@
-// state is a js object with all and get methods, I don't think this is correct though
+// state is a js array with all and get methods, I don't think this is correct though
 // trying to use the React Router 3 lesson
-const ContactsStateData = {
-    contacts: [
+import React, { useState } from 'react';
+
+export const ContactsStateData = [
       {
         id: Math.round(Math.random() * 100000000), // or use uuid
         name: "Adam Conley",
@@ -18,12 +19,12 @@ const ContactsStateData = {
         email: "adehorta@dbuls.com",
         phone_number: "15555555555",
       },
-    ],
-    all: function () {
-      return this.contacts;
-    },
-    get: function (id) {
-      const isContact = (c) => c.id === id;
-      return this.contacts.find(isContact);
-    },
-  };
+    ]
+
+// export {
+//   get: (//write funtion to return the data),
+//   set: (// argument would be new item, destructure data and  const handleAdd = (todo) => {
+//   setTodos([...todos, todo]);
+// })
+// }
+

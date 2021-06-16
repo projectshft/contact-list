@@ -1,5 +1,4 @@
 import React from "react";
-import { Switch, Link } from "react-router-dom";
 import TableBuilder from "./TableBuilder.js";
 
 export default function ContactTable() {
@@ -7,7 +6,7 @@ export default function ContactTable() {
     <div className="ContactTable">
       <div className="container">
         <div className="row">
-          <div className="col-md-6 offset-md-6">
+          <div className="col-md-6 offset-md-3">
             <TableBuilder />
           </div>
         </div>

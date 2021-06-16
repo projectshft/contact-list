@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { ContactsStateData } from "ContactsStateData.js"
 
 // ////
 // import PropTypes from "prop-types";
@@ -17,6 +18,8 @@ import { Link } from "react-router-dom";
 // ////
 
 export default function AddContact() {
+  // could write getter and setter and export them from ContactsStateData
+  
   return (
     <div className="AddContact">
       <div className="row">
