@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ContactsStateData } from "./ContactsStateData";
 
-export default function TableBuilder() {
+export default function TableBuilder({people}) {
   return (
     <table className="table table-striped table-bordered">
       <thead>
@@ -14,7 +13,7 @@ export default function TableBuilder() {
         </tr>
       </thead>
       <tbody>
-        {ContactsStateData.all().map(c => {
+        {people.map(c => {
           return (
             <tr key={c.id}>
               <td>

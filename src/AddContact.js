@@ -1,43 +1,37 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { ContactsStateData } from "./ContactsStateData.js"
+import { ContactsStateData } from "./ContactsStateData.js";
 import PropTypes from "prop-types";
 
 export default function AddContact(props) {
   // use "useState" from Hooks section of Parsity
-  // PLUS
-  // https://dev.to/andyrewlee/cheat-sheet-for-updating-objects-and-arrays-in-react-state-48np
-  // and maybe even this:
-  // https://reactjs.org/docs/hooks-reference.html#functional-updates
+  
+  // follow app.js all the way down
 
   // what goes in useState()?
-  const [name, setName] = useState([]);
-  const [image_url, setImageUrl] = useState([]);
-  const [email, setEmail] = useState([]);
-  const [phone_number, setPhoneNumber] = useState([]);
-  const [id, setId] = useState([]);
+  const [people, setPeople] = useState([ContactsStateData.people])
 
-  const new_id = Math.round(Math.random() * 100000000);
+  const [person, setPerson] = useState({
+    name: "",
+    image_url: "",
+    email: "",
+    phone_number: "",
+    id: Math.round(Math.random() * 100000000),
+  });
 
-  function handleNameChange(e) {
-    setName(e.target.value);
-  }
+  function handleChange(e) {
+    const newItem = e.target.value;
 
-  function handleImageUrlChange(e) {
-    setImageUrl(e.target.value);
-  }
-
-  function handleEmailChange(e) {
-    setEmail(e.target.value);
-  }
-
-  function handlePhoneNumberChange(e) {
-    setPhoneNumber(e.target.value);
+    setPerson ({
+      ...person, [e.target.name]: newItem
+    });
   }
 
   function handleClick(e) {
-    setId(new_id);
-    console.log()
+    console.log(people, person);
+    setPeople(people.concat(person));
+
+    console.log(people);
   }
   // Hello.propTypes = {
   //   // `name` must be a string, and it can't be `null` or `undefined`!
@@ -56,32 +50,36 @@ export default function AddContact(props) {
               <input
                 type="text"
                 className="form-control full-name"
-                value={name}
-                onChange={handleNameChange}
+                name="name"
+                value={person.name}
+                onChange={handleChange}
               />
               <br />
               Email Address
               <input
                 type="text"
                 className="form-control email-address"
-                value={email}
-                onChange={handleEmailChange}
+                name="email"
+                value={person.email}
+                onChange={handleChange}
               />
               <br />
               Phone Number
               <input
                 type="text"
                 className="form-control phone-number"
-                value={phone_number}
-                onChange={handlePhoneNumberChange}
+                name="phone_number"
+                value={person.phone_number}
+                onChange={handleChange}
               />
               <br />
               Image URL
               <input
                 type="text"
                 className="form-control image-url"
-                value={image_url}
-                onChange={handleImageUrlChange}
+                name="image_url"
+                value={person.image_url}
+                onChange={handleChange}
               />
               <br />
             </div>

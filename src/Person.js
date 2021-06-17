@@ -1,20 +1,19 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import { ContactsStateData } from "./ContactsStateData.js";
+import React from "react";
+import _ from "lodash";
 
-export default function SingleContact(props) {
-  const person = ContactsStateData.get(props.match.params.id);
+export default function Person({personId, people}) {
+  const person = _.find(people, { id: personId });
 
   if (!person) {
-    return <div>Sorry, but the contact {person.id}, {person.name} was not found</div>;
-  };
-  
+    return <div>Sorry, but the contact was not found</div>;
+  }
+
   return (
     <div className="DisplayContact">
       <div className="row">
         <div className="col-md-6 mx-auto">
           <div className="border border-secondary">
-            < filter by id ></filter>
             <ul>
               <li><img src={person.image_url} alt="This is a person that didn't load"/></li>
               <li>
@@ -34,8 +33,3 @@ export default function SingleContact(props) {
     </div>
   );
 };
-
-  
-
-
-
