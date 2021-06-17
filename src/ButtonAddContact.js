@@ -2,10 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function ButtonAddContact() {
+  // addPost (post) {
+  //   this.setState({ posts: this.state.posts.concat([post]) });
+  // }
+
   return (
     <div className="ButtonAddContact">
       <div className="row">
-        <Link to="/AddContact">
+        <Link to="/add-contact">
           <div className="col-md-6 offset-md-3">
             <button className="btn btn-primary">Add Contact</button>
           </div>
@@ -16,13 +20,3 @@ export default function ButtonAddContact() {
   );
 }
 
-// Hello.propTypes = {
-//   // `name` must be a string, and it can't be `null` or `undefined`!
-//   name: PropTypes.string.isRequired,
-// };
-
-// Hello.propTypes = {
-//   name: PropTypes.string.isRequired,
-//   //we simply state that this component should expect an array of objects to be passed as props
-//   apiData: PropTypes.arrayOf(PropTypes.object).isRequired,
-// };

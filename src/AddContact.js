@@ -1,25 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { ContactsStateData } from "./ContactsStateData.js"
+import PropTypes from "prop-types";
 
-// ////
-// import PropTypes from "prop-types";
+export default function AddContact(props) {
+  // use "useState" from Hooks section of Parsity
+  // PLUS
+  // https://dev.to/andyrewlee/cheat-sheet-for-updating-objects-and-arrays-in-react-state-48np
+  // and maybe even this:
+  // https://reactjs.org/docs/hooks-reference.html#functional-updates
 
-// Hello.propTypes = {
-//   // `name` must be a string, and it can't be `null` or `undefined`!
-//   name: PropTypes.string.isRequired,
-// };
+  // what goes in useState()?
+  const [name, setName] = useState([]);
+  const [image_url, setImageUrl] = useState([]);
+  const [email, setEmail] = useState([]);
+  const [phone_number, setPhoneNumber] = useState([]);
+  const [id, setId] = useState([]);
 
-// Hello.propTypes = {
-//   name: PropTypes.string.isRequired,
-//   //we simply state that this component should expect an array of objects to be passed as props
-//   apiData: PropTypes.arrayOf(PropTypes.object).isRequired,
-// };
-// ////
+  const new_id = Math.round(Math.random() * 100000000);
 
-export default function AddContact() {
-  // could write getter and setter and export them from ContactsStateData
-  
+  function handleNameChange(e) {
+    setName(e.target.value);
+  }
+
+  function handleImageUrlChange(e) {
+    setImageUrl(e.target.value);
+  }
+
+  function handleEmailChange(e) {
+    setEmail(e.target.value);
+  }
+
+  function handlePhoneNumberChange(e) {
+    setPhoneNumber(e.target.value);
+  }
+
+  function handleClick(e) {
+    setId(new_id);
+    console.log()
+  }
+  // Hello.propTypes = {
+  //   // `name` must be a string, and it can't be `null` or `undefined`!
+  //   name: PropTypes.string.isRequired,
+  // };
+
   return (
     <div className="AddContact">
       <div className="row">
@@ -29,29 +53,42 @@ export default function AddContact() {
 
             <div className="form-group">
               Full Name
-              <input type="text" className="form-control full-name" value="" />
+              <input
+                type="text"
+                className="form-control full-name"
+                value={name}
+                onChange={handleNameChange}
+              />
               <br />
               Email Address
               <input
                 type="text"
                 className="form-control email-address"
-                value=""
+                value={email}
+                onChange={handleEmailChange}
               />
               <br />
               Phone Number
               <input
                 type="text"
                 className="form-control phone-number"
-                value=""
+                value={phone_number}
+                onChange={handlePhoneNumberChange}
               />
               <br />
               Image URL
-              <input type="text" className="form-control image-url" value="" />
+              <input
+                type="text"
+                className="form-control image-url"
+                value={image_url}
+                onChange={handleImageUrlChange}
+              />
               <br />
             </div>
 
             <Link to="/">
               <button
+                onClick={handleClick}
                 type="button"
                 className="btn btn-primary add-contact-and-return"
               >

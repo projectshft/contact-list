@@ -3,14 +3,13 @@ import { Link } from "react-router-dom";
 import { ContactsStateData } from "./ContactsStateData.js";
 
 export default function SingleContact(props) {
-  alert("here!");
+  const person = ContactsStateData.get(props.match.params.id);
 
-  const person = ContactsStateData.get(parseInt(props.match.params.id, 8));
-  
-  alert(person);
+  console.log(person);
+
   if (!person) {
-    return <div>Sorry, but the contact was not found</div>;
-  }
+    return <div>Sorry, but the contact {person.id}, {person.name} was not found</div>;
+  };
   
   return (
     <div className="DisplayContact">

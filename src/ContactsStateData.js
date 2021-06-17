@@ -21,8 +21,7 @@ export const ContactsStateData = {
       return this.people;
     },
     get: function(id) {
-      const isPerson = p => p.id === id;
-      return this.people.find(isPerson);
+      return this.people.find(x => x.id === parseInt(id))
     }
   };
 
