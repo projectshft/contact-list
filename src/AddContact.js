@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom'
 
 export default function AddContact(props) {
   const [name, setName] = useState("")
@@ -17,8 +16,8 @@ export default function AddContact(props) {
       email,
       phone_number,
     })
-    console.log(props);
-    //props.history.push('/')
+    
+    props.history.push('/')
   }
 
   return (
@@ -59,15 +58,13 @@ export default function AddContact(props) {
               <br />
             </div>
 
-            {/* <Link to="/"> */}
-              <button
-                onClick={handleSubmitChangeButton}
-                type="button"
-                className="btn btn-primary add-contact-and-return"
-              >
-                Add Contact
-              </button>
-            {/* </Link> */}
+            <button
+              onClick={handleSubmitChangeButton}
+              type="button"
+              className="btn btn-primary add-contact-and-return"
+            >
+              Add Contact
+            </button>
           </form>
         </div>
       </div>

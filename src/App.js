@@ -1,6 +1,7 @@
 import './App.css';
 import AddContact from './AddContact.js'
-import ContactListRouter from './ContactListRouter.js'
+import Contact from './Contact.js'
+import ContactList from './ContactList.js'
 import React, { useState }  from 'react';
 import { Switch, Route } from "react-router-dom";
 
@@ -47,19 +48,31 @@ export default function App() {
       </div>
 
       <Switch>
-        <Route path='/add-contact' 
-          contacts={contacts}
-          render={() => (
-            <AddContact addContact={addContact} contacts={contacts} />
-          )} />
+        <Route
+          path="/add-contact"
+          render={(routerProps) => (
+            <AddContact
+              history={routerProps.history}
+              contacts={contacts}
+              addContact={addContact}
+            />
+          )}
+        />
+
+        <Route
+          path="/:id"
+          render={(routerProps) => (
+            <Contact
+              contactId={parseInt(routerProps.match.params.id, 8)}
+              contacts={contacts}
+            />
+          )}
+        />
 
         <Route
           exact
           path="/"
-          contacts={contacts}
-          render={() => (
-            <ContactListRouter addContact={addContact} contacts={contacts} />
-          )}
+          render={() => <ContactList contacts={contacts} />}
         />
       </Switch>
     </div>
