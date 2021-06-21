@@ -2,24 +2,23 @@ import React, { useState } from "react";
 import { Link } from 'react-router-dom'
 
 export default function AddContact(props) {
-  console.log('here');
   const [name, setName] = useState("")
   const [image_url, setImageUrl] = useState("");
   const [email, setEmail] = useState("");
   const [phone_number, setPhoneNumber] = useState("")
 
-  const id = Math.round(Math.random() * 100000000);
+  const newId = Math.round(Math.random() * 100000000);
 
   const handleSubmitChangeButton = () => {
-    props.addPlayer({
-      id,
+    props.addContact({
+      newId,
       name,
       image_url,
       email,
       phone_number,
     })
-
-    props.history.push('/display-contact')
+    console.log(props);
+    //props.history.push('/')
   }
 
   return (
@@ -60,7 +59,7 @@ export default function AddContact(props) {
               <br />
             </div>
 
-            <Link to="/">
+            {/* <Link to="/"> */}
               <button
                 onClick={handleSubmitChangeButton}
                 type="button"
@@ -68,7 +67,7 @@ export default function AddContact(props) {
               >
                 Add Contact
               </button>
-            </Link>
+            {/* </Link> */}
           </form>
         </div>
       </div>

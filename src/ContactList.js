@@ -2,11 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import ButtonAddContact from "./ButtonAddContact.js"
 
-export default function ContactList({contacts}) {
+export default function ContactList({contacts, addContact}) {
   return (
     <div className="ContactList">
       
-      {/* <ButtonAddContact contacts={contacts} addContact={addContact}/> */}
+      <ButtonAddContact contacts={contacts} addContact={addContact}/>
     
       <div className="ContactTable">
         <div className="container">

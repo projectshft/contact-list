@@ -20,14 +20,14 @@ const ContactListRouter = ({ contacts, addContact }) => (
       path="/:id"
       render={(routerProps) => (
         <Contact
-          contactId={parseInt(routerProps.match.params.id)}
+          contactId={parseInt(routerProps.match.params.id, 8)}
           contacts={contacts}
         />
       )}
     />
 
     <Route
-      path="/"
+      exact path="/"
       render={() => (
         <ContactList
           contacts={contacts}
