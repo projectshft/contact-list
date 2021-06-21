@@ -2,8 +2,9 @@ import { Link } from "react-router-dom";
 import React from "react";
 import _ from "lodash";
 
-export default function Person({personId, people}) {
-  const person = _.find(people, { id: personId });
+export default function Contact({contactId, contacts}) {
+  console.log(contactId);
+  const person = _.find(contacts, { id: contactId });
 
   if (!person) {
     return <div>Sorry, but the contact was not found</div>;

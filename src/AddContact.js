@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom'
 
-export default function PersonNew(props) {
+export default function AddContact(props) {
+  console.log('here');
   const [name, setName] = useState("")
   const [image_url, setImageUrl] = useState("");
   const [email, setEmail] = useState("");

@@ -1,11 +1,11 @@
 import './App.css';
-import ContactList from './ContactList.js';
-import DisplayContact from './DisplayContact.js';
+import AddContact from './AddContact.js'
+import ContactListRouter from './ContactListRouter.js'
 import React, { useState }  from 'react';
 import { Switch, Route } from "react-router-dom";
 
 export default function App() {
-  const [people, setPeople] = useState([
+  const [contacts, setContacts] = useState([
     {
       id: Math.round(Math.random() * 100000000), // or use uuid
       name: "Adam Conley",
@@ -24,33 +24,39 @@ export default function App() {
     }
   ])
       
-  const addPerson = (person) => {
-    setPeople(people => {
-      return [...people, person]
+  const addContact = (contact) => {
+    setContacts(contact => {
+      return [...contacts, contact]
     });
   }
 
   return (
     <div className="App">
-    <div className="row">
-      <header className="App-header">
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <h1>Contact List</h1>
-        </div>
-      </header>
-    </div>
+      <div className="row">
+        <header className="App-header">
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <h1>Contact List</h1>
+          </div>
+        </header>
+      </div>
 
       <Switch>
-        <Route exact path='/' component={ContactList} />
-        <Route path='/display-contact' render={() => (
-          <DisplayContact addPerson={addPerson} people={people} />
-        )} />
+        <Route
+          exact
+          path="/"
+          contacts={contacts}
+          render={() => <ContactListRouter addContact={addContact} 
+          contacts={contacts}/>}
+        />
+
+        <Route path='/add-contact'  />
+        
       </Switch>
     </div>
   );}
