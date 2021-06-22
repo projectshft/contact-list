@@ -6,7 +6,7 @@ export default function ButtonAddContact( {contacts, addContact}) {
     let history = useHistory();
 
     function handleClick() {
-      history.push("/add-contact");
+      history.push("/contacts/new");
     }
 
     return (

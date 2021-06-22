@@ -26,7 +26,7 @@ export default function ContactList({contacts, addContact}) {
                     return (
                       <tr key={c.id}>
                         <td>
-                          <Link to={`/${c.id}`}>{c.name}</Link>
+                          <Link to={`/contacts/${c.name}`}>{c.name}</Link>
                         </td>
                         <td>
                           <img src={c.image_url} alt="{c.name} headshot"/>

@@ -18,7 +18,7 @@ function AddContact(props) {
       phone_number,
     })
 
-    props.history.push('/')
+    props.history.push('/contacts/')
   }
 
   

@@ -3,7 +3,7 @@ import React from "react";
 import _ from "lodash";
 
 export default function Contact({contactId, contacts}) {
-  console.log(contactId);
+  console.log('here');
   const person = _.find(contacts, { id: contactId });
 
   if (!person) {
@@ -28,7 +28,7 @@ export default function Contact({contactId, contacts}) {
               </li>
             </ul>
           </div>
-          <Link to="/">Back</Link>
+          <Link to="/contacts/">Back</Link>
         </div>
       </div>
     </div>

@@ -49,7 +49,7 @@ export default function App() {
 
       <Switch>
         <Route
-          path="/add-contact"
+          path="/contacts/new"
           render={(routerProps) => (
             <AddContact
               history={routerProps.history}
@@ -60,7 +60,7 @@ export default function App() {
         />
 
         <Route
-          path="/:id"
+          path="/contacts/:name"
           render={(routerProps) => (
             <Contact
               contactId={parseInt(routerProps.match.params.id, 8)}
@@ -71,7 +71,7 @@ export default function App() {
 
         <Route
           exact
-          path="/"
+          path="/contacts"
           render={() => <ContactList contacts={contacts} />}
         />
       </Switch>
