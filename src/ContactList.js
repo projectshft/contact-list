@@ -33,7 +33,6 @@ export default function ContactList({contacts, addContact}) {
                         </td>
                         <td>{c.email}</td>
                         <td>{c.phone_number}</td>
-                        <td>{c.id}</td>
                       </tr>
                     );
                   })}

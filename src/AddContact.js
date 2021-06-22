@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 
-export default function AddContact(props) {
+function AddContact(props) {
   const [name, setName] = useState("")
   const [image_url, setImageUrl] = useState("");
   const [email, setEmail] = useState("");
@@ -16,9 +17,11 @@ export default function AddContact(props) {
       email,
       phone_number,
     })
-    
+
     props.history.push('/')
   }
+
+  
 
   return (
     <div className="AddContact">
@@ -70,6 +73,17 @@ export default function AddContact(props) {
       </div>
     </div>
   );
-
 }
+
+
+AddContact.propTypes = {
+      name: PropTypes.string.isRequired,
+      email: PropTypes.string.isRequired,
+      image_url: PropTypes.string.isRequired,
+      phone_number: PropTypes.number.isRequired,
+    };
+export default AddContact;
+
+
+ 
 
