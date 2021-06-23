@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import ButtonAddContact from "./ButtonAddContact.js"
 
 export default function ContactList({contacts, addContact}) {
+  // a function with addContact passed in to be further passed into ButtonAddContact and ultimately AddContact.js
+  // contacts in App.js will be presented in a table on this "index" sort of page
   return (
     <div className="ContactList">
       
@@ -33,6 +35,7 @@ export default function ContactList({contacts, addContact}) {
                         </td>
                         <td>{c.email}</td>
                         <td>{c.phone_number}</td>
+                        <td>{c.id}</td>
                       </tr>
                     );
                   })}

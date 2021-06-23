@@ -2,14 +2,15 @@ import { Link } from "react-router-dom";
 import React from "react";
 import _ from "lodash";
 
-export default function Contact({contactId, contacts}) {
-  console.log('here');
-  const person = _.find(contacts, { id: contactId });
+export default function Contact({ contactName, contacts }) {
+  // match the clicked name with the name in the contacts array that has been passed down
+  const person = _.find(contacts, { name: contactName });
 
   if (!person) {
     return <div>Sorry, but the contact was not found</div>;
   }
 
+  // display the single contact in vertical form with light border
   return (
     <div className="DisplayContact">
       <div className="row">

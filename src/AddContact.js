@@ -7,6 +7,7 @@ function AddContact(props) {
   const [email, setEmail] = useState("");
   const [phone_number, setPhoneNumber] = useState("")
 
+  // assign new contact a random 8 digit id
   const newId = Math.round(Math.random() * 100000000);
 
   const handleSubmitChangeButton = () => {
@@ -18,11 +19,11 @@ function AddContact(props) {
       phone_number,
     })
 
+    // go back to the /contacts/ route (ContactList) when done
     props.history.push('/contacts/')
   }
 
-  
-
+  // form to input new contact, will be added using handleSubmitChangeButton function above
   return (
     <div className="AddContact">
       <div className="row">
