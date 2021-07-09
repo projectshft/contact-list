@@ -23,7 +23,10 @@ const App = () => {
     },
   ]);
 
+  const generateID = () => Math.round(Math.random() * 100000000);
+
   const addContact = (contact) => {
+    contact.contactID = generateID();
     setContacts([...contacts, contact]);
   };
 
@@ -47,7 +50,7 @@ const App = () => {
           path="/:number"
           render={(props) => (
             <ContactDetail
-              contactId={parseInt(props.match.params.number, 10)}
+              contactID={parseInt(props.match.params.contactID, 10)}
               contacts={contacts}
             />
           )}

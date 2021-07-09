@@ -25,7 +25,7 @@ const Home = ({ contacts }) => (
           </thead>
           <tbody>
             {contacts.map((contact, index) => (
-              <tr key={contact.number}>
+              <tr key={contact.contactID}>
                 <th scope="row">{index + 1}</th>
                 <td>
                   <img
@@ -38,7 +38,7 @@ const Home = ({ contacts }) => (
                 <td>{contact.email}</td>
                 <td>{contact.phone}</td>
                 <td>
-                  <Link to="/:{contact.number}">
+                  <Link to={`/:${contact.contactID}`}>
                     <button class="btn btn-primary">Info</button>
                   </Link>
                 </td>

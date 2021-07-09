@@ -2,8 +2,8 @@ import { Link } from 'react-router-dom'
 import React from 'react'
 import _ from 'lodash'
 
-const Contact = ({contactId, contacts}) => {
-  const contact = _.find(contacts, { number: contactId });
+const Contact = ({contactID, contacts}) => {
+  const contact = _.find(contacts, { number: contactID });
 
   if (!contact) {
     return <div>Sorry, but the contact was not found</div>
