@@ -6,24 +6,25 @@ import ContactForm from "./components/ContactForm";
 import "./App.css";
 
 const App = () => {
+
+  const generateID = () => Math.round(Math.random() * 100000000);
+  
   const [contacts, setContacts] = useState([
     {
       imageURL: "https://i.imgflip.com/419day.png",
       name: "Joe Shocked",
       email: "shockedfish@gmail.com",
       phone: "1-800-shocked",
-      contactID: "1"
+      contactID: generateID()
     },
     {
       imageURL: "https://i.pinimg.com/originals/12/6e/4b/126e4bf6fff76cdba62610e462eb0c4d.jpg",
       name: "Samantha Smiles",
       email: "mssmiles@aol.com",
       phone: "1-800-ms-smiles",
-      contactID: "2"
+      contactID: generateID()
     },
   ]);
-
-  const generateID = () => Math.round(Math.random() * 100000000);
 
   const addContact = (contact) => {
     contact.contactID = generateID();
@@ -47,10 +48,10 @@ const App = () => {
         />
 
         <Route
-          path="/:number"
+          path="/:contactID"
           render={(props) => (
             <ContactDetail
-              contactID={parseInt(props.match.params.contactID, 10)}
+              contactID={props.match.params.contactID}
               contacts={contacts}
             />
           )}

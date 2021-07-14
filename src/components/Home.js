@@ -38,7 +38,7 @@ const Home = ({ contacts }) => (
                 <td>{contact.email}</td>
                 <td>{contact.phone}</td>
                 <td>
-                  <Link to={`/:${contact.contactID}`}>
+                  <Link to={`/${contact.contactID}`}>
                     <button class="btn btn-primary">Info</button>
                   </Link>
                 </td>
