@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-
 const Home = ({ contacts }) => (
   <div class="container-fluid">
     <div class="row">
@@ -7,11 +6,9 @@ const Home = ({ contacts }) => (
         <div class="page-header">
           <h1 class="text-center">Yerkie's Contact List</h1>
         </div>
-
         <Link to="/ContactForm">
           <button class="btn btn-primary">Add Contact</button>
         </Link>
-
         <table class="table">
           <thead>
             <tr>
@@ -50,5 +47,4 @@ const Home = ({ contacts }) => (
     </div>
   </div>
 );
-
 export default Home;
