@@ -20,11 +20,11 @@ const ContactForm = (props) => {
   };
 
   return (
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-4 offset-md-3">
-          <div class="page-header">
-            <h1 class="text-center">Add a Contact</h1>
+    <div className="container-fluid">
+      <div className="row">
+        <div className="col-md-4 offset-md-3">
+          <div className="page-header">
+            <h1 className="text-center">Add a Contact</h1>
           </div>
           <div>
             <form>
@@ -66,7 +66,7 @@ const ContactForm = (props) => {
 
               <button
                 type="button"
-                class="btn btn-primary"
+                className="btn btn-primary"
                 onClick={handleSubmitContactClick}
               >
                 Add Contact to List

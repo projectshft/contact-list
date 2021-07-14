@@ -1,15 +1,15 @@
 import { Link } from "react-router-dom";
 const Home = ({ contacts }) => (
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-6 offset-md-3">
-        <div class="page-header">
-          <h1 class="text-center">Yerkie's Contact List</h1>
+  <div className="container-fluid">
+    <div className="row">
+      <div className="col-md-6 offset-md-3">
+        <div className="page-header">
+          <h1 className="text-center">Yerkie's Contact List</h1>
         </div>
         <Link to="/ContactForm">
-          <button class="btn btn-primary">Add Contact</button>
+          <button className="btn btn-primary">Add Contact</button>
         </Link>
-        <table class="table">
+        <table className="table">
           <thead>
             <tr>
               <th scope="col">#</th>
@@ -36,7 +36,7 @@ const Home = ({ contacts }) => (
                 <td>{contact.phone}</td>
                 <td>
                   <Link to={`/${contact.contactID}`}>
-                    <button class="btn btn-primary">Info</button>
+                    <button className="btn btn-primary">Info</button>
                   </Link>
                 </td>
               </tr>
