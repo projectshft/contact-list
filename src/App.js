@@ -25,9 +25,12 @@ const App = () => {
       contactID: generateID(),
     },
   ]);
+
   const addContact = (contact) => {
+    contact.contactID = generateID();
     setContacts([...contacts, contact]);
   };
+
   return (
     <div>
       <Switch>
@@ -53,7 +56,7 @@ const App = () => {
           )}
         />
         <Route
-          path="/number"
+          path="/:number"
           render={(props) => (
             <ContactDetail
               contactID={props.match.params.number}

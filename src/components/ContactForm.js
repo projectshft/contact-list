@@ -9,6 +9,11 @@ const ContactForm = (props) => {
 
   const handleSubmitContactClick = () => {
 
+    if (name === "" || email === "" || phone === "" || imageURL === "") {
+      alert("Missing required fields");
+      return;
+    };
+
     props.addContact({
       imageURL,
       name,
