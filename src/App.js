@@ -1,25 +1,71 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { Switch, Route } from "react-router-dom";
+import Home from "./components/Home";
+import ContactDetail from "./components/ContactDetail";
+import ContactForm from "./components/ContactForm";
+import "./App.css";
+const App = () => {
 
-function App() {
+  const generateID = () => Math.round(Math.random() * 100000000);
+
+  const [contacts, setContacts] = useState([
+    {
+      imageURL: "https://i.imgflip.com/419day.png",
+      name: "Joe Shocked",
+      email: "shockedfish@gmail.com",
+      phone: "1-800-shocked",
+      contactID: generateID(),
+    },
+    {
+      imageURL:
+        "https://i.pinimg.com/originals/12/6e/4b/126e4bf6fff76cdba62610e462eb0c4d.jpg",
+      name: "Samantha Smiles",
+      email: "mssmiles@aol.com",
+      phone: "1-800-ms-smiles",
+      contactID: generateID(),
+    },
+  ]);
+
+  const addContact = (contact) => {
+    contact.contactID = generateID();
+    setContacts([...contacts, contact]);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Switch>
+        <Route
+          exact
+          path="/"
+          render={() => (
+            <Home
+              addContact={addContact}
+              contacts={contacts}
+              setContacts={setContacts}
+            />
+          )}
+        />
+        <Route
+          path="/ContactForm"
+          render={(props) => (
+            <ContactForm
+              history={props.history}
+              contacts={contacts}
+              addContact={addContact}
+            />
+          )}
+        />
+        <Route
+          path="/:number"
+          render={(props) => (
+            <ContactDetail
+              contactID={props.match.params.number}
+              contacts={contacts}
+            />
+          )}
+        />
+      </Switch>
     </div>
   );
-}
-
+};
 export default App;
