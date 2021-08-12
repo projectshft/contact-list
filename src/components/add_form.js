@@ -1,10 +1,11 @@
 import { useState } from 'react';
 
-export default function AddForm({ addContact }) {
+export default function AddForm(props) {
   const [name, setName] = useState('');
   const [number, setNumber] = useState(0);
   const [email, setEmail] = useState('');
   const [avatar, setAvatar] = useState('');
+  const newId = Math.round(Math.random() * 100000000);
 
   const handleClick = function () {
     const contact = {
@@ -12,8 +13,9 @@ export default function AddForm({ addContact }) {
       number,
       email,
       avatar,
+      newId,
     };
-    addContact(contact);
+    // addContact(contact);
   };
 
   return (
@@ -31,6 +33,7 @@ export default function AddForm({ addContact }) {
           type="text"
           className="form-control"
           placeholder="Contact Name"
+          required
         />
         <br />
         <input
@@ -41,6 +44,7 @@ export default function AddForm({ addContact }) {
           type="number"
           className="form-control"
           placeholder="Contact Number"
+          required
         />
         <br />
         <input
@@ -51,6 +55,7 @@ export default function AddForm({ addContact }) {
           type="text"
           className="form-control"
           placeholder="Contact Email"
+          required
         />
         <br />
         <input
@@ -61,6 +66,7 @@ export default function AddForm({ addContact }) {
           type="text"
           className="form-control"
           placeholder="Contact Image"
+          required
         />
       </div>
       <div className="col-md-1 offset-md-3">
