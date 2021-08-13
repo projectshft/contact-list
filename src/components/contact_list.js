@@ -4,9 +4,13 @@ import PropTypes from 'prop-types';
 const contactRow = (contact) => (
   <tr key={contact.id}>
     <td>
-      <img src={contact.avatar} alt={contact.name} />
+      <Link to={`/contacts/${contact.id}`}>
+        <img src={contact.avatar} alt={contact.name} />
+      </Link>
     </td>
-    <td>{contact.name}</td>
+    <td>
+      <Link to={`/contacts/${contact.id}`}> {contact.name} </Link>
+    </td>
     <td>{contact.number}</td>
     <td>{contact.email}</td>
   </tr>

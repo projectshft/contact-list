@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export default function AddForm(props) {
   const [name, setName] = useState('');
-  const [number, setNumber] = useState(0);
+  const [number, setNumber] = useState();
   const [email, setEmail] = useState('');
   const [avatar, setAvatar] = useState('');
   const id = Math.round(Math.random() * 100000000);
@@ -42,7 +42,7 @@ export default function AddForm(props) {
           onChange={(event) => {
             setNumber(event.target.value);
           }}
-          type="number"
+          type="tel"
           className="form-control"
           placeholder="Contact Number"
           required
@@ -53,10 +53,10 @@ export default function AddForm(props) {
           onChange={(event) => {
             setEmail(event.target.value);
           }}
-          type="text"
+          type="email"
           className="form-control"
           placeholder="Contact Email"
-          required
+          required="required"
         />
         <br />
         <input

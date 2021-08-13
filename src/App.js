@@ -12,7 +12,7 @@ function App() {
       id: 70219577,
       name: 'Albert Einstein',
       avatar:
-        'https://en.wikipedia.org/wiki/Albert_Einstein#/media/File:Einstein_1921_by_F_Schmutzer_-_restoration.jpg',
+        'https://pbs.twimg.com/profile_images/879355674957926400/VSGZHGib_400x400.jpg',
       email: 'aeinstein@example.com',
       number: '15555555555',
     },
@@ -23,7 +23,7 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className="App container">
       <Switch>
         <Route
           exact
@@ -37,7 +37,15 @@ function App() {
             <AddForm history={props.history} addContact={addContact} />
           )}
         />
-        <Route path="/contacts/:id" component={Contact} contacts={contacts} />
+        <Route
+          path="/contacts/:id"
+          render={(routerProps) => (
+            <Contact
+              contactId={parseInt(routerProps.match.params.id, 10)}
+              contacts={contacts}
+            />
+          )}
+        />
       </Switch>
     </div>
   );
