@@ -1,4 +1,6 @@
 import {useState} from 'react';
+import PropTypes from 'prop-types';
+import {Link} from 'react-router-dom';
 
 const AddContactForm = (props) => {
   const [name, setName] = useState('');
@@ -58,7 +60,8 @@ const AddContactForm = (props) => {
             <br/>
           </div>
 
-          <button type="button" className="btn btn-primary" onClick={handleClick}>Create Contact</button>
+          <button type="button" className="btn btn-primary add-contact-btn" onClick={handleClick}>Create Contact</button>
+          <Link to={'/contacts'} className="button btn btn-primary">Back</Link>
         </form>   
       </div> 
     </div>   

@@ -27,7 +27,7 @@ const AllContacts = ({contacts}) => {
               {contacts.map((contact) => {
                 return (
                   <tr key={contact.id.toString()}>
-                    <th scope="row"><img src={contact.imgUrl}></img></th>
+                    <th scope="row"><img src={contact.imgUrl} alt="Image not found"></img></th>
                     <td><Link to={`/contacts/${contact.id}`}>{contact.name}</Link></td>
                     <td>{contact.email}</td>
                     <td>{contact.number}</td>

@@ -9,7 +9,7 @@ const App = () => {
     {
       id: 1,
       name: 'Otto Frankel',
-      imgUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/0/01/Sans_undertale.jpg/220px-Sans_undertale.jpg',
+      imgUrl: 'https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg',
       email: 'otto@email.com',
       number: '111-3333'
     },

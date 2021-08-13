@@ -16,6 +16,11 @@ img {
   color: rgb(149, 149, 240);
 }
 
+.btn {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
 .center {
   margin: auto;
   width: 50%;
