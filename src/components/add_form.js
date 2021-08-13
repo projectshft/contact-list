@@ -1,21 +1,22 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 export default function AddForm(props) {
   const [name, setName] = useState('');
   const [number, setNumber] = useState(0);
   const [email, setEmail] = useState('');
   const [avatar, setAvatar] = useState('');
-  const newId = Math.round(Math.random() * 100000000);
+  const id = Math.round(Math.random() * 100000000);
 
   const handleClick = function () {
-    const contact = {
+    props.addContact({
       name,
       number,
       email,
       avatar,
-      newId,
-    };
-    // addContact(contact);
+      id,
+    });
+    props.history.push('/');
   };
 
   return (
@@ -78,3 +79,8 @@ export default function AddForm(props) {
     </form>
   );
 }
+
+AddForm.propTypes = {
+  addContact: PropTypes.func.isRequired,
+  history: PropTypes.object,
+};
