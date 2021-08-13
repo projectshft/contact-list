@@ -7,7 +7,7 @@ const AllContacts = ({contacts}) => {
       <div className="row">      
         <div className="col-md-6 offset-md-3">
           <h1>Contact List</h1>
-          <button className="add-btn btn btn-primary"><Link to={'/add-contact'} className="link">Create Contact</Link></button>
+          <Link to={'/add-contact'} className="button btn btn-primary">Create Contact</Link>
         </div>
       </div>
 
@@ -28,7 +28,7 @@ const AllContacts = ({contacts}) => {
                 return (
                   <tr key={contact.id.toString()}>
                     <th scope="row"><img src={contact.imgUrl}></img></th>
-                    <td>{contact.name}</td>
+                    <td><Link to={`/contacts/${contact.id}`}>{contact.name}</Link></td>
                     <td>{contact.email}</td>
                     <td>{contact.number}</td>
                   </tr>

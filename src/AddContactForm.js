@@ -7,14 +7,19 @@ const AddContactForm = (props) => {
   const [imgUrl, setImgUrl] = useState('');
 
   const handleClick = () => {
-    props.addContact({
-      name: name,
-      email: email,
-      number: number,
-      imgUrl: imgUrl
-    })
+    if (name && email && number) {
+      props.addContact({
+        name: name,
+        email: email,
+        number: number,
+        imgUrl: imgUrl
+      })
+  
+      props.history.push('/');
 
-    props.history.push('/');
+    } else {
+      alert("Please fill out your contact's name, email, and number.");
+    }
   }
 
   return (
@@ -53,7 +58,7 @@ const AddContactForm = (props) => {
             <br/>
           </div>
 
-          <button type="button" className="btn btn-primary add-contact" onClick={handleClick}>Create Contact</button>
+          <button type="button" className="btn btn-primary" onClick={handleClick}>Create Contact</button>
         </form>   
       </div> 
     </div>   

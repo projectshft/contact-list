@@ -10,7 +10,7 @@ const Contacts = ({contacts}) => {
       )} />
 
       <Route path="/contacts/:id" render={(routerProps) => (
-          <ViewContact/>
+          <ViewContact contactId={parseInt(routerProps.match.params.id, 10)} contacts={contacts}/>
       )} />
     </Switch>
   )
