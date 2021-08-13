@@ -6,3 +6,12 @@ img {
 .add-btn {
   margin-top: 50px;
 }
+
+.link {
+  color: #fff;
+  text-decoration: none;
+}
+
+.link:hover {
+  color: rgb(149, 149, 240);
+}
