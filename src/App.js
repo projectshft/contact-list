@@ -1,27 +1,16 @@
 import React, {useState} from 'react';
 import {Switch, Route} from 'react-router-dom';
+import _ from 'lodash';
 import AllContacts from './AllContacts';
 import AddContactForm from './AddContactForm';
 import Contacts from './Contacts';
 
+// Main App Component
+
 const App = () => {
-  const [contacts, setContacts] = useState([
-    {
-      id: 1,
-      name: 'Otto Frankel',
-      imgUrl: 'https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg',
-      email: 'otto@email.com',
-      number: '111-3333'
-    },
-    {
-      id: 2,
-      name: 'The Rock',
-      imgUrl: 'https://www.dmarge.com/wp-content/uploads/2021/01/dwayne-the-rock-.jpg',
-      email: 'dwayne@therock.com',
-      number: '222-1234'
-    }
-  ]);
-  const [currId, setCurrId] = useState(3);
+  const [contacts, setContacts] = useState([]);
+
+  const [currId, setCurrId] = useState(1);
 
   const addContact = (newContact) => {
     newContact.id = currId;
@@ -29,6 +18,22 @@ const App = () => {
     setContacts(oldContacts => [...oldContacts, newContact]);
   }
 
+  const editContact = (id, editedContact) => {
+    const updatedContacts = [...contacts];
+    const contact = _.find(updatedContacts, {id: id});
+    
+    Object.assign(contact, editedContact);
+    setContacts(updatedContacts);
+  }
+
+  const deleteContact = (id) => {
+    const updatedContacts = _.remove([...contacts], (contact) => {
+      return !(contact.id === id);
+    });
+    setContacts(updatedContacts);
+  }
+
+  // Routes
   return (
     <div>
       <Switch>
@@ -37,7 +42,7 @@ const App = () => {
         )} />
 
         <Route path="/contacts" render={() => (
-          <Contacts contacts={contacts}/>
+          <Contacts contacts={contacts} deleteContact={deleteContact} editContact={editContact}/>
         )} />
         
         <Route path="/add-contact" render={(routerProps) => (

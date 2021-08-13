@@ -1,27 +1,20 @@
 import {useState} from 'react';
-import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
+import submitForm from './SubmitForm';
 
-const AddContactForm = (props) => {
+const AddContactForm = ({history, addContact}) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [number, setNumber] = useState('');
   const [imgUrl, setImgUrl] = useState('');
 
   const handleClick = () => {
-    if (name && email && number) {
-      props.addContact({
-        name: name,
-        email: email,
-        number: number,
-        imgUrl: imgUrl
-      })
-  
-      props.history.push('/');
+    const newContact = submitForm(name, email, number, imgUrl);
 
-    } else {
-      alert("Please fill out your contact's name, email, and number.");
-    }
+    if (newContact) {
+      addContact(newContact)
+      history.push('/contacts');
+    } 
   }
 
   return (
@@ -31,6 +24,7 @@ const AddContactForm = (props) => {
           <h2>New Contact:</h2>
 
           <div className="form-group">
+            <span>Name*</span>
             <input
               className="form-control"
               placeholder="Name"
@@ -38,6 +32,7 @@ const AddContactForm = (props) => {
             />
             <br/>
 
+            <span>Email*</span>
             <input
               className="form-control"
               placeholder="Email"
@@ -45,6 +40,7 @@ const AddContactForm = (props) => {
             />
             <br/>
 
+            <span>Number*</span>
             <input
               className="form-control"
               placeholder="Number"
@@ -52,6 +48,7 @@ const AddContactForm = (props) => {
             />
             <br/>
 
+            <span>Profile Pic URL</span>
             <input
               className="form-control"
               placeholder="Profile Pic URL"
@@ -60,6 +57,7 @@ const AddContactForm = (props) => {
             <br/>
           </div>
 
+          <span>Fields marked with * are required</span>
           <button type="button" className="btn btn-primary add-contact-btn" onClick={handleClick}>Create Contact</button>
           <Link to={'/contacts'} className="button btn btn-primary">Back</Link>
         </form>   
