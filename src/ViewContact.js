@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import {Link} from 'react-router-dom';
+import ProfilePic from './ProfilePic';
 
 // Component to render a single contact
 function ViewContact({contactId, contacts, deleteContact, history}) {
@@ -20,7 +21,7 @@ function ViewContact({contactId, contacts, deleteContact, history}) {
       <div className="col-md-6 offset-md-3 contact">
         <h2>{contact.name}</h2>
 
-        <img src={contact.imgUrl} className="contact-view-img" alt="Image not found"></img>
+        <ProfilePic imgUrl={contact.imgUrl} imgType="contact-view-img"></ProfilePic>
         <p>{contact.email}</p>
         <p>{contact.number}</p>
         
