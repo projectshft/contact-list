@@ -33,13 +33,7 @@ const Contacts = ({contacts, deleteContact, editContact}) => {
 }
 
 Contacts.propTypes = {
-  contacts: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
-    number: PropTypes.string.isRequired,
-    imgUrl: PropTypes.string
-  })
+  contacts: PropTypes.arrayOf(PropTypes.object).isRequired
 }
 
 export default Contacts;

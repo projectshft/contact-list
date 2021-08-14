@@ -5,8 +5,6 @@ import '../node_modules/bootstrap/dist/css/bootstrap.css';
 import './index.css';
 import App from './App';
 
-//TODO: PropTypes
-
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
