@@ -13,7 +13,11 @@ const ContactNew = (props) => {
   const changeHandler = (e) => {
     setState({...state, [e.target.id]: e.target.value});
   };
-  
+
+  const clickHandler = () => {
+    props.passNewContact('click!');
+  }
+
   return (
     <div>
       <div className="container">
@@ -32,7 +36,7 @@ const ContactNew = (props) => {
             <label className="form-label">Image URL</label>
             <input type="text" className="form-control" id="profPic" placeholder="Enter URL" onChange={changeHandler}></input>
 
-            <Link to="/" type="button" className="btn btn-primary" onClick={props.clickHandler}>Add Contact</Link>
+            <Link to="/" type="button" className="btn btn-primary" onClick={clickHandler}>Add Contact</Link>
           </div>
 
         </div>
