@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
-import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './index.css';
 import ContactNew from './components/contact_new';
 import Contact from './components/contact';
 import Main from './components/main';
 
 const App = () => (
   <main>
+    <h1 className="text-center">Contact List</h1>
     <Switch>
       <Route exact path="/" component={Main} />
       <Route path="/contacts/new" component={ContactNew} />
