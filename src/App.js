@@ -2,9 +2,11 @@ import './App.css';
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Switch, Route } from 'react-router-dom';
+import _ from 'lodash';
 import AddForm from './components/add_form';
 import ContactList from './components/contact_list';
 import Contact from './components/contact';
+import EditForm from './components/edit_contact';
 
 function App() {
   const [contacts, setContacts] = useState([
@@ -22,19 +24,41 @@ function App() {
     setContacts(contacts.concat(contact));
   };
 
+  const editContact = (contact) => {
+    setContacts((contactsArr) => {
+      [...contactsArr].map((person) =>
+        person.id === contact.id ? contact : person
+      );
+    });
+  };
+
+  const deleteContact = (id) => {
+    const updatedContacts = _.remove(
+      [...contacts],
+      (contact) => !(contact.id === id)
+    );
+    setContacts(updatedContacts);
+  };
+
   return (
     <div className="App container">
+      <h1>Contacts!</h1>
       <Switch>
-        <Route
-          exact
-          path="/"
-          render={() => <ContactList contacts={contacts} />}
-        />
         <Route
           path="/contacts/new"
           render={(props) => (
-            // eslint-disable-next-line react/jsx-no-bind
             <AddForm history={props.history} addContact={addContact} />
+          )}
+        />
+        <Route
+          path="/contacts/:id/edit"
+          render={(routerProps) => (
+            <EditForm
+              contactId={parseInt(routerProps.match.params.id, 10)}
+              contacts={contacts}
+              editContact={editContact}
+              history={routerProps.history}
+            />
           )}
         />
         <Route
@@ -43,8 +67,14 @@ function App() {
             <Contact
               contactId={parseInt(routerProps.match.params.id, 10)}
               contacts={contacts}
+              deleteContact={deleteContact}
             />
           )}
+        />
+        <Route
+          exact
+          path="/"
+          render={() => <ContactList contacts={contacts} />}
         />
       </Switch>
     </div>

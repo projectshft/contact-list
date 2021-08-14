@@ -1,32 +1,28 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import _ from 'lodash';
+import { Link } from 'react-router-dom';
 
-export default function AddForm(props) {
-  const [name, setName] = useState('');
-  const [number, setNumber] = useState();
-  const [email, setEmail] = useState('');
-  const [avatar, setAvatar] = useState('');
-  const id = Math.round(Math.random() * 100000000);
+export default function EditForm({ contacts, editContact, contactId }) {
+  const changeContact = _.find(contacts, { id: contactId });
+  const [name, setName] = useState(changeContact.name);
+  const [number, setNumber] = useState(changeContact.number);
+  const [email, setEmail] = useState(changeContact.email);
+  const [avatar, setAvatar] = useState(changeContact.avatar);
 
   const handleClick = function () {
-    if (!name || !email || !number || !avatar) {
-      alert('Please fill all input forms');
-      return;
-    }
-    props.addContact({
+    editContact({
       name,
       number,
       email,
       avatar,
-      id,
     });
-    props.history.push('/');
   };
 
   return (
-    <form className="addContactForm row">
+    <form className="editContactForm row">
       <div className="col-md-6 offset-md-3">
-        <h3>Add New contact</h3>
+        <h3>Edit contact</h3>
       </div>
 
       <div className="form-group col-md-6 offset-md-3">
@@ -77,14 +73,15 @@ export default function AddForm(props) {
       <div className="col-md-1 offset-md-3">
         <br />
         <button type="button" onClick={handleClick} className="btn btn-primary">
-          Add Contact
+          <Link to={`/contacts/${contactId}`}>Change Contact</Link>
         </button>
       </div>
     </form>
   );
 }
 
-AddForm.propTypes = {
-  addContact: PropTypes.func.isRequired,
-  history: PropTypes.object,
+EditForm.propTypes = {
+  editContact: PropTypes.func.isRequired,
+  contacts: PropTypes.arrayOf(PropTypes.object).isRequired,
+  contactId: PropTypes.number,
 };
