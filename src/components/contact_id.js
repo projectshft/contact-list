@@ -1,4 +1,5 @@
 import { BrowserRouter, Switch, Route, Link, useParams } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const ContactId = (props) => {
   const passedContacts = props.passFromMain;
@@ -29,6 +30,11 @@ const ContactId = (props) => {
     </div>
   )  
 
+};
+
+ContactId.propTypes = {
+  passFromMain: PropTypes.arrayOf(PropTypes.object).isRequired,
+  match: PropTypes.object.isRequired
 };
 
 export default ContactId

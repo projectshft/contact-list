@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { BrowserRouter, Switch, Route, Link, useHistory } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const ContactList = (props) => {
   const [contacts, setContacts] = useState(props.passFromMain);
@@ -35,5 +36,9 @@ const ContactList = (props) => {
     </div>
   )
 }
+
+ContactList.propTypes = {
+  passFromMain: PropTypes.arrayOf(PropTypes.object).isRequired
+};
 
 export default ContactList

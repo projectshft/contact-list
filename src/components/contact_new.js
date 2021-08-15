@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const ContactNew = (props) => {
 
@@ -46,6 +47,10 @@ const ContactNew = (props) => {
       </div>
     </div>
   )
+};
+
+ContactNew.propTypes = {
+  passNewContact: PropTypes.func.isRequired
 };
 
 export default ContactNew
