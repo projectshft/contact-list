@@ -46,7 +46,7 @@ const ContactNew = (props) => {
             <label className="form-label">Image URL</label>
             <input type="text" className="form-control" id="image_url" placeholder="Enter URL" onChange={changeHandler}></input>
 
-            <Link to="/" type="button" className="btn btn-primary" onClick={clickHandler}>Add Contact</Link>
+            <Link to="/" type="button" className="btn btn-primary" onClick={clickHandler}>Submit</Link>
             <Link to="/" type="button" className="btn btn-danger cancel-button">Cancel</Link>
           </div>
 
