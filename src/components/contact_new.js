@@ -3,7 +3,10 @@ import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 
 const ContactNew = (props) => {
 
+  const generateId = () => Math.round(Math.random() * 100000000);
+
   const [state, setState] = useState ({
+    id: generateId(),
     image_url: '',
     name: '',
     email: '',
