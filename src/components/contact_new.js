@@ -4,10 +4,10 @@ import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 const ContactNew = (props) => {
 
   const [state, setState] = useState ({
-    profPic: '',
+    image_url: '',
     name: '',
     email: '',
-    phoneNum: ''
+    phone_number: ''
   });
 
   const changeHandler = (e) => {
@@ -15,7 +15,7 @@ const ContactNew = (props) => {
   };
 
   const clickHandler = () => {
-    props.passNewContact('click!');
+    props.passNewContact(state);
   }
 
   return (
@@ -31,10 +31,10 @@ const ContactNew = (props) => {
             <input type="text" className="form-control" id="email" placeholder="Enter Email" onChange={changeHandler}></input>
 
             <label className="form-label">Phone Number</label>
-            <input type="text" className="form-control" id="phoneNum" placeholder="Enter Phone" onChange={changeHandler}></input>
+            <input type="text" className="form-control" id="phone_number" placeholder="Enter Phone" onChange={changeHandler}></input>
 
             <label className="form-label">Image URL</label>
-            <input type="text" className="form-control" id="profPic" placeholder="Enter URL" onChange={changeHandler}></input>
+            <input type="text" className="form-control" id="image_url" placeholder="Enter URL" onChange={changeHandler}></input>
 
             <Link to="/" type="button" className="btn btn-primary" onClick={clickHandler}>Add Contact</Link>
           </div>
