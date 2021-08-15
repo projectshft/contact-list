@@ -7,15 +7,15 @@ const ContactList = (props) => {
 
   return(
   <>
-    contactList
+    
     { 
       props.contacts.length === 0
-      && "no contacts"
+      ? <p>No Contacts</p> : <p>Contacts List</p>
     }
     <ol>
       {
         props.contacts.map((contact) => {
-          return (<li>{contact.fullName}</li>)
+          return (<li><p>Name: {contact.fullName}</p> <p>E-mail address: {contact.emailAddress}</p> <p>Phone number: {contact.phoneNumber}</p> <p>Image: {contact.imageUrl}</p></li>)
         })
       }
     </ol>

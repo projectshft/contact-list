@@ -2,10 +2,10 @@
 //  functional component below
 import React, { Component, useState } from 'react';
 const AddContact = (props) => {
-  const [fullName, setFullName] = useState('a');
-  const [emailAddress, setEmailAddress] = useState('b');
-  const [phoneNumber, setPhoneNumber] = useState('c');
-  const [imageUrl, setImageUrl] = useState('d');
+  const [fullName, setFullName] = useState('');
+  const [emailAddress, setEmailAddress] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [imageUrl, setImageUrl] = useState('');
   const nameEventHandler = (e) => {setFullName(e.target.value)}
   const emailEventHandler = (e) => {setEmailAddress(e.target.value)}
   const phoneEventHandler = (e) => {setPhoneNumber(e.target.value)}
