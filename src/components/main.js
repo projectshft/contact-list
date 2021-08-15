@@ -6,15 +6,7 @@ import ContactId from './contact_id';
 
 
 const Main = () => {
-  const [contactFromMain, setContacts] = useState([
-    {
-      "id": 70219577,
-      "name": "Albert Einstein",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Einstein_1921_by_F_Schmutzer_-_restoration.jpg/800px-Einstein_1921_by_F_Schmutzer_-_restoration.jpg",
-      "email": "aeinstein@example.com",
-      "phone_number": "15555555555"
-    }
-  ]);
+  const [contactFromMain, setContacts] = useState([]);
 
   const addNewContact = (passedFromNew) => {
     setContacts(contactFromMain.concat(passedFromNew))

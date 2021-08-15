@@ -18,8 +18,14 @@ const ContactNew = (props) => {
     setState({...state, [e.target.id]: e.target.value});
   };
 
-  const clickHandler = () => {
-    props.passNewContact(state);
+  const clickHandler = (e) => {
+    if(state.image_url === "" || state.name === "" || state.email === "" || state.phone_number === "") {
+      alert('Please fill out all input forms!');
+      e.preventDefault();
+    }
+    else {
+      props.passNewContact(state);
+    }
   }
 
   return (
@@ -41,6 +47,7 @@ const ContactNew = (props) => {
             <input type="text" className="form-control" id="image_url" placeholder="Enter URL" onChange={changeHandler}></input>
 
             <Link to="/" type="button" className="btn btn-primary" onClick={clickHandler}>Add Contact</Link>
+            <Link to="/" type="button" className="btn btn-danger cancel-button">Cancel</Link>
           </div>
 
         </div>

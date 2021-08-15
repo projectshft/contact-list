@@ -34,3 +34,7 @@ code {
 input {
   margin-bottom: 20px;
 }
+
+.cancel-button {
+  margin-left: 15px;
+}

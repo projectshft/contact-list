@@ -12,6 +12,16 @@ const ContactId = (props) => {
 
   const clickedContact = getContact(parseInt(grabIdParam,10));
 
+  if (!clickedContact) {
+    return <div class="text-center">
+      <img src="https://static.vecteezy.com/system/resources/thumbnails/000/378/201/small/Emoji__282_29.jpg" alt=""></img>
+      <br></br>
+      Sorry, that contact was not found.
+      <br></br>
+      <Link to="/" type="button" className="btn btn-danger">Back</Link>
+      </div>
+  }
+
   return (
     <div>
       <div className="container">
@@ -29,7 +39,6 @@ const ContactId = (props) => {
       </div>
     </div>
   )  
-
 };
 
 ContactId.propTypes = {
