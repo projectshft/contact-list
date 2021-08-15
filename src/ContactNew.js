@@ -6,14 +6,19 @@ const ContactNew = (props) => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
-
+  
+  const generateId = () => Math.round(Math.random() * 100000000);
 
   const handleSubmitContactClick = () => {
+
+    const contactId = generateId();
+
     props.addContact({
       pic_url,
       name,
       email,
-      phone
+      phone,
+      contactId
     })
     setName('')
     setEmail('')
@@ -21,7 +26,8 @@ const ContactNew = (props) => {
     setPicUrl('')
   
   }
-
+  //required tags arent stopping submit
+  
   return (
     <div>
       <form>
@@ -33,27 +39,27 @@ const ContactNew = (props) => {
         <br/>
 
         <label>Email</label>
-        <input type='text' className='form-control'  value={email} onChange={event =>
+        <input type='text' className='form-control' required value={email} onChange={event =>
           setEmail(event.target.value)
         }/>
 
         <br/>
 
         <label>Phone</label>
-        <input type='text' className='form-control' value={phone} onChange={event =>
+        <input type='text' className='form-control' required value={phone} onChange={event =>
           setPhone(event.target.value)
         }/>
 
         <br/>
 
         <label>Picture URL</label>
-        <input type="text" className='form-control' value={pic_url} onChange={event => setPicUrl(event.target.value)
+        <input type="text" className='form-control' required value={pic_url} onChange={event => setPicUrl(event.target.value)
         }/>
 
         <button type="button" onClick={handleSubmitContactClick}>Submit</button>
       </form>
 
-      <Link to='/'>All Contacts</Link>
+      <Link to='/contacts'>All Contacts</Link>
     </div>
   )
 };

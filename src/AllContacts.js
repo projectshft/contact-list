@@ -1,17 +1,21 @@
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-//to do: add key to each contact. 
-//      display pics
 
 
 const AllContacts = ({contacts}) => {
-  
+  const handleContactClick = (id) => {
+    // this does work, so the id is passing and click happening -- 
+    console.log(id)
+    //Add function to link to contact page. Custom hook?
+    
+    
+  }
 
   return (
   <div className="container-fluid">
     <div className="col-lg-10 mx-auto">
     <h1>Contact List</h1>
-    <Link to="/new">
+    <Link to="/contacts/new">
       <button type="button"  className="btn btn-primary" id="addNewContact">
         Create New Contact
       </button>
@@ -28,14 +32,14 @@ const AllContacts = ({contacts}) => {
     </thead>
     <tbody>
       {
-      contacts.map(c => (
-        // add id or key to row
-        <tr>
+      contacts.map(c => (       
+        
+        <tr key={c.contactId} onClick={() =>handleContactClick(c.contactId)} >
           <td><img src={c.pic_url} alt={c.name} width="200"></img> </td>
           <td>{c.name}</td>
           <td>{c.email}</td>
           <td>{c.phone}</td>
-        </tr>
+        </tr>        
       ))
       }
     </tbody>
