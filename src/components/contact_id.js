@@ -1,9 +1,15 @@
 import { BrowserRouter, Switch, Route, Link, useParams } from 'react-router-dom';
 
 const ContactId = (props) => {
-  const testData = props.passFromMain;
+  const passedContacts = props.passFromMain;
+  const grabIdParam = props.match.params.id;
 
+  const getContact = (compareId) => {
+    const isContact = (p) => p.id === compareId;
+    return passedContacts.find(isContact);
+  }
 
+  const clickedContact = getContact(parseInt(grabIdParam,10));
 
   return (
     <div>
@@ -11,12 +17,12 @@ const ContactId = (props) => {
         <div className="row">
           <div className="col-md-4 offset-md-4">
             <div className="col border">
-              <img src={testData[0].image_url} className="selected-prof-pic rounded mx-auto d-block" alt=""></img>
-              <h4 className="text-center">{testData[0].name}</h4>
-              <p className="text-center fs-5 selected-p">{testData[0].email}</p>
-              <p className="text-center fs-5 selected-p">{testData[0].phone_number}</p>
+              <img src={clickedContact.image_url} className="selected-prof-pic rounded mx-auto d-block" alt=""></img>
+              <h4 className="text-center">{clickedContact.name}</h4>
+              <p className="text-center fs-5 selected-p">{clickedContact.email}</p>
+              <p className="text-center fs-5 selected-p">{clickedContact.phone_number}</p>
             </div>
-            <Link to="/" type="button" className="btn btn-warning">Back</Link>
+            <Link to="/" type="button" className="btn btn-danger">Back</Link>
           </div>
         </div>
       </div>

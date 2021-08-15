@@ -12,7 +12,6 @@ const ContactList = (props) => {
   return (
     <div className="container">
       <Link to="/contacts/new" type="button" className="btn btn-primary">Add Contact</Link>
-      <Link to="contacts/2" type="button" className="btn btn-warning">Ind. Page</Link>
       <table className="table table-bordered table-hover">
         <thead className="table table-light">
           <tr>

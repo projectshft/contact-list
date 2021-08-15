@@ -31,8 +31,8 @@ const Main = () => {
       <ContactNew passNewContact={addNewContact} />
 
       )} />
-      <Route path="/contacts/:id" render={() => (
-      <ContactId passFromMain={contactFromMain} />
+      <Route path="/contacts/:id" render={(props) => (
+      <ContactId {...props} passFromMain={contactFromMain}/>
       )} />
   </Switch>
 </div>
