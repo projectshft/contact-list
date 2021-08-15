@@ -11,9 +11,9 @@ const AddContact = (props) => {
   const phoneEventHandler = (e) => {setPhoneNumber(e.target.value)}
   const imageEventHandler = (e) => {setImageUrl(e.target.value)}
   const submitEventHandler = (e) => {
-    if (fullName === '' || emailAddress === '' || phoneNumber === '' || imageUrl === '') {
-      return 
-    }
+    // if (fullName === '' || emailAddress === '' || phoneNumber === '' || imageUrl === '') {
+    //   return 
+    // }
     e.preventDefault();
     console.log("submit");
     const newContact = {

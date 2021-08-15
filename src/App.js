@@ -24,9 +24,6 @@ function App() {
   return (
         <BrowserRouter>
         {/* text is a prop, props are key value pairs, props show up in the component as a props object */}
-        <Button text="blue" />
-        <Button text="red" />
-        <Button text="yellow" />
         <Main />
         <AddContact setContacts={setContacts} contacts={contacts}/>
         <ContactList contacts={contacts}/>

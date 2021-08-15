@@ -15,8 +15,8 @@ const ContactList = (props) => {
     <ol>
       {
         props.contacts.map((contact) => {
-          return (<li><p>Name: {contact.fullName}</p> <p>E-mail address: {contact.emailAddress}</p> <p>Phone number: {contact.phoneNumber}</p> <p>Image: {contact.imageUrl}</p></li>)
-        })
+          return (<li key={contact.phoneNumber}><p>Name: {contact.fullName}</p> <p>E-mail address: {contact.emailAddress}</p> <p>Phone number: {contact.phoneNumber}</p> <img src={contact.imageUrl}/></li>
+        )})
       }
     </ol>
   </>
