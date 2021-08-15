@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
-import Index from './components/index_page';
+import Main from './components/main';
 
 const App = () => (
   <main>
     <h1 className="text-center">Contact List</h1>
     <Switch>
-      <Route path="/" component={Index} />
+      <Route path="/" component={Main} />
     </Switch>
   </main>
 );

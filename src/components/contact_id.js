@@ -1,6 +1,6 @@
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 
-const Contact = () => {
+const ContactId = () => {
 
   const testData = {
     "contacts": [
@@ -33,4 +33,4 @@ const Contact = () => {
   )
 };
 
-export default Contact
+export default ContactId
