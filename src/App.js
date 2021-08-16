@@ -23,7 +23,6 @@ function App() {
   console.log(contacts);
   return (
         <BrowserRouter>
-        {/* text is a prop, props are key value pairs, props show up in the component as a props object */}
         <Main />
         <AddContact setContacts={setContacts} contacts={contacts}/>
         <ContactList contacts={contacts}/>
@@ -33,3 +32,5 @@ function App() {
 }
 
 export default App;
+
+{/* text is a prop, props are key value pairs, props show up in the component as a props object */}

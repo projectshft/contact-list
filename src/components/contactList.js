@@ -2,9 +2,7 @@
 //  functional component below
 import React, { Component, useState } from 'react';
 const ContactList = (props) => {
-  
-  
-
+   
   return(
   <>
     
@@ -22,6 +20,5 @@ const ContactList = (props) => {
   </>
   );
 }
-
 
 export default ContactList;
