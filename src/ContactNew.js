@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
-//import { useForm } from "react-hook-form";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import PropTypes from 'prop-types';
 
 const ContactNew = (props) => {
@@ -34,37 +34,46 @@ const ContactNew = (props) => {
   //required tags arent stopping submit
 
   return (
-    <div>     
+    <div className="container-fluid"> 
+      <div className="col-lg-10 mx-auto form-page">   
       <form>
+        <div className="form-group">
+        <div className="form-control form-control-lg">
         <label>Name</label>
         <input type='text' className='form-control' required value={name}onChange={event =>
           setName(event.target.value)
         }/>
+        </div>
 
-        <br/>
-
+        
+        <div className="form-control form-control-lg">
         <label>Email</label>
         <input type='text' className='form-control' required value={email} onChange={event =>
           setEmail(event.target.value)
         }/>
+        </div>
+        
 
-        <br/>
-
+        <div className="form-control form-control-lg">
         <label>Phone</label>
         <input type='text' className='form-control' required value={phone} onChange={event =>
           setPhone(event.target.value)
         }/>
+        </div>
+        
 
-        <br/>
-
+        <div className="form-control form-control-lg">
         <label>Picture URL</label>
         <input type="text" className='form-control' required value={pic_url} onChange={event => setPicUrl(event.target.value)
         }/>
+        </div>
 
-        <button type="submit" onClick={handleSubmitContactClick} >Submit</button>
+        <button type="submit" className="btn btn-primary" onClick={handleSubmitContactClick} >Submit</button>
+        </div>
       </form>
 
       <Link to='/contacts'>All Contacts</Link>
+    </div>
     </div>
   )
 };

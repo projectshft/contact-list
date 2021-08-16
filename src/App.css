@@ -24,3 +24,12 @@ td {
 p {
   text-align: center;
 }
+
+.form-control {
+  margin-bottom: 5px;
+  padding: 5px;
+}
+
+.form-page {
+  margin-top: 10px;
+}
