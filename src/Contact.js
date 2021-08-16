@@ -1,7 +1,5 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
-import PropTypes from "prop-types";
-
 
 const Contact = ({id, contacts}) => {
   const contact = contacts.find(c => parseInt(c.contactId) === id);
@@ -21,15 +19,6 @@ const Contact = ({id, contacts}) => {
       <Link to='/contacts'>Back</Link>
     </div>
   )
-}
-
-Contact.propTypes =  {
-  data: PropTypes.shape({
-    pic_url: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
-    phone: PropTypes.string.isRequired,})
-  
 }
 
 export default Contact

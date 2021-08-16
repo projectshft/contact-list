@@ -11,9 +11,9 @@ const ContactNew = (props) => {
   
   const generateId = () => Math.round(Math.random() * 100000000);
 
-  const handleSubmitContactClick = () => {
-//send alert if prop type is violated?
-    console.log (pic_url)
+  const handleSubmitContactClick = (event) => {
+
+    event.preventDefault()
 
     const contactId = generateId();
 
@@ -31,12 +31,12 @@ const ContactNew = (props) => {
   
   }
 
-  //required tags arent stopping submit
+  
 
   return (
     <div className="container-fluid"> 
       <div className="col-lg-10 mx-auto form-page">   
-      <form>
+      <form onSubmit={handleSubmitContactClick} >
         <div className="form-group">
         <div className="form-control form-control-lg">
         <label>Name</label>
@@ -68,7 +68,7 @@ const ContactNew = (props) => {
         }/>
         </div>
 
-        <button type="submit" className="btn btn-primary" onClick={handleSubmitContactClick} >Submit</button>
+        <button type="submit" className="btn btn-primary"  >Submit</button>
         </div>
       </form>
 
