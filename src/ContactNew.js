@@ -48,7 +48,7 @@ const ContactNew = (props) => {
         
         <div className="form-control form-control-lg">
         <label>Email</label>
-        <input type='text' className='form-control' required value={email} onChange={event =>
+        <input type='email' className='form-control' required value={email} onChange={event =>
           setEmail(event.target.value)
         }/>
         </div>
@@ -56,7 +56,7 @@ const ContactNew = (props) => {
 
         <div className="form-control form-control-lg">
         <label>Phone</label>
-        <input type='text' className='form-control' required value={phone} onChange={event =>
+        <input type='tel' className='form-control' required value={phone} onChange={event =>
           setPhone(event.target.value)
         }/>
         </div>
@@ -64,7 +64,7 @@ const ContactNew = (props) => {
 
         <div className="form-control form-control-lg">
         <label>Picture URL</label>
-        <input type="text" className='form-control' required value={pic_url} onChange={event => setPicUrl(event.target.value)
+        <input type="url" className='form-control' required value={pic_url} onChange={event => setPicUrl(event.target.value)
         }/>
         </div>
 
