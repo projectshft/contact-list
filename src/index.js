@@ -1,17 +1,59 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import './App.css';
+import data from './components/Contact.json';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+
+const App = () => {
+
+  const [contacts, setContacts] = useState(data);
+  return (
+    <div className="app-container">
+      <div className="title">
+        <h2><strong>Contact List</strong></h2>
+      <div>
+      
+    <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Profile Pic</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone Number</th>
+    </tr>
+  </thead>
+  <tbody>
+    {contacts.map((contact)=> (
+      <tr>
+        <td>{contact.profilePicture}</td>
+        <td>{contact.fullName}</td>
+        <td>{contact.email}</td>
+        <td>{contact.phoneNumber}</td>
+    </tr>
+    ))}
+    
+  </tbody>
+    </table>
+        <div 
+          class="d-grid gap-2 d-md-block">
+          <button class="btn btn-primary add-contact" type="button">Add Contact</button>
+        </div>
+      </div>
+        </div>
+      </div>
+    
+    );
+  };
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
