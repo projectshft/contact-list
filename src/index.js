@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import './App.css';
 import data from './components/Contact.json';
+import NewContact from './components/NewContact';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 
 const App = () => {
 
@@ -26,7 +27,7 @@ const App = () => {
   <tbody>
     {contacts.map((contact)=> (
       <tr>
-        <td>{contact.profilePicture}</td>
+        <th scope="row"><img src={contact.profilePicture} alt=''></img></th>
         <td>{contact.fullName}</td>
         <td>{contact.email}</td>
         <td>{contact.phoneNumber}</td>
@@ -37,7 +38,10 @@ const App = () => {
     </table>
         <div 
           class="d-grid gap-2 d-md-block">
-          <button class="btn btn-primary add-contact" type="button">Add Contact</button>
+            <Link to="NewContact">
+                <button onClick={NewContact} class="btn btn-primary add-contact" type="button">Add Contact</button>
+            </Link>
+          
         </div>
       </div>
         </div>
@@ -45,6 +49,8 @@ const App = () => {
     
     );
   };
+
+
 
 
 ReactDOM.render(
