@@ -1,4 +1,4 @@
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import React, { useState } from 'react';
 import './App.css';
 import ContactsRouter from './ContactsRouter';
@@ -22,7 +22,9 @@ const App = () => {
   return (
     <div>
       <Switch>
-       {/* <Route path='/' component={Home}></Route> */}
+        <Route exact path='/'>
+          <Redirect to="/contacts" />
+        </Route>
 
         <Route path='/contacts' render={() => (
           <ContactsRouter contacts={contacts} addContact={addContact}/>
