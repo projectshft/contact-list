@@ -4,18 +4,19 @@ import ContactNew from './ContactNew'
 import AllContacts from './AllContacts'
 
 const ContactsRouter = ({contacts, addContact}) => (
-  <Switch>
-    <Route exact path='/contacts' render={() => (
-          <AllContacts contacts={contacts} />
-        )} />    
-
+ 
+  <Switch>      
     <Route path='/contacts/new' render={(routerProps) => (
-          <ContactNew history={routerProps.history} contacts={contacts} addContact={addContact} />
-        )} /> 
+      <ContactNew history={routerProps.history} contacts={contacts} addContact={addContact} />
+    )} /> 
 
-    <Route path='/contacts/:id' render={(routerProps) => (
-          <Contact contactId={parseInt(routerProps.match.params.contactId, 10)} contacts={contacts} />
-        )} />
+    <Route path='/contacts/:contactId' render={(routerProps) => (
+      <Contact id={parseInt(routerProps.match.params.contactId)} contacts={contacts} />
+    )} />
+
+    <Route exact path='/contacts' render={() => (
+      <AllContacts contacts={contacts} />
+    )} /> 
   </Switch>
 )
 

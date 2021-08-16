@@ -1,14 +1,12 @@
-import { Link } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const AllContacts = ({contacts}) => {
+  //Click on row takes you to individual contact
+  const history = useHistory();
   const handleContactClick = (id) => {
-    // this does work, so the id is passing and click happening -- 
-    console.log(id)
-    //Add function to link to contact page. Custom hook?
-    
-    
+    history.push(`/contacts/${id}`);    
   }
 
   return (

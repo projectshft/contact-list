@@ -16,3 +16,11 @@ h1 {
 td {
   text-align: center;
 }
+
+.card {
+  margin: 0 auto;
+}
+
+p {
+  text-align: center;
+}
