@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+
+//  render data over to the index.html page through 'root'
 ReactDOM.render(
   <React.StrictMode>
     <App />

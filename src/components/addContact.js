@@ -31,6 +31,7 @@ const AddContact = (props) => {
     setImageUrl('');
   }
   
+  //  data is taken in from input fields, compiled, and input fields are cleared out.  Now we return data to the Contact List
 
   return(
   <>
@@ -53,4 +54,5 @@ const AddContact = (props) => {
   );
 }
 
+// export component to App.js
 export default AddContact;

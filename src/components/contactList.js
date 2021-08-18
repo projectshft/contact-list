@@ -2,7 +2,8 @@
 //  functional component below
 import React, { Component, useState } from 'react';
 const ContactList = (props) => {
-   
+ 
+//  content that will show up on the DOM 
   return(
   <>
     
@@ -21,10 +22,6 @@ const ContactList = (props) => {
   );
 }
 
+//  export component to App.js
 export default ContactList;
 
-// errors above
-
-
-// GitHub token
-// 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

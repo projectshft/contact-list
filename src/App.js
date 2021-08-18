@@ -31,6 +31,7 @@ function App() {
   )   
 }
 
+// export this data to index.js
 export default App;
 
 {/* text is a prop, props are key value pairs, props show up in the component as a props object */}
