@@ -3,10 +3,6 @@ import React, { useState } from 'react'
 // import Home from './Home'
 import Contacts from './Contacts'
 import ContactNew from './ContactNew'
-
-
-
-import logo from './logo.svg';
 import './App.css';
 
 const App = () => {
@@ -16,7 +12,7 @@ const App = () => {
   ])
 
   const addContact = (contact) => {
-    setContacts(contact => {
+    setContacts(contacts => {
       return [...contacts, contact]
     });
   }
@@ -25,7 +21,7 @@ const App = () => {
     <div>
       <Switch>
         <Route exact path='/contacts' render={() => (
-          <Contacts addContact={addContact} contacts={contacts} />
+          <Contacts contacts={contacts} />
           )}/>
 
         <Route path = '/contacts/new' render={(routerProps) => (

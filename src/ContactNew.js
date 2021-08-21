@@ -1,22 +1,30 @@
+import { Link } from 'react-router-dom'
 import React, { useState } from 'react'
 
+
 const ContactNew = (props) => {
+  const generateId = () => Math.round(Math.random() * 1000000)
+  
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [image, setImage] = useState('')
+  const [id, setID] = useState(generateId())
 
+  
 
   const handleSubmitContactClick = () => {
     props.addContact({
       name,
       image,
       email,
+      id 
     })
 
     props.history.push('/contacts')
   }
 
  return (
+
    <div>
      <h1>add a new contact</h1>
      <form>
@@ -26,7 +34,11 @@ const ContactNew = (props) => {
        className='form-control' 
        placeholder='Buddy Tan-Smith'
        onChange={event => 
-        setName(event.target.value)}/>
+        setName(event.target.value)
+
+      }/>
+      
+
           
 
       <br/>
@@ -51,6 +63,7 @@ const ContactNew = (props) => {
 
 
      </form>
+     <Link to='/contacts'>Contacts</Link>
    </div>
   
  )

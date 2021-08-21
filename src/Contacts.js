@@ -6,10 +6,10 @@ const Contacts = ({contacts, addContact}) => (
   <Switch>
 
     {/* ? This Route will not render if it is in Contacts.js instead of App.js.  */}
-    
-    {/* <Route path = '/contacts/new' render={(routerProps) => (
+
+    <Route path = '/contacts/new' render={(routerProps) => (
       <ContactNew history={routerProps.history} contacts={contacts} addContact={addContact} />
-    )} />  */}
+    )} /> 
 
     <Route path='/contacts' render={() => (
       <ContactsList contacts={contacts}/>
