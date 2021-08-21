@@ -7,15 +7,17 @@ const ContactNew = (props) => {
 
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
-  const [image, setImage] = useState('')
+  const [phone_number, setPhone_Number] = useState('')
+  const [image_url, setImage_url] = useState('')
   const [id, setID] = useState(generateId())
 
   const handleSubmitContactClick = () => {
     
     props.addContact({
       name,
-      image,
+      image_url,
       email,
+      phone_number,
       id 
     })
 
@@ -53,12 +55,21 @@ const ContactNew = (props) => {
 
       <br/>
 
+      <label for='phone-number'>Phone Number</label>
+      <input
+      type='number'
+      className='form-control'
+      placeholder='111-111-1111'
+      onChange={event => setPhone_Number(event.target.value)}/>
+
+      <br/>
+
       <label for='image-url'>Image URL</label>
       <input
       type='text'
       className='form-control'
       placeholder='a link plz'
-      onChange={event => setImage(event.target.value)}/>
+      onChange={event => setImage_url(event.target.value)}/>
 
       <button type='button' onClick={handleSubmitContactClick}>submit</button>
 

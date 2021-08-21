@@ -7,8 +7,9 @@ import './App.css';
 
 const App = () => {
   const [contacts, setContacts] = useState([
-    { id: 1, name: "Buddy Tan-Smith", image_url: "G", email: "buddytsmith@gmail.com", phone_number: "555-555-5555" },
-    { id: 2, name: "Nina Tan", image_url: "null", email: "ninavtan@gmail.com", phone_number: "222-222-2222" }
+    { id: 1, name: "Buddy Tan-Smith", image_url: "https://drive.google.com/uc?id=1zYfdxUW34Ic4mJyxtwxQENxV9fCqwQDy", email: "buddytsmith@gmail.com", phone_number: "555-555-5555" },
+    { id: 2, name: "Keroppi", image_url: "https://drive.google.com/uc?id=18i0_5jMufvqbveckqzN6hDnhD5vvl5PS", email: "ker0ppi@gmail.com", phone_number: "222-222-2222" }
+    
   ])
 
   const addContact = (contact) => {

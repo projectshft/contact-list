@@ -18,7 +18,7 @@ const ContactsList = ({contacts}) => (
         {
         contacts.map(c => (
           <tr>
-            <th scope="row"><img src="{c.image_url}"></img></th>
+            <td><img className="contact-image" src={c.image_url}></img></td>
             <td>{c.name}</td>
             <td>{c.email}</td>
             <td>{c.phone_number}</td>
