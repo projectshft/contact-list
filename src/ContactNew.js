@@ -1,18 +1,17 @@
 import { Link } from 'react-router-dom'
 import React, { useState } from 'react'
-
+import PropTypes from 'prop-types';
 
 const ContactNew = (props) => {
   const generateId = () => Math.round(Math.random() * 1000000)
-  
+
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [image, setImage] = useState('')
   const [id, setID] = useState(generateId())
 
-  
-
   const handleSubmitContactClick = () => {
+    
     props.addContact({
       name,
       image,
@@ -21,7 +20,9 @@ const ContactNew = (props) => {
     })
 
     props.history.push('/contacts')
-  }
+  };
+
+  
 
  return (
 
@@ -65,9 +66,18 @@ const ContactNew = (props) => {
      </form>
      <Link to='/contacts'>Contacts</Link>
    </div>
-  
- )
-  
+ );
 }
+
+ContactNew.propTypes = {
+  name: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired
+}
+
+
+
+
 
 export default ContactNew
