@@ -4,6 +4,40 @@
 }
 
 .contact-image {
-  width: 10%;
-  height: 10%;
+  width: 50%;
+  height: 50%;
+}
+
+.contact-image-column {
+  max-width: 200px;
+  height: 50%;
+}
+
+.contact-page-image {
+  width: 30%;
+  height: 30%;
+}
+
+.card {
+  max-width: 50% !important;
+  margin-top: 2rem;
+  padding: 10px;
+}
+
+.add-contact-link {
+  text-decoration: none;
+  margin-top: 100px !important;
+}
+
+.add-contact-link:hover {
+  color: pink;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+}
+
+.link:hover{
+  color: purple;
 }

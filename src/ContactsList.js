@@ -1,11 +1,16 @@
 import { Link } from 'react-router-dom'
 
 
-const ContactsList = ({contacts}) => (
+const ContactsList = ({contacts}) => {
+  
+  return (
+
 
   <div>
-    <a href="/contacts/new">add a new contact here</a>
-    <table class="table table-bordered">
+    <h1>contacts</h1>
+    <a className="add-contact-link" href="/contacts/new">add a new contact here</a>
+
+    <table class="table table-sm table-bordered table-hover">
       <thead>
         <tr>
           <th scope="col">Image</th>
@@ -17,25 +22,21 @@ const ContactsList = ({contacts}) => (
       <tbody>
         {
         contacts.map(c => (
-          <tr>
-            <td><img className="contact-image" src={c.image_url}></img></td>
-            <td>{c.name}</td>
+          <tr> 
+            <td className="contact-image-column"><img className="contact-image" src={c.image_url} href={`/contacts/${c.id}`}></img></td>
+            <a className="link" href={`/contacts/${c.id}`}>{c.name}</a>
             <td>{c.email}</td>
             <td>{c.phone_number}</td>
+          
           </tr>
           
         ))
       }
-        
       </tbody>
-
-      
-      
     </table>
-    
-
   </div>
 )
+}
 
 
 export default ContactsList

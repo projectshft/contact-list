@@ -11,20 +11,18 @@ const ContactNew = (props) => {
   const [image_url, setImage_url] = useState('')
   const [id, setID] = useState(generateId())
 
+
   const handleSubmitContactClick = () => {
-    
     props.addContact({
       name,
       image_url,
       email,
       phone_number,
-      id 
+      id,
     })
-
     props.history.push('/contacts')
-  };
-
-  
+    
+  }
 
  return (
 
@@ -72,7 +70,6 @@ const ContactNew = (props) => {
       onChange={event => setImage_url(event.target.value)}/>
 
       <button type='button' onClick={handleSubmitContactClick}>submit</button>
-
 
      </form>
      <Link to='/contacts'>Contacts</Link>
