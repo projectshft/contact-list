@@ -14,9 +14,7 @@ const AddContact = (props) => {
   const imageEventHandler = (e) => {setImageUrl(e.target.value)}
   const submitEventHandler = (e) => {
     const generateId = () => Math.round(Math.random() * 100000000);
-    // if (fullName === '' || emailAddress === '' || phoneNumber === '' || imageUrl === '') {
-    //   return 
-    // }
+    
     e.preventDefault();
     console.log("submit");
     const newContact = {
@@ -67,4 +65,9 @@ const AddContact = (props) => {
 export default AddContact;
 
 
-const generateId = () => Math.round(Math.random() * 100000000);
+
+
+
+// if (fullName === '' || emailAddress === '' || phoneNumber === '' || imageUrl === '') {
+    //   return 
+    // }

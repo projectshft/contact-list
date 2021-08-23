@@ -1,11 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-
-// contact id = 0, contact id = 1
-// /contact/3
-
-// props = { id, contacts }
 const Contact = (props) => {
   
   	const findContact = () => {
