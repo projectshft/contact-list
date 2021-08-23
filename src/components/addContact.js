@@ -1,6 +1,8 @@
 
 //  functional component below
 import React, { Component, useState } from 'react';
+import { Link } from 'react-router-dom';
+
 const AddContact = (props) => {
   const [fullName, setFullName] = useState('');
   const [emailAddress, setEmailAddress] = useState('');
@@ -11,12 +13,14 @@ const AddContact = (props) => {
   const phoneEventHandler = (e) => {setPhoneNumber(e.target.value)}
   const imageEventHandler = (e) => {setImageUrl(e.target.value)}
   const submitEventHandler = (e) => {
+    const generateId = () => Math.round(Math.random() * 100000000);
     // if (fullName === '' || emailAddress === '' || phoneNumber === '' || imageUrl === '') {
     //   return 
     // }
     e.preventDefault();
     console.log("submit");
     const newContact = {
+      id: generateId(),
       fullName : fullName,
       emailAddress: emailAddress,
       phoneNumber: phoneNumber,
@@ -50,9 +54,13 @@ const AddContact = (props) => {
         <hr></hr>
         <input type="submit" onClick={submitEventHandler}></input>
       </div>
+      <Link to="/">Back to contact list</Link>
   </>
   );
 }
 
 // export component to App.js
 export default AddContact;
+
+
+const generateId = () => Math.round(Math.random() * 100000000);
