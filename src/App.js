@@ -1,6 +1,8 @@
+//  App.js is just below index.js in the hierarchy of components.  AddContact.js, contact.js, and contactList.js are child components of App.js
 import logo from './logo.svg';
 import './App.css';
 import React, { Component, useState } from 'react';
+//  import each component from the components folder
 import AddContact from './components/addContact';
 import ContactList from './components/contactList';
 import Contact from './components/contact';
@@ -8,6 +10,7 @@ import {BrowserRouter, Route, Switch} from "react-router-dom";
 
 
 function App() {
+  //  declare a new state variable, which will be called "contacts".  useState has an empty array to hold the contacts
   const [contacts, setContacts] = useState([]);
   console.log(contacts);
   return (
@@ -21,7 +24,7 @@ function App() {
   )   
 }
 
-// export this data to index.js
+// App.js is a React component. Export this data to index.js
 export default App;
 
 {/* text is a prop, props are key value pairs, props show up in the component as a props object */}

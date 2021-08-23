@@ -1,3 +1,4 @@
+// index.js is at the top of the hierarchy of components
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -6,6 +7,8 @@ import reportWebVitals from './reportWebVitals';
 
 
 //  render data over to the index.html page through 'root'
+//  App.js gets rendered in on Line 13
+//  Any time you have a React app, you have ReactDOM.render
 ReactDOM.render(
   <React.StrictMode>
     <App />

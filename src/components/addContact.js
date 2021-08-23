@@ -1,9 +1,11 @@
 
-//  functional component below
+//  functional component below.  Can use React state with this component
 import React, { Component, useState } from 'react';
+// import this { Link } so we can move back to another page
 import { Link } from 'react-router-dom';
 
 const AddContact = (props) => {
+  // const [fullName, setFullName] (lines 9 through 12) is the format for State Hook
   const [fullName, setFullName] = useState('');
   const [emailAddress, setEmailAddress] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -13,10 +15,12 @@ const AddContact = (props) => {
   const phoneEventHandler = (e) => {setPhoneNumber(e.target.value)}
   const imageEventHandler = (e) => {setImageUrl(e.target.value)}
   const submitEventHandler = (e) => {
+    //  code below is to generate a unique ID for each contact
     const generateId = () => Math.round(Math.random() * 100000000);
     
     e.preventDefault();
     console.log("submit");
+    //  newContact object is created below
     const newContact = {
       id: generateId(),
       fullName : fullName,
