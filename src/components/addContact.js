@@ -43,17 +43,21 @@ const AddContact = (props) => {
       <div>
         <input type="text" placeholder="Full Name" value={fullName} onChange={nameEventHandler}/>
         </div>
+        <br></br>
         <div>
         <input type="text"  placeholder="Email address" value={emailAddress} onChange={emailEventHandler}/>
         </div>
+        <br></br>
         <div>
         <input type="text"  placeholder="Phone Number" value={phoneNumber} onChange={phoneEventHandler} />
         </div>
+        <br></br>
         <div>
         <input type="text"  placeholder="Image URL" value={imageUrl} onChange={imageEventHandler}/>
         <hr></hr>
         <input type="submit" onClick={submitEventHandler}></input>
       </div>
+      <br></br>
       <Link to="/">Back to contact list</Link>
   </>
   );
