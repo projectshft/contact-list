@@ -2,6 +2,8 @@
 import React, { Component, useState } from 'react';
 // import { Link } to link pages together in React
 import { Link } from 'react-router-dom';
+
+
 const ContactList = (props) => {
 //  content that will show up on the DOM 
 return(

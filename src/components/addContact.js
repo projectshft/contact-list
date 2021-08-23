@@ -5,7 +5,8 @@ import React, { Component, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const AddContact = (props) => {
-  // const [fullName, setFullName] (lines 9 through 12) is the format for State Hook
+  // const [fullName, setFullName] (lines 9 through 12) is the format for State Hook.  Similar to this.state in a class.  State variables are preserved by React.  useState return a pair of values: the current state and a function that updates it
+  //  calling useState declares a "state variable".  fullName, emailAddress, etc could be called anything
   const [fullName, setFullName] = useState('');
   const [emailAddress, setEmailAddress] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
