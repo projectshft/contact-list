@@ -21,9 +21,10 @@ table, th, td {
 }
 
 img {
-  max-width: 50%;
+  max-width: 25%;
 }
 
 td {
   border: 1px solid black;
+  justify-content: center;
 }

@@ -26,27 +26,7 @@ const ContactAPI = {
 };
 
 
-const Index = () => {
-  return (
-    <section>
-    <Link to="/addcontact">Add Contact</Link>
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">Profile Pic</th>
-                <th scope="col">Name</th>
-                <th scope="col">Email</th>
-                <th scope="col">Phone Number</th>
-            </tr>
-        </thead> 
-        </table> 
-    <div className="contact-list">
-    <ContactList />
-    </div>           
-  
-  </section>  
-  );
-}
+
 
 const AddCon = () => {
   return (
@@ -94,21 +74,44 @@ const AddContact = props => {
   )
 };
 
+const Index = () => {
+  return (
+    <section>
+    <Link to="/addcontact">Add Contact</Link>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col" id="pic-column">Profile Pic</th>
+                <th scope="col" id="name-column">Name</th>
+                <th scope="col" id="email-column">Email</th>
+                <th scope="col" id="phone-column">Phone Number</th>
+            </tr>
+        </thead> 
+        <tbody>
+          <ContactList /> 
+        </tbody>             
+    </table> 
+  </section>  
+  );
+}
+
+
 const ContactList = props => {     
-  let contactsArray = ContactAPI.contacts;
-  for (let i = 0; i <= contactsArray.length; i++) {
-    return (
-      <tbody>
-        <tr>
-          <th scope="row"></th>
+  const contactsArray = ContactAPI.contacts;
+  const rows = [];
+
+  for(let i = 0; i < contactsArray.length; i++) {
+    rows.push(
+      <tr>          
           <td><img src={contactsArray[i].image_url}></img></td>
           <td>{contactsArray[i].name}</td>
           <td>{contactsArray[i].email}</td>
           <td>{contactsArray[i].phone_number}</td>
-        </tr>
-      </tbody>
+      </tr>     
     )
   }
+  console.log(rows);
+  return rows;
   
 };
 
@@ -124,5 +127,7 @@ ReactDOM.render(
   </BrowserRouter>,
   document.getElementById('root')
 );
+
 /*
+
   */
