@@ -1,8 +1,7 @@
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ContactList from './components/contact_list';
-import AddContact from './components/add_contact';
+import './index.css';
 import PropTypes from 'prop-types';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -14,9 +13,9 @@ const App = () => (
 
 const ContactAPI = {
   contacts: [
-    { pic: 'https://www.looper.com/img/gallery/the-entire-history-of-dunes-house-atreides/intro-1602509817.jpg', name: 'Paul Atreides', email: 'muaddib@gmail.com', phone: '5555555' },
-    { pic: 'https://dazedimg-dazedgroup.netdna-ssl.com/900/azure/dazed-prod/1310/1/1311717.jpg', name: 'Chani', email: 'fremen#1@gmail.com', phone: '2222222'}
-  ],
+    { id: 1, image_url: 'https://www.looper.com/img/gallery/the-entire-history-of-dunes-house-atreides/intro-1602509817.jpg', name: 'Paul Atreides', email: 'muaddib@gmail.com', phone_number: '5555555' },
+    { id: 2, image_url: 'https://dazedimg-dazedgroup.netdna-ssl.com/900/azure/dazed-prod/1310/1/1311717.jpg', name: 'Chani', email: 'fremen#1@gmail.com', phone_number: '2222222'}
+  ], 
   all: function() {
     return this.contacts;
   },
@@ -26,23 +25,44 @@ const ContactAPI = {
   }
 };
 
+
 const Index = () => {
   return (
-  <div className="ContactList">
+    <section>
+    <Link to="/addcontact">Add Contact</Link>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Profile Pic</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone Number</th>
+            </tr>
+        </thead> 
+        </table> 
+    <div className="contact-list">
     <ContactList />
-  </div>
+    </div>           
+  
+  </section>  
   );
 }
 
 const AddCon = () => {
   return (
-    <div className="AddContact">
+    <div className="add-contact">
       <AddContact />
     </div>
   );
 }
 
-const Contact = () => <h1>Contact</h1>;
+const Contact = () => {
+  return (
+    <div className="selected-contact">
+      <SelectedContact />
+    </div>
+  );
+};
 
 
 
@@ -50,11 +70,51 @@ const Main = () => (
   <main>
     <Switch>
       <Route exact path="/" component={Index} />
-      <Route path="/contacts/:number" component={Contact} />   
+      <Route path="/contacts/:id" component={Contact} />   
       <Route path="/addcontact" component={AddCon} />   
     </Switch>
   </main>
 );
+
+const AddContact = props => {     
+  return (        
+      <section>
+          <h1>Add Contact</h1>
+      <div>Full Name</div>
+      <div className="name-input"><input /></div>
+      <div>Email address</div>
+      <div className="email-input"><input /></div>
+      <div>Phone Number</div>
+      <div className="phone-input"><input /></div>
+      <div>Image URL</div>
+      <div className="image-input"><input /></div>
+      <hr/>
+      <button>Confirm</button>
+      </section>      
+  )
+};
+
+const ContactList = props => {     
+  let contactsArray = ContactAPI.contacts;
+  for (let i = 0; i <= contactsArray.length; i++) {
+    return (
+      <tbody>
+        <tr>
+          <th scope="row"></th>
+          <td><img src={contactsArray[i].image_url}></img></td>
+          <td>{contactsArray[i].name}</td>
+          <td>{contactsArray[i].email}</td>
+          <td>{contactsArray[i].phone_number}</td>
+        </tr>
+      </tbody>
+    )
+  }
+  
+};
+
+const SelectedContact = props => {
+  return <div>TODO</div>;
+};
 
 
 
@@ -64,4 +124,5 @@ ReactDOM.render(
   </BrowserRouter>,
   document.getElementById('root')
 );
-
+/*
+  */
