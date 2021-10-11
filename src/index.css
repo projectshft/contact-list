@@ -28,3 +28,7 @@ td {
   border: 1px solid black;
   justify-content: center;
 }
+
+.table-row {
+  display: table-row;
+}
