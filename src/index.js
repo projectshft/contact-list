@@ -1,7 +1,5 @@
-import { BrowserRouter, Switch, Route, Link, withRouter } from 'react-router-dom';
-import React, {useState, useEffect} from 'react';
+import { BrowserRouter, Switch, Route, Link, } from 'react-router-dom';
 import ReactDOM from 'react-dom';
-import $ from 'jquery';
 import './index.css';
 import PropTypes from 'prop-types';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -12,7 +10,9 @@ const App = () => (
   </div>
 );
 
-const ContactAPI = {
+const generateId = () => ContactAPI.contacts.length + 1;
+
+const ContactAPI = { 
   contacts: [
     { id: 0, image_url: 'https://www.looper.com/img/gallery/the-entire-history-of-dunes-house-atreides/intro-1602509817.jpg', name: 'Paul Atreides', email: 'muaddib@gmail.com', phone_number: '5555555' },
     { id: 1, image_url: 'https://dazedimg-dazedgroup.netdna-ssl.com/900/azure/dazed-prod/1310/1/1311717.jpg', name: 'Chani', email: 'fremen#1@gmail.com', phone_number: '2222222'}
@@ -23,10 +23,17 @@ const ContactAPI = {
   get: function(key) {
     const isContact = p => p.id === key;  
     return this.contacts.find(isContact);  
-  }
+  }  
 };
 
 
+ContactAPI.contacts.propTypes = {
+  id: PropTypes.number.isRequired,
+  image_url: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  phone_number: PropTypes.number.isRequired
+};
 
 const Main = () => (
   <main>
@@ -41,7 +48,8 @@ const Main = () => (
 const Index = () => {
   return (
     <section>
-    <Link to="/addcontact">Add Contact</Link>
+    <h1>Contact List</h1>
+    <Link to="/addcontact"><button>Add Contact</button></Link>
     <table class="table">
         <thead>
             <tr>                
@@ -50,17 +58,15 @@ const Index = () => {
                 <th scope="col" id="email-column">Email</th>
                 <th scope="col" id="phone-column">Phone Number</th>
             </tr>
-        </thead> 
-        
-          <ContactList /> 
-                     
+        </thead>         
+          <ContactList />                      
     </table> 
   </section>  
   );
 }
 
 const AddContact = props => {     
-  const generateID = () => (ContactAPI.contacts.length - 1);
+  
  
   const newContact = {id: null, image_url: null, name: null, email: null, phone_number: null};
 
@@ -79,43 +85,38 @@ const AddContact = props => {
   function handleImageChange(e) {
     newContact.image_url = e.target.value;
   }
-  
-  
+
+  function handleButtonClick() {   
+    newContact.id = generateId();
+    console.log(newContact.id);
+    ContactAPI.contacts.push(newContact);    
+  }
+
   return (        
       <section>
           <h1>Add Contact</h1>
-      <div>Full Name</div>
-      <div className="name-input">
+      <div className="div-desc">Full Name</div>
+      <div className="div-input">
         <input onChange={handleNameChange} />        
       </div>     
-      <div>Email address</div>
-      <div className="email-input">
+      <div className="div-desc">Email address</div>
+      <div className="div-input">
         <input onChange={handleEmailChange}/>          
       </div>
-      <div>Phone Number</div>
-      <div className="phone-input">
+      <div className="div-desc">Phone Number</div>
+      <div className="div-input">
         <input onChange={handlePhoneChange}/>
       </div>
-      <div>Image URL</div>
-      <div className="image-input">
+      <div className="div-desc">Image URL</div>
+      <div className="div-input">
         <input onChange={handleImageChange}/>
       </div>
       <hr/>
-      <Link to={`/`} className="button-link">
+      <Link to={`/`} className="d-flex justify-content-center">
         <button onClick={handleButtonClick}>Confirm</button>
       </Link>
       </section>      
-  )
-
-  function handleButtonClick() {
-    console.log('Button Clicked');
-    
-    ContactAPI.contacts.push(newContact);  
-    console.log(ContactAPI.contacts)
-  }
-  
-  
-
+  )  
 };
 
 const ContactList = () => {     
@@ -127,11 +128,10 @@ const ContactList = () => {
           <td>{rows.name}</td>
           <td>{rows.email}</td>
           <td>{rows.phone_number}</td>
-      </Link> 
+    </Link> 
   ))}
   </tbody>
-  )
-  
+  )  
 };
 
 const Contact = (props) => {  
@@ -143,9 +143,9 @@ const Contact = (props) => {
   return (
     <section>
       <h1>{contact.name}</h1>
-      <div><img src={contact.image_url}></img></div>
-      <div>{contact.email}</div>
-      <div>{contact.phone_number}</div>
+      <div className="div-desc"><img src={contact.image_url}></img></div>
+      <div className="div-desc">{contact.email}</div>
+      <div className="div-desc">{contact.phone_number}</div>
     </section>
   )
 };
@@ -157,20 +157,3 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-/*  
-function handleNameChange(e) {
-    setName(e.target.value);
-  }
-
-  function handleEmailChange() {
-
-  }
-
-  function handlePhoneNumChange() {
-
-  }
-
-  function handleImageURLChange() {
-
-  }
-  */
