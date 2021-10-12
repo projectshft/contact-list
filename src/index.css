@@ -11,3 +11,44 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+table, th, td {
+  border: 1px solid black;
+  width: 750px;
+}
+
+.contact-list {
+  border: 1px solid black;
+}
+
+img {
+  max-width: 25%;
+}
+
+td {
+  border: 1px solid black;
+  justify-content: center;
+}
+
+.table-row {
+  display: table-row;
+}
+
+button {
+  background-color: blue;
+  color: white;
+}
+
+h1 {
+  text-align: center;
+}
+
+.div-desc {
+  text-align: center;
+}
+
+.div-input {
+  text-align: center;
+}
+
+
