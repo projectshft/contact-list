@@ -1,6 +1,7 @@
-import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
-import React from 'react';
+import { BrowserRouter, Switch, Route, Link, withRouter } from 'react-router-dom';
+import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
+import $ from 'jquery';
 import './index.css';
 import PropTypes from 'prop-types';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -25,12 +26,14 @@ const ContactAPI = {
   }
 };
 
+
+
 const Main = () => (
   <main>
     <Switch>
       <Route exact path="/" component={Index} />
       <Route path="/contacts/:id" component={Contact} />   
-      <Route path="/addcontact" component={AddCon} />   
+      <Route path="/addcontact" component={AddContact} />   
     </Switch>
   </main>
 );
@@ -41,8 +44,7 @@ const Index = () => {
     <Link to="/addcontact">Add Contact</Link>
     <table class="table">
         <thead>
-            <tr>
-                <th scope="col" id="view-link">Profile Link</th>
+            <tr>                
                 <th scope="col" id="pic-column">Profile Pic</th>
                 <th scope="col" id="name-column">Name</th>
                 <th scope="col" id="email-column">Email</th>
@@ -57,38 +59,63 @@ const Index = () => {
   );
 }
 
-const Contact = (key) => {  
-  return (
-    <div className="selected-contact">
-      <SelectedContact />
-    </div>
-  );
-};
-
-const AddCon = () => {
-  return (
-    <div className="add-contact">
-      <AddContact />
-    </div>
-  );
-}
-
 const AddContact = props => {     
+  const generateID = () => (ContactAPI.contacts.length - 1);
+ 
+  const newContact = {id: null, image_url: null, name: null, email: null, phone_number: null};
+
+  function handleNameChange(e) {
+    newContact.name = e.target.value;
+  }
+
+  function handleEmailChange(e) {
+    newContact.email = e.target.value;
+  }
+
+  function handlePhoneChange(e) {
+    newContact.phone_number = e.target.value;
+  }
+
+  function handleImageChange(e) {
+    newContact.image_url = e.target.value;
+  }
+  
+  
   return (        
       <section>
           <h1>Add Contact</h1>
       <div>Full Name</div>
-      <div className="name-input"><input /></div>
+      <div className="name-input">
+        <input onChange={handleNameChange} />        
+      </div>     
       <div>Email address</div>
-      <div className="email-input"><input /></div>
+      <div className="email-input">
+        <input onChange={handleEmailChange}/>          
+      </div>
       <div>Phone Number</div>
-      <div className="phone-input"><input /></div>
+      <div className="phone-input">
+        <input onChange={handlePhoneChange}/>
+      </div>
       <div>Image URL</div>
-      <div className="image-input"><input /></div>
+      <div className="image-input">
+        <input onChange={handleImageChange}/>
+      </div>
       <hr/>
-      <button>Confirm</button>
+      <Link to={`/`} className="button-link">
+        <button onClick={handleButtonClick}>Confirm</button>
+      </Link>
       </section>      
   )
+
+  function handleButtonClick() {
+    console.log('Button Clicked');
+    
+    ContactAPI.contacts.push(newContact);  
+    console.log(ContactAPI.contacts)
+  }
+  
+  
+
 };
 
 const ContactList = () => {     
@@ -107,23 +134,21 @@ const ContactList = () => {
   
 };
 
-const SelectedContact = props => {
-  const contact = ContactAPI.get(parseInt(props.match.params.id, 10));  
-  //const player = PlayerAPI.get(parseInt(props.match.params.number, 10));  code from Module example
+const Contact = (props) => {  
+  const contact = ContactAPI.get(parseInt(props.match.params.id, 10));    
 
   if (!contact) {
     return <div>Contact does not exist</div>;
   }  
   return (
     <section>
-      <h1>Selected Contact</h1>
-      <div>TODO</div>
-      <div></div>
+      <h1>{contact.name}</h1>
+      <div><img src={contact.image_url}></img></div>
+      <div>{contact.email}</div>
+      <div>{contact.phone_number}</div>
     </section>
   )
 };
-
-
 
 ReactDOM.render(
   <BrowserRouter>
@@ -132,26 +157,20 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-/*
-const contactsArray = ContactAPI.contacts;
-  const rows = [];  
-  
+/*  
+function handleNameChange(e) {
+    setName(e.target.value);
+  }
 
-  for(let i = 0; i < contactsArray.length; i++) {
-    rows.push(
-      <tr key={i}>                  
-          <td><Link to={'/contacts/${i}'}>View Profile</Link></td>
-          <td><img src={contactsArray[i].image_url}></img></td>
-          <td>{contactsArray[i].name}</td>
-          <td>{contactsArray[i].email}</td>
-          <td>{contactsArray[i].phone_number}</td>
-      </tr> 
-        
-    )
-  }  
-  return rows;
+  function handleEmailChange() {
 
+  }
 
-  <td><Link to={'/contacts/${rows.id}'}>View Profile</Link></td>
+  function handlePhoneNumChange() {
 
+  }
+
+  function handleImageURLChange() {
+
+  }
   */
