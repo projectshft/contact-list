@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import { Switch, Route } from 'react-router-dom';
+import React, { useState } from 'react';
+import Home from './Home';
+import Contacts from './Contacts';
 
-function App() {
+const axios = require('axios');
+
+const App = () => {
+  const [contacts, setContacts] = useState([]);
+
+  axios
+    .get('./contacts.json')
+    .then((response) => {
+      setContacts(response);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+
+  const addContact = (newContact) => {
+    setContacts((contacts) => [...contacts, newContact]);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route
+          path="/contacts"
+          render={() => (
+            <Contacts addContact={addContact} contacts={contacts} />
+          )}
+        />
+      </Switch>
     </div>
   );
-}
+};
 
 export default App;
