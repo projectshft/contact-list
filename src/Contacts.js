@@ -1,25 +1,30 @@
-import { Switch, Route } from 'react-router-dom';
 import ContactsList from './ContactsList';
-import NewContact from './NewContact';
+import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import styled from "styled-components";
+
+const ButtonStyle = styled.ul`
+a {
+  text-decoration: none;
+  color:white;
+}
+margin-bottom:0;
+
+`;
 
 const Contacts = ({ contacts, addContact }) => (
-  <Switch>
-    <Route
-      path="/contacts"
-      render={() => <ContactsList contacts={contacts} />}
-    />
-
-    <Route
-      path="/contacts/new"
-      render={(routerProps) => (
-        <NewContact
-          history={routerProps.history}
-          contacts={contacts}
-          addContact={addContact}
-        />
-      )}
-    />
-  </Switch>
-);
+  <>
+    <ContactsList contacts={contacts} />
+    <div className="d-grid gap-2">
+      <Button>               
+        <ButtonStyle>
+          <Link to={'/contacts/new'}>
+          <strong>Add New Contact</strong>
+          </Link>
+        </ButtonStyle>
+      </Button>
+    </div>
+  </>
+)
 
 export default Contacts;
