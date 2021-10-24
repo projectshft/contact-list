@@ -1,29 +1,26 @@
 import ContactsList from './ContactsList';
-import { Button } from 'react-bootstrap';
+import { Button,Row,Col,Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import styled from "styled-components";
 
-const ButtonStyle = styled.ul`
-a {
-  text-decoration: none;
-  color:white;
-}
-margin-bottom:0;
-
-`;
 
 const Contacts = ({ contacts, addContact }) => (
   <>
+    <Container>
     <ContactsList contacts={contacts} />
-    <div className="d-grid gap-2">
-      <Button>               
-        <ButtonStyle>
-          <Link to={'/contacts/new'}>
-          <strong>Add New Contact</strong>
-          </Link>
-        </ButtonStyle>
-      </Button>
-    </div>
+    
+    <Link to={'/contacts/new'}>
+      <Row>
+        <Col xs={{span:6, offset:3}}>
+          <div className="d-grid gap-2">
+            <Button variant="primary" size="lg">
+            <strong>Add New Contact</strong>
+            </Button>
+          </div>
+        </Col>
+      </Row>
+    </Link>
+
+    </Container>
   </>
 )
 

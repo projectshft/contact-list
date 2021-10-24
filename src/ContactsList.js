@@ -1,41 +1,46 @@
 import { Link } from 'react-router-dom';
-import { CardGroup,Card, ListGroup, ListGroupItem, Container } from 'react-bootstrap';
+import { Row, Col, Card, ListGroup, ListGroupItem, Container } from 'react-bootstrap';
 import styled from "styled-components";
 
 
 const ListStyle = styled.ul`
 a {
   text-decoration: none;
+  // color:#6c757d;
 }
-margin-bottom:0;
+margin-left:0;
+margin-bottom:20px;
+padding-left:0;
 `;
 
 
 const ContactsList = ({ contacts }) => (
   <>
-    <Container>
-      <CardGroup>
-
+    <Row>
+      <Col xs={{span:6, offset:3}}>
         {contacts.map((c) => (
-          <ListStyle>
+          <ListStyle key={c.id}>
             <Link to={`/contacts/${c.id}`}>
-              <Card key={c.id}>
-                <Card.Img variant="top" src/>
-                <Card.Body>
-                  <Card.Title>{`${c.firstName} ${c.lastName}`}</Card.Title>
-                </Card.Body>
-                  <ListGroup className="list-group-flush">
-                    <ListGroupItem>Cras justo odio</ListGroupItem>
-                    <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
-                    <ListGroupItem>Vestibulum at eros</ListGroupItem>
-                  </ListGroup>
+              <Card>
+                <Row>
+                  <Col lg={3}>
+                    <Card.Img variant="top" src={c.imageURL}/>
+                  </Col>
+                  <Col lg={9}>
+                    <Card.Body>
+                      <Card.Title><strong>{c.firstName} {c.lastName}</strong></Card.Title>
+                      <br />
+                      <Card.Subtitle className="mb-2 text-muted">Phone Number: {c.phoneNumber}</Card.Subtitle>
+                      <Card.Subtitle className="mb-2 text-muted">Email: {c.email}</Card.Subtitle>
+                    </Card.Body>
+                  </Col>
+                </Row>
               </Card>
             </Link>
           </ListStyle>
         ))}
-
-      </CardGroup>
-    </Container>
+      </Col>
+    </Row>
   </>
 );
 
