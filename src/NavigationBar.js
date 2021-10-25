@@ -9,20 +9,19 @@ const NavStyle = styled.ul`
   }
   .navlink {
     margin-left:50px;
-    padding-bottom:11px;
+    padding-bottom:10px;
     color:white;
     font-weight:bold;
   } 
   .current {
-    border-bottom: 1px solid white;
+    border-bottom: 2px solid white;
   }
-
   margin-bottom:0;
 `;
 
 const NavigationBar = () => (
   <>
-    <Navbar bg="dark" variant="dark">
+    <Navbar bg="dark" variant="dark" fixed="top">
         <NavStyle>
           <NavLink to='/'exact>
               <Navbar.Brand>

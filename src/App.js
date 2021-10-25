@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import NavigationBar from './NavigationBar';
 import Contacts from './Contacts';
 import NewContact from './NewContact';
+import ContactDetailView from './ContactDetailView';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 
@@ -32,6 +33,7 @@ const App = () => {
   return (
     <div className="container-fluid">
       <NavigationBar />
+      <br />
       <Switch>
         <Route
           exact path="/"
@@ -39,16 +41,21 @@ const App = () => {
             <Contacts addContact={addContact} contacts={contacts} />
           )}
         />
-      <Route
-        path="/contacts/new"
-        render={(routerProps) => (
-          <NewContact
-            history={routerProps.history}
+        <Route path="/contacts/new" render={(routerProps) => (
+            <NewContact
+              history={routerProps.history}
+              contacts={contacts}
+              addContact={addContact}
+            />
+          )}
+        />
+        <Route path='/contacts/:id' render={(routerProps) => (
+          <ContactDetailView 
+            contactId={parseInt(routerProps.match.params.id, 10)} 
             contacts={contacts}
-            addContact={addContact}
           />
-        )}
-      />
+          )}
+        />
       </Switch>
     </div>
   );
