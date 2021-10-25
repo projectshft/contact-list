@@ -1,7 +1,7 @@
 import { Switch, Route } from 'react-router-dom';
 import React, { useState } from 'react';
 import NavigationBar from './NavigationBar';
-import Contacts from './Contacts';
+import ContactsList from './ContactsList';
 import NewContact from './NewContact';
 import ContactDetailView from './ContactDetailView';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -16,9 +16,53 @@ const App = () => {
     {id: 4, firstName: "James", lastName: "Monroe", imageURL: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/James_Monroe_White_House_portrait_1819.jpg/1280px-James_Monroe_White_House_portrait_1819.jpg", email: "james2@whitehouse.gov", phoneNumber: "(202) 456-1414"}
   ]);
 
+
+  const sortContacts = (sortVariable) => {
+
+    if(sortVariable === 'dateAdded'){
+      const sortedByDateAdded = [...contacts].sort((a,b) => {
+        return a.id - b.id;
+      });
+      setContacts(sortedByDateAdded);
+    }
+    
+    if(sortVariable === 'firstName'){
+      const sortedByFirstName = [...contacts].sort((a,b) => {
+        const nameA=a.firstName.toLowerCase();
+        const nameB=b.firstName.toLowerCase();
+        if (nameA < nameB) {
+          return -1
+        } else if (nameA > nameB) {
+          return 1
+        } else {
+          return 0
+        }
+      });
+      setContacts(sortedByFirstName);
+    }
+
+    if(sortVariable === 'lastName'){
+      const sortedByLastName = [...contacts].sort((a,b) => {
+        const nameA=a.lastName.toLowerCase();
+        const nameB=b.lastName.toLowerCase();
+        if (nameA < nameB) {
+          return -1
+        } else if (nameA > nameB) {
+          return 1
+        } else {
+          return 0
+        }
+      });
+      setContacts(sortedByLastName);
+    }
+
+  };
+
   const addContact = (newContact) => {
     setContacts((origContacts) => [...origContacts, newContact]);
+    sortContacts();
   };
+
 
   return (
     <div className="container-fluid">
@@ -28,7 +72,7 @@ const App = () => {
         <Route
           exact path="/"
           render={() => (
-            <Contacts addContact={addContact} contacts={contacts} />
+            <ContactsList sortContacts={sortContacts} contacts={contacts} />
           )}
         />
         <Route path="/contacts/new" render={(routerProps) => (

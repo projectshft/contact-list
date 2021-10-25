@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Row, Col, Card, Navbar, Container } from 'react-bootstrap';
+import { Row, Col, Card, Navbar, Container, Button, Nav } from 'react-bootstrap';
 import styled from "styled-components";
 
 
@@ -14,13 +14,20 @@ padding-left:0;
 `;
 
 
-const ContactsList = ({ contacts }) => (
+const ContactsList = ({contacts, sortContacts}) => {
+
+  const handleSortSelection=(e)=>{
+    sortContacts(e);
+  }
+
+  return (
   <>
+    <br />
     <Row>
       <Col xs={{span:6, offset:3}}>
         <Navbar bg="dark" variant="dark">
           <Container>
-            <Navbar.Brand >
+            <Navbar.Brand>
               <img
                 alt=""
                 src="/logo.png"
@@ -30,6 +37,19 @@ const ContactsList = ({ contacts }) => (
               />{'    '}
               <strong>Your Contacts</strong>
             </Navbar.Brand>
+            
+            <Nav variant="pills" defaultActiveKey={'dateAdded'} onSelect={handleSortSelection}>
+              <Nav.Item>
+                <Nav.Link eventKey='dateAdded'>Date Added</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link eventKey="firstName">First Name</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link eventKey="lastName">Last Name</Nav.Link>
+              </Nav.Item>
+            </Nav>
+
           </Container>
         </Navbar>
         {contacts.map((c) => (
@@ -55,7 +75,20 @@ const ContactsList = ({ contacts }) => (
         ))}
       </Col>
     </Row>
+
+    <Link to={'/contacts/new'}>
+      <Row>
+        <Col xs={{span:6, offset:3}}>
+          <div className="d-grid gap-2">
+            <Button variant="primary" size="lg">
+            <strong>Add New Contact</strong>
+            </Button>
+          </div>
+        </Col>
+      </Row>
+    </Link>
   </>
-);
+  );
+}
 
 export default ContactsList;

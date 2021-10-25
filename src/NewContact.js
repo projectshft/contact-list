@@ -20,7 +20,6 @@ const NewContact = (props) => {
   }
 
 
-  
   return (
     <>
         <br />
