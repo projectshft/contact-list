@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import _ from 'lodash';
 import { Button, Row, Col, Card, ListGroup } from 'react-bootstrap';
+import './index.css';
 
 
 const ContactDetailView = ({contactId, contacts}) => {
@@ -43,11 +44,16 @@ const ContactDetailView = ({contactId, contacts}) => {
         </Card>
         
         <br />
+        <div className="d-grid gap-2" style={{marginBottom:"10px"}}>
+            <Button variant="secondary" size="lg">
+              <strong>Edit</strong>
+            </Button>
+        </div>
         <Link to={'/'}>
           <div className="d-grid gap-2">
-              <Button variant="primary" size="lg">
+            <Button variant="primary" size="lg">
               <strong>Back</strong>
-              </Button>
+            </Button>
           </div>
         </Link>
       </Col>

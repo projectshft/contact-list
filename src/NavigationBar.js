@@ -2,6 +2,7 @@ import {Navbar} from 'react-bootstrap';
 import {NavLink} from 'react-router-dom';
 import styled from "styled-components";
 
+
 const NavStyle = styled.ul`
   a {
     text-decoration: none;

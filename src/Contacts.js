@@ -1,11 +1,11 @@
 import ContactsList from './ContactsList';
-import { Button,Row,Col,Container } from 'react-bootstrap';
+import { Button,Row,Col} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 
 const Contacts = ({ contacts, addContact }) => (
   <>
-    <Container>
+    <br />
     <ContactsList contacts={contacts} />
     
     <Link to={'/contacts/new'}>
@@ -20,7 +20,6 @@ const Contacts = ({ contacts, addContact }) => (
       </Row>
     </Link>
 
-    </Container>
   </>
 )
 

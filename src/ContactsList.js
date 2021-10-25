@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Row, Col, Card, Navbar } from 'react-bootstrap';
+import { Row, Col, Card, Navbar, Container } from 'react-bootstrap';
 import styled from "styled-components";
 
 
@@ -8,7 +8,8 @@ a {
   text-decoration: none;
 }
 margin-left:0;
-margin-bottom:20px;
+margin-top:10px;
+margin-bottom:10px;
 padding-left:0;
 `;
 
@@ -17,17 +18,19 @@ const ContactsList = ({ contacts }) => (
   <>
     <Row>
       <Col xs={{span:6, offset:3}}>
-        <Navbar bg="light">
-          <Navbar.Brand >
-            <img
-              alt=""
-              src="/logo.png"
-              width="60"
-              height="30"
-              className="d-inline-block align-top"
-            />{'    '}
-            <strong>YOUR CONTACTS</strong>
-          </Navbar.Brand>
+        <Navbar bg="dark" variant="dark">
+          <Container>
+            <Navbar.Brand >
+              <img
+                alt=""
+                src="/logo.png"
+                width="60"
+                height="30"
+                className="d-inline-block align-top"
+              />{'    '}
+              <strong>Your Contacts</strong>
+            </Navbar.Brand>
+          </Container>
         </Navbar>
         {contacts.map((c) => (
           <ListStyle key={c.id}>
