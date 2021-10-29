@@ -21,11 +21,21 @@ const Contact = ({ contactId, contacts }) => {
   return (
     <div align="center">
       <h1>{contact.name}</h1>
-      <img src={contact.pictureUrl} alt="" width="300" height="300" />
-      <p>{contact.email}</p>
-      <p>{contact.phone}</p>
+      <img
+        src={contact.pictureUrl}
+        alt=""
+        width="250"
+        onError={(e) => {
+          e.target.src =
+            'https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg';
+          e.onError = null;
+        }}
+      />
+      <h3>{contact.email}</h3>
+      <h3>{contact.phone}</h3>
+      <br />
       <Link to="/contacts">
-        <button type="button" className="btn btn-outline-primary">
+        <button type="button" className="btn btn-outline-primary btn-sm">
           Back to Your Contacts
         </button>
       </Link>

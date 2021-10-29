@@ -1,9 +1,13 @@
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const YourContacts = ({ contacts, history }) => {
   const handleAddNewContactClick = () => {
     history.push('/contacts/new');
+  };
+
+  const handleContactClick = (e) => {
+    const clickedTableRow = e.target.closest('tr');
+    history.push(`/contacts/${clickedTableRow.dataset.contactId}`);
   };
 
   return (
@@ -26,19 +30,30 @@ const YourContacts = ({ contacts, history }) => {
           <thead className="thead-dark">
             <tr>
               <th scope="col">Name</th>
-              <th scope="col">Picture</th>
+              <th scope="col">Profile Picture</th>
               <th scope="col">Email</th>
               <th scope="col">Phone</th>
             </tr>
           </thead>
           <tbody>
             {contacts.map((c) => (
-              <tr>
+              <tr
+                key={c.id}
+                data-contact-id={c.id}
+                onClick={(e) => handleContactClick(e)}
+              >
+                <td>{c.name}</td>
                 <td>
-                  <Link to={`/contacts/${c.id}`}>{c.name}</Link>
-                </td>
-                <td>
-                  <img src={c.pictureUrl} alt="" width="200" height="200" />
+                  <img
+                    src={c.pictureUrl}
+                    alt=""
+                    width="250"
+                    onError={(e) => {
+                      e.target.src =
+                        'https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg';
+                      e.onError = null;
+                    }}
+                  />
                 </td>
                 <td>{c.email}</td>
                 <td>{c.phone}</td>
@@ -57,7 +72,7 @@ YourContacts.propTypes = {
       id: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired,
       email: PropTypes.string.isRequired,
-      picture_url: PropTypes.string.isRequired,
+      pictureUrl: PropTypes.string.isRequired,
       phone: PropTypes.string.isRequired,
     })
   ),

@@ -1,7 +1,6 @@
 import './App.css';
-import { Switch, Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import React, { useState } from 'react';
-import Home from './Home';
 import Contacts from './Contacts';
 
 const App = () => {
@@ -16,27 +15,19 @@ const App = () => {
     },
     {
       id: 2,
-      name: 'Isaac Newton',
-      pictureUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/3/3b/Portrait_of_Sir_Isaac_Newton%2C_1689.jpg',
-      email: 'inewton@cam.ac.uk',
-      phone: '2222222222',
-    },
-    {
-      id: 3,
       name: 'Marie Curie',
       pictureUrl:
         'https://www.nobelprize.org/images/marie-curie-12835-content-portrait-mobile-tiny.jpg',
       email: 'marie@curie.org',
-      phone: '3333333333',
+      phone: '2222222222',
     },
     {
-      id: 4,
+      id: 3,
       name: 'Pierre Curie',
       pictureUrl:
         'https://www.nobelprize.org/images/pierre-curie-12836-content-portrait-mobile-tiny.jpg',
       email: 'pierre@curie.org',
-      phone: '3333333333',
+      phone: '2222222222',
     },
   ]);
 
@@ -46,15 +37,11 @@ const App = () => {
 
   return (
     <div>
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route
-          path="/contacts"
-          render={() => (
-            <Contacts contacts={contacts} addContact={addContact} />
-          )}
-        />
-      </Switch>
+      <Redirect from="/" to="/contacts" exact />
+      <Route
+        path="/contacts"
+        render={() => <Contacts contacts={contacts} addContact={addContact} />}
+      />
     </div>
   );
 };
