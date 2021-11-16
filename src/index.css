@@ -27,3 +27,15 @@ input {
   text-decoration: none;
   margin: 1em auto;
 }
+
+.contact-row {
+  text-align: center;
+  align-self: center;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.container {
+  justify-content: center;
+  align-content: center;
+}
