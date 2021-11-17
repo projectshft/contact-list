@@ -11,19 +11,27 @@ const App = () => {
       phone: 9107332385,
       email: 'ninavtan@gmail.com',
       img: 'https://drive.google.com/uc?id=1bTnKECNkLhXsDZ3EoFcB4OjjK0SDsLBK',
-      id: 0,
+      userId: 0,
     },
     {
       name: 'Lucy',
       phone: 8888888,
       email: 'lucytan@gmail.com',
       img: 'https://drive.google.com/uc?id=1pEHDQY2pTVhhvIF5hXHtHj23Ou9TK25k',
-      id: 1,
+      userId: 1,
     },
   ]);
 
   const addContact = (contact) => {
     setContacts(() => [...contacts, contact]);
+  };
+
+  const deleteContact = (id) => {
+    //   // eslint-disable-next-line eqeqeq
+    console.log(`This is the ID: ${id}`);
+    const newContacts = contacts.filter((c) => c.userId !== parseInt(id, 10));
+    console.log(newContacts);
+    setContacts(newContacts);
   };
 
   return (
@@ -40,7 +48,11 @@ const App = () => {
           <Route
             path="/contacts"
             render={() => (
-              <Contacts addContact={addContact} contacts={contacts} />
+              <Contacts
+                addContact={addContact}
+                deleteContact={deleteContact}
+                contacts={contacts}
+              />
             )}
           />
         </Switch>

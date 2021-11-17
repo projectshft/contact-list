@@ -4,7 +4,7 @@ import ContactList from './ContactList';
 import ContactForm from './ContactForm';
 import Contact from './Contact';
 
-const Contacts = ({ contacts, addContact }) => (
+const Contacts = ({ contacts, addContact, deleteContact }) => (
   <Switch>
     <Route
       exact
@@ -19,13 +19,19 @@ const Contacts = ({ contacts, addContact }) => (
     />
 
     <Route
-      path="/contacts/:index"
+      path="/contacts/:id"
       render={(props) => <Contact props={props} contacts={contacts} />}
     />
 
     <Route
       path="/contacts"
-      render={() => <ContactList contacts={contacts} />}
+      render={(routerProps) => (
+        <ContactList
+          contacts={contacts}
+          deleteContact={deleteContact}
+          history={routerProps.history}
+        />
+      )}
     />
   </Switch>
 );
@@ -35,4 +41,5 @@ export default Contacts;
 Contacts.propTypes = {
   contacts: PropTypes.array.isRequired,
   addContact: PropTypes.func.isRequired,
+  deleteContact: PropTypes.func,
 };

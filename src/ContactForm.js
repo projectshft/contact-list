@@ -7,7 +7,10 @@ const ContactForm = (props) => {
   const [email, setEmail] = useState('');
   const [img, setImg] = useState('');
 
+  const generateId = () => Math.round(Math.random() * 100000000);
+
   const handleSubmitClick = (event) => {
+    debugger;
     event.preventDefault();
     /* eslint-disable */
     props.addContact({
@@ -15,7 +18,7 @@ const ContactForm = (props) => {
       phone,
       email,
       img,
-      id: props.contacts.length,
+      userId: generateId(),
     });
 
     // eslint-disable-next-line react/prop-types
@@ -48,7 +51,7 @@ const ContactForm = (props) => {
           onChange={(e) => setImg(e.target.value)}
         />
 
-        <button className="btn" type="button">
+        <button className="btn" type="submit">
           Submit
         </button>
       </form>
@@ -57,7 +60,7 @@ const ContactForm = (props) => {
 };
 
 ContactForm.propTypes = {
-  contacts: PropTypes.array.isRequired,
+  // contacts: PropTypes.array.isRequired,
   addContact: PropTypes.func.isRequired,
 };
 
