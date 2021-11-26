@@ -38,7 +38,7 @@ const AddContacts = (props) => {
 
 return (
   <div>
-    <Link to="/">Back</Link>
+    <Link type="button" className="btn btn-primary" to="/">Back</Link>
     <h3>Add information below:</h3>
     <form>
       <span>Image URL: <input value={img} onChange={handleImgChange} placeholder="URL link"/></span>

@@ -12,7 +12,7 @@ const FullList = (prop) => {
 
   return (
     <div>
-      <Link to="/add-contacts">Add Contact</Link>
+      <Link type="button" className="btn btn-primary" to="/add-contacts">Add Contact</Link>
       <ul className="col-md-4 list-group">
         {postContacts}
       </ul>
