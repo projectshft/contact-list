@@ -37,6 +37,7 @@ return (
       <br></br>
       <span>Phone Number: <input value={phone} onChange={handlePhoneChange}/></span>
       <br></br>
+      <button type="button" className="btn btn-primary">Submit</button>
     </form>
   </div>
 )
