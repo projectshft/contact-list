@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
 
 
-const AddContacts = () => {
+const AddContacts = (props) => {
 
   const [img, setImg] = useState('Josh\'s face')
   const handleImgChange = (e) => {
@@ -26,7 +26,13 @@ const AddContacts = () => {
   }
 
   const passState = () => {
-    console.log('pass state works')
+    const contact = {
+      img: {img},
+      name: {name},
+      email: {email},
+      phone: {phone}
+    }
+    props.mainState(contact)
   }
 
 
