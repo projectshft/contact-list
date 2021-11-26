@@ -4,10 +4,13 @@ import { Routes, Route } from 'react-router-dom';
 
 const Main = () => {
   return (
-    <Routes>
-      <Route exact path ="/" element={<FullList/>}/>
-      <Route path="/add-contacts" element={<AddContacts/>}/>
-  </Routes>
+    <div>
+      <button type="button" className="btn btn-primary">Add Contact</button>
+      <Routes>
+        <Route exact path ="/" element={<FullList/>}/>
+        <Route path="/add-contacts" element={<AddContacts/>}/>
+      </Routes>
+    </div>
   )
 }
 
