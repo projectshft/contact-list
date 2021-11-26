@@ -9,9 +9,14 @@ const AddContacts = () => {
   }
 
   const [name, setName] = useState('Josh')
-const handleNameChange = (e) => {
+  const handleNameChange = (e) => {
   setName(e.target.value)
-}
+  }
+
+  const [email, setEmail] = useState('me@me.com')
+  const handleEmailChange = (e) => {
+  setEmail(e.target.value)
+  }
 
 
 
@@ -23,7 +28,7 @@ return (
       <br></br>
       <span>Name: <input value={name} onChange={handleNameChange}/></span>
       <br></br>
-      <span>Email: <input /></span>
+      <span>Email: <input value={email} onChange={handleEmailChange}/></span>
       <br></br>
       <span>Phone Number: <input /></span>
       <br></br>
