@@ -5,8 +5,9 @@ import Main from './components/Main';
 
 const App = () => {
   return (
-    <div>
+  <div>
     <h1>Contact List</h1>
+    <button type="button" className="btn btn-primary">Add Contact</button>
     <Main />
   </div>
   )
