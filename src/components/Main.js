@@ -13,7 +13,7 @@ const Main = () => {
   return (
     <div>
       <Routes>
-        <Route exact path ="/" element={<FullList />}/>
+        <Route exact path ="/" element={<FullList contacts={contacts}/>}/>
         <Route path="/add-contacts" element={<AddContacts mainState={mainState}/>}/>
       </Routes>
     </div>
