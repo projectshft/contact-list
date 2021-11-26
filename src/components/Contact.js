@@ -1,7 +1,11 @@
 
-const Contact = () => {
+import React from 'react';
+
+const Contact = (post) => {
   return (
-    <li>test</li>
+    <li>
+      <span>{post}</span>
+    </li>
   )
 }
 
