@@ -1,6 +1,6 @@
 import AddContacts from "./AddContacts";
 import FullList from "./FullList";
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 const Main = () => {
   // const toAddContacts = () => {
