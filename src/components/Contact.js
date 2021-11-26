@@ -6,7 +6,7 @@ const Contact = ({post}) => {
   return (
     <div>
       <li>
-        <span>email: {post.email.email}</span>
+        <span>{post.img.img} – {post.name.name} – {post.email.email} – {post.phone.phone}</span>
       </li>
     </div>
   )
