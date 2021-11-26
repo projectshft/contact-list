@@ -1,11 +1,14 @@
 
 import React from 'react';
 
-const Contact = (post) => {
+const Contact = ({post}) => {
+  
   return (
-    <li>
-      <span>{post}</span>
-    </li>
+    <div>
+      <li>
+        <span>email: {post.email.email}</span>
+      </li>
+    </div>
   )
 }
 
