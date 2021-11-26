@@ -25,6 +25,9 @@ const AddContacts = () => {
   setPhone(e.target.value)
   }
 
+  const passState = () => {
+    console.log('pass state works')
+  }
 
 
 return (
@@ -40,7 +43,7 @@ return (
       <br></br>
       <span>Phone Number: <input value={phone} onChange={handlePhoneChange}/></span>
       <br></br>
-      <button type="button" className="btn btn-primary">Submit</button>
+      <button type="button" className="btn btn-primary" onClick={passState}>Submit</button>
     </form>
   </div>
 )
