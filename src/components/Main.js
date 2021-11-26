@@ -1,7 +1,7 @@
-
+import AddContacts from "./AddContacts";
 
 const Main = () => (
-  <h1>test</h1>
+  <AddContacts />
 )
 
 export default Main
