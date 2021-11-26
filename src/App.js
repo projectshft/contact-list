@@ -1,12 +1,13 @@
 import React from 'react';
-import AddContacts from './components/AddContacts';
+import Main from './components/Main';
+
 
 
 const App = () => {
   return (
     <div>
     <h1>Contact List</h1>
-    <AddContacts />
+    <Main />
   </div>
   )
 }
