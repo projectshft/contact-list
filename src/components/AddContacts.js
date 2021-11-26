@@ -1,5 +1,7 @@
 
+import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
+
 
 const AddContacts = () => {
 
@@ -27,6 +29,7 @@ const AddContacts = () => {
 
 return (
   <div>
+    <Link to="/">Back</Link>
     <h3>Add information below:</h3>
     <form>
       <span>Image URL: <input value={img} onChange={handleImgChange}/></span>
