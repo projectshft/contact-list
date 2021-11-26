@@ -5,8 +5,8 @@ const AddContacts = () => {
 
 const [name, setName] = useState('Josh')
 
-const handleNameChange = () => {
-  console.log('test handleNameChange')
+const handleNameChange = (e) => {
+  setName(e.target.value)
 }
 
 return (
