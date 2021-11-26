@@ -4,10 +4,12 @@ import { Routes, Route } from 'react-router-dom';
 import React, { useState } from 'react';
 
 const Main = () => {
-  const  [contacts, setContacts] = useState('')
+  const  [contacts, setContacts] = useState([])
+
+  
 
   const mainState = (e) => {
-    setContacts(e)
+    setContacts(contacts.concat([e]))
   }
 
   return (

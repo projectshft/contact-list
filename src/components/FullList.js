@@ -4,7 +4,7 @@ import Contact from './Contact';
 
 const FullList = (p) => {
   
-  const postContacts = p.contact.map((post, index) => {
+  const postContacts = p.contacts.map((post, index) => {
     return (
       <Contact key={index} post={post} />
     )
