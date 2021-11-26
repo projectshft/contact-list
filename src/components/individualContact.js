@@ -1,7 +1,12 @@
 
+import React  from "react";
+
 const individualContact = () => {
   return (
-    <h3>indivudual Contact Test</h3>
+    <div>
+      <h3>test</h3>
+      <button></button>
+    </div>
   )
 }
 
