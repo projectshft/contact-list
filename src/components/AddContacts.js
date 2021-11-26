@@ -18,6 +18,11 @@ const AddContacts = () => {
   setEmail(e.target.value)
   }
 
+  const [phone, setPhone] = useState('1234')
+  const handlePhoneChange = (e) => {
+  setPhone(e.target.value)
+  }
+
 
 
 return (
@@ -30,7 +35,7 @@ return (
       <br></br>
       <span>Email: <input value={email} onChange={handleEmailChange}/></span>
       <br></br>
-      <span>Phone Number: <input /></span>
+      <span>Phone Number: <input value={phone} onChange={handlePhoneChange}/></span>
       <br></br>
     </form>
   </div>
