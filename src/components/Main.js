@@ -3,9 +3,6 @@ import FullList from "./FullList";
 import { Routes, Route } from 'react-router-dom';
 
 const Main = () => {
-  // const toAddContacts = () => {
-  //   console.log('click test');
-  // }
   
   return (
     <div>
