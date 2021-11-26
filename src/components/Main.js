@@ -9,7 +9,6 @@ const Main = () => {
   
   return (
     <div>
-      <Link to="/add-contacts">Add Contact</Link>
       <Routes>
         <Route exact path ="/" element={<FullList/>}/>
         <Route path="/add-contacts" element={<AddContacts/>}/>

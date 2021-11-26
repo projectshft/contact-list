@@ -1,6 +1,8 @@
 
+import { Link } from 'react-router-dom';
+
 const FullList = () => (
-  <h3>test Full List</h3>
+  <Link to="/add-contacts">Add Contact</Link>
 )
 
 export default FullList
