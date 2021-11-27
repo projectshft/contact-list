@@ -1,7 +1,7 @@
 import AddContacts from "./AddContacts";
-import individualContact from "./individualContact";
+import IndividualContact from "./IndividualContact";
 import FullList from "./FullList";
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 import React, { useState } from 'react';
 
 const Main = () => {
@@ -18,7 +18,7 @@ const Main = () => {
       <Routes>
         <Route exact path ="/" element={<FullList contacts={contacts}/>}/>
         <Route path="/add-contacts" element={<AddContacts mainState={mainState}/>}/>
-        <Route path="/individual-contact" element={<individualContact />}/>
+        <Route path="/individual-contact" element={<IndividualContact />}/>
       </Routes>
     </div>
   )

@@ -1,14 +1,13 @@
 
 import React  from "react";
 
-const individualContact = () => {
+const IndividualContact = () => {
   return (
     <div>
-      <h3>test</h3>
-      <button></button>
+      <h3>IndividualContact Test</h3>
     </div>
   )
 }
 
 
-export default individualContact
+export default IndividualContact
