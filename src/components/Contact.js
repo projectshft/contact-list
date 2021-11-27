@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import React from 'react';
 
 const Contact = ({post}) => {
-  
+
   return (
     <div>
       <li>

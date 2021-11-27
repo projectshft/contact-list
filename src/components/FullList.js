@@ -1,12 +1,15 @@
 
 import { Link } from 'react-router-dom';
 import Contact from './Contact';
+import IndividualContact from './IndividualContact';
+
 
 const FullList = (prop) => {
-
   const postContacts = prop.contacts.map((post, index) => {
     return (
+    <div>
       <Contact key={index} post={post}/>
+      </div>
     )
   })
 
@@ -16,6 +19,7 @@ const FullList = (prop) => {
       <ul className="col-md-4 list-group">
         {postContacts}
       </ul>
+      
     </div>
     
   )
