@@ -1,13 +1,11 @@
 import AddContacts from "./AddContacts";
 import IndividualContact from "./IndividualContact";
 import FullList from "./FullList";
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, } from 'react-router-dom';
 import React, { useState } from 'react';
 
 const Main = () => {
   const  [contacts, setContacts] = useState([])
-
-  
 
   const mainState = (e) => {
     setContacts(contacts.concat([e]))

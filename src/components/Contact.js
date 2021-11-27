@@ -7,7 +7,7 @@ const Contact = ({post}) => {
   return (
     <div>
       <li>
-        <Link to="/individual-contact"><img className="profile-img" src={post.img.img} /> – {post.name.name} – {post.email.email} – {post.phone.phone}</Link>
+        <Link to="/individual-contact"><img className="profile-img" src={post.img.img} alt={post.name.name}/> – {post.name.name} – {post.email.email} – {post.phone.phone}</Link>
       </li>
     </div>
   )
