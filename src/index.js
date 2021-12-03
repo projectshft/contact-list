@@ -3,11 +3,39 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
+// import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
+
+// const Home = () => {
+//   <App />
+// }
+
+// const NewContact = () => (
+//   <ContactForm />
+// );
+
+// const Main = () => (
+//   <main>
+//     <Routes>
+//       <Route path="/" element={<Home/>} />
+//       <Route path="/new-contact" element={<NewContact/>} />
+//       {/* <Route path="/schedule" element={<Schedule/>} /> */}
+//     </Routes>
+//   </main>
+// );
+
+// const App = () => (
+//   <div>
+//     <Header />
+//     <Main />
+//   </div>
+// );
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    {/* <BrowserRouter> */}
+      <App />
+    {/* </BrowserRouter> */}
   </React.StrictMode>,
   document.getElementById('root')
 );

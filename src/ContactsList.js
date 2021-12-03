@@ -9,7 +9,13 @@ const ContactsList = (props) => {
   })
 
   return (
-    <table className='col list-group' style={{"borderWidth":"1px", 'borderColor':"#aaaaaa", 'borderStyle':'solid', 'verticalAlign':'middle'}}>
+    <table style={{"borderWidth":"1px", 'borderColor':"#aaaaaa", 'borderStyle':'solid', 'width':'100%'}}>
+      <tr>
+      <td style={{"borderWidth":"1px", 'borderColor':"#aaaaaa", 'borderStyle':'solid', 'textAlign':'left'}}><b>Profile Pic</b></td>
+      <td style={{"borderWidth":"1px", 'borderColor':"#aaaaaa", 'borderStyle':'solid', 'textAlign':'left'}}><b>Contact Name</b></td>
+      <td style={{"borderWidth":"1px", 'borderColor':"#aaaaaa", 'borderStyle':'solid', 'textAlign':'left'}}><b>E-mail Address</b></td>
+      <td style={{"borderWidth":"1px", 'borderColor':"#aaaaaa", 'borderStyle':'solid', 'textAlign':'left'}}><b>Phone Number</b></td>
+    </tr>
       {contactItems}
     </table>
   )
