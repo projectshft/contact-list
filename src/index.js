@@ -7,22 +7,6 @@ import { BrowserRouter } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 
 
-
-// const NewContact = () => (
-//   <ContactForm addContact={addContact}/>
-// );
-
-// const Main = () => (
-//   <main>
-//     <Routes>
-//       <Route path="/" element={<Home/>} />
-//       {/* <Route path="/new-contact" element={<NewContact/>} /> */}
-//     </Routes>
-//   </main>
-// );
-
-
-
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import ContactDetailView from './ContactDetailView';
 import ContactForm from './ContactForm';
 import ContactsList from './ContactsList'
 
@@ -20,13 +21,15 @@ function App() {
     setContacts(contacts.concat([contact]));
   }
 
+
   return (
     <main>
-    <Routes>
-      <Route path="/" element={<ContactsList/>} />
-      <Route path="/new-contact/" element={<ContactForm addContact={addContact} />} />
-    </Routes>
-  </main>
+      <Routes>
+        <Route path="/" element={<ContactsList contacts={contacts} />} />
+        <Route path="/new-contact/" element={<ContactForm addContact={addContact} />} />
+        <Route path="/contact-detail/:index" element={<ContactDetailView contacts={contacts} />} />
+      </Routes>
+    </main>
   );
 }
 
