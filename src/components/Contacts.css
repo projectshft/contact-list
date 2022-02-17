@@ -1,0 +1,16 @@
+h1 {
+  letter-spacing: 1px;
+}
+
+.container {
+  margin-top: 6rem;
+}
+
+.table {
+  margin: 4rem 3rem 3rem;
+}
+
+.btn.btn-lg {
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}

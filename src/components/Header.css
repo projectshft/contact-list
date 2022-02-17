@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+}
+
+.navbar .nav-link {
+  color: white;
+  transition: 0.4s;
+  margin-right: 2rem;
+}
+
+.navbar-brand {
+  margin-left: 2rem;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:active {
+  color: rgb(216, 247, 247);
+  box-shadow: 0 0 3px rgba(216, 247, 247, 0.8);
+}
