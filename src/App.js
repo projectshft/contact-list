@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Contacts from "./components/Contacts";
 import ContactForm from "./components/ContactForm";
 
+//Starting with some default contacts
 const App = () => {
   const [contacts, setContact] = useState([
     {

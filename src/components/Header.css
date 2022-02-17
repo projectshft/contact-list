@@ -2,7 +2,8 @@
   box-sizing: border-box;
 }
 
-.navbar .nav-link {
+.navbar .nav-link,
+.navbar .nav-link:visited {
   color: white;
   transition: 0.4s;
   margin-right: 2rem;
