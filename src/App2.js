@@ -45,12 +45,7 @@ const App = () => {
         />
         <Route
           path="/contacts/:id"
-          render={(routerProps) => (
-            <ContactSingle
-              contactId={parseInt(routerProps.match.params.id, 10)}
-              contacts={contacts}
-            />
-          )}
+          element={<ContactSingle contacts={contacts} />}
         />
         <Route
           path="/contacts/new"
