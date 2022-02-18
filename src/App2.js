@@ -6,6 +6,7 @@ import ContactForm from "./components/ContactForm";
 import ContactSingle from "./components/ContactSingle";
 
 const App = () => {
+  //hard-coding in some contacts just to have something present
   const [contacts, setContacts] = useState([
     {
       id: Math.round(Math.random() * 100000000),
