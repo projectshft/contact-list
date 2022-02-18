@@ -1,3 +1,8 @@
+tbody a {
+  text-decoration: none;
+  color: rgb(5, 5, 5);
+}
+
 .contact-image {
   width: 15rem;
 }
@@ -5,6 +10,8 @@
 th {
   font-size: 20px;
 }
-td {
+
+tr td {
   font-size: 18px;
+  padding: 4rem;
 }

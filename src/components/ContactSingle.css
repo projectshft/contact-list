@@ -1,0 +1,29 @@
+.single-person-h1 {
+  text-align: center;
+}
+
+.single-image {
+  display: flex;
+  justify-content: center;
+}
+
+.contact-single-image {
+  width: 30rem;
+}
+
+.single-header {
+  margin-top: 7rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.single-text {
+  font-size: 1.2rem;
+}
+.btn-dark {
+  margin-top: 2rem;
+}
+
+.back-btn-single {
+  margin-top: 2rem;
+}

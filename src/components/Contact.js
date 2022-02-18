@@ -1,11 +1,12 @@
 import "./Contact.css";
 import { Link } from "react-router-dom";
+import React from "react";
 
-const Contact = ({ fName, lName, image, email, phone }) => (
-  <tr>
+const Contact = ({ id, phone, email, fName, lName, image }) => (
+  <tr className="contact-row">
     <td>
-      <Link to={`/contacts/${fName}_${lName}`}>
-        <img className="contact-image" src={image} alt="friend-list" />{" "}
+      <Link to={`/contacts/${id}`}>
+        <img className="contact-image" src={image} alt="friend-list" />
       </Link>
     </td>
     <td className="align-middle">

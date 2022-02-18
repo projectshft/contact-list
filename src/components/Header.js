@@ -10,7 +10,10 @@ const Header = () => (
         </Link>
       </div>
       <ul className="nav navbar-dark navbar-right">
-        <Link className="nav-link" to={`/contact-form/`}>
+        <Link className="nav-link" to={`/contacts/`}>
+          Contact List
+        </Link>
+        <Link className="nav-link" to={`/contacts/new`}>
           Add New
         </Link>
       </ul>

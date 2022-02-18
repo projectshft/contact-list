@@ -1,0 +1,16 @@
+<React.Fragment>
+    {contacts.map((c) => (
+      <tr className="contact-row">
+        <td>
+          <Link to={`/contacts/${c.id}`}>
+            <img className="contact-image" src={c.image} alt="friend-list" />
+          </Link>
+        </td>
+        <td className="align-middle">
+          {c.fName} {c.lName}
+        </td>
+        <td className="align-middle">{c.email}</td>
+        <td className="align-middle">{c.phone}</td>
+      </tr>
+    ))}{" "}
+  </React.Fragment>

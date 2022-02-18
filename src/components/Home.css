@@ -1,0 +1,20 @@
+.heading-h1 {
+  margin: 0rem 5rem 2rem;
+  padding-top: 20rem;
+  text-align: center;
+  color: white;
+}
+
+.home-heading {
+  background-color: black;
+  width: 100vw;
+  height: 100vh;
+}
+
+.heading-link-btn {
+  margin: 0 auto;
+}
+
+.btn.btn-lg {
+  margin: 0 auto;
+}
