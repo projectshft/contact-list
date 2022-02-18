@@ -43,14 +43,13 @@ const App = () => {
           element={<Contacts contacts={contacts} />}
         />
         <Route
-          path="/contacts/test"
-          element={<ContactSingle />}
-          // render={(routerProps) => (
-          //   <ContactSingle
-          //     // contactId={parseInt(routerProps.match.params.id, 10)}
-          //     contacts={contacts}
-          //   />
-          // )}
+          path="/contacts/:id"
+          render={(routerProps) => (
+            <ContactSingle
+              contactId={parseInt(routerProps.match.params.id, 10)}
+              contacts={contacts}
+            />
+          )}
         />
         <Route
           path="/contacts/new"

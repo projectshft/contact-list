@@ -1,11 +1,11 @@
 import Header from "./Header";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import React from "react";
 import _ from "lodash";
 import "./ContactSingle.css";
 
-const ContactSingle = ({ contactId, contacts }) => {
-  const contact = _.find(contacts, { id: contactId });
+const ContactSingle = (props) => {
+  const { fName, lName, email, phone, image } = useParams();
 
   let navigate = useNavigate();
   const handleBackBtnClick = () => {
@@ -15,23 +15,23 @@ const ContactSingle = ({ contactId, contacts }) => {
   return (
     <div className="single-container">
       <Header />
-      <div className="single-header">
-        <h1 className="single-person-h1">Jerry Fabulous</h1>
-      </div>
-      <div className="single-image">
-        <img
-          className="contact-single-image"
-          src="https://st.depositphotos.com/1269204/1219/i/600/depositphotos_12196477-stock-photo-smiling-men-isolated-on-the.jpg"
-          alt="friend-list"
-        />
-      </div>
-      <div className="mt-5">
-        <p className="text-center single-text">
-          <strong>Email:</strong> jerry@gmail.com
-        </p>
-        <p className="text-center single-text">
-          <strong>Phone:</strong> 444-444-4444
-        </p>
+      <div className="card-container">
+        <div className="single-header">
+          <h1 className="single-person-h1">
+            {fName} {lName}
+          </h1>
+        </div>
+        <div className="single-image">
+          <img className="contact-single-image" src={image} alt="friend-list" />
+        </div>
+        <div className="mt-5">
+          <p className="text-center single-text">
+            <strong>Email:</strong> {email}
+          </p>
+          <p className="text-center single-text single-text-btm">
+            <strong>Phone:</strong> {phone}
+          </p>
+        </div>
       </div>
       <div className="back-btn-single text-center">
         <Link
