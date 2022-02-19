@@ -13,9 +13,6 @@ const Header = () => {
 }
 
 function App() {
-
-  
-
   return (
     <div className="container">
         <Header />
@@ -25,3 +22,8 @@ function App() {
 }
 
 export default App;
+
+// todos
+// require fields before submission
+// id generator
+// add click to naviagate to individual contact

@@ -10,7 +10,7 @@ const ContactNew = (props) => {
   const handleSubmitContactClick = () => {
     
     props.addContact({
-      id: 3,
+      id: randomIdGenerator(),
       name,
       email,
       phone,
@@ -20,7 +20,9 @@ const ContactNew = (props) => {
     props.history.push('/')
   }
 
-  
+  const randomIdGenerator = () => Math.round(Math.random() * 100000000);
+
+
   return (
 
     <div className="col-md-5 offset-md-3">
