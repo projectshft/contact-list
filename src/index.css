@@ -15,3 +15,20 @@ code {
 h1 {
   text-align: center;
 }
+
+.card {
+  width: 18rem;
+}
+
+.card-body {
+  text-align: center;
+}
+
+.contact-button {
+  margin-top: 10px;
+}
+
+.container img {
+  height: 120px;
+  width: auto;
+}

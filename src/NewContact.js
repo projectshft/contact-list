@@ -27,7 +27,6 @@ const NewContact = ({ addContact }) => {
   return (
     <div className="container">
       <h1>Add New Contact</h1>
-      <Link to="/">Back</Link>
       <div className="mb-3">
         <label htmlFor="name">Profile Pic Url</label>
         <input
@@ -64,13 +63,20 @@ const NewContact = ({ addContact }) => {
           onChange={(event) => setPhone(event.target.value)}
         />
       </div>
-      <button
-        type="button"
-        className="btn btn-primary"
-        onClick={handleAddContactClick}
-      >
-        Submit
-      </button>
+      <div>
+        <Link to="/">
+          <button type="button" className="btn btn-primary">
+            Back
+          </button>
+        </Link>
+        <button
+          type="button"
+          className="btn btn-primary"
+          onClick={handleAddContactClick}
+        >
+          Submit
+        </button>
+      </div>
     </div>
   );
 };

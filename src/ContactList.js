@@ -29,7 +29,7 @@ const ContactList = ({ contacts }) => (
               <Link to={`contacts/${contact.id}`}>{contact.name}</Link>
             </td>
             <td>{contact.email}</td>
-            <td>{contact.phone_number}</td>
+            <td>{contact.phoneNumber}</td>
           </tr>
         ))}
       </tbody>

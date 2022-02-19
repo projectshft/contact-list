@@ -45,7 +45,17 @@ const Main = () => {
           path="/new"
           render={() => <NewContact addContact={addContact} />}
         />
-        <Route path="/contacts/:id" render={() => <ContactInfo />} />
+        <Route
+          path="/contacts/:id"
+          render={(contactProps) => (
+            <ContactInfo
+              contact={contacts.find(
+                (contact) =>
+                  contact.id === parseInt(contactProps.match.params.id, 10)
+              )}
+            />
+          )}
+        />
       </Switch>
     </main>
   );
