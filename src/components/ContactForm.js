@@ -46,13 +46,15 @@ function ContactForm(props) {
     e.preventDefault();
 
     if (!validateEmail(email)) {
-      alert("The email entered is invalid. Flease re-enter a valid email");
+      alert("The email entered is invalid. Please re-enter a valid email");
+      return;
     }
 
     if (!validatePhone(phone)) {
       alert(
         "Please enter a phone number in the format XXX-XXX-XXXX (e.g. 212-330-5950)"
       );
+      return;
     } else {
       const contactObject = {
         fName,

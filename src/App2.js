@@ -46,7 +46,7 @@ const App = () => {
   //Updating already existing contacts
   const handleEdit = (id, obj) => {
     const contactUpdate = contacts.find((el) => el.id === Number(id));
-    console.log("handling");
+
     setContacts(
       contacts.map((contact) => {
         return contact.id === contactUpdate.id ? obj : contact;
