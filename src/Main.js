@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Switch, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import ContactList from './ContactList'
 import ContactNew from './ContactNew'
 import Contact from './Contact'
@@ -19,15 +19,20 @@ const Main = () => {
   }
 
   return (
-    <Switch>
-      <Route exact path="/" render={() => (
+    <Routes>
+      {/* <Route path="/" render={() => (
         <ContactList contacts={contacts} addContact={addContact} />
-        )}/>
-      <Route exact path="/contacts/new" render={(routerProps) => (
+        )}/> */}
+      {/* <Route exact path="/contacts/new" render={(routerProps) => (
         <ContactNew history={routerProps.history} contacts={contacts} addContact={addContact} />
-        )}/>
-      <Route path='/contacts/id' component={Contact} />
-    </Switch>
+        )}/> */}
+      {/* <Route path='/contacts/:id' render={(routerProps) => (
+        <Contact contactId={parseInt(routerProps.match.params.id, 10)} contacts={contacts}/>
+      )} /> */}
+      <Route path="/" element={<ContactList contacts={contacts} addContact={addContact} />}/>
+      <Route path="/contacts/new" element={<ContactNew contacts={contacts} addContact={addContact} />}/>
+        <Route path='/contacts/:id' element={<Contact contacts={contacts}/>} />
+    </Routes>
   )
 
 

@@ -1,7 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const ContactList = (props) => { 
+
+  let navigate = useNavigate();
 
   return (
     <div className="col-md-9 offset-md-1">
@@ -23,15 +25,15 @@ const ContactList = (props) => {
             {
               props.contacts.map(c => {
                 return (
-                  <tr key={c.id}>
+                  
+                  <tr key={c.id} onClick={() => (navigate(`/contacts/${c.id}`))}>
                     <td className="w-25"><img src={c.image_url} alt="prof pic"/></td>
                     <td>{c.name}</td>
                     <td>{c.email}</td>
                     <td>{c.phone}</td>
-                  </tr>  
+                  </tr>             
                 )
               })
-
             }
           </tbody>    
         </table>

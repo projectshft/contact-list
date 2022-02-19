@@ -1,7 +1,9 @@
 import React, { useState} from 'react';
+import { useNavigate } from "react-router-dom";
 
 const ContactNew = (props) => {
 
+  let navigate = useNavigate();
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
@@ -17,7 +19,7 @@ const ContactNew = (props) => {
       image_url
     })
     
-    props.history.push('/')
+    navigate("/");
   }
 
   const randomIdGenerator = () => Math.round(Math.random() * 100000000);

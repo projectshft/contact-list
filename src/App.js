@@ -25,5 +25,4 @@ export default App;
 
 // todos
 // require fields before submission
-// id generator
 // add click to naviagate to individual contact
