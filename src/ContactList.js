@@ -5,13 +5,14 @@ import PropTypes from 'prop-types';
 const ContactList = ({ contacts }) => (
   <div className="container">
     <h1>Contact List</h1>
+    <hr />
     <Link to="/new">
-      <button type="button" className="btn btn-primary">
+      <button type="button" className="btn btn-primary add-contact-button">
         Add Contact
       </button>
     </Link>
-    <table className="table">
-      <thead>
+    <table className="table table-striped">
+      <thead className="table-primary">
         <tr>
           <th scope="row">Profile Pic</th>
           <th scope="row">Name</th>

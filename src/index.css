@@ -24,8 +24,16 @@ h1 {
   text-align: center;
 }
 
-.contact-button {
+.contact-info-back-button {
   margin-top: 10px;
+}
+
+.add-contact-button {
+  margin-bottom: 10px;
+}
+
+.back {
+  margin-right: 5px;
 }
 
 .container img {

@@ -15,7 +15,10 @@ const ContactInfo = ({ contact }) => (
     </div>
     <div className="col-md-4 offset-md-4">
       <Link to="/">
-        <button type="button" className="btn btn-primary contact-button">
+        <button
+          type="button"
+          className="btn btn-primary contact-info-back-button"
+        >
           Back
         </button>
       </Link>
