@@ -18,10 +18,33 @@ const Contact = ({contacts}) => {
   }
   
   return (
-    <div>
-      <h1>{contact.name}</h1>
+    // <div className="col-md-4 offset-md-4">
+    //   <img src={contact.image_url} alt="prof pic"></img>
+    //   <h1>{contact.name}</h1>
+    //   <Link to='/'>Back</Link>
+    // </div>
+
+    <div className="col-md-3 offset-md-4">
+      <div className="row">
       <Link to='/'>Back</Link>
-    </div>
+        <table className="table table-bordered">
+            <tbody>      
+              <tr>
+                <td className="w-25"><img src={contact.image_url} alt="prof pic"/></td>
+              </tr> 
+              <tr>
+                <td className="text-center">
+                  <h5>{contact.name}</h5>
+                  <h6>{contact.phone}</h6>
+                  <h6>{contact.email}</h6>
+                </td>
+              
+              </tr>             
+            </tbody>    
+          </table>
+          
+        </div>
+      </div>
   )
 }
 
