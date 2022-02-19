@@ -17,8 +17,8 @@ const ContactList = ({ contacts, deleteContact }) => (
           <th scope="row">Profile Pic</th>
           <th scope="row">Name</th>
           <th scope="row">Email</th>
-          <th scope="row">Phone Number</th>
-          <td>Options</td>
+          <th scope="row">Phone</th>
+          <th scope="row">Options</th>
         </tr>
       </thead>
       <tbody>
@@ -36,6 +36,8 @@ const ContactList = ({ contacts, deleteContact }) => (
               <button
                 type="button"
                 className="btn btn-danger"
+                data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop"
                 onClick={() => deleteContact(contact.id)}
               >
                 Delete

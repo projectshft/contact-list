@@ -13,18 +13,18 @@ const Main = () => {
   const [contacts, setContacts] = useState([
     {
       id: generateId(),
-      name: 'Albert Einstein',
+      name: 'Din Djarin',
       imageUrl:
-        'https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cg_face%2Cq_auto:good%2Cw_300/MTc5ODc5NjY5ODU0NjQzMzIy/gettyimages-3091504.jpg',
-      email: 'aeinstein@example.com',
+        'https://www.rollingstone.com/wp-content/uploads/2020/12/mandalorian-the-tragedyc.jpg',
+      email: 'mando@starwars.com',
       phoneNumber: '15555555555',
     },
     {
       id: generateId(),
-      name: 'Elon Musk',
+      name: 'Boba Fett',
       imageUrl:
-        'https://i.insider.com/566eccdedd08952f058b4581?width=600&format=jpeg&auto=webp',
-      email: 'emusk@mars.com',
+        'https://lumiere-a.akamaihd.net/v1/images/boba-fett-main_a8fade4d.jpeg?region=205%2C34%2C1064%2C598&width=960',
+      email: 'boba@starwars.com',
       phoneNumber: '15555555556',
     },
   ]);
