@@ -1,20 +1,25 @@
 import React from 'react';
 import './App.css';
-import Contacts from './Contacts';
+import Main from './Main';
 
-const Header = () => (
-  <h1 className="text-center">Contact List</h1>
-);
+const Header = () => {
+  return (
+    <div className="col-md-5 offset-md-3">
+      <div className="row">
+        <h1 className="text-center">Contact List</h1>
+      </div>
+    </div>
+  )
+}
 
 function App() {
+
+  
+
   return (
     <div className="container">
-      <div className="col-md-5 offset-md-3">
-        <div className="row">
-          <Header />
-          <Contacts /> 
-        </div> 
-      </div>
+        <Header />
+        <Main /> 
     </div>
   );
 }
