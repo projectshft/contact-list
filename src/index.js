@@ -33,13 +33,20 @@ const Main = () => {
     setContacts((existingContacts) => [...existingContacts, newContact]);
   };
 
+  const deleteContact = (id) => {
+    const newContacts = contacts.filter((item) => item.id !== id);
+    setContacts(newContacts);
+  };
+
   return (
     <main>
       <Switch>
         <Route
           exact
           path="/"
-          render={() => <ContactList contacts={contacts} />}
+          render={() => (
+            <ContactList deleteContact={deleteContact} contacts={contacts} />
+          )}
         />
         <Route
           path="/new"

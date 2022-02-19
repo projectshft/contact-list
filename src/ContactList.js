@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const ContactList = ({ contacts }) => (
+const ContactList = ({ contacts, deleteContact }) => (
   <div className="container">
     <h1>Contact List</h1>
     <hr />
@@ -18,6 +18,7 @@ const ContactList = ({ contacts }) => (
           <th scope="row">Name</th>
           <th scope="row">Email</th>
           <th scope="row">Phone Number</th>
+          <td>Options</td>
         </tr>
       </thead>
       <tbody>
@@ -31,6 +32,15 @@ const ContactList = ({ contacts }) => (
             </td>
             <td>{contact.email}</td>
             <td>{contact.phoneNumber}</td>
+            <td>
+              <button
+                type="button"
+                className="btn btn-danger"
+                onClick={() => deleteContact(contact.id)}
+              >
+                Delete
+              </button>
+            </td>
           </tr>
         ))}
       </tbody>
@@ -40,6 +50,10 @@ const ContactList = ({ contacts }) => (
 
 ContactList.propTypes = {
   contacts: PropTypes.array.isRequired,
+};
+
+ContactList.propTypes = {
+  deleteContact: PropTypes.func.isRequired,
 };
 
 export default ContactList;
