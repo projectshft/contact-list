@@ -5,7 +5,7 @@ const ContactNew = (props) => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
-  const [imageUrl, setImageUrl] = useState('')
+  const [image_url, setImage_url] = useState('')
 
   const handleSubmitContactClick = () => {
     
@@ -14,8 +14,10 @@ const ContactNew = (props) => {
       name,
       email,
       phone,
-      imageUrl
+      image_url
     })
+
+    debugger;
     
     props.history.push('/')
   }
@@ -47,11 +49,11 @@ const ContactNew = (props) => {
           <div className="form-group">
             <label htmlFor="imageInput">Image Url</label>
             <input type="text" className="form-control" id="imageInput" placeholder="Image Url" 
-              onChange={event => setImageUrl(event.target.value)}/>
+              onChange={event => setImage_url(event.target.value)}/>
           </div>
           <br/>
           <button type="button" className="btn btn-primary" onClick={handleSubmitContactClick}>Add Contact</button>
-        </form>
+        </form> 
       </div>
     </div>
   )
