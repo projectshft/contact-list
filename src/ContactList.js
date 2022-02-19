@@ -1,12 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ContactList = (props) => { 
 
-  
-  
   return (
     <div className="col-md-9 offset-md-1">
-      <button className="btn btn-primary"  >Add Contact</button>
+      <Link to="/contacts/new">
+        <button className="btn btn-primary">Add Contact</button>
+      </Link>
+      
       <div className="row">
         <table className="table table-hover table-bordered">
           <thead>

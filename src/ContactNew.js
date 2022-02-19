@@ -16,8 +16,6 @@ const ContactNew = (props) => {
       phone,
       image_url
     })
-
-    debugger;
     
     props.history.push('/')
   }
