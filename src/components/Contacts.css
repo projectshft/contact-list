@@ -34,14 +34,15 @@ tr td {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 500px;
+  box-sizing: content-box;
+
   color: rgb(37, 37, 37);
 }
 
 .react-confirm-alert-body h1 {
   color: rgb(145, 11, 11);
   text-align: center;
-  margin: 2rem 1rem 1rem;
+  padding-top: 1rem;
 }
 
 .react-confirm-alert-button-group button:last-child {
