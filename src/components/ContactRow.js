@@ -6,7 +6,7 @@ import "react-confirm-alert/src/react-confirm-alert.css";
 
 const ContactRow = (props) => {
   const handleDelete = (index) => {
-    console.log("clicked");
+    //Modal box for delete confirmation
     confirmAlert({
       title: "You sure about this?",
       message: "Deleting a contact is permanent",
@@ -25,7 +25,7 @@ const ContactRow = (props) => {
     });
   };
 
-  //   const deleteModal = (index) => {};
+  //Mapping out rows for each individual contact
   return props.contacts.map((contact, i) => {
     return (
       <tr className="contact-row" key={i}>
@@ -41,7 +41,7 @@ const ContactRow = (props) => {
         </td>
         <td className="align-middle">
           <Link to={`/contacts/${contact.id}`}>
-            {contact.fName} {contact.lName}{" "}
+            {contact.fName} {contact.lName}
           </Link>
         </td>
         <td className="align-middle">
@@ -55,11 +55,19 @@ const ContactRow = (props) => {
         </td>
         <td className="align-middle">{contact.phone}</td>
         <td className="align-middle">
+          <Link
+            to={`/contacts/${contact.id}/edit`}
+            className="btn btn-primary"
+            key={i}
+          >
+            Edit
+          </Link>
+        </td>
+        <td className="align-middle">
           <button
             key={i}
             className="btn btn-danger delete-contact-btn"
             onClick={() => {
-              //   if (window.confirm("Are you sure you wish to delete this item?"))
               handleDelete(contact.id);
             }}
           >

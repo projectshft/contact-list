@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "./Header";
 import "./ContactForm.css";
+import PropTypes from "prop-types";
+import phoneNumberPropType from "phone-number-prop-type";
 
 function ContactForm(props) {
   //Set individual state variables for the elements and attach handlers on their inputs;
@@ -159,8 +161,12 @@ function ContactForm(props) {
   );
 }
 
-// ContactForm.propTypes = {
-//     name: PropTypes.string
-//   }
+ContactForm.propTypes = {
+  fName: PropTypes.string,
+  lName: PropTypes.string,
+  email: PropTypes.string,
+  phone: phoneNumberPropType,
+  image: PropTypes.string,
+};
 
 export default ContactForm;

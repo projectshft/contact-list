@@ -4,18 +4,18 @@ import React from "react";
 import "./ContactSingle.css";
 
 const ContactSingle = (props) => {
-  console.log(props);
   let { id } = useParams();
 
   //Finding the invidividual contact based on parameter id;
-  const contact = props.contacts.find((el) => el.id === Number(id));
-  console.log(contact);
+  const contact = props.contacts?.find((el) => el.id === Number(id));
 
   //Navigation for back button;
   let navigate = useNavigate();
   const handleBackBtnClick = () => {
     navigate("/contacts/");
   };
+
+  //Rendering all of the information for the individual contact page
   return (
     <div className="single-container">
       <Header />

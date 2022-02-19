@@ -1,11 +1,9 @@
 import { Routes, Route } from "react-router-dom";
 import React, { useState } from "react";
-import PropTypes from "prop-types";
-import phoneNumberPropType from "phone-number-prop-type";
 import Home from "./components/Home";
-// import Contacts from "./components/Contacts";
 import ContactList from "./components/ContactList";
 import ContactForm from "./components/ContactForm";
+import EditForm from "./components/EditForm";
 import ContactSingle from "./components/ContactSingle";
 
 const App = () => {
@@ -31,12 +29,25 @@ const App = () => {
     },
   ]);
 
+  //Adding contacts to our data
   const addContact = (contactObject) => {
     setContacts((contacts) => {
       return [...contacts, contactObject];
     });
   };
 
+  //Updating already existing contacts
+  const handleEdit = (id, obj) => {
+    const contactUpdate = contacts.find((el) => el.id === Number(id));
+    console.log("handling");
+    setContacts(
+      contacts.map((contact) => {
+        return contact.id === contactUpdate.id ? obj : contact;
+      })
+    );
+  };
+
+  //Delete from database
   const handleDelete = (id) => {
     const updatedContacts = contacts.filter((person) => person.id !== id);
     setContacts(updatedContacts);
@@ -56,6 +67,10 @@ const App = () => {
           element={<ContactSingle contacts={contacts} />}
         />
         <Route
+          path="/contacts/:id/edit"
+          element={<EditForm contacts={contacts} onEdit={handleEdit} />}
+        />
+        <Route
           path="/contacts/new"
           element={
             <ContactForm contacts={contacts} onAddContact={addContact} />
@@ -65,13 +80,5 @@ const App = () => {
     </div>
   );
 };
-
-// contacts.propTypes = {
-//   fName: PropTypes.string,
-//   lName: PropTypes.string,
-//   email: PropTypes.string,
-//   phone: phoneNumberPropType,
-//   image: PropTypes.string,
-// };
 
 export default App;

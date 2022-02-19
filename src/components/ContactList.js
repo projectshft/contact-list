@@ -6,8 +6,6 @@ import React from "react";
 
 //First getting all the individual information out for each contact
 const ContactList = (props) => {
-  console.log(props);
-
   //Using the navigate feature to take user to form when clicking the add new contact button
   let navigate = useNavigate();
   const handleAddClick = () => {
@@ -27,15 +25,12 @@ const ContactList = (props) => {
               <th scope="col">Name</th>
               <th scope="col">Email</th>
               <th scope="col">Phone Number</th>
+              <th scope="col" className="edit-btn-col"></th>
               <th scope="col" className="delete-btn-col"></th>
             </tr>
           </thead>
           <tbody>
-            <ContactRow
-              contacts={props.contacts}
-              onDelete={props.onDelete}
-              key={props.contacts.id}
-            />
+            <ContactRow contacts={props.contacts} onDelete={props.onDelete} />
           </tbody>
         </table>
         <div className="text-center">
