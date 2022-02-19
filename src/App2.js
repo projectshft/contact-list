@@ -1,7 +1,10 @@
 import { Routes, Route } from "react-router-dom";
 import React, { useState } from "react";
+import PropTypes from "prop-types";
+import phoneNumberPropType from "phone-number-prop-type";
 import Home from "./components/Home";
-import Contacts from "./components/Contacts";
+// import Contacts from "./components/Contacts";
+import ContactList from "./components/ContactList";
 import ContactForm from "./components/ContactForm";
 import ContactSingle from "./components/ContactSingle";
 
@@ -34,6 +37,11 @@ const App = () => {
     });
   };
 
+  const handleDelete = (id) => {
+    const updatedContacts = contacts.filter((person) => person.id !== id);
+    setContacts(updatedContacts);
+  };
+
   return (
     <div>
       <Routes>
@@ -41,7 +49,7 @@ const App = () => {
         <Route
           exact
           path="/contacts"
-          element={<Contacts contacts={contacts} />}
+          element={<ContactList contacts={contacts} onDelete={handleDelete} />}
         />
         <Route
           path="/contacts/:id"
@@ -57,5 +65,13 @@ const App = () => {
     </div>
   );
 };
+
+// contacts.propTypes = {
+//   fName: PropTypes.string,
+//   lName: PropTypes.string,
+//   email: PropTypes.string,
+//   phone: phoneNumberPropType,
+//   image: PropTypes.string,
+// };
 
 export default App;

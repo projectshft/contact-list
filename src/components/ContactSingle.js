@@ -6,14 +6,16 @@ import "./ContactSingle.css";
 const ContactSingle = (props) => {
   console.log(props);
   let { id } = useParams();
-  console.log(id);
+
+  //Finding the invidividual contact based on parameter id;
   const contact = props.contacts.find((el) => el.id === Number(id));
   console.log(contact);
+
+  //Navigation for back button;
   let navigate = useNavigate();
   const handleBackBtnClick = () => {
     navigate("/contacts/");
   };
-
   return (
     <div className="single-container">
       <Header />

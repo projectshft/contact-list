@@ -1,24 +1,12 @@
-import Contact from "./Contact";
+import ContactRow from "./ContactRow";
 import Header from "./Header";
 import "./Contacts.css";
 import { useNavigate } from "react-router-dom";
 import React from "react";
 
 //First getting all the individual information out for each contact
-const Contacts = (props) => {
-  const contactList = props.contacts.map((contact) => {
-    return (
-      <Contact
-        id={contact.id}
-        key={contact.id.toString()}
-        fName={contact.fName}
-        lName={contact.lName}
-        image={contact.image}
-        email={contact.email}
-        phone={contact.phone}
-      />
-    );
-  });
+const ContactList = (props) => {
+  console.log(props);
 
   //Using the navigate feature to take user to form when clicking the add new contact button
   let navigate = useNavigate();
@@ -39,9 +27,16 @@ const Contacts = (props) => {
               <th scope="col">Name</th>
               <th scope="col">Email</th>
               <th scope="col">Phone Number</th>
+              <th scope="col" className="delete-btn-col"></th>
             </tr>
           </thead>
-          <tbody>{contactList}</tbody>
+          <tbody>
+            <ContactRow
+              contacts={props.contacts}
+              onDelete={props.onDelete}
+              key={props.contacts.id}
+            />
+          </tbody>
         </table>
         <div className="text-center">
           <button className="btn btn-lg btn-dark mt-5" onClick={handleAddClick}>
@@ -53,4 +48,4 @@ const Contacts = (props) => {
   );
 };
 
-export default Contacts;
+export default ContactList;
