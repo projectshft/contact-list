@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import React from "react";
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
+import PropTypes from "prop-types";
+import phoneNumberPropType from "phone-number-prop-type";
 
 const ContactRow = (props) => {
   const handleDelete = (index) => {
@@ -77,6 +79,14 @@ const ContactRow = (props) => {
       </tr>
     );
   });
+};
+
+ContactRow.propTypes = {
+  fName: PropTypes.string,
+  lName: PropTypes.string,
+  email: PropTypes.string,
+  phone: phoneNumberPropType,
+  image: PropTypes.string,
 };
 
 export default ContactRow;

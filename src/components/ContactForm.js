@@ -176,6 +176,7 @@ function ContactForm(props) {
   );
 }
 
+//Prop types for prop validation
 ContactForm.propTypes = {
   fName: PropTypes.string,
   lName: PropTypes.string,

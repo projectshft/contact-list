@@ -3,6 +3,8 @@ import Header from "./Header";
 import "./Contacts.css";
 import { useNavigate } from "react-router-dom";
 import React from "react";
+import PropTypes from "prop-types";
+import phoneNumberPropType from "phone-number-prop-type";
 
 //First getting all the individual information out for each contact
 const ContactList = (props) => {
@@ -41,6 +43,14 @@ const ContactList = (props) => {
       </main>
     </React.Fragment>
   );
+};
+
+ContactList.propTypes = {
+  fName: PropTypes.string,
+  lName: PropTypes.string,
+  email: PropTypes.string,
+  phone: phoneNumberPropType,
+  image: PropTypes.string,
 };
 
 export default ContactList;
