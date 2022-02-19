@@ -7,12 +7,14 @@ import phoneNumberPropType from "phone-number-prop-type";
 
 function ContactForm(props) {
   //Set individual state variables for the elements and attach handlers on their inputs;
+  //Everything is required except for image, so I have a default one there
   const [fName, setFName] = useState("");
   const [lName, setLName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [image, setImage] = useState("");
 
+  //Setting state on change
   const handleFNameChange = (e) => {
     setFName(e.target.value);
   };
@@ -160,7 +162,6 @@ function ContactForm(props) {
               aria-describedby="emailHelp"
               name="image"
               value={image}
-              required
               onChange={handleImageChange}
             />
           </div>

@@ -31,6 +31,13 @@ const App = () => {
 
   //Adding contacts to our data
   const addContact = (contactObject) => {
+    //Image is the only non-required field so I am checking if it's empty and, if so, adding a placeholder;
+    const image = contactObject.image;
+    if (image === "") {
+      contactObject.image =
+        "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png";
+    }
+
     setContacts((contacts) => {
       return [...contacts, contactObject];
     });
