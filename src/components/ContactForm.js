@@ -43,39 +43,53 @@ function ContactForm(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const contactObject = {
-      fName,
-      lName,
-      email,
-      phone,
-      image,
-      id: Math.round(Math.random() * 100000000),
-    };
+    if (!validateEmail(email)) {
+      alert("The email entered is invalid. Flease re-enter a valid email");
+    }
 
-    props.onAddContact(contactObject);
+    if (!validatePhone(phone)) {
+      alert(
+        "Please enter a phone number in the format XXX-XXX-XXXX (e.g. 212-330-5950)"
+      );
+    } else {
+      const contactObject = {
+        fName,
+        lName,
+        email,
+        phone,
+        image,
+        id: Math.round(Math.random() * 100000000),
+      };
 
-    //Set inputs back to blank after form submission;
-    setFName("");
-    setLName("");
-    setEmail("");
-    setPhone("");
-    setImage("");
+      props.onAddContact(contactObject);
 
-    redirect();
+      //Set inputs back to blank after form submission;
+      setFName("");
+      setLName("");
+      setEmail("");
+      setPhone("");
+      setImage("");
+
+      redirect();
+    }
   };
 
-  //   function handleEditInputChange(e) {
-  //     // set the new state value to what's currently in the edit input box
-  //     setCurrentUser({ ...currentUser, name: e.target.value });
-  //   }
+  //A function to validate an email
+  function validateEmail(email) {
+    const regexp =
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return regexp.test(email);
+  }
 
-  //   // function to handle when the "Edit user name" button is clicked
-  //   function handleEditClick(user) {
-  //     // set isEditing to true
-  //     setIsEditing(true);
-  //     // update the state to the updatedUsers
-  //     setCurrentUser({ ...user });
-  //   }
+  //And another to put the phone number in the correct format for this list (XXX-XXX-XXXX)
+  function validatePhone(input) {
+    let phoneNum = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+    if (input.match(phoneNum)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   return (
     <React.Fragment>
