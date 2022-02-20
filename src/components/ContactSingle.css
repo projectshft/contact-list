@@ -1,0 +1,40 @@
+.single-person-h1 {
+  text-align: center;
+}
+
+.card-container {
+  margin: 0 auto;
+  width: 50%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.single-image {
+  display: flex;
+  justify-content: center;
+}
+
+.contact-single-image {
+  width: 30rem;
+}
+
+.single-header {
+  padding-top: 2rem;
+  margin-top: 7rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.single-text {
+  font-size: 1.2rem;
+}
+
+.single-text-btm {
+  padding-bottom: 2rem;
+}
+.btn-dark {
+  margin-top: 2rem;
+}
+
+.back-btn-single {
+  margin-top: 2rem;
+}

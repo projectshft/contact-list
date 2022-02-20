@@ -1,0 +1,57 @@
+h1 {
+  letter-spacing: 1px;
+}
+
+.container {
+  margin-top: 6rem;
+}
+
+.table {
+  margin: 4rem 3rem 3rem;
+}
+
+.btn.btn-lg {
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+tbody a {
+  text-decoration: none;
+  color: rgb(5, 5, 5);
+}
+
+.contact-image {
+  width: 15rem;
+}
+
+tr td {
+  font-size: 18px;
+  padding: 4rem;
+}
+
+.react-confirm-alert-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: content-box;
+
+  color: rgb(37, 37, 37);
+}
+
+.react-confirm-alert-body h1 {
+  color: rgb(145, 11, 11);
+  text-align: center;
+  padding-top: 1rem;
+}
+
+.react-confirm-alert-button-group button:last-child {
+  font-size: 1rem;
+  margin-top: 10px;
+}
+.react-confirm-alert-button-group button:first-child {
+  background-color: rgb(145, 11, 11);
+  color: white;
+  font-size: 1rem;
+  margin-top: 10px;
+}
