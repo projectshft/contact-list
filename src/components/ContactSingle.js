@@ -1,5 +1,7 @@
 import Header from "./Header";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import PropTypes from "prop-types";
+import phoneNumberPropType from "phone-number-prop-type";
 import React from "react";
 import "./ContactSingle.css";
 
@@ -52,6 +54,14 @@ const ContactSingle = (props) => {
       </div>
     </div>
   );
+};
+
+ContactSingle.propTypes = {
+  fName: PropTypes.string,
+  lName: PropTypes.string,
+  email: PropTypes.string,
+  phone: phoneNumberPropType,
+  image: PropTypes.string,
 };
 
 export default ContactSingle;

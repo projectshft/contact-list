@@ -46,7 +46,7 @@ const ContactList = (props) => {
 };
 
 ContactList.propTypes = {
-  fName: PropTypes.string,
+  contacts: PropTypes.array,
   lName: PropTypes.string,
   email: PropTypes.string,
   phone: phoneNumberPropType,

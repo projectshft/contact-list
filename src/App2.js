@@ -5,6 +5,7 @@ import ContactList from "./components/ContactList";
 import ContactForm from "./components/ContactForm";
 import EditForm from "./components/EditForm";
 import ContactSingle from "./components/ContactSingle";
+import PropTypes from "prop-types";
 
 const App = () => {
   //hard-coding in some contacts just to have something present
@@ -86,6 +87,13 @@ const App = () => {
       </Routes>
     </div>
   );
+};
+
+App.propTypes = {
+  contacts: PropTypes.array,
+  addContact: PropTypes.func,
+  handleEdit: PropTypes.func,
+  handleDelete: PropTypes.func,
 };
 
 export default App;

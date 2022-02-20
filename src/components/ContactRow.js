@@ -37,7 +37,6 @@ const ContactRow = (props) => {
               className="contact-image"
               src={contact.image}
               alt="friend-list"
-              key={i}
             />
           </Link>
         </td>
@@ -57,17 +56,12 @@ const ContactRow = (props) => {
         </td>
         <td className="align-middle">{contact.phone}</td>
         <td className="align-middle">
-          <Link
-            to={`/contacts/${contact.id}/edit`}
-            className="btn btn-primary"
-            key={i}
-          >
+          <Link to={`/contacts/${contact.id}/edit`} className="btn btn-primary">
             Edit
           </Link>
         </td>
         <td className="align-middle">
           <button
-            key={i}
             className="btn btn-danger delete-contact-btn"
             onClick={() => {
               handleDelete(contact.id);

@@ -125,6 +125,7 @@ EditForm.propTypes = {
   email: PropTypes.string,
   phone: phoneNumberPropType,
   image: PropTypes.string,
+  handleOnChange: PropTypes.func,
 };
 
 export default EditForm;
