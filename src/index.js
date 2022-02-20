@@ -4,21 +4,29 @@ import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-const NewContact = () => {};
+const NewContact = () => <h1>Create a New Contact</h1>;
 
-const Contact = () => {};
+const Contact = () => <h1>Contact Page</h1>;
 
-const ContactsList = () => {};
+const ContactsList = () => (
+  <div>
+    <h1>All Contacts</h1>
+  </div>
+);
 
 const Index = () => (
   <Routes>
-    <Route exact path="/contacts" component={ContactsList} />
-    <Route path="/contacts/:contact_id" component={Contact} />
-    <Route path="/contacts/new" component={NewContact} />
+    <Route path="/" element={<ContactsList />} />
+    <Route path=":contact_id" element={<Contact />} />
+    <Route path="new" element={<NewContact />} />
   </Routes>
 );
 
-const Homepage = () => <h2>Welcome to the Contact App!</h2>;
+const Homepage = () => (
+  <div>
+    <h2>Welcome to the Contact App!</h2>
+  </div>
+);
 
 const App = () => {
   const [appData, setAppData] = useState({
@@ -36,13 +44,11 @@ const App = () => {
 
   return (
     <Routes>
-      <Route path="/" component={Homepage} />
-      <Route path="/contacts" component={Index} />
+      <Route path="/" element={<Homepage />} />
+      <Route path="contacts/*" element={<Index />} />
     </Routes>
   );
 };
-
-
 
 ReactDOM.render(
   <React.StrictMode>
