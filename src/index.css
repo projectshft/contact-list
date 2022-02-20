@@ -5,7 +5,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+th {
+  width: 25%;
+}
+
+footer {
+  background-color: white;
 }
