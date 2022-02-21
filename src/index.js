@@ -1,12 +1,3 @@
-// {contacts.map((contactObj) => (
-//   <li>
-//     <h2>{contactObj.name}</h2>
-//     <img src={contactObj.image_url} alt={`${contactObj.name}'s Portrait`} />
-//     <h4>{contactObj.email}</h4>
-//     <h5>{contactObj.phone_number}</h5>
-//   </li>
-// ))}
-
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import {
@@ -58,17 +49,26 @@ const ContactsList = (props) => {
     </div>
   ));
 
-  return <div className="contact-list">{contactsListDisplay}</div>;
+  return (
+    <div className="contact-list">
+      {contactsListDisplay}
+      <Link to="/contacts/new">
+        <button type="button" className="btn btn-primary">
+          Add a New Contact
+        </button>
+      </Link>
+    </div>
+  );
 };
 
 const Index = (props) => {
-  const { contacts } = props;
-  debugger;
+  const { contacts, children } = props;
+
   return (
     <Routes>
       <Route path="/" element={<ContactsList contacts={contacts} />} />
       <Route path=":contact_id" element={<Contact contacts={contacts} />} />
-      <Route path="new" element={<NewContact />} />
+      {children}
     </Routes>
   );
 };
@@ -83,6 +83,7 @@ ContactsList.propTypes = {
 
 Index.propTypes = {
   contacts: PropTypes.arrayOf(PropTypes.object).isRequired,
+  children: PropTypes.element,
 };
 
 // ------------------
@@ -120,12 +121,22 @@ const App = () => {
 
   const generateRandomId = () => Math.floor(Math.random() * 100000000);
 
+  const addNewContact = () => {
+    const id = generateRandomId();
+
+    const NewContact =
+  }
+
   return (
     <Routes>
       <Route path="/" element={<Homepage />} />
       <Route
         path="contacts/*"
-        element={<Index contacts={appData.contacts} />}
+        element={
+          <Index contacts={appData.contacts}>
+            <Route path="new" element={<NewContact addNewContact="filler" />} />
+          </Index>
+        }
       />
       <Route path=":anything_else" element={PageNotFound} />
     </Routes>
