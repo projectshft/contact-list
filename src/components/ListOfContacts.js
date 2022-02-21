@@ -1,7 +1,8 @@
+import PropTypes from 'prop-types';
 import { Table, Button } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
-const ListOfContacts = () => (
+const ListOfContacts = ({ contacts }) => (
   <div>
     <Table striped bordered hover className="mt-4">
       <thead>
@@ -13,23 +14,18 @@ const ListOfContacts = () => (
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td colSpan={2}>Larry the Bird</td>
-          <td>@twitter</td>
-        </tr>
+        {contacts.map((contact) => (
+          <LinkContainer to={`${contact.id}`} key={contact.id}>
+            <tr>
+              <td>
+                <img src={contact.photoUrl} alt="" className="img-fluid" />
+              </td>
+              <td>{contact.name}</td>
+              <td>{contact.email}</td>
+              <td>{contact.phone}</td>
+            </tr>
+          </LinkContainer>
+        ))}
       </tbody>
     </Table>
     <div className="d-flex justify-content-evenly">
@@ -41,5 +37,9 @@ const ListOfContacts = () => (
     </div>
   </div>
 );
+
+ListOfContacts.propTypes = {
+  contacts: PropTypes.array.isRequired,
+};
 
 export default ListOfContacts;
