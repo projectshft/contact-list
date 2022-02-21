@@ -1,11 +1,3 @@
-contact-app/src/ContactList.js /
-@dougcwest
-dougcwest Contact-App
-Latest commit 152e31f 14 minutes ago
- History
- 1 contributor
-37 lines (35 sloc)  1.24 KB
-   
 import { Link } from 'react-router-dom'
 
 const ContactList = ({contacts}) => (
@@ -43,8 +35,3 @@ const ContactList = ({contacts}) => (
 )
 
 export default ContactList
-© 2022 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
