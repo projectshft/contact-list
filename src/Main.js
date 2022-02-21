@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import ContactList from './ContactList'
 import ContactNew from './ContactNew'
 import Contact from './Contact'
+import _ from 'lodash'
 
 
 const Main = () => {
@@ -18,6 +19,10 @@ const Main = () => {
     });
   }
 
+  const removeContact = (id) => {
+    setContacts(_.filter(contacts, c => c.id !== id))
+  }
+
   return (
     <Routes>
       {/* <Route path="/" render={() => (
@@ -29,7 +34,7 @@ const Main = () => {
       {/* <Route path='/contacts/:id' render={(routerProps) => (
         <Contact contactId={parseInt(routerProps.match.params.id, 10)} contacts={contacts}/>
       )} /> */}
-      <Route path="/" element={<ContactList contacts={contacts} addContact={addContact} />}/>
+      <Route path="/" element={<ContactList contacts={contacts} addContact={addContact} removeContact={removeContact} />}/>
       <Route path="/contacts/new" element={<ContactNew contacts={contacts} addContact={addContact} />}/>
         <Route path='/contacts/:id' element={<Contact contacts={contacts}/>} />
     </Routes>
