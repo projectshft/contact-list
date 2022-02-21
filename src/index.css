@@ -16,7 +16,7 @@ img {
   width: 100%;
 }
 
-svg {
+.contact-list svg {
   padding: 5px;
   margin: 5px;
   cursor: pointer;
@@ -24,4 +24,63 @@ svg {
 
 .remove-contact {
   color: red;
+}
+
+.add-contact-btn {
+  margin-bottom: 10px;
+}
+
+#portal .container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+}
+.container .modal {
+  z-index: 1;
+  width: 500px;
+  height: 130px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  position: relative;
+  animation: animate 0.3s;
+}
+
+.modal button {
+  font-weight: bold;
+  margin: 5px;
+  cursor: pointer;
+}
+
+#x-btn {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  padding: 8px 11px;
+  background-color: white;
+  color: red;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+@keyframes animate {
+  from {
+    transform: scale(0.5);
+  }
+  to {
+    transform: scale(1);
+  }
 }

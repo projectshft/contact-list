@@ -18,12 +18,6 @@ const Contact = ({contacts}) => {
   }
   
   return (
-    // <div className="col-md-4 offset-md-4">
-    //   <img src={contact.image_url} alt="prof pic"></img>
-    //   <h1>{contact.name}</h1>
-    //   <Link to='/'>Back</Link>
-    // </div>
-
     <div className="col-md-3 offset-md-4">
       <div className="row">
       <Link to='/'>Back</Link>
