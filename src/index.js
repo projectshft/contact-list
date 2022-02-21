@@ -18,7 +18,61 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const PageNotFound = () => <h1>Sorry, that page does not exist!</h1>;
 
-const NewContact = () => <h1>Create a New Contact</h1>;
+const NewContact = (props) => {
+  const params = useParams();
+
+  return (
+    <div className="new-contact-section">
+      <h1>Create a New Contact</h1>
+      <form>
+        <div className="form-group">
+          <label htmlFor="first-name">Enter their first name:</label>
+          <input
+            className="form-control"
+            id="first-name-input"
+            name="first-name"
+            placeholder="First Name"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="last-name">Enter their last name:</label>
+          <input
+            className="form-control"
+            id="last-name-input"
+            name="last-name"
+            placeholder="Last Name"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="email">Enter their email:</label>
+          <input
+            className="form-control"
+            id="email-input"
+            name="email"
+            placeholder="Email"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="phone-number">Enter their phone number:</label>
+          <input
+            className="form-control"
+            id="phone-number-input"
+            name="phone-number"
+            placeholder="Phone Number"
+          />
+        </div>
+        <button
+          onClick={}
+          type="button"
+          className="btn btn-primary"
+          id="submit-new-contact"
+        >
+          Create New Contact
+        </button>
+      </form>
+    </div>
+  );
+};
 
 const Contact = ({ contacts }) => {
   const params = useParams();
@@ -124,8 +178,8 @@ const App = () => {
   const addNewContact = () => {
     const id = generateRandomId();
 
-    const NewContact =
-  }
+    
+  };
 
   return (
     <Routes>
