@@ -1,5 +1,5 @@
 import React, { useState} from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const ContactNew = (props) => {
 
@@ -29,6 +29,7 @@ const ContactNew = (props) => {
 
     <div className="col-md-5 offset-md-3">
       <div className="row">
+        <Link to='/'>Back</Link>
         <form onSubmit={handleSubmitContactClick}>
           <div className="form-group">
             <label htmlFor="nameInput">Full Name</label>
