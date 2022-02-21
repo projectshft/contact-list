@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark} from '@fortawesome/free-solid-svg-icons';
-//import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
+import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 
 
 const ContactList = (props) => { 
@@ -10,9 +10,13 @@ const ContactList = (props) => {
   let navigate = useNavigate();
   
   const handleContactClick = (id, event) => {
+    //console.log(event.target)
     if(event.target.classList.contains('remove-contact') || event.target.parentElement.classList.contains('remove-contact')) {
       props.removeContact(id);
-    } else {
+    } else if (event.target.classList.contains('edit-contact') || event.target.parentElement.classList.contains('edit-contact')) {
+      navigate(`/contacts/${id}/edit`)
+    }
+    else {
       navigate(`/contacts/${id}`)
   }
   }
@@ -36,6 +40,7 @@ const ContactList = (props) => {
           <tbody>
             {
               props.contacts.map(c => {
+        
                 return (
                   
                   <tr key={c.id} onClick={(e) => handleContactClick(c.id, e)}>
@@ -44,14 +49,13 @@ const ContactList = (props) => {
                       {c.name}
                       <br />
                       <div className="icons">
-                        <div className="remove-contact"><FontAwesomeIcon icon={faXmark} className="remove-contact"/></div>
-                        {/* <FontAwesomeIcon icon={faPenToSquare}/> */}
-                        
+                        <span className="remove-contact"><FontAwesomeIcon icon={faXmark} className="remove-contact"/></span>
+                        <span className="edit-contact"><FontAwesomeIcon icon={faPenToSquare} className="edit-contact"/></span>    
                       </div>
                     </td>
                     <td>{c.email}</td>
                     <td>{c.phone}</td>
-                  </tr>             
+                  </tr>
                 )
               })
             }
