@@ -1,13 +1,9 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import {
-  BrowserRouter,
-  Route,
-  Routes,
-  Link,
-  useParams,
-} from 'react-router-dom';
+import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import Index from './components/Index.js';
+import NewContact from './components/NewContact.js';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -18,178 +14,198 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const PageNotFound = () => <h1>Sorry, that page does not exist!</h1>;
 
-const NewContact = ({ addNewContact }) => {
-  const params = useParams();
-  const [info, setInfo] = useState({
-    firstName: '',
-    lastName: '',
-    imageURL: '',
-    email: '',
-    phoneNumber: '',
-  });
+// const NewContact = ({ addNewContact }) => {
+//   const navigate = useNavigate();
+//   const [info, setInfo] = useState({
+//     firstName: '',
+//     lastName: '',
+//     image_url: '',
+//     email: '',
+//     phone_number: '',
+//   });
 
-  const handleButtonClick = (event) => {
-    const contact = { ...info };
+//   const handleButtonClick = () => {
+//     const name = `${info.firstName} ${info.lastName}`;
+//     const contact = { ...info, name };
 
-    addNewContact(contact);
+//     addNewContact(contact);
 
-    setInfo({
-      firstName: '',
-      lastName: '',
-      imageURL: '',
-      email: '',
-      phoneNumber: '',
-    });
-  };
+//     setInfo({
+//       firstName: '',
+//       lastName: '',
+//       image_url: '',
+//       email: '',
+//       phone_number: '',
+//     });
 
-  return (
-    <div className="new-contact-section">
-      <h1>Create a New Contact</h1>
-      <form>
-        <div className="form-group">
-          <label htmlFor="first-name">Enter their first name:</label>
-          <input
-            onChange={(e) =>
-              setInfo({ ...info, firstName: e.currentTarget.value })
-            }
-            value={info.firstName}
-            className="form-control"
-            id="first-name-input"
-            name="first-name"
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="last-name">Enter their last name:</label>
-          <input
-            onChange={(e) =>
-              setInfo({ ...info, lastName: e.currentTarget.value })
-            }
-            value={info.lastName}
-            className="form-control"
-            id="last-name-input"
-            name="last-name"
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="email">Enter their email:</label>
-          <input
-            onChange={(e) => setInfo({ ...info, email: e.currentTarget.value })}
-            value={info.email}
-            className="form-control"
-            id="email-input"
-            name="email"
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="phone-number">Enter their phone number:</label>
-          <input
-            onChange={(e) =>
-              setInfo({ ...info, phoneNumber: e.currentTarget.value })
-            }
-            value={info.phoneNumber}
-            className="form-control"
-            id="phone-number-input"
-            name="phone-number"
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="image">Enter a link to their image:</label>
-          <input
-            onChange={(e) => {
-              setInfo({ ...info, imageURL: e.currentTarget.value });
-            }}
-            value={info.imageURL}
-            className="form-control"
-            id="image-url-input"
-            name="image"
-          />
-        </div>
-        <button
-          onClick={handleButtonClick}
-          type="button"
-          className="btn btn-primary"
-          id="submit-new-contact"
-        >
-          Create New Contact
-        </button>
-      </form>
-    </div>
-  );
-};
+//     navigate('/contacts');
+//   };
 
-const Contact = ({ contacts }) => {
-  const params = useParams();
+//   return (
+//     <div className="new-contact-section">
+//       <h1>Create a New Contact</h1>
+//       <form>
+//         <div className="form-group">
+//           <label htmlFor="first-name">Enter their first name:</label>
+//           <input
+//             onChange={(e) =>
+//               setInfo({ ...info, firstName: e.currentTarget.value })
+//             }
+//             value={info.firstName}
+//             className="form-control"
+//             id="first-name-input"
+//             name="first-name"
+//           />
+//         </div>
+//         <div className="form-group">
+//           <label htmlFor="last-name">Enter their last name:</label>
+//           <input
+//             onChange={(e) =>
+//               setInfo({ ...info, lastName: e.currentTarget.value })
+//             }
+//             value={info.lastName}
+//             className="form-control"
+//             id="last-name-input"
+//             name="last-name"
+//           />
+//         </div>
+//         <div className="form-group">
+//           <label htmlFor="email">Enter their email:</label>
+//           <input
+//             onChange={(e) => setInfo({ ...info, email: e.currentTarget.value })}
+//             value={info.email}
+//             className="form-control"
+//             id="email-input"
+//             name="email"
+//           />
+//         </div>
+//         <div className="form-group">
+//           <label htmlFor="phone-number">Enter their phone number:</label>
+//           <input
+//             onChange={(e) =>
+//               setInfo({ ...info, phoneNumber: e.currentTarget.value })
+//             }
+//             value={info.phoneNumber}
+//             className="form-control"
+//             id="phone-number-input"
+//             name="phone-number"
+//           />
+//         </div>
+//         <div className="form-group">
+//           <label htmlFor="image">Enter a link to their image:</label>
+//           <input
+//             onChange={(e) => {
+//               setInfo({ ...info, imageURL: e.currentTarget.value });
+//             }}
+//             value={info.imageURL}
+//             className="form-control"
+//             id="image-url-input"
+//             name="image"
+//           />
+//         </div>
+//         <button
+//           onClick={handleButtonClick}
+//           type="button"
+//           className="btn btn-primary"
+//           id="submit-new-contact"
+//         >
+//           Create New Contact
+//         </button>
+//       </form>
+//       <Link to="/contacts">
+//         <button className="btn btn-primary back-button" type="button">
+//           Back to All Contacts
+//         </button>
+//       </Link>
+//     </div>
+//   );
+// };
 
-  const currentContact = contacts.find(
-    (entry) => entry.id === parseInt(params.contact_id)
-  );
+// const Contact = ({ contacts }) => {
+//   const params = useParams();
 
-  return (
-    <div className="contact-page">
-      <h1>{currentContact.name}</h1>
-      <img src={currentContact.image_url} alt="test" />
-      <h4>{currentContact.email}</h4>
-      <h4>{currentContact.phone_number}</h4>
-    </div>
-  );
-};
+//   const currentContact = contacts.find(
+//     (entry) => entry.id === parseInt(params.contact_id)
+//   );
 
-const ContactsList = (props) => {
-  const { contacts } = props;
+//   return (
+//     <div className="contact-page">
+//       <h1>{currentContact.name}</h1>
+//       <img src={currentContact.image_url} alt="test" />
+//       <h4>{currentContact.email}</h4>
+//       <h4>{currentContact.phone_number}</h4>
+//       <div className="back-button-container">
+//         <Link to="/contacts">
+//           <button className="btn btn-primary back-button" type="button">
+//             Back to All Contacts
+//           </button>
+//         </Link>
+//       </div>
+//     </div>
+//   );
+// };
 
-  const contactsListDisplay = contacts.map((contact) => (
-    <div key={contact.id} className="contact-list-item">
-      <Link to={`/contacts/${contact.id}`}>
-        <img src={`${contact.image_url}`} alt="_test_" />
-      </Link>
-      <h2>{contact.name}</h2>
-    </div>
-  ));
+// const ContactsList = (props) => {
+//   const { contacts } = props;
 
-  return (
-    <div className="contact-list">
-      {contactsListDisplay}
-      <Link to="/contacts/new">
-        <button type="button" className="btn btn-primary">
-          Add a New Contact
-        </button>
-      </Link>
-    </div>
-  );
-};
+//   const contactsListDisplay = contacts.map((contact) => (
+//     <div key={contact.id} className="contact-list-item">
+//       <Link to={`/contacts/${contact.id}`}>
+//         <img src={`${contact.image_url}`} alt="_test_" />
+//       </Link>
+//       <h2>{contact.name}</h2>
+//     </div>
+//   ));
 
-const Index = (props) => {
-  const { contacts, children } = props;
+//   return (
+//     <div className="contact-list">
+//       {contactsListDisplay}
+//       <Link to="/contacts/new">
+//         <button type="button" className="btn btn-primary">
+//           Add a New Contact
+//         </button>
+//       </Link>
+//       <Link to="/">
+//         <button className="btn btn-primary back-button" type="button">
+//           Back to Home
+//         </button>
+//       </Link>
+//     </div>
+//   );
+// };
 
-  return (
-    <Routes>
-      <Route path="/" element={<ContactsList contacts={contacts} />} />
-      <Route path=":contact_id" element={<Contact contacts={contacts} />} />
-      {children}
-    </Routes>
-  );
-};
+// const Index = (props) => {
+//   const { contacts, children } = props;
 
-NewContact.propTypes = {
-  addNewContact: PropTypes.func.isRequired,
-};
+//   return (
+//     <Routes>
+//       <Route path="/" element={<ContactsList contacts={contacts} />} />
+//       <Route path=":contact_id" element={<Contact contacts={contacts} />} />
+//       {children}
+//     </Routes>
+//   );
+// };
 
-Contact.propTypes = {
-  contacts: PropTypes.arrayOf(PropTypes.object).isRequired,
-};
+// NewContact.propTypes = {
+//   addNewContact: PropTypes.func.isRequired,
+// };
 
-ContactsList.propTypes = {
-  contacts: PropTypes.arrayOf(PropTypes.object).isRequired,
-};
+// Contact.propTypes = {
+//   contacts: PropTypes.arrayOf(PropTypes.object).isRequired,
+// };
 
-Index.propTypes = {
-  contacts: PropTypes.arrayOf(PropTypes.object).isRequired,
-  children: PropTypes.element,
-};
+// ContactsList.propTypes = {
+//   contacts: PropTypes.arrayOf(PropTypes.object).isRequired,
+// };
 
-// ------------------
-// ------------------
-// ------------------
+// Index.propTypes = {
+//   contacts: PropTypes.arrayOf(PropTypes.object).isRequired,
+//   children: PropTypes.element,
+// };
+
+// // ------------------
+// // ------------------
+// // ------------------
 
 const Homepage = () => (
   <div>
@@ -225,26 +241,33 @@ const App = () => {
   const addNewContact = (contactInfo) => {
     contactInfo.id = generateRandomId();
 
-    const updatedContacts = [...appData.contacts].push(contactInfo);
+    const updatedContacts = [...appData.contacts];
+    updatedContacts.push(contactInfo);
     setAppData({ ...appData, contacts: updatedContacts });
   };
 
   return (
-    <Routes>
-      <Route path="/" element={<Homepage />} />
-      <Route
-        path="contacts/*"
-        element={
-          <Index contacts={appData.contacts}>
+    <div className="container">
+      <div className="row">
+        <div className="col-md-12 text-center">
+          <Routes>
+            <Route path="/" element={<Homepage />} />
             <Route
-              path="new"
-              element={<NewContact addNewContact={addNewContact} />}
+              path="contacts/*"
+              element={
+                <Index contacts={appData.contacts}>
+                  <Route
+                    path="new"
+                    element={<NewContact addNewContact={addNewContact} />}
+                  />
+                </Index>
+              }
             />
-          </Index>
-        }
-      />
-      <Route path=":anything_else" element={PageNotFound} />
-    </Routes>
+            <Route path=":anything_else" element={PageNotFound} />
+          </Routes>
+        </div>
+      </div>
+    </div>
   );
 };
 
