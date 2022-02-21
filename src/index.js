@@ -18,8 +18,29 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const PageNotFound = () => <h1>Sorry, that page does not exist!</h1>;
 
-const NewContact = (props) => {
+const NewContact = ({ addNewContact }) => {
   const params = useParams();
+  const [info, setInfo] = useState({
+    firstName: '',
+    lastName: '',
+    imageURL: '',
+    email: '',
+    phoneNumber: '',
+  });
+
+  const handleButtonClick = (event) => {
+    const contact = { ...info };
+
+    addNewContact(contact);
+
+    setInfo({
+      firstName: '',
+      lastName: '',
+      imageURL: '',
+      email: '',
+      phoneNumber: '',
+    });
+  };
 
   return (
     <div className="new-contact-section">
@@ -28,41 +49,63 @@ const NewContact = (props) => {
         <div className="form-group">
           <label htmlFor="first-name">Enter their first name:</label>
           <input
+            onChange={(e) =>
+              setInfo({ ...info, firstName: e.currentTarget.value })
+            }
+            value={info.firstName}
             className="form-control"
             id="first-name-input"
             name="first-name"
-            placeholder="First Name"
           />
         </div>
         <div className="form-group">
           <label htmlFor="last-name">Enter their last name:</label>
           <input
+            onChange={(e) =>
+              setInfo({ ...info, lastName: e.currentTarget.value })
+            }
+            value={info.lastName}
             className="form-control"
             id="last-name-input"
             name="last-name"
-            placeholder="Last Name"
           />
         </div>
         <div className="form-group">
           <label htmlFor="email">Enter their email:</label>
           <input
+            onChange={(e) => setInfo({ ...info, email: e.currentTarget.value })}
+            value={info.email}
             className="form-control"
             id="email-input"
             name="email"
-            placeholder="Email"
           />
         </div>
         <div className="form-group">
           <label htmlFor="phone-number">Enter their phone number:</label>
           <input
+            onChange={(e) =>
+              setInfo({ ...info, phoneNumber: e.currentTarget.value })
+            }
+            value={info.phoneNumber}
             className="form-control"
             id="phone-number-input"
             name="phone-number"
-            placeholder="Phone Number"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="image">Enter a link to their image:</label>
+          <input
+            onChange={(e) => {
+              setInfo({ ...info, imageURL: e.currentTarget.value });
+            }}
+            value={info.imageURL}
+            className="form-control"
+            id="image-url-input"
+            name="image"
           />
         </div>
         <button
-          onClick={}
+          onClick={handleButtonClick}
           type="button"
           className="btn btn-primary"
           id="submit-new-contact"
@@ -127,6 +170,10 @@ const Index = (props) => {
   );
 };
 
+NewContact.propTypes = {
+  addNewContact: PropTypes.func.isRequired,
+};
+
 Contact.propTypes = {
   contacts: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
@@ -175,10 +222,11 @@ const App = () => {
 
   const generateRandomId = () => Math.floor(Math.random() * 100000000);
 
-  const addNewContact = () => {
-    const id = generateRandomId();
+  const addNewContact = (contactInfo) => {
+    contactInfo.id = generateRandomId();
 
-    
+    const updatedContacts = [...appData.contacts].push(contactInfo);
+    setAppData({ ...appData, contacts: updatedContacts });
   };
 
   return (
@@ -188,7 +236,10 @@ const App = () => {
         path="contacts/*"
         element={
           <Index contacts={appData.contacts}>
-            <Route path="new" element={<NewContact addNewContact="filler" />} />
+            <Route
+              path="new"
+              element={<NewContact addNewContact={addNewContact} />}
+            />
           </Index>
         }
       />
