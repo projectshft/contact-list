@@ -1,19 +1,23 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 import Header from './Header';
 import './components.css';
 
-const New = () => {
-  function handleChange(event) {
-    console.log(event.target.value);
-  }
-  const contacts = {
-    id: '',
-    name: '',
-    image_url: '',
-    email: '',
-    phone_number: '',
+const New = (props) => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [url, setUrl] = useState('');
+
+  const handleClick = () => {
+    props.addContact({
+      name,
+      email,
+      phone,
+      url,
+    });
+    props.history.push('/Contacts');
   };
+
   return (
     <>
       <Header />
@@ -26,27 +30,36 @@ const New = () => {
                 type="text"
                 className="form-control"
                 placeholder="Ex: John Doe"
-                onChange={handleChange}
+                onChange={(event) => setName(event.target.value)}
               />
               <h6>Email:</h6>
               <input
-                type="text"
+                type="email"
                 className="form-control"
                 placeholder="JohnDoe@gmail.com"
+                onChange={(event) => setEmail(event.target.value)}
               />
               <h6>Phone Number:</h6>
               <input
                 type="text"
                 className="form-control"
-                placeholder="(123)-456-7890"
+                placeholder="1234567890"
+                onChange={(event) => setPhone(parseInt(event.target.value, 10))}
               />
               <h6>Image URL:</h6>
-              <input type="text" className="form-control" placeholder="URL" />
-              <Link to="/contacts">
-                <button type="button" className="btn btn-primary">
-                  Submit
-                </button>
-              </Link>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="URL"
+                onChange={(event) => setUrl(event.target.value)}
+              />
+              <button
+                type="button"
+                className="btn btn-primary"
+                onClick={handleClick}
+              >
+                Submit
+              </button>
             </div>
           </form>
         </div>
@@ -56,10 +69,3 @@ const New = () => {
 };
 
 export default New;
-// function handleChange(event) {
-//   console.log(event.target.value);
-// }
-
-// return (
-//   <input name="firstName" onChange={handleChange} />
-// );

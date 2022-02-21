@@ -1,26 +1,42 @@
-import { Switch, Route } from 'react-router-dom';
-import React from 'react';
+import { Switch, Route, Link } from 'react-router-dom';
+import React, { useState } from 'react';
 import Header from './components/Header';
 import Button from './components/Button';
-import New from './components/New';
 import Contacts from './components/Contacts';
 
-const App = () => (
-  <div>
-    <Switch>
-      <Route
-        exact
-        path="/"
-        render={() => (
-          <>
-            <Header />
-            <Button />
-          </>
-        )}
-      />
-      <Route path="/contacts/new" component={New} />
-      <Route path="/contacts" component={Contacts} />
-    </Switch>
-  </div>
-);
+const App = () => {
+  const [contacts, setContacts] = useState([]);
+  const addContact = (contact) => {
+    setContacts((contacts) => [...contacts, contact]);
+  };
+  return (
+    <div>
+      <Switch>
+        <Route
+          exact
+          path="/"
+          render={() => (
+            <>
+              <Header />
+              <Button />
+              <Link to="/contacts">Contacts</Link>
+            </>
+          )}
+        />
+        <Route
+          path="/contacts"
+          render={(props) => (
+            <Contacts addContact={addContact} history={props.history} contacts={contacts} />
+          )}
+        />
+        {/* <Route 
+          Path="/contacts"
+          render={(props) => (
+            <Table addContact={addContact} history={props.history} contacts={contacts} />
+          )} */}
+      </Switch>
+    </div>
+  );
+};
+
 export default App;
