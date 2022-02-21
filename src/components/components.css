@@ -9,3 +9,8 @@ div > h6 {
 .table-row {
   display: table-row;
 }
+
+.box {
+  height: 200px;
+  width: auto;
+}

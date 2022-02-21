@@ -15,7 +15,7 @@ const New = (props) => {
       phone,
       url,
     });
-    props.history.push('/Contacts');
+    props.history.push('/contacts');
   };
 
   return (

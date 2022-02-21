@@ -1,22 +1,16 @@
-import { Switch, Route, Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import Header from './Header';
 import Button from './Button';
-import New from './New';
-
-
 
 const Contacts = ({ contacts, addContact }) => {
   const history = useHistory();
   const handleClick = () =>{ 
-    console.log('click')
-    let path = `/contacts/generatedId`; 
+    let path='/contacts/info'
     history.push(path);
+    return contacts;
   }
-  const {generateId} = () => (Math.round(Math.random() * 100000000));
-  console.log(`${generateId}`);
-
   return(
     <div>
       <Header />
@@ -34,8 +28,8 @@ const Contacts = ({ contacts, addContact }) => {
         <tbody>
           {
             contacts.map(p => (
-              <tr onClick={handleClick} key={7}>
-                <td>{p.url}</td>
+              <tr onClick={handleClick} key={p.name}>
+                <td><img className="img  box" src={p.url} alt="" /></td>
                 <td>{p.name}</td>
                 <td>{p.email}</td>
                 <td>{p.phone}</td>
@@ -45,21 +39,6 @@ const Contacts = ({ contacts, addContact }) => {
         </tbody>
       </table>
       </div>
-
-
-      <Link to="/contacts/new">New</Link>
-      <Switch>
-        <Route
-          path="/contacts/new"
-          render={(props) => (
-            <New
-              history={props.history}
-              contacts={contacts}
-              addContact={addContact}
-            />
-          )}
-        />
-      </Switch>
     </div>
   )
 };
