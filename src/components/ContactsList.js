@@ -8,9 +8,10 @@ const ContactsList = (props) => {
   const contactsListDisplay = contacts.map((contact) => (
     <div key={contact.id} className="contact-list-item">
       <Link to={`/contacts/${contact.id}`}>
-        <img src={`${contact.image_url}`} alt="Profile Avatar Goes Here" />
+        <img src={`${contact.image_url}`} alt="Profile" />
       </Link>
       <h2>{contact.name}</h2>
+      <hr />
     </div>
   ));
 
@@ -20,7 +21,11 @@ const ContactsList = (props) => {
       <hr />
       {contactsListDisplay}
       <Link to="/contacts/new">
-        <button type="button" className="btn btn-primary">
+        <button
+          type="button"
+          style={{ marginTop: '25px' }}
+          className="btn btn-primary"
+        >
           Add a New Contact
         </button>
       </Link>

@@ -23,7 +23,7 @@ code {
 img {
   height: 30%;
   width: 30%;
-  margin: 10px;
+  margin: 10px 0 20px 0;
 }
 
 .container {
@@ -39,10 +39,14 @@ img {
 
 .form-group {
   margin-top: 50px;
-  margin-bottom: 10px;
+  margin-bottom: 40px;
 }
 
 .special {
   font-weight: 600;
   color: indigo;
+}
+
+.contact-list-item {
+  margin-bottom: 50px;
 }

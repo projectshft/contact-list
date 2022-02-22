@@ -20,15 +20,22 @@ const Contact = ({ contacts }) => {
       <h1>{currentContact.name}</h1>
       <img src={currentContact.image_url} alt="Profile Avatar Goes Here" />
       <h4>
-        <span className="special">Email:</span> - {currentContact.email}
+        <span className="special">{currentContact.email ? 'Email: ' : ''}</span>
+        {currentContact.email}
       </h4>
       <h4>
-        <span className="special">Phone Number:</span> -{' '}
+        <span className="special">
+          {currentContact.phone_number ? 'Phone Number: ' : ''}
+        </span>
         {currentContact.phone_number}
       </h4>
       <div className="back-button-container">
         <Link to="/contacts">
-          <button className="btn btn-primary back-button" type="button">
+          <button
+            style={{ 'margin-top': '100px' }}
+            className="btn btn-primary back-button"
+            type="button"
+          >
             Back to All Contacts
           </button>
         </Link>
