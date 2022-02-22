@@ -8,7 +8,7 @@ const ContactsList = (props) => {
   const contactsListDisplay = contacts.map((contact) => (
     <div key={contact.id} className="contact-list-item">
       <Link to={`/contacts/${contact.id}`}>
-        <img src={`${contact.image_url}`} alt="_test_" />
+        <img src={`${contact.image_url}`} alt="Profile Avatar Goes Here" />
       </Link>
       <h2>{contact.name}</h2>
     </div>

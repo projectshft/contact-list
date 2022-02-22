@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import Index from './components/Index.js';
 import NewContact from './components/NewContact.js';
 import './index.css';
@@ -251,7 +250,7 @@ const App = () => {
     <div className="container">
       <div className="row">
         <div className="col-md-2" />
-        <div className="col-md-8 text-center">
+        <div className="col-md-8 text-center fixed-frame">
           <Routes>
             <Route path="/" element={<Homepage />} />
             <Route

@@ -17,15 +17,11 @@ const NewContact = ({ addNewContact }) => {
     const contact = { ...info, name: name.trim() };
     const hasData = Object.values(contact).every(
       (element, index) =>
-        !(
-          (Object.keys(contact)[index] === 'firstName' ||
-            Object.keys(contact)[index] === 'lastName') &&
-          element.trim() === ''
-        )
+        !(Object.keys(contact)[index] === 'firstName' && element.trim() === '')
     );
 
     if (!hasData) {
-      alert('Please fill out all required fields: First Name and Last Name');
+      alert('Please fill out all required fields: First Name');
       setInfo({
         firstName: '',
         lastName: '',
@@ -38,6 +34,8 @@ const NewContact = ({ addNewContact }) => {
 
     addNewContact(contact);
 
+    navigate('/contacts');
+
     setInfo({
       firstName: '',
       lastName: '',
@@ -45,8 +43,6 @@ const NewContact = ({ addNewContact }) => {
       email: '',
       phone_number: '',
     });
-
-    navigate('/contacts');
   };
 
   return (
