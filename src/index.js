@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
 import Index from './components/Index.js';
 import NewContact from './components/NewContact.js';
+import PageNotFound from './components/Error.js';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -10,8 +11,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // ------------------
 // ------------------
 // ------------------
-
-const PageNotFound = () => <h1>Sorry, that page does not exist!</h1>;
 
 // const NewContact = ({ addNewContact }) => {
 //   const navigate = useNavigate();
@@ -243,14 +242,13 @@ const App = () => {
     const updatedContacts = [...appData.contacts];
     updatedContacts.push(contactInfo);
     setAppData({ ...appData, contacts: updatedContacts });
-    debugger;
   };
 
   return (
     <div className="container">
       <div className="row">
         <div className="col-md-2" />
-        <div className="col-md-8 text-center fixed-frame">
+        <div className="col-md-8 text-center">
           <Routes>
             <Route path="/" element={<Homepage />} />
             <Route
