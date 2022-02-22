@@ -6,14 +6,13 @@ import PageNotFound from './Error.js';
 const Contact = ({ contacts }) => {
   const params = useParams();
 
-  // logic that returns an error page if the param is not in the id of any contact
-  if (!contacts.find((contact) => contact.id === parseInt(params.contact_id))) {
-    return <PageNotFound />;
-  }
-
   const currentContact = contacts.find(
     (entry) => entry.id === parseInt(params.contact_id)
   );
+
+  if (!currentContact) {
+    return <PageNotFound />;
+  }
 
   return (
     <div className="contact-page">
