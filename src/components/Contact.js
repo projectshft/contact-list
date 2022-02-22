@@ -1,13 +1,5 @@
-import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
-import {
-  BrowserRouter,
-  Route,
-  Routes,
-  Link,
-  useParams,
-  useNavigate,
-} from 'react-router-dom';
+import React from 'react';
+import { Link, useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const Contact = ({ contacts }) => {
@@ -20,7 +12,7 @@ const Contact = ({ contacts }) => {
   return (
     <div className="contact-page">
       <h1>{currentContact.name}</h1>
-      <img src={currentContact.image_url} alt="test" />
+      <img src={currentContact.image_url} alt="Profile Avatar Goes Here" />
       <h4>{currentContact.email}</h4>
       <h4>{currentContact.phone_number}</h4>
       <div className="back-button-container">

@@ -244,12 +244,14 @@ const App = () => {
     const updatedContacts = [...appData.contacts];
     updatedContacts.push(contactInfo);
     setAppData({ ...appData, contacts: updatedContacts });
+    debugger;
   };
 
   return (
     <div className="container">
       <div className="row">
-        <div className="col-md-12 text-center">
+        <div className="col-md-2" />
+        <div className="col-md-8 text-center">
           <Routes>
             <Route path="/" element={<Homepage />} />
             <Route
@@ -266,6 +268,7 @@ const App = () => {
             <Route path=":anything_else" element={PageNotFound} />
           </Routes>
         </div>
+        <div className="col-md-2" />
       </div>
     </div>
   );

@@ -1,13 +1,5 @@
-import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
-import {
-  BrowserRouter,
-  Route,
-  Routes,
-  Link,
-  useParams,
-  useNavigate,
-} from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const ContactsList = (props) => {
@@ -24,12 +16,15 @@ const ContactsList = (props) => {
 
   return (
     <div className="contact-list">
+      <h2 className="heading">All Contacts</h2>
+      <hr />
       {contactsListDisplay}
       <Link to="/contacts/new">
         <button type="button" className="btn btn-primary">
           Add a New Contact
         </button>
       </Link>
+      <br />
       <Link to="/">
         <button className="btn btn-primary back-button" type="button">
           Back to Home

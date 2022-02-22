@@ -1,13 +1,5 @@
 import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
-import {
-  BrowserRouter,
-  Route,
-  Routes,
-  Link,
-  useParams,
-  useNavigate,
-} from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const NewContact = ({ addNewContact }) => {
@@ -22,7 +14,27 @@ const NewContact = ({ addNewContact }) => {
 
   const handleButtonClick = () => {
     const name = `${info.firstName} ${info.lastName}`;
-    const contact = { ...info, name };
+    const contact = { ...info, name: name.trim() };
+    const hasData = Object.values(contact).every(
+      (element, index) =>
+        !(
+          (Object.keys(contact)[index] === 'firstName' ||
+            Object.keys(contact)[index] === 'lastName') &&
+          element.trim() === ''
+        )
+    );
+
+    if (!hasData) {
+      alert('Please fill out all required fields: First Name and Last Name');
+      setInfo({
+        firstName: '',
+        lastName: '',
+        image_url: '',
+        email: '',
+        phone_number: '',
+      });
+      return '';
+    }
 
     addNewContact(contact);
 
@@ -79,9 +91,9 @@ const NewContact = ({ addNewContact }) => {
           <label htmlFor="phone-number">Enter their phone number:</label>
           <input
             onChange={(e) =>
-              setInfo({ ...info, phoneNumber: e.currentTarget.value })
+              setInfo({ ...info, phone_number: e.currentTarget.value })
             }
-            value={info.phoneNumber}
+            value={info.phone_number}
             className="form-control"
             id="phone-number-input"
             name="phone-number"
@@ -91,9 +103,9 @@ const NewContact = ({ addNewContact }) => {
           <label htmlFor="image">Enter a link to their image:</label>
           <input
             onChange={(e) => {
-              setInfo({ ...info, imageURL: e.currentTarget.value });
+              setInfo({ ...info, image_url: e.currentTarget.value });
             }}
-            value={info.imageURL}
+            value={info.image_url}
             className="form-control"
             id="image-url-input"
             name="image"
