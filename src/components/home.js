@@ -15,7 +15,7 @@ export default function Home(){
             </nav>
             <hr></hr>
             <button onClick={() => {setShowModal(true)}}>show modal</button>
-            <Outlet />
+            <Outlet />  
         </div>
     )
 }
