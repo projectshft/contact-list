@@ -36,3 +36,36 @@
     transform: rotate(360deg);
   }
 }
+
+.contact {
+  cursor: pointer;
+}
+
+.contact-details {
+  margin: 0 auto; /* Added */
+}
+
+.new-contact-form {
+  text-align: left;
+}
+
+.edit-btn {
+  display: block;
+}
+
+.del-btn {
+  display: block;
+}
+
+.confirm-delete-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1055;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  outline: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
