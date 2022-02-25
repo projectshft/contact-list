@@ -1,4 +1,4 @@
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route, Redirect, NavLink } from 'react-router-dom';
 import React, { useState } from 'react';
 import IndexPage from './IndexPage';
 import ContactPage from './ContactPage'
@@ -13,17 +13,17 @@ const App = () => {
   const [contacts, setContacts] = useState([
     {
       id: 0,
-      name: 'Dio DeBon',
-      image_url: 'https://images.ctfassets.net/usf1vwtuqyxm/40Sp4ysyqcYKkQSwWG8WI6/8fa8b6ffdb3490d62c722d056b8bec48/Dragon-calendar-carousel.jpg?fm=jpg&q=70&w=2560',
-      email: 'cdebon97@gmail.com',
-      phone_number: 2342343242
+      name: 'Bruce Lee',
+      image_url: 'https://upload.wikimedia.org/wikipedia/commons/c/ca/Bruce_Lee_1973.jpg',
+      email: 'blee@gmail.com',
+      phone_number: 2324456343
     },
     {
       id: 1,
-      name: 'Lauren',
-      image_url: 'https://images.ctfassets.net/usf1vwtuqyxm/40Sp4ysyqcYKkQSwWG8WI6/8fa8b6ffdb3490d62c722d056b8bec48/Dragon-calendar-carousel.jpg?fm=jpg&q=70&w=2560',
-      email: 'fdggfdg@gmail.com',
-      phone_number: 1213
+      name: 'Naruto Uzumaki',
+      image_url: 'https://cdn.vox-cdn.com/thumbor/UswYUb9Ve-sg9EN1f0KMAkOUizE=/0x0:1280x721/1200x800/filters:focal(544x281:748x485)/cdn.vox-cdn.com/uploads/chorus_image/image/70124512/naruto.0.jpg',
+      email: 'hokakage7@gmail.com',
+      phone_number: 3354457597
     }
   ])
 
@@ -40,8 +40,8 @@ const App = () => {
       <Container>
       <Navbar.Brand href="/">React Contact List</Navbar.Brand>
       <Nav className="me-auto">
-        <Nav.Link href="/">Index</Nav.Link>
-        <Nav.Link href="/new-contact">Add New Contact</Nav.Link>
+        <NavLink to={'/contacts'} className='mx-3'>Contacts</NavLink>
+        <NavLink to={'/contacts/new'}>Add New Contact</NavLink>
       </Nav>
       </Container>
       </Navbar>
@@ -53,16 +53,16 @@ const App = () => {
       <Header />
       <Switch>
         <Route exact path='/'>
-          <Redirect to='/indexpage' />
+          <Redirect to='/contacts' />
         </Route>
-        <Route exact path='/indexpage' render={() => (
-          <IndexPage contacts={contacts} />
+        <Route exact path='/contacts' render={(routerProps) => (
+          <IndexPage contacts={contacts} history={routerProps.history}/>
         )}/>
-        <Route path='/new-contact' render={(routerProps) => (
+        <Route path='/contacts/new' render={(routerProps) => (
           <NewContact addContact={addContact} contacts={contacts} history={routerProps.history} />
         )}/>
-        <Route path='/:id' render={(routerProps) => (
-          <ContactPage contacts={contacts} contactId={routerProps.match.params.id} />
+        <Route path='/contacts/:id' render={(routerProps) => (
+          <ContactPage contacts={contacts} contactId={parseInt(routerProps.match.params.id, 10)} />
         )}/>
       </Switch>
     </div>

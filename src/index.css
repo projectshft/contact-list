@@ -20,3 +20,7 @@ code {
 .table-hover tbody tr:hover th {
   background-color: red;
 }
+
+img {
+  height: 8em;
+}

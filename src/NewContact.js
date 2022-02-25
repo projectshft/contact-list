@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {Form, Button, Row, Container, Col} from 'react-bootstrap'
 
 const NewContact = (props) => {
@@ -8,31 +8,28 @@ const NewContact = (props) => {
   const [email, setEmail] = useState('');
   const [phone_number, setPhoneNumber] = useState('');
 
+  useEffect(() => {
+    const generateId = () => Math.round(Math.random() * 100000000);
+    setId(generateId());
+  }, [])
   
 
   const handleSubmitContactClick = () => {
-
+    
     debugger;
+      if (!id || !name || !image_url || !email || !phone_number){
+        alert("Please fill out all inputs to add a new contact")
+      } else {
+        props.addContact({
+          id,
+          name,
+          image_url,
+          email,
+          phone_number
+        })  
+        props.history.push('/contacts')
+      }
     
-    if(!props.contacts.length === 0) {
-      setId(0)
-    } else (
-      setId(props.contacts[props.contacts.length - 1].id + 1)  
-    );
-    
-
-    if (!id || !name || !image_url || !email || !phone_number){
-      alert("Please fill out all inputs to add a new contact") 
-    } else {
-      props.addContact({
-        id,
-        name,
-        image_url,
-        email,
-        phone_number
-      })  
-      props.history.push('/indexpage')
-    }
   }
 
   return (

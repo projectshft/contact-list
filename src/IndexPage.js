@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import { Table, Container, Row, Col } from "react-bootstrap"
 import "./index"
 import "./index.css"
+import { Link } from "react-router-dom"
 
 const IndexPage = (props) => {
   return (
@@ -24,7 +25,9 @@ const IndexPage = (props) => {
             <tbody>
               {
               props.contacts.map(contact => (
-                <tr key={contact.id} className="text-center contact-table">
+                <tr key={contact.id} className="text-center contact-table" onClick={(e) => {
+                  props.history.push(`/contacts/${contact.id}`)
+                }}>
                   <ContactRow {...contact} />
                 </tr>
               ))
