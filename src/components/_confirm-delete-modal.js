@@ -1,4 +1,6 @@
-export default function ConfirmDeleteModal({show, onClose}) {
+import PropTypes from 'prop-types';
+
+export default function ConfirmDeleteModal({show, onClose, contact, confirmDeleteContact}) {
     if(!show){
         return null;
     }
@@ -18,17 +20,25 @@ export default function ConfirmDeleteModal({show, onClose}) {
                     </button>
                 </div>
                 <div className="modal-body">
-                    <p>Are you sure you want to delete  from your contacts?</p>
+                    <p>Are you sure you want to delete <b>{contact.name}</b> from your contacts?</p>
                 </div>
                 <div className="modal-footer">
                     <button type="button" className="btn btn-secondary" 
                     onClick={onClose}
                     >Close</button>
 
-                    <button type="button" className="btn btn-danger">Delete Contact</button>
+                    <button type="button" className="btn btn-danger"
+                    onClick={confirmDeleteContact}
+                    >Delete Contact</button>
                 </div>
                 </div>
             </div>
         </div>
     );
+  }
+
+  ConfirmDeleteModal.propTypes = {
+      show: PropTypes.bool,
+      onClose: PropTypes.func, 
+      confirmDeleteContact: PropTypes.func
   }

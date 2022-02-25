@@ -1,51 +1,79 @@
-import React, {useState, useEffect} from "react";
+import { Component } from "react/cjs/react.development";
 import ContactListItem from "./contact-list-item";
 import ConfirmDeleteModal from "./_confirm-delete-modal";
+import PropTypes from 'prop-types';
 
-const ContactList = ({contacts, deleteContact}) => {
-    const [contactToBeDeleted, setContactToBeDeleted] = useState(undefined);
-    const [showModal, setShowModal] = useState(false);
-    const [confirmDelete, setConfirmDelete] = useState(false);
+class ContactList extends Component {
+    constructor(){
+        super();
 
-    useEffect(() => {
-        if(contactToBeDeleted){
-            setShowModal(true);
+        this.state = {
+            contactToBeDeleted : undefined,
+            showModal: false,
+            confirmDelete: false
         }
-    });
-
+    }
     
+    openConfirmDeleteModal = () => {
+        this.setState({showModal: true});
+    }
+    
+    setContactToBeDeleted = (contact) => {
+        this.setState({contactToBeDeleted: contact}, this.openConfirmDeleteModal);
+    }
 
+    confirmDeleteContact = () => {
+        this.props.deleteContact(this.state.contactToBeDeleted.id);
+        this.setState({
+            contactToBeDeleted : undefined,
+            showModal: false,
+            confirmDelete: false
+        })
+    }
 
+    render(){
+        const contacts = this.props.contacts;
+        
+        return(
+            <div className="row">
 
-
-
-    return(
-        <div className="row">
-             <ConfirmDeleteModal show={showModal} onClose={() => {setShowModal(false)}}/>
-            <div className="table-responsive">
-                <table className="table table-striped table-hover">
-                    <thead>
-                        <tr>
-                            <th>Profile Pic</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Phone Number</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {contacts.map(contact => {
-                            return (
-                                <ContactListItem 
-                                contact={contact}
-                                setContactToBeDeleted={setContactToBeDeleted}
-                                key={contact.id.toString()}/>
-                            )
-                        })}
-                    </tbody>
-                </table>
+                <ConfirmDeleteModal 
+                    show={this.state.showModal} 
+                    onClose={() => {this.setState({showModal: false})}}
+                    contact={this.state.contactToBeDeleted}
+                    confirmDeleteContact={this.confirmDeleteContact}
+                />
+    
+                <div className="table-responsive">
+                    <table className="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>Profile Pic</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone Number</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {contacts.map(contact => {
+                                return (
+                                    <ContactListItem 
+                                    contact={contact}
+                                    setContactToBeDeleted={this.setContactToBeDeleted}
+                                    key={contact.id.toString()}/>
+                                )
+                            })}
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
-    )
+            )
+        }
+}
+
+ContactList.propTypes = {
+    contacts: PropTypes.array,
+    deleteContact: PropTypes.func
 }
 
 export default ContactList;

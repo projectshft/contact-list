@@ -11,7 +11,6 @@ import EditContact from './components/edit-contact';
 const App = () => {
   const [contacts, setContacts] = useState(getDefaultContacts());
   
-
   const getContact = (id) => {
     return contacts.find(
       contact => contact.id === id
@@ -28,7 +27,6 @@ const App = () => {
     const newContacts = [...contacts];
     const i = newContacts.findIndex((c) => c.id === contact.id);
     newContacts[i] = contact;
-    debugger;
     setContacts(newContacts);
   }
 
@@ -36,8 +34,6 @@ const App = () => {
     const newContacts = contacts.filter((contact) => contact.id !== id);
     setContacts(newContacts);
   }
-
-
 
   return (
     <BrowserRouter>

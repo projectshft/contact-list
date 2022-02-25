@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
+import PropTypes from 'prop-types';
 
-const ContactListItem = ({contact, setContactToBeDeleted, toggleShowConfirmDeleteModal}) => {
+const ContactListItem = ({contact, setContactToBeDeleted}) => {
    let navigate = useNavigate();
     
     const viewContactDetail = (id) => {
@@ -11,7 +12,6 @@ const ContactListItem = ({contact, setContactToBeDeleted, toggleShowConfirmDelet
         navigate(`/contacts/${id}/edit`);   
     }
     
-
     return( 
         <tr className="contact" onClick={() => {viewContactDetail(contact.id)}}> 
             <td>
@@ -36,6 +36,11 @@ const ContactListItem = ({contact, setContactToBeDeleted, toggleShowConfirmDelet
             </td>
         </tr>
     )
+}
+
+ContactListItem.propTypes = {
+    contact: PropTypes.object,
+    setContactToBeDeleted: PropTypes.func
 }
 
 export default ContactListItem;

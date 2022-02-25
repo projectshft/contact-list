@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import {useState} from "react";
+import PropTypes from 'prop-types';
 
 export default function EditContact({getContact, editContact}) {
     let params = useParams();
@@ -19,7 +20,9 @@ export default function EditContact({getContact, editContact}) {
             e.preventDefault();
             handleEditContact(contact);
             }}>
-
+            <div className="form-group">
+                <h2>Edit Contact</h2>
+            </div>
             <div className="form-group">
                 <label>Name</label>
                 <input 
@@ -52,4 +55,9 @@ export default function EditContact({getContact, editContact}) {
             <button type="submit" className="btn btn-success mt-4">Save Edit</button>
         </form>
     );
+  }
+
+  EditContact.propTypes = {
+    getContact: PropTypes.func,
+    editContact: PropTypes.func
   }

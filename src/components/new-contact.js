@@ -67,4 +67,8 @@ function NewContact({addNewContact}) {
     ) 
 }
 
+NewContact.propTypes = {
+    addNewContact: PropTypes.func
+}
+
 export default NewContact;
