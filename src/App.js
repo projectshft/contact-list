@@ -22,7 +22,7 @@ const App = () => {
       id: 1,
       name: 'Naruto Uzumaki',
       image_url: 'https://cdn.vox-cdn.com/thumbor/UswYUb9Ve-sg9EN1f0KMAkOUizE=/0x0:1280x721/1200x800/filters:focal(544x281:748x485)/cdn.vox-cdn.com/uploads/chorus_image/image/70124512/naruto.0.jpg',
-      email: 'hokakage7@gmail.com',
+      email: 'hokage7@gmail.com',
       phone_number: 3354457597
     }
   ])
