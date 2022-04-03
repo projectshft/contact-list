@@ -1,17 +1,40 @@
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+const App = () => (
+  <div>
+    <Main />
+  </div>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const Home = () => (
+  <div>
+    <h1>Contacts</h1>
+  </div>
+);
+
+const AddNew = () => {
+  return <div>New Contact</div>;
+};
+
+const ContactView  = () => {
+  return <div>Contact Info</div>;
+};
+
+const Main = () => (
+  <main>
+    <Switch>
+      <Route exact path="/" component={Home} />
+      <Route path="/newcontact" component={AddNew} />
+      <Route path="/contactview" component={ContactView} />
+    </Switch>
+  </main>
+);
+
+ReactDOM.render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+  document.getElementById('root')
+);
