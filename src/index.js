@@ -1,6 +1,7 @@
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import React, { useState } from 'react';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const App = () => (
@@ -64,9 +65,6 @@ const DisplayContacts = () => (
 
 
 const Home = () => (
-  // <div>
-  //   <h1>Contacts</h1>
-  // </div>
   <Switch>
     <Route exact path="/" component={DisplayContacts} />
     <Route path="/:id" component={ContactView} />
@@ -78,48 +76,15 @@ const AddNew = () => {
   const [newContact, setNewContact] = useState({
     id: '',
     name: '',
-    image: '',
     email: '',
-    phone: ''
+    phone: '',
+    image: ''
   })
-  // const [name, setName] = useState('')
-  // const [image, setImage] = useState('')
-  // const [email, setEmail] = useState('')
-  // const [phone, setPhone] = useState('')
-
-  // useEffect(() => {
-  //   document.title = 'Add Contact ' + name
-  // });
-
-  // function handleNameChange(e) {
-  //   setName(e.target.value)
-  //   console.log(e.target.value);
-  // }
-
-  // function handleImageChange(e) {
-  //   setImage(e.target.value)
-  //   console.log(e);
-  // }
-
-  // function handleEmailChange(e) {
-  //   setEmail(e.target.value)
-  //   console.log(e);
-  // }
-
-  // function handlePhoneChange(e) {
-  //   setPhone(e.target.value)
-  //   console.log(e);
-  // }
 
   const handleClick = (e) => {
     e.preventDefault();
     newContact.id = generateId();
-    console.log(newContact);
     ContactList.contacts.push(newContact);
-    // setTheArray([...ContactList.contacts, newContact]);
-    console.log(ContactList.contacts);
-    // this.setState({newContact: ContactList.contacts.concat([newContact])});
-    // this.setState({posts: this.state.posts.concat([post])});
   };
 
   return (
