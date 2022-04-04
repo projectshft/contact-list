@@ -1,7 +1,7 @@
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import React, { useState } from 'react';
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const App = () => (
