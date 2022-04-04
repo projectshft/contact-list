@@ -1,7 +1,7 @@
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
-import React from 'react';
 import ReactDOM from 'react-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useState } from 'react';
+
 
 const App = () => (
   <div>
@@ -74,49 +74,94 @@ const Home = () => (
 );
 
 const AddNew = () => {
+  const generateId = () => Math.round(Math.random() * 100000000);
+  const [newContact, setNewContact] = useState({
+    id: '',
+    name: '',
+    image: '',
+    email: '',
+    phone: ''
+  })
+  // const [name, setName] = useState('')
+  // const [image, setImage] = useState('')
+  // const [email, setEmail] = useState('')
+  // const [phone, setPhone] = useState('')
+
+  // useEffect(() => {
+  //   document.title = 'Add Contact ' + name
+  // });
+
+  // function handleNameChange(e) {
+  //   setName(e.target.value)
+  //   console.log(e.target.value);
+  // }
+
+  // function handleImageChange(e) {
+  //   setImage(e.target.value)
+  //   console.log(e);
+  // }
+
+  // function handleEmailChange(e) {
+  //   setEmail(e.target.value)
+  //   console.log(e);
+  // }
+
+  // function handlePhoneChange(e) {
+  //   setPhone(e.target.value)
+  //   console.log(e);
+  // }
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    newContact.id = generateId();
+    console.log(newContact);
+    ContactList.contacts.push(newContact);
+    // setTheArray([...ContactList.contacts, newContact]);
+    console.log(ContactList.contacts);
+    // this.setState({newContact: ContactList.contacts.concat([newContact])});
+    // this.setState({posts: this.state.posts.concat([post])});
+  };
+
   return (
   <div>
     <form className="addnew-form">
         <h3>Add Contact</h3>
-
+        Name:
         <div className="form-group">
           <input
             className="form-control"
-            placeholder="Name"
-            // value={this.state.name}
-            // // onChange={event => this.setState({text: event.target.value})}
+            value={newContact.name}
+            onChange={(e) => setNewContact({...newContact, name: e.target.value})}
+            /> 
+
+          <br/>
+          image
+          <input
+            className="form-control"
+            value={newContact.image}
+            onChange={(e) => setNewContact({...newContact, image: e.target.value})}
             />
 
           <br/>
-
+          email
           <input
             className="form-control"
-            placeholder="Image"
-            // value={this.state.image}
-            // // onChange={event => this.setState({user: event.target.value})}
+            value={newContact.email}
+            onChange={(e) => setNewContact({...newContact, email: e.target.value})}
             />
 
           <br/>
-
+          phone
           <input
             className="form-control"
-            placeholder="Email"
-            // value={this.state.email}
-            // // onChange={event => this.setState({user: event.target.value})}
+            value={newContact.phone}
+            onChange={(e) => setNewContact({...newContact, phone: e.target.value})}
             />
-
-          <br/>
-
-          <input
-            className="form-control"
-            placeholder="Phone"
-            // value={this.state.phone}
-            // // onChange={event => this.setState({user: event.target.value})}
-            />
+          
         </div>
-
+        
         <button 
-        // onClick={this.handleClick} 
+        onClick={handleClick} 
         type="button" className="btn btn-primary">Post</button>
       </form>
       <Link to="/">Back</Link>
