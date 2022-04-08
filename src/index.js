@@ -1,7 +1,8 @@
-import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Link, useHistory } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Table, Button, Image } from 'react-bootstrap';
 
 
 const App = () => (
@@ -38,9 +39,9 @@ const ContactList = {
 
 const DisplayContacts = () => (
   <div><h1>Contact List</h1>
-  <p><Link to="/newcontact"><button type="button">New Contact</button></Link></p>
-     <table className='table-hover'>
-      <thead>
+  <p><Link to="/newcontact"><Button type="button" variant="info">New Contact</Button></Link></p>
+     <Table striped hover size="sm">
+      <thead className='thead-light'>
         <tr>
           <th>Name</th>
           <th>Image</th>
@@ -52,13 +53,13 @@ const DisplayContacts = () => (
         {ContactList.all().map(p => (
             <tr key={p.id}>
                 <td><Link to={`/${p.id}`}>{p.name}</Link></td>
-                <td><img className='img-thumbnail' alt='contact' width='150' height='150' src={p.image} /></td>
+                <td><Image className='img-thumbnail' alt='contact' rounded fluid thumbnail width='150' height='150' src={p.image} /></td>
                 <td>{p.email}</td>
                 <td>{p.phone}</td>
             </tr>
             ))}
       </tbody>
-    </table> 
+    </Table> 
   
   </div>
 );
@@ -71,20 +72,47 @@ const Home = () => (
   </Switch>
 );
 
+
 const AddNew = () => {
-  const generateId = () => Math.round(Math.random() * 100000000);
   const [newContact, setNewContact] = useState({
-    id: '',
+    id: Math.round(Math.random() * 100000000),
     name: '',
     email: '',
     phone: '',
     image: ''
   })
 
+  const history = useHistory();
+
+  const routeChange = () =>{ 
+    let path = '/'; 
+    history.push(path);
+  }
+
   const handleClick = (e) => {
+    // // const [contactsList, setContactsList] = useState(ContactList.contacts)
+    // // addNewItem = () => {
+    //   this.setState({contacts: this.ContactList.contacts.concat(this.state.newContact)});
+    // // };
+    // // setContactsList([...contactsList, newContact]);
+    // // setContactsList(contactsList => [...contactsList, newContact]);
     e.preventDefault();
-    newContact.id = generateId();
+    // // console.log(e);
+    // // console.log(e.ContactList.contacts);
     ContactList.contacts.push(newContact);
+    routeChange();
+  //   debugger;
+  //   this.setState(ContactList => ({
+  //     myArray: [...ContactList.contacts, newContact]
+  // }));
+
+  // this.setState({
+  //   arr: this.state.arr.concat('new value')
+  // })
+
+    // const oldContacts = ContactList.contacts;
+    // const newContactList = {...oldContacts, newContact};
+
   };
 
   return (
@@ -127,7 +155,7 @@ const AddNew = () => {
         
         <button 
         onClick={handleClick} 
-        type="button" className="btn btn-primary">Post</button>
+        type="button" className="btn btn-primary">Add Contact</button>
       </form>
       <Link to="/">Back</Link>
   </div>
