@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 
 const ContactList = () => {
 
-  let navigate = useNavigate();
-
+  const navigate = useNavigate();
+  
   return (
     <div>
       <h1>Contact List</h1>

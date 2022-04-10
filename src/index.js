@@ -12,7 +12,7 @@ render(
   <BrowserRouter>
      <Routes>
       <Route path="/" element={<App />} />
-      <Route path="/form" element={<NewContact />} />
+      <Route path="/form" element={<NewContact/>} />
       <Route path ="*" element={<ErrorPage/>}/>
     </Routes>
   </BrowserRouter>,

@@ -1,6 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const NewContact = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="row">
     <div className="col-md-6 offset-md-3">
@@ -16,7 +19,6 @@ const NewContact = () => {
             placeholder="Enter Full Name"
            
              />
-
           <br/>
           Email Address
           <input
@@ -24,7 +26,6 @@ const NewContact = () => {
             placeholder="Enter Email"
       
             />
-
           <br/>
           Phone Number
           <input
@@ -32,7 +33,6 @@ const NewContact = () => {
             placeholder="Enter Phone"
 
             />
-
           <br/>
           Image URL
           <input
@@ -41,7 +41,7 @@ const NewContact = () => {
 
             />
         </div>
-        <button type="button" className="btn btn-primary add-post">Add</button>
+        <button onClick={() => navigate("/")} type="button" className="btn btn-primary add-post">Add</button>
       </form>
     </div>
   </div>
