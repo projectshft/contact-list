@@ -2,7 +2,8 @@ import { BrowserRouter, Switch, Route, Link, useHistory } from 'react-router-dom
 import ReactDOM from 'react-dom';
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Table, Button, Image } from 'react-bootstrap';
+import { Table, Button, Image, Container, Row, Col, Form } from 'react-bootstrap';
+import './index.css';
 
 
 const App = () => (
@@ -25,7 +26,7 @@ const ContactList = {
       name: 'Captain Marvel',
       email: 'captain@marvel.com',
       phone: '9099876543',
-      image: 'https://upload.wikimedia.org/wikipedia/en/f/f1/Brie_Larson_as_Carol_Danvers.jpeg'
+      image: 'https://static2.srcdn.com/wordpress/wp-content/uploads/2022/02/Brie-Larson-as-Captain-Marvel-in-the-MCU.jpg'
     }
   ], 
   all: function() {
@@ -38,30 +39,41 @@ const ContactList = {
 };
 
 const DisplayContacts = () => (
-  <div><h1>Contact List</h1>
-  <p><Link to="/newcontact"><Button type="button" variant="info">New Contact</Button></Link></p>
-     <Table striped hover size="sm">
-      <thead className='thead-light'>
-        <tr>
-          <th>Name</th>
-          <th>Image</th>
-          <th>Email</th>
-          <th>Phone</th>
-        </tr>
-      </thead>
-      <tbody>
-        {ContactList.all().map(p => (
-            <tr key={p.id}>
-                <td><Link to={`/${p.id}`}>{p.name}</Link></td>
-                <td><Image className='img-thumbnail' alt='contact' rounded fluid thumbnail width='150' height='150' src={p.image} /></td>
-                <td>{p.email}</td>
-                <td>{p.phone}</td>
+  <Container>
+    <Row>
+      <div><h1>Contact List</h1>
+      <p><Link to="/newcontact"><Button type="button" variant="info">New Contact</Button></Link></p></div>
+    </Row>
+    <Row>
+    <Col></Col>
+    <Col lg={8}>
+      <div>
+        <Table striped hover size="sm">
+          <thead className='thead-light'>
+            <tr>
+              <th>Name</th>
+              <th>Profile Pic</th>
+              <th>Email</th>
+              <th>Phone</th>
             </tr>
-            ))}
-      </tbody>
-    </Table> 
+          </thead>
+          <tbody>
+            {ContactList.all().map(p => (
+                <tr key={p.id}>
+                    <td><h3><Link to={`/${p.id}`}>{p.name}</Link></h3></td>
+                    <td><Image className="img-thumbnail" alt='contact' rounded fluid thumbnail src={p.image} /></td>
+                    <td>{p.email}</td>
+                    <td>{p.phone}</td>
+                </tr>
+                ))}
+          </tbody>
+        </Table> 
+      </div>
+    </Col>
+    <Col></Col>
+    </Row>
   
-  </div>
+  </Container>
 );
 
 
@@ -90,75 +102,92 @@ const AddNew = () => {
   }
 
   const handleClick = (e) => {
-    // // const [contactsList, setContactsList] = useState(ContactList.contacts)
-    // // addNewItem = () => {
-    //   this.setState({contacts: this.ContactList.contacts.concat(this.state.newContact)});
-    // // };
-    // // setContactsList([...contactsList, newContact]);
-    // // setContactsList(contactsList => [...contactsList, newContact]);
+    var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    var imgExtension = newContact.image.substring(newContact.image.lastIndexOf('.') + 1).toLowerCase();
+
     e.preventDefault();
-    // // console.log(e);
-    // // console.log(e.ContactList.contacts);
+      if(!newContact.name || !newContact.image || !newContact.email || !newContact.phone) {
+        return alert('All fields required')
+      } 
+      if (imgExtension == "gif" || imgExtension == "png" || imgExtension == "bmp" || imgExtension == "jpeg" || imgExtension == "jpg") {
+      } else {
+        console.log(imgExtension)
+        return alert('Image Type not recognized')
+        }
+      if (newContact.email.match(validRegex)) {
+      } else {
+        return alert('Please provide valid email')
+      }
+      if (newContact.phone.toString().length != 10) {
+        return alert('Phone Number must have 10 digits')
+      }
+
     ContactList.contacts.push(newContact);
     routeChange();
-  //   debugger;
-  //   this.setState(ContactList => ({
-  //     myArray: [...ContactList.contacts, newContact]
-  // }));
-
-  // this.setState({
-  //   arr: this.state.arr.concat('new value')
-  // })
-
-    // const oldContacts = ContactList.contacts;
-    // const newContactList = {...oldContacts, newContact};
-
   };
 
   return (
-  <div>
-    <form className="addnew-form">
-        <h3>Add Contact</h3>
-        Name:
-        <div className="form-group">
-          <input
-            className="form-control"
-            value={newContact.name}
-            onChange={(e) => setNewContact({...newContact, name: e.target.value})}
-            /> 
+    <Container>
+        <Row>
+          <Col></Col>
+          <Col md>
+          <div>
+            <Form className="addnew-form">
+                <h3>Add Contact</h3>
+                <strong>Name</strong>
+                <div className="form-group">
+                  <input
+                    className="form-control"
+                    value={newContact.name}
+                    onChange={(e) => setNewContact({...newContact, name: e.target.value})}
+                    required
+                    /> 
 
-          <br/>
-          image
-          <input
-            className="form-control"
-            value={newContact.image}
-            onChange={(e) => setNewContact({...newContact, image: e.target.value})}
-            />
+                  <br/>
+                  <strong>Profile Pic</strong>
+                  <input
+                    className="form-control"
+                    value={newContact.image}
+                    onChange={(e) => setNewContact({...newContact, image: e.target.value})}
+                    required
+                    />
 
-          <br/>
-          email
-          <input
-            className="form-control"
-            value={newContact.email}
-            onChange={(e) => setNewContact({...newContact, email: e.target.value})}
-            />
+                  <br/>
+                  <strong>Email</strong>
+                  <input
+                    className="form-control"
+                    type="email"
+                    pattern=".+@globex\.com"
+                    value={newContact.email}
+                    onChange={(e) => setNewContact({...newContact, email: e.target.value})}
+                    required
+                    />
 
-          <br/>
-          phone
-          <input
-            className="form-control"
-            value={newContact.phone}
-            onChange={(e) => setNewContact({...newContact, phone: e.target.value})}
-            />
-          
-        </div>
-        
-        <button 
-        onClick={handleClick} 
-        type="button" className="btn btn-primary">Add Contact</button>
-      </form>
-      <Link to="/">Back</Link>
-  </div>
+                  <br/>
+                  <strong>Phone</strong>
+                  <input
+                    className="form-control"
+                    type="tel"
+                    pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                    value={newContact.phone}
+                    onChange={(e) => {
+                      setNewContact({...newContact, phone: e.target.value})}}
+                      required
+                    />
+                  
+                </div>
+                
+                <button 
+                onClick={handleClick} 
+                type="button" className="btn btn-primary">Add Contact</button>
+              </Form>
+              <Link to="/">Back</Link>
+          </div>
+        </Col>
+        <Col></Col>
+      </Row>
+    </Container>
+  
   );
 };
 
@@ -168,15 +197,23 @@ const ContactView  = props => {
       return <div>No contact information.</div>;
     }
     return (
-      <div>
-        <h1>
-          {contact.name}
-        </h1>
-        <p><img src={contact.image} className='img-thumbnail' alt='contact' width='150' height='150' /></p>
-        <h2>Email: {contact.email}</h2>
-        <h2>Phone: {contact.phone}</h2>
-        <Link to="/">Back</Link>
-      </div>
+      <Container>
+        <Row>
+          <Col></Col>
+          <Col md>
+            <div>
+              <h1>
+                {contact.name}
+              </h1>
+              <p><Image src={contact.image} className='img-thumbnail rounded fluid' alt='contact' /></p>
+              <h2>Email: {contact.email}</h2>
+              <h2>Phone: {contact.phone}</h2>
+              <Link to="/">Back</Link>
+            </div>
+          </Col>
+          <Col></Col>
+        </Row>
+      </Container>
     );
   
 };
