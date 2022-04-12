@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ContactsList = (props) => {
   return (
@@ -19,11 +20,11 @@ const ContactsList = (props) => {
         </thead>
         <tbody>
           {props.contacts.map(p => (
-            <tr key={p.id} id={p.id} onClick={() => window.location.href = `http://localhost:3000/contacts/${p.id}`}>
+            <tr key={p.id} id={p.id} post={p}>
               <th scope="row">
                 <img src={p.img_url} alt="profile pic here" width="200"></img>
               </th>
-              <td>{p.name}</td>
+              <td><Link to={`/${p.id}`}>{p.name}</Link></td>
               <td>{p.email}</td>
               <td>{p.phone}</td>
             </tr>

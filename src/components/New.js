@@ -46,7 +46,7 @@ const New = ({createNew}) => {
         <input value={phone} className="form-control mx-auto" placeholder="Phone Number" onChange={event => setPhone(event.target.value)}></input>
         <p>Image URL:</p>
         <input value={img_url} className="form-control mx-auto" placeholder="Image Url" onChange={event => setImg(event.target.value)}></input>
-        <button onClick={handleCreateClick} className="btn-primary create-contact" type="button">Create Contact</button>
+        <Link to={"/contacts"}><button onClick={handleCreateClick} className="btn-primary create-contact" type="button">Create Contact</button></Link>
       </div>
     </div>
   )

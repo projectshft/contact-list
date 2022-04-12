@@ -5,17 +5,17 @@ import ViewContact from './components/ViewContact';
 import ContactsList from './components/ContactsList';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const Contacts = (props, createNew) => {
+const Contacts = (props) => {
   return (
     <Routes>
       <Route exact path="/contacts" element={<ContactsList contacts={props.contacts}/>}/>
-      <Route exact path="/contacts/:id" element={<ViewContact contacts={props.contacts} />}/>
+      <Route exact path="/:id" element={<ViewContact contacts={props.contacts} />}/>
       <Route exact path="/new" element={<New createNew={props.createNew} />}/>
     </Routes>
   )
 }
 
-const Main = () => {
+const App = () => {
   let clickedId = null;
   const [contacts, setContact] = useState([
     {
@@ -47,13 +47,9 @@ const Main = () => {
       img_url: "https://cdn.mos.cms.futurecdn.net/VSy6kJDNq2pSXsCzb6cvYF-1200-80.jpg"
     }
   ]);
-  console.log(contacts)
 
   const createNew = (c) => {
-    console.log(c)
-    setContact((x) => [
-      ...x, c
-    ]);
+    setContact(() => [...contacts, c]);
   }
 
   return (
@@ -64,14 +60,6 @@ const Main = () => {
       </Routes>
     </main>
   )
-}
-
-const App = () => {
-  return (
-    <div className="App">
-      <Main />
-    </div>
-  );
 }
 
 export default App;
