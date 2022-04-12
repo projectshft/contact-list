@@ -16,9 +16,9 @@ const New = ({createNew}) => {
       phone: phone,
       img_url: img_url
     };
-    
+
     if(contact.name){
-      createNew(contact);
+      createNew(contact)
       alert(`Created contact for ${contact.name}`)
     } else {
       alert('Please enter a name')
@@ -46,7 +46,7 @@ const New = ({createNew}) => {
         <input value={phone} className="form-control mx-auto" placeholder="Phone Number" onChange={event => setPhone(event.target.value)}></input>
         <p>Image URL:</p>
         <input value={img_url} className="form-control mx-auto" placeholder="Image Url" onChange={event => setImg(event.target.value)}></input>
-        <Link to="/contacts"><button onClick={handleCreateClick} className="btn-primary create-contact" type="button">Create Contact</button></Link>
+        <button onClick={handleCreateClick} className="btn-primary create-contact" type="button">Create Contact</button>
       </div>
     </div>
   )

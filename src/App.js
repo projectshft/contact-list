@@ -1,57 +1,66 @@
 import React, { useState } from 'react';
-import { Routes, Route, Link} from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import New from './components/New';
 import ViewContact from './components/ViewContact';
+import ContactsList from './components/ContactsList';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const Contacts = (props) => {
+const Contacts = (props, createNew) => {
   return (
-    <div>
-      <div className='header'>
-        <h1 className='contact-title'>Contact List</h1>
-        <Link to="/contacts/new" className="add-button" type='btn btn-primary'><button className="btn-primary">Add Contact</button></Link>
-      </div>
-      
-      <table className="table table-striped table-bordered" id="contacts-table">
-        <thead>
-          <tr>
-            <th scope="col">Profile Pic</th>
-            <th scope="col">Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Number</th>
-          </tr>
-        </thead>
-        <tbody>
-          {props.contacts.map(p => (
-            <tr key={p.id}>
-              <th scope="row">
-                <img src={p.img_url} alt="profile pic here" width="200"></img>
-              </th>
-              <td>{p.name}</td>
-              <td>{p.email}</td>
-              <td>{p.phone}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+    <Routes>
+      <Route exact path="/contacts" element={<ContactsList contacts={props.contacts}/>}/>
+      <Route exact path="/contacts/:id" element={<ViewContact contacts={props.contacts} />}/>
+      <Route exact path="/new" element={<New createNew={props.createNew} />}/>
+    </Routes>
   )
 }
 
-const Main = (props) => {
-  const [contacts, setContact] = useState([]);
+const Main = () => {
+  let clickedId = null;
+  const [contacts, setContact] = useState([
+    {
+      id: 298484572,
+      name: "Michael Scott",
+      email: "michael@dundermifflin.com",
+      phone: 9999999999,
+      img_url: "https://cdn3.whatculture.com/images/2021/04/d81733f712331d8a-1200x675.jpg"
+    },
+    {
+      id: 348539984,
+      name: "Tom Holland",
+      email: "spiderman@tomholland.com",
+      phone: 5555555555,
+      img_url: "https://www.biography.com/.image/t_share/MTQ4MTUwOTQyMDE1OTU2Nzk4/tom-holland-photo-jason-kempin-getty-images-801510482-profile.jpg"
+    },
+    {
+      id: 983244523,
+      name: "The Queen of England",
+      email: "queen@england.com",
+      phone: 4444444444,
+      img_url: "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-760w,f_auto,q_auto:best/rockcms/2021-12/211216-queen-mb-1223-cc1555.jpg"
+    },
+    {
+      id: 919423285,
+      name: "Cat",
+      email: "cat@gmail.com",
+      phone: 2930530983,
+      img_url: "https://cdn.mos.cms.futurecdn.net/VSy6kJDNq2pSXsCzb6cvYF-1200-80.jpg"
+    }
+  ]);
+  console.log(contacts)
 
   const createNew = (c) => {
-    if(c){
-      setContact(contacts.concat(c))
-    };
+    console.log(c)
+    setContact((x) => [
+      ...x, c
+    ]);
   }
+
   return (
     <main>
       <Routes>
-       <Route exact path="/contacts/*" element={<Contacts createNew={createNew} contacts={contacts} />}/>
-        <Route path="/contacts/new" element={<New createNew={createNew} />}/>
-        <Route path="/:id" element={<ViewContact />}/>
+        <Route exact path="/*" element={<Contacts clickedId={clickedId} contacts={contacts} createNew={createNew} />}/>
+        
       </Routes>
     </main>
   )

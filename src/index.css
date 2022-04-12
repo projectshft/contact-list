@@ -75,3 +75,8 @@ p {
 .header {
   text-align: center;
 }
+
+#view-img {
+  border: 3px black solid;
+  margin-top: 80px;
+}
