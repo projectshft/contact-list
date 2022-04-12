@@ -12,12 +12,21 @@ const NewContact = () => {
     image: ''
   });
 
+  const generateId = () => Math.round(Math.random() * 100000000);
+
   const handleChange = (event) => {
-    setContact({ ...contactInfo, [event.target.name]: event.target.value });
+    setContact({ ...contactInfo, [event.target.name]: event.target.value, id: generateId()});
   }
 
   const onClickFunc = (event) => {
     event.preventDefault();
+
+    for (const props in contactInfo) {
+      if (contactInfo[props] === '') {
+        return alert('Please fill in every input.')
+      }
+    }
+
     let newState = location.state || [];
     newState.push(contactInfo);
     navigate("/contacts", {state: newState})
@@ -39,6 +48,7 @@ const NewContact = () => {
             name="name"
             value={contactInfo.name}
             onChange={handleChange}
+            required
              />
           <br/>
           Email Address
@@ -48,6 +58,7 @@ const NewContact = () => {
             name="email"
             value={contactInfo.email}
             onChange={handleChange}
+            required
             />
           <br/>
           Phone Number
@@ -57,6 +68,7 @@ const NewContact = () => {
             name="phone"
             value={contactInfo.phone}
             onChange={handleChange}
+            required
             />
           <br/>
           Image URL
@@ -66,6 +78,7 @@ const NewContact = () => {
             name="image"
             value={contactInfo.image}
             onChange={handleChange}
+            required
             />
         </div>
         <button onClick={onClickFunc} type="button" className="btn btn-primary add-post">Add</button>
@@ -73,7 +86,6 @@ const NewContact = () => {
     </div>
   </div>
   )
-}
-
+};
 
 export default NewContact

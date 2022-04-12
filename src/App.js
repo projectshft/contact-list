@@ -7,8 +7,7 @@ import { useLocation, useNavigate } from "react-router";
 function App() {
 const location = useLocation ();
 const navigate = useNavigate();
-
-
+const state = location.state;
 
 return (
   <div className="row">
@@ -27,9 +26,7 @@ return (
             <th scope="col">Phone Number</th>
           </tr>
        </thead>
-  
-       {<ContactList/>}
-    
+       {<ContactList state={state}/>}
       </table>
     </div>
   </div>

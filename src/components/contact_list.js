@@ -1,22 +1,16 @@
 import React from "react";
-import { useLocation, useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import PropTypes from 'prop-types';
 
-
-
-const ContactList = () => {
+const ContactList = (props) => {
   const navigate = useNavigate();
-  const location = useLocation();
-  const state = location.state;
- 
   
-  
-
   const renderContact = function () {
-    if (state) {
+    if (props.state) {
       return (
-        state.map((contact, index) => {
+        props.state.map((contact) => {
           return (
-             <tr key={index} onClick={() => navigate(`/contacts/${index}`, {state: {contact}})}>
+             <tr key={contact.id} onClick={() => navigate(`/contacts/${contact.id}`, {state: {contact}})}>
               <th><img src={contact.image} alt="contact"></img></th>
               <th>{contact.name}</th>
               <th>{contact.email}</th>
@@ -26,19 +20,21 @@ const ContactList = () => {
         })
       )
     }
-
     else {
       return (
-        <tr><th>Click 'Add Contact' to add contacts!</th></tr> 
+       <tr><th>Click 'Add Contact' to add contacts!</th></tr>
       )
     }
   }
-
   return (
-    <tbody>
-      {renderContact()}
-    </tbody>
+      <tbody>
+        {renderContact()}
+      </tbody>
   )
+}
+
+ContactList.propTypes = {
+  props: PropTypes.object
 }
 
 export default ContactList
