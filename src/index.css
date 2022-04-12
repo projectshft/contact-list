@@ -12,6 +12,12 @@ code {
     monospace;
 }
 
+p {
+  padding-top: 20px;
+  padding-bottom: 10px;
+  font-weight: bolder;
+}
+
 #contacts-table {
   margin-top: 30px;
   margin-left: 50px;
@@ -55,4 +61,17 @@ code {
   padding: 50px;
   width: 1000px;
   border: 1px lightgray solid;
+}
+
+.create-contact {
+  margin-top: 40px;
+  font-weight: bolder;
+}
+
+.contact-list {
+  margin-top: 40px;
+}
+
+.header {
+  text-align: center;
 }

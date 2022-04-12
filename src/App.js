@@ -1,59 +1,33 @@
-import { Route, Routes} from 'react-router';
-import { Link } from 'react-router-dom';
-import './App.css';
+import React, { useState } from 'react';
+import { Routes, Route, Link} from 'react-router-dom';
 import New from './components/New';
 import ViewContact from './components/ViewContact';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const ContactsAPI = {
-  contacts: [
-    { 
-      img_url: 'https://cdn3.whatculture.com/images/2021/04/d81733f712331d8a-1200x675.jpg', 
-      first: 'Michael', 
-      last: 'Scott',
-      email: 'michael@dundermifflin.com',
-      phone: '029-293-6004'
-    },
-    {
-      img_url: 'https://bloximages.chicago2.vip.townnews.com/chetekalert.com/content/tncms/assets/v3/editorial/3/69/369f8f0e-e53e-11e9-9649-435ff75d3d94/5d94e57817024.image.jpg?crop=341%2C493%2C99%2C57', 
-      first: 'Natalie', 
-      last: 'Poppe',
-      email: 'nattipop815@gmail.com',
-      phone: '715-642-1146'
-    }
-  ],
-  all: function() {
-    return this.contacts;
-  },
-  get: function(id) {
-    const isContact = p => p.number === id;
-    return this.contacts.find(isContact);
-  }
-};
-
-const Contacts = () => {
+const Contacts = (props) => {
   return (
     <div>
-      <h1 className='padding'>Contact List</h1>
-      <button className="btn-primary"><Link to="/contacts/new" className="add-button" type='btn btn-primary'>Add Contact</Link></button>
+      <div className='header'>
+        <h1 className='contact-title'>Contact List</h1>
+        <Link to="/contacts/new" className="add-button" type='btn btn-primary'><button className="btn-primary">Add Contact</button></Link>
+      </div>
+      
       <table className="table table-striped table-bordered" id="contacts-table">
         <thead>
           <tr>
             <th scope="col">Profile Pic</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
+            <th scope="col">Name</th>
             <th scope="col">Email</th>
             <th scope="col">Number</th>
           </tr>
         </thead>
         <tbody>
-          {ContactsAPI.all().map(p => (
-            <tr key={p.index}>
+          {props.contacts.map(p => (
+            <tr key={p.id}>
               <th scope="row">
                 <img src={p.img_url} alt="profile pic here" width="200"></img>
               </th>
-              <td>{p.first}</td>
-              <td>{p.last}</td>
+              <td>{p.name}</td>
               <td>{p.email}</td>
               <td>{p.phone}</td>
             </tr>
@@ -62,16 +36,31 @@ const Contacts = () => {
       </table>
     </div>
   )
-};
+}
 
-function App() {
+const Main = (props) => {
+  const [contacts, setContact] = useState([]);
+
+  const createNew = (c) => {
+    if(c){
+      setContact(contacts.concat(c))
+    };
+  }
   return (
-    <div className="App">
+    <main>
       <Routes>
-        <Route exact path="/contacts/*" element={<Contacts />}/>
-        <Route path="/contacts/new" element={<New />}/>
+       <Route exact path="/contacts/*" element={<Contacts createNew={createNew} contacts={contacts} />}/>
+        <Route path="/contacts/new" element={<New createNew={createNew} />}/>
         <Route path="/:id" element={<ViewContact />}/>
       </Routes>
+    </main>
+  )
+}
+
+const App = () => {
+  return (
+    <div className="App">
+      <Main />
     </div>
   );
 }
