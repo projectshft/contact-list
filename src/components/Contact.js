@@ -1,6 +1,6 @@
-const Contact = () => {
+const Contact = (props) => {
     return (
-        <div></div>
+        <div>{props.match.params.id}</div>
     )
 }
 
