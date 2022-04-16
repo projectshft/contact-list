@@ -1,6 +1,17 @@
+import { ContactsContext } from "../contacts-context";
+
 const Contact = (props) => {
     return (
-        <div>{props.match.params.id}</div>
+        <ContactsContext.Consumer>
+            {({findContact}) => {
+                let contact = findContact(props.match.params.id);
+                console.log(contact);
+                return (
+                    <p>{contact.name}</p>
+                )
+            }}
+            
+        </ContactsContext.Consumer>
     )
 }
 
