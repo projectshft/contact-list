@@ -8,7 +8,7 @@ const Routes = () => {
     return (
         <main>
             <Switch>
-                <Route exact path="/" component={ContactList} />
+                <Route exact path="/" render={routeProps => <ContactList {...routeProps} />} />
                 <Route exact path="/new" render={routeProps => <ContactForm edit={false} />} />
                 <Route exact path="/contacts/:id" render={routeProps => <Contact {...routeProps} />} />
                 <Route exact path="/contacts/:id/edit" 

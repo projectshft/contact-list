@@ -2,7 +2,11 @@ import './ContactList.css';
 
 import { ContactsContext } from '../contacts-context';
 
-const ContactList = () => {
+const ContactList = (props) => {
+    const handleSelectContact = evt => {
+        props.history.push(`/contacts/${evt.target.parentNode.dataset.id}`);
+    }
+
     return (
         <ContactsContext.Consumer>
             {({contacts}) => {
@@ -23,7 +27,7 @@ const ContactList = () => {
                                 <tbody>
                                     {contacts.map(contact => {
                                         return (
-                                            <tr>
+                                            <tr onClick={handleSelectContact} data-id={contact.id}>
                                                 <td className="image-cell"><img src={contact.image_url} alt={contact.name} /></td>
                                                 <td>{contact.name}</td>
                                                 <td>{contact.email}</td>
