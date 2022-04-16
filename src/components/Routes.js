@@ -1,4 +1,4 @@
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import Contact from './Contact';
 import { ContactsContext } from '../contacts-context';
 import ContactForm from './ContactForm';
@@ -9,19 +9,22 @@ const Routes = () => {
         <main>
             <Switch>
                 <Route exact path="/" component={ContactList} />
-                <Route path="/new" render={routeProps => <ContactForm edit={false} />} />
+                <Route exact path="/new" render={routeProps => <ContactForm edit={false} />} />
                 <Route exact path="/contacts/:id" render={routeProps => <Contact {...routeProps} />} />
-                {/* <Route path="/contacts/:id/edit" render={routeProps => <ContactForm {...routeProps} />} /> */}
-                <Route path="/contacts/:id/edit" 
+                <Route exact path="/contacts/:id/edit" 
                     render={routeProps => 
                         <ContactsContext.Consumer>
                             {({findContact}) => {
                                 let contact = findContact(routeProps.match.params.id);
-                                console.log(contact);
-                                return <ContactForm edit={true} {...routeProps} contact={contact} />
+                                if(contact) {
+                                    return <ContactForm edit={true} {...routeProps} contact={contact} /> 
+                                } else {
+                                    return <Redirect to="/" />
+                                }                                
                             }}
                         </ContactsContext.Consumer>} 
                 />
+                <Redirect to="/"/>
             </Switch>
         </main>
     )

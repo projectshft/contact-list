@@ -1,14 +1,19 @@
 import { ContactsContext } from "../contacts-context";
+import { Redirect } from 'react-router-dom';
 
 const Contact = (props) => {
     return (
         <ContactsContext.Consumer>
             {({findContact}) => {
                 let contact = findContact(props.match.params.id);
-                console.log(contact);
-                return (
-                    <p>{contact.name}</p>
-                )
+                
+                if(contact) {
+                    return (
+                        <p>{contact.name}</p>
+                    )
+                } else {
+                    return <Redirect to="/"/>
+                }                
             }}
             
         </ContactsContext.Consumer>
