@@ -1,0 +1,19 @@
+img {
+  width: 100px;
+}
+table {
+  text-align: left;
+}
+
+th {
+  padding: 15px;
+}
+
+.image-cell {
+  text-align: center;
+}
+
+.button-container {
+  text-align: left;
+  margin-bottom: 20px;
+}
