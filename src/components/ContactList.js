@@ -7,6 +7,10 @@ const ContactList = (props) => {
         props.history.push(`/contacts/${evt.target.parentNode.dataset.id}`);
     }
 
+    const goToAddContactPage = () => {
+        props.history.push('/new');
+    }
+
     return (
         <ContactsContext.Consumer>
             {({contacts}) => {
@@ -14,7 +18,7 @@ const ContactList = (props) => {
                     <div className="Contact_List">
                         <h1>Contact List</h1>
                         <div className="container">
-                        <div className="button-container"><button className="btn btn-primary btn-lg">Add Contact</button></div>
+                        <div className="button-container"><button className="btn btn-primary btn-lg" onClick={goToAddContactPage}>Add Contact</button></div>
                             <table className="table table-striped table-hover table-bordered">
                                 <thead className='table-bordered'>
                                     <tr>
