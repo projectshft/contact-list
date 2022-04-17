@@ -13,7 +13,7 @@ class App extends React.Component {
     }
 
     this.addContact = contact => {
-      this.setState(prevContacts => ({contacts: [...prevContacts, contact]}));
+      this.setState(prevState => ({contacts: [...prevState.contacts, contact]}));
     }
 
     this.state = {
