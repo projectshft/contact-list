@@ -9,7 +9,15 @@ const Routes = () => {
         <main>
             <Switch>
                 <Route exact path="/" render={routeProps => <ContactList {...routeProps} />} />
-                <Route exact path="/new" render={routeProps => <ContactForm edit={false} />} />
+                <Route exact path="/new" 
+                    render={routeProps => 
+                        <ContactsContext.Consumer>
+                            {({addContact}) => {
+                                return <ContactForm edit={false} addContact={addContact} {...routeProps}/> 
+                            }}
+                        </ContactsContext.Consumer>
+                    }
+                />
                 <Route exact path="/contacts/:id" render={routeProps => <Contact {...routeProps} />} />
                 <Route exact path="/contacts/:id/edit" 
                     render={routeProps => 
