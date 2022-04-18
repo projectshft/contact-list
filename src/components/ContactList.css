@@ -5,7 +5,12 @@ table {
   text-align: left;
 }
 
+tr {
+  cursor: pointer;
+}
+
 th {
+  cursor: default;
   padding: 15px;
 }
 

@@ -46,7 +46,7 @@ const ContactForm = (props) => {
                     </div>
                     <div className="mb-3">
                         <label htmlFor="phone-number" className="form-label">Phone Number</label>
-                        <input required type="text" className="form-control" id="phone-number" placeholder="Enter Phone" value={phoneNumber} onChange={handlePhoneNumberChange}/>
+                        <input required minlength={9} maxlength={9} type="text" className="form-control" id="phone-number" placeholder="Enter Phone" value={phoneNumber} onChange={handlePhoneNumberChange}/>
                     </div>
                     <div className="mb-3">
                         <label htmlFor="image-url" className="form-label">Image URL</label>
