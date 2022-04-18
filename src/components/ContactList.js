@@ -31,7 +31,7 @@ const ContactList = (props) => {
                                 <tbody>
                                     {contacts.map(contact => {
                                         return (
-                                            <tr onClick={handleSelectContact} data-id={contact.id}>
+                                            <tr onClick={handleSelectContact} data-id={contact.id} key={contact.id}>
                                                 <td className="image-cell"><img src={contact.image_url} alt={contact.name} /></td>
                                                 <td>{contact.name}</td>
                                                 <td>{contact.email}</td>
