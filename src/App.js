@@ -16,6 +16,13 @@ class App extends React.Component {
       this.setState(prevState => ({contacts: [...prevState.contacts, contact]}));
     }
 
+    this.deleteContact = id => {
+      let newContacts = this.state.contacts.filter(contact => {
+        return contact.id !== id
+      });
+      this.setState({contacts: newContacts});
+    }
+
     this.editContact = updatedContact => {
       let newContacts = this.state.contacts.map(contact => {
         return contact.id === updatedContact.id ? updatedContact : contact;
@@ -25,9 +32,10 @@ class App extends React.Component {
 
     this.state = {
       contacts: initialContacts,
-      findContact: this.findContact,
       addContact: this.addContact,
-      editContact: this.editContact
+      deleteContact: this.deleteContact,
+      editContact: this.editContact,
+      findContact: this.findContact
     }
 
   }

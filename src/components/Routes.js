@@ -22,10 +22,10 @@ const Routes = () => {
                 <Route exact path="/contacts/:id/edit" 
                     render={routeProps => 
                         <ContactsContext.Consumer>
-                            {({findContact, editContact}) => {
+                            {({deleteContact, editContact, findContact}) => {
                                 let contact = findContact(routeProps.match.params.id);
                                 if(contact) {
-                                    return <ContactForm edit={true} {...routeProps} contact={contact} editContact={editContact}/> 
+                                    return <ContactForm edit={true} {...routeProps} contact={contact} editContact={editContact} deleteContact={deleteContact}/> 
                                 } else {
                                     return <Redirect to="/" />
                                 }                                

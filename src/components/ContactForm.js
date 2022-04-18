@@ -8,6 +8,14 @@ const ContactForm = (props) => {
     const [email, clearEmail, handleEmailChange] = useFormInput(props.edit ? props.contact.email : '');
     const [phoneNumber, clearPhoneNumber, handlePhoneNumberChange] = useFormInput(props.edit ? props.contact.phone_number : '');
 
+    const goToContacts = () => {
+        clearName();
+        clearImageUrl();
+        clearEmail();
+        clearPhoneNumber();
+        props.history.push('/');
+    }
+
     const handleSubmit = () => {
         const contact = {
             name: name,
@@ -24,12 +32,13 @@ const ContactForm = (props) => {
             contact.id = props.contact.id;
             props.editContact(contact);
         }
-        clearName();
-        clearImageUrl();
-        clearEmail();
-        clearPhoneNumber();
-        props.history.push('/');
+        goToContacts();
     }    
+
+    const handleDelete = () => {
+        props.deleteContact(props.contact.id);
+        goToContacts();
+    }
 
     return (
         <div className="row justify-content-center">
@@ -52,7 +61,8 @@ const ContactForm = (props) => {
                         <label htmlFor="image-url" className="form-label">Image URL</label>
                         <input required type="text" className="form-control" id="image-url"  placeholder="Image URL" value={imageUrl} onChange={handleImageUrlChange}/>
                     </div>
-                    <button type="submit" className="btn btn-success btn-lg">{!props.edit ? 'Add Contact' : 'Save Changes'}</button>                    
+                    <button type="submit" className="btn btn-success btn-lg">{!props.edit ? 'Add Contact' : 'Save Changes'}</button>
+                    {props.edit ? <button type="button" className="btn btn-danger btn-lg" onClick={handleDelete}>Delete</button> : null}
                 </form>
             </div>
         </div>
