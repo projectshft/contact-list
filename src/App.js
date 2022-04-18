@@ -16,10 +16,18 @@ class App extends React.Component {
       this.setState(prevState => ({contacts: [...prevState.contacts, contact]}));
     }
 
+    this.editContact = updatedContact => {
+      let newContacts = this.state.contacts.map(contact => {
+        return contact.id === updatedContact.id ? updatedContact : contact;
+      });
+      this.setState({contacts: newContacts});
+    }
+
     this.state = {
       contacts: initialContacts,
       findContact: this.findContact,
-      addContact: this.addContact
+      addContact: this.addContact,
+      editContact: this.editContact
     }
 
   }

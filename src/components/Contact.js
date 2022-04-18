@@ -8,6 +8,10 @@ const Contact = (props) => {
         props.history.push('/');
     }
 
+    const handleGoToEditForm = () => {
+        props.history.push(`/contacts/${props.match.params.id}/edit`);
+    }
+
     return (
         <ContactsContext.Consumer>
             {({findContact}) => {
@@ -25,6 +29,7 @@ const Contact = (props) => {
                                     <p className="card-text">{contact.phone_number}</p>
                                 </div>
                             </div>
+                            <button className="btn btn-warning btn-lg" onClick={handleGoToEditForm}>Edit</button>
                         </div>
                     )
                 } else {
