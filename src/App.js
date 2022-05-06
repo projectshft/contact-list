@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import { Switch, Route, Link } from 'react-router-dom';
 import ContactList from './ContactList';
@@ -8,32 +8,36 @@ import Header from './Header';
 
 
 
-  const App = () => (
+  const App = () => {
+
+  const [contacts, setContacts] = useState([]);
+
+  const addContact = (contact) => {
+    setContacts([...contacts, contact]);  
+  };
+  console.log(contacts);
+
+    return (
+      <div>
+        <Header/>  
+        <Switch>
+          <Route exact path="/contacts">
+            <ContactList/>
+          </Route>
+          <Route path="/contacts/new">
+            <AddContact addContact={addContact} contacts={contacts}/> 
+          </Route>
+          <Route path="/contacts/:id">
+            <Contact setContacts={setContacts} contactId="TBC"/>
+          </Route> 
+        </Switch>
+      </div>
+    );
+  };
   
-    <div>
-      <Main />
-    </div>
-
-  );
-  
 
 
-const Main = () => (
-  <main>
-    <Header/>  
-    <Switch>
-      <Route exact path="/contacts" component={AllContacts}/>
-      <Route path="/contacts/new"> <AddContact/></Route> 
-    </Switch>
-  </main>
-);
 
-const AllContacts = () => (
-  <Switch>
-    <Route path="/contacts" component={ContactList}/>
-    <Route path="/contacts/:id" component={Contact}/>  
-  </Switch>
-);
 
 export default App;
 

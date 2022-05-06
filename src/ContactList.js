@@ -6,13 +6,6 @@ import { Switch, Route, Link } from 'react-router-dom';
 
 const ContactList = (props) => {
 
-  const [contacts, setContacts] = useState([]);
-
-  const addContact = (contact) => {
-    setContacts([...contacts, contact]);
-    console.log(contacts);
-  }
-
   return (
   <div>
     

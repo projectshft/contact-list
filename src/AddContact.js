@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from 'react';
 import { Link } from "react-router-dom";
 
-function AddContact(props) {
+function AddContact({addContact}) {
 
   const [contact, setContact] = useState({ picUrl: "", name: "", email: "", phone: ""});
 
@@ -12,7 +12,8 @@ function AddContact(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(contact);
+   
+    addContact(contact);
     
     setContact({picUrl: "", name: "", email: "", phone: ""});
   };
@@ -73,7 +74,11 @@ function AddContact(props) {
             onChange={handleChange}
           />
         </div>
-        <button type="submit" className="btn btn-primary">Submit Contact</button>
+        <Link to="/contacts">
+          <button type="submit" className="btn btn-primary">
+            Submit Kontakt
+          </button>
+        </Link>
         {/* <Link type="submit" to='/contacts'><button type="submit" className="btn btn-primary">Submit Contact</button></Link> */}
 
       </form>
