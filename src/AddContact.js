@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from 'react';
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 function AddContact({addContact}) {
 
@@ -8,17 +8,20 @@ function AddContact({addContact}) {
 
   const handleChange = (event) => {
     setContact({ ...contact, [event.target.name]: event.target.value });
+    
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-   
+    if(contact.picUrl && contact.name && contact.email && contact.phone) {
     addContact(contact);
-    
-    setContact({picUrl: "", name: "", email: "", phone: ""});
+    history.push("/contacts");
+    } else {
+      alert("Please fill out every field");
+    }
   };
-
-
+  
+  const history = useHistory();
 
   return (
     <div>
@@ -74,12 +77,10 @@ function AddContact({addContact}) {
             onChange={handleChange}
           />
         </div>
-        <Link to="/contacts">
-          <button type="submit" className="btn btn-primary">
-            Submit Kontakt
-          </button>
-        </Link>
-        {/* <Link type="submit" to='/contacts'><button type="submit" className="btn btn-primary">Submit Contact</button></Link> */}
+       
+        <button type="submit" className="btn btn-primary">
+          Submit Contact
+        </button>
 
       </form>
     </div>

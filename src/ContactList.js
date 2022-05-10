@@ -1,15 +1,16 @@
-import React, { useState }  from 'react';
-import Contact  from './Contact';
-import AddContact from './AddContact';
-import { Switch, Route, Link } from 'react-router-dom';
+import React from 'react';
+
+import { useHistory } from 'react-router-dom';
 
 
-const ContactList = (props) => {
+const ContactList = ({contacts}) => {
+
+  const history = useHistory();
 
   return (
   <div>
     
-      <Link to='/contacts/new'><button type="submit" className="btn btn-primary">Add Contact</button></Link>
+      <button type="submit" className="btn btn-primary" onClick={()=> history.push("/contacts/new")}>Add Contact</button>
     
     <table className="table">
     <thead>
@@ -21,9 +22,20 @@ const ContactList = (props) => {
       </tr>
     </thead>
     <tbody>
-      <tr>
-
-      </tr>
+      { contacts.map((contact) => (
+          <tr key={contact.phone} onClick={()=> {
+            history.push(`/contacts/${contact.phone}`);
+          }}>
+            <td>{contact.picUrl}</td>
+            <td>{contact.name}</td>
+            <td>{contact.email}</td>
+            <td>{contact.phone}</td>
+          </tr>
+        )
+      )
+        
+      }
+      
     </tbody>
     </table>
   </div>
