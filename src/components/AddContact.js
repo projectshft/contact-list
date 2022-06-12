@@ -22,6 +22,9 @@ const AddContact = () => {
       <Link to="/">
         <button type="button" className="btn btn-secondary">Go Back</button>
       </Link>
+      <Link to="/">
+        <button type="submit" className="btn btn-primary">Submit</button>
+      </Link>
     </form>
   )
 }
