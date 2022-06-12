@@ -8,6 +8,11 @@ const App = () => {
         <h1>React Contact List</h1>
       </div>
     </div> 
+    <div className='row'>
+      <div className='col'>
+        <button className='btn btn-primary'>Add Contact</button>
+      </div>
+    </div>
   </div>
   )
 }
