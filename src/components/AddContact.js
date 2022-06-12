@@ -8,6 +8,8 @@ const AddContact = () => {
         <input type="text" className="form-control" id="full-name" />
       </div>
       <div className="form-group">
+        <label htmlFor="email">Email</label>
+        <input type="email" className="form-control" id="email" />
       </div>
       <div className="form-group">
       </div>
