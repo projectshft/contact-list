@@ -12,6 +12,8 @@ const AddContact = () => {
         <input type="email" className="form-control" id="email" />
       </div>
       <div className="form-group">
+        <label htmlFor="phone-number">Phone Number</label>
+        <input type="text" className="form-control" id="phone-number" />
       </div>
       <div className="form-group">
       </div>
