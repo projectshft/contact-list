@@ -1,5 +1,18 @@
 const AddContact = () => {
-  return <div><h1>AddContact Test</h1></div>
+  return (
+    <form>
+      <div className="form-group">
+        <label for="full-name">Full Name</label>
+        <input type="text" className="form-control" id="full-name" />
+      </div>
+      <div className="form-group">
+      </div>
+      <div className="form-group">
+      </div>
+      <div className="form-group">
+      </div>
+    </form>
+  )
 }
 
 export default AddContact;
