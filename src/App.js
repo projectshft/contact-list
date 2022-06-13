@@ -7,7 +7,6 @@ import AddContact from './components/AddContact';
 
 const App = () => {
 
-
   return (
     <div className='container'>
       <div className='row'>
@@ -23,7 +22,7 @@ const App = () => {
         </div>
       </div>
       <Routes>
-        <Route path="/add-contact" element={<AddContact />}></Route>
+        <Route path="/add-contact/*" element={<AddContact />}></Route>
       </Routes>
     </div>
   )
