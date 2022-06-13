@@ -21,7 +21,7 @@ const AddContact = () => {
         <label htmlFor="image">Image:</label>
         <input type="text" className="form-control" id="image" />
       </div>
-      <Link to="/">
+      <Link to="/diplayed-list">
         <button type="button" className="btn btn-secondary">Go Back</button>
       </Link>
       <Link to="/diplayed-list">
