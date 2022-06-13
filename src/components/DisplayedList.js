@@ -1,7 +1,7 @@
 const DisplayedList = () => {
   return (
     <div>
-      <h1>DisplayedList Test</h1>
+      <p>Testing 1, 2, 3</p>
     </div>
   )
    

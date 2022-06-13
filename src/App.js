@@ -16,7 +16,7 @@ const App = () => {
       </div> 
       <div className='row'>
         <div className='col'>
-          <Link to="/add-contact">
+          <Link to="/add-contact/*">
             <button id='add-contact-btn' className='btn btn-primary'>Add Contact</button>
           </Link>
         </div>
