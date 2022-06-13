@@ -1,9 +1,5 @@
 import React from 'react';
-import { 
-  Routes, 
-  Route, 
-  Link } from 'react-router-dom';
-import AddContact from './components/AddContact';
+import { Link } from 'react-router-dom';
 
 const App = () => {
 
@@ -21,9 +17,6 @@ const App = () => {
           </Link>
         </div>
       </div>
-      <Routes>
-        <Route path="/add-contact/*" element={<AddContact />}></Route>
-      </Routes>
     </div>
   )
 }

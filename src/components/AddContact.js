@@ -1,5 +1,4 @@
-import { Link, Routes, Route } from "react-router-dom";
-import DisplayedList from "./DisplayedList";
+import { Link } from "react-router-dom";
 
 const AddContact = () => {
 
@@ -27,9 +26,6 @@ const AddContact = () => {
       <Link to="/diplayed-list">
         <button type="submit" className="btn btn-primary">Submit</button>
       </Link>
-      <Routes>
-        <Route path="/diplayed-list" element={<DisplayedList />}></Route>
-      </Routes>
     </form>
   )
 }
