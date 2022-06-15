@@ -1,12 +1,15 @@
+import { useState } from 'react';
 import { Link } from "react-router-dom";
 
 const AddContact = () => {
+
+  const [name, setName] = useState('');
 
   return (
     <form>
       <div className="form-group">
         <label htmlFor="full-name">Full Name:</label>
-        <input type="text" className="form-control" id="full-name" />
+        <input type="text" className="form-control" id="full-name" value={name} onInput={e => setName(e.target.value)}/>
       </div>
       <div className="form-group">
         <label htmlFor="email">Email:</label>
