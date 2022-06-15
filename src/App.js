@@ -1,5 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Routes, Route } from 'react-router-dom';
+import DisplayedList from './components/DisplayedList';
+import AddContact from './components/AddContact';
 
 const App = () => {
 
@@ -17,6 +19,11 @@ const App = () => {
           </Link>
         </div>
       </div>
+      <Routes>
+        <Route exact path="/" element={ <App /> }/>
+        <Route path="/diplayed-list" element={<DisplayedList />} />
+        <Route path="/add-contact/*" element={<AddContact />}></Route>
+      </Routes>
     </div>
   )
 }
