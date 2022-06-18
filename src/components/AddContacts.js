@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 
+
+
 const AddContacts = (props) => {
   return (
     <form>
@@ -19,8 +21,9 @@ const AddContacts = (props) => {
         <label htmlFor="img_url">Image URL</label>
         <input type="email" className="form-control" id="img_url"/>
       </div>
-      <button type="submit" class="btn btn-primary">Submit Contact
-      </button>
+      <Link to="/contacts">
+        <button type="submit" class="btn btn-primary" onClick={props.addContactToggle}>Submit Contact</button>
+      </Link>
       <Link to="/contacts">
         <button className="btn btn-secondary" onClick={props.addContactToggle}>Go Back</button>
       </Link>
