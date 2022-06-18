@@ -6,16 +6,6 @@ import PropTypes from 'prop-types';
 
 function App() {
 
-  // const [test, setTest] = useState([]);
-
-  // const tester = (arr) => {
-  //   setTest([
-  //     ...test,
-  //     arr
-  //   ])
-  //   console.log(test)
-  // }
-
   const [button, setButton] = useState(false)
 
   const addContactToggle = () => {
