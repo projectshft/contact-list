@@ -21,6 +21,19 @@ function App() {
     setButton(!button)
   }
 
+  const [formData, setFormData] = useState();
+
+  const submitHandler = (name, email, phone, img) => {
+    setFormData({
+      name: 'name',
+      email: 'email', 
+      phone: 'phone',
+      img: 'img'
+    })
+
+    addContactToggle();
+  }
+
   const addContactButton = (
     <Link to='/contacts/new'>
       <button className="btn btn-primary" onClick={addContactToggle}>Add Contact</button>
@@ -35,7 +48,7 @@ function App() {
       </div>
       <Routes>
         <Route path='/contacts' element={<Contacts />} />
-        <Route path='/contacts/new' element={<AddContacts addContactToggle={addContactToggle} />} />
+        <Route path='/contacts/new' element={<AddContacts addContactToggle={addContactToggle} submitHandler={submitHandler}/>} />
       </Routes>
     </div>
   );
