@@ -21,7 +21,7 @@ const AddContacts = (props) => {
         <input type="email" className="form-control" id="img_url"/>
       </div>
       <Link to="/contacts">
-        <button type="submit" className="btn btn-primary" onClick={props.submitHandler}>Submit Contact</button>
+        <button type="submit" className="btn btn-primary" onClick={() => props.submitHandler('Josh', 'pastorjosh@gmail', '1234234', 'img_url')}>Submit Contact</button>
       </Link>
       <Link to="/contacts">
         <button className="btn btn-secondary" onClick={props.addContactToggle}>Go Back</button>

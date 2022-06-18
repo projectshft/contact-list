@@ -25,10 +25,10 @@ function App() {
 
   const submitHandler = (name, email, phone, img) => {
     setFormData({
-      name: 'name',
-      email: 'email', 
-      phone: 'phone',
-      img: 'img'
+      name: name,
+      email: email, 
+      phone: phone,
+      img: img
     })
 
     addContactToggle();
