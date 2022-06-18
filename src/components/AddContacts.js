@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const AddContacts = () => {
   return (
     <form>
@@ -19,8 +21,9 @@ const AddContacts = () => {
       </div>
       <button type="submit" class="btn btn-primary">Submit Contact
       </button>
-      <button class="btn btn-secondary">Go Back
-      </button>
+      <Link to="/contacts">
+        <button class="btn btn-secondary">Go Back</button>
+      </Link>
     </form>
   );
 };
