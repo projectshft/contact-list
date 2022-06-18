@@ -8,12 +8,8 @@ function App() {
     <div>
       <div>Header</div>
       <Routes>
-        <Route path='/contacts'>
-          <Contacts />
-        </Route>
-        <Route path='/contacts/new'>
-          <AddContacts />
-        </Route>
+        <Route path='/contacts' element={<Contacts />} />
+        <Route path='/contacts/new' element={<AddContacts />} />
       </Routes>
     </div>
   );
