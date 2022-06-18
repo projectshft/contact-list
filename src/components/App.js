@@ -8,7 +8,9 @@ function App() {
     <div>
       <div>
         <h1>React Contact List</h1>
-        <button className="btn btn-primary">Add Contact</button>
+        <Link to='/contacts/new'>
+          <button className="btn btn-primary">Add Contact</button>
+        </Link>        
       </div>
       <Routes>
         <Route path='/contacts' element={<Contacts />} />
