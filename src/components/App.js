@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Routes, Route, Link } from 'react-router-dom';
 import Contacts from "./Contacts";
 import AddContacts from "./AddContacts";
+import PropTypes from 'prop-types';
 
 function App() {
 
@@ -55,5 +56,12 @@ function App() {
     </div>
   );
 }
+
+App.propTypes = {
+  name: PropTypes.string,
+  email: PropTypes.string,
+  phone: PropTypes.number,
+  img: PropTypes.string
+};
 
 export default App;
