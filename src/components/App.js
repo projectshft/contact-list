@@ -1,4 +1,5 @@
 import React from "react";
+import { Routes, Route, Link } from 'react-router-dom';
 import Contacts from "./Contacts";
 import AddContacts from "./AddContacts";
 
@@ -6,8 +7,14 @@ function App() {
   return (
     <div>
       <div>Header</div>
-      <Contacts />
-      <AddContacts />
+      <Routes>
+        <Route path='/contacts'>
+          <Contacts />
+        </Route>
+        <Route path='/contacts/new'>
+          <AddContacts />
+        </Route>
+      </Routes>
     </div>
   );
 }
