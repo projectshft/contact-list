@@ -35,7 +35,7 @@ function App() {
       </div>
       <Routes>
         <Route path='/contacts' element={<Contacts />} />
-        <Route path='/contacts/new' element={<AddContacts />} />
+        <Route path='/contacts/new' element={<AddContacts addContactToggle={addContactToggle} />} />
       </Routes>
     </div>
   );
