@@ -37,6 +37,13 @@ function App() {
     addContactToggle();
   }
 
+  submitHandler.propTypes = {
+    name: PropTypes.string,
+    email: PropTypes.string,
+    phone: PropTypes.number,
+    img: PropTypes.string
+  }
+
   const addContactButton = (
     <Link to='/contacts/new'>
       <button className="btn btn-primary" onClick={addContactToggle}>Add Contact</button>
@@ -57,11 +64,5 @@ function App() {
   );
 }
 
-App.propTypes = {
-  name: PropTypes.string,
-  email: PropTypes.string,
-  phone: PropTypes.number,
-  img: PropTypes.string
-};
 
 export default App;
