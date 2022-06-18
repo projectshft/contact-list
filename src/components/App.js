@@ -6,7 +6,10 @@ import AddContacts from "./AddContacts";
 function App() {
   return (
     <div>
-      <div>Header</div>
+      <div>
+        <h1>React Contact List</h1>
+        <button className="btn btn-primary">Add Contact</button>
+      </div>
       <Routes>
         <Route path='/contacts' element={<Contacts />} />
         <Route path='/contacts/new' element={<AddContacts />} />
