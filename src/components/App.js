@@ -17,9 +17,13 @@ function App() {
 
   const [button, setButton] = useState(false)
 
+  const addContactToggle = () => {
+    setButton(!button)
+  }
+
   const addContactButton = (
     <Link to='/contacts/new'>
-      <button className="btn btn-primary">Add Contact</button>
+      <button className="btn btn-primary" >Add Contact</button>
     </Link>   
   )
 
