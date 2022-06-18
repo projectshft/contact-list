@@ -17,6 +17,10 @@ const AddContacts = () => {
         <label for="img_url">Image URL</label>
         <input type="email" className="form-control" id="img_url"/>
       </div>
+      <button type="submit" class="btn btn-primary">Submit Contact
+      </button>
+      <button class="btn btn-secondary">Go Back
+      </button>
     </form>
   );
 };
