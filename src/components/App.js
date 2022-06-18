@@ -23,7 +23,7 @@ function App() {
 
   const addContactButton = (
     <Link to='/contacts/new'>
-      <button className="btn btn-primary" >Add Contact</button>
+      <button className="btn btn-primary" onClick={addContactToggle}>Add Contact</button>
     </Link>   
   )
 
