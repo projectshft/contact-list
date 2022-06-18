@@ -21,15 +21,17 @@ function App() {
     setButton(!button)
   }
 
-  const [formData, setFormData] = useState();
+  const [formData, setFormData] = useState([]);
 
   const submitHandler = (name, email, phone, img) => {
-    setFormData({
+    setFormData([
+      ...formData,
+      {
       name: name,
       email: email, 
       phone: phone,
       img: img
-    })
+    }])
 
     addContactToggle();
   }
