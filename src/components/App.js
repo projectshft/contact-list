@@ -40,11 +40,16 @@ function App() {
     </Link>   
   )
 
+  const listContacts = formData.map((data, i) => {
+    return <li key={i}>{data.name}</li>
+  })
+
   return (
     <div>
       <div>
         <h1>React Contact List</h1>
         {!button && addContactButton}
+        <ul>{listContacts}</ul>
       </div>
       <Routes>
         <Route path='/contacts' element={<Contacts formData={formData} />} />
