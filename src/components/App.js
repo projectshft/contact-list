@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Routes, Route, Link } from 'react-router-dom';
-import Contacts from "./Contacts";
 import AddContacts from "./AddContacts";
 import PropTypes from 'prop-types';
 
@@ -58,7 +57,6 @@ function App() {
         <ul>{!button && listContacts}</ul>
       </div>
       <Routes>
-        <Route path='/contacts' element={<Contacts formData={formData} />} />
         <Route path='/contacts/new' element={<AddContacts addContactToggle={addContactToggle} submitHandler={submitHandler}/>} />
       </Routes>
     </div>
