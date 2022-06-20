@@ -41,7 +41,13 @@ function App() {
   )
 
   const listContacts = formData.map((data, i) => {
-    return <li key={i}>{data.name}</li>
+    const fullContact = (
+      <ul key={i}>
+        <li>{data.name}</li>
+        <li>{data.email}</li>
+      </ul>
+    )
+    return fullContact;
   })
 
   return (
@@ -49,7 +55,7 @@ function App() {
       <div>
         <h1>React Contact List</h1>
         {!button && addContactButton}
-        <ul>{listContacts}</ul>
+        <ul>{!button && listContacts}</ul>
       </div>
       <Routes>
         <Route path='/contacts' element={<Contacts formData={formData} />} />
