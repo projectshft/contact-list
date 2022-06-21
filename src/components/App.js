@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Routes, Route, Link } from 'react-router-dom';
-import AddContacts from "./AddContacts";
 import PropTypes from 'prop-types';
+import AddContacts from "./AddContacts";
+import Contacts from "./Contacts";
 
 function App() {
 
@@ -63,6 +64,7 @@ function App() {
       </div>
       <Routes>
         <Route path='/contacts/new' element={<AddContacts addContactToggle={addContactToggle} submitHandler={submitHandler}/>} />
+        <Route path='/contacts' element={<Contacts />} />
       </Routes>
     </div>
   );
