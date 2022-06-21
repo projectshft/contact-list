@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import AddContacts from "./AddContacts";
 import Contacts from "./Contacts";
@@ -34,33 +34,10 @@ function App() {
     img: PropTypes.string
   }
 
-  const addContactButton = (
-    <Link to='/contacts/new'>
-      <button className="btn btn-primary" onClick={addContactToggle}>Add Contact</button>
-    </Link>   
-  )
-
-  const listContacts = formData.map((data, i) => {
-    const imageToString = String(data.img)
-    const altToString = String(data.name)
-    
-    const fullContact = (
-      <ul key={i}>
-        <li>{data.name}</li>
-        <li>{data.email}</li>
-        <li>{data.phone}</li>
-        <li><img className="list-img" src={imageToString} alt={altToString}/></li>
-      </ul>
-    )
-    return fullContact;
-  })
-
   return (
     <div>
       <div>
         <h1>React Contact List</h1>
-        {display && addContactButton}
-        <ul>{display && listContacts}</ul>
       </div>
       <Routes>
         <Route path='/contacts/new' element={<AddContacts addContactToggle={addContactToggle} submitHandler={submitHandler}/>} />
