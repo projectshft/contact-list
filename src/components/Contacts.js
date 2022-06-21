@@ -11,10 +11,8 @@ const Contacts = (props) => {
 
   const deleteHandler = (i) => {
     const array = props.formData;
-    console.log(array)
     const selectedArray = array[i]
     array.splice(selectedArray, 1)
-    console.log(array)
   }
   
   const listContacts = props.formData.map((data, i) => {
