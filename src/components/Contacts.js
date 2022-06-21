@@ -4,7 +4,7 @@ const Contacts = (props) => {
   
   const addContactButton = (
     <Link to='/contacts/new'>
-      <button className="btn btn-primary" onClick={props.addContactToggle}>Add Contact</button>
+      <button className="btn btn-primary">Add Contact</button>
     </Link>   
   )
   

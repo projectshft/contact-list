@@ -57,7 +57,7 @@ const AddContacts = (props) => {
         <button type="submit" className="btn btn-primary" onClick={() => props.submitHandler(name, email, phone, img)}>Submit Contact</button>
       </Link>
       <Link to="/contacts">
-        <button className="btn btn-secondary" onClick={props.addContactToggle}>Go Back</button>
+        <button className="btn btn-secondary">Go Back</button>
       </Link>
     </form>
   );

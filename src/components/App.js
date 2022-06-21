@@ -6,12 +6,6 @@ import Contacts from "./Contacts";
 
 function App() {
 
-  const [display, setDisplay] = useState(true)
-
-  const addContactToggle = () => {
-    setDisplay(!display)
-  }
-
   const [formData, setFormData] = useState([]);
 
   const submitHandler = (name, email, phone, img) => {
@@ -23,8 +17,6 @@ function App() {
       phone: phone,
       img: img
     }])
-
-    addContactToggle();
   }
 
   submitHandler.propTypes = {
@@ -40,8 +32,8 @@ function App() {
         <h1>React Contact List</h1>
       </div>
       <Routes>
-        <Route path='/contacts/new' element={<AddContacts addContactToggle={addContactToggle} submitHandler={submitHandler}/>} />
-        <Route path='/contacts' element={<Contacts formData={formData} addContactToggle={addContactToggle} />} />
+        <Route path='/contacts/new' element={<AddContacts submitHandler={submitHandler}/>} />
+        <Route path='/contacts' element={<Contacts formData={formData} />} />
       </Routes>
     </div>
   );
