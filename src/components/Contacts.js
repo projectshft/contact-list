@@ -10,8 +10,8 @@ const Contacts = (props) => {
   )
 
   const editHandler = (
-    <Link to='/contacts/:id/edit'>
-      <td>Edit</td>
+    <Link id='edit-btn' to='/contacts/:id/edit'>
+      <td >Edit</td>
     </Link>   
   )
   

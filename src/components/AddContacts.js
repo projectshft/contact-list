@@ -11,6 +11,12 @@ const AddContacts = (props) => {
 
   const [img, setImg] = useState('');
 
+  const submitHander = (
+    <Link to="/contacts">
+        <button type="submit" className="btn btn-primary" onClick={() => props.submitHandler(name, email, phone, img)}>Submit Contact</button>
+      </Link>
+  )
+
   return (
     <form>
       <div className="form-group">
@@ -53,9 +59,7 @@ const AddContacts = (props) => {
           onInput={e => setImg(e.target.value)}
         />
       </div>
-      <Link to="/contacts">
-        <button type="submit" className="btn btn-primary" onClick={() => props.submitHandler(name, email, phone, img)}>Submit Contact</button>
-      </Link>
+      {submitHander}
       <Link to="/contacts">
         <button className="btn btn-secondary">Go Back</button>
       </Link>
