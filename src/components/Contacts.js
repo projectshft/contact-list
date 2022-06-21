@@ -20,6 +20,7 @@ const Contacts = (props) => {
         <td>{data.name}</td>
         <td>{data.email}</td>
         <td>{data.phone}</td>
+        <td>Edit</td>
         <td><img src={trash_can} alt='delete' id='trash_can' onClick={() => props.deleteHandler(i)}/></td>
       </tr>
     )
@@ -35,7 +36,8 @@ const Contacts = (props) => {
             <th scope="col">Name</th>
             <th scope="col">Email</th>
             <th scope="col">Phone #</th>
-            <th scope="col">Delete?</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
           </tr>
         </thead>
         <tbody>
