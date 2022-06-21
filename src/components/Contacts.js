@@ -8,14 +8,6 @@ const Contacts = (props) => {
       <button className="btn btn-primary">Add Contact</button>
     </Link>   
   )
-
-  const deleteHandler = (i) => {
-    const array = props.formData;
-    const selectedArray = array[i]
-    array.splice(selectedArray, 1)
-    console.log(`deleted index ${i}`)
-    console.log(props.formData)
-  }
   
   const listContacts = props.formData.map((data, i) => {
     const imageToString = String(data.img)
@@ -28,7 +20,7 @@ const Contacts = (props) => {
         <td>{data.name}</td>
         <td>{data.email}</td>
         <td>{data.phone}</td>
-        <td><img src={trash_can} alt='delete' id='trash_can' onClick={() => deleteHandler(i)}/></td>
+        <td><img src={trash_can} alt='delete' id='trash_can' onClick={() => props.deleteHandler(i)}/></td>
       </tr>
     )
     return fullContact;

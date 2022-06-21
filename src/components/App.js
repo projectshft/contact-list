@@ -19,6 +19,13 @@ function App() {
     }])
   }
 
+  const deleteHandler = (i) => {
+    setFormData([
+      ...formData.slice(0, i),
+      ...formData.slice(i + 1, formData.length)
+    ])
+  }
+
   submitHandler.propTypes = {
     name: PropTypes.string,
     email: PropTypes.string,
@@ -33,7 +40,7 @@ function App() {
       </div>
       <Routes>
         <Route path='/contacts/new' element={<AddContacts submitHandler={submitHandler}/>} />
-        <Route path='/contacts' element={<Contacts formData={formData} />} />
+        <Route path='/contacts' element={<Contacts formData={formData} deleteHandler={deleteHandler}/>} />
       </Routes>
     </div>
   );
