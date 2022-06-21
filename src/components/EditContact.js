@@ -39,6 +39,12 @@ const EditContact = () => {
     </form>
   )
 
+  const submitHander = (
+    <Link to="/contacts">
+      <button type="submit" className="btn btn-primary">Submit Edits</button>
+    </Link>
+  )
+
   const goBackHandler = (
     <Link to="/contacts">
       <button className="btn btn-secondary">Go Back</button>
@@ -49,6 +55,7 @@ const EditContact = () => {
     <div>
       <p>Choose which field or feilds that you would like to edit and click 'Submit Edits'</p>
       {formHandler}
+      {submitHander}
       {goBackHandler}
     </div>
   )
