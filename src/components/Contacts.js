@@ -1,4 +1,13 @@
+import { Link } from 'react-router-dom';
+
 const Contacts = (props) => {
+  
+  const addContactButton = (
+    <Link to='/contacts/new'>
+      <button className="btn btn-primary" onClick={props.addContactToggle}>Add Contact</button>
+    </Link>   
+  )
+  
   const listContacts = props.formData.map((data, i) => {
     const imageToString = String(data.img)
     const altToString = String(data.name)
@@ -17,6 +26,7 @@ const Contacts = (props) => {
 
   return (
     <div>
+      {addContactButton}
       {listContacts}
     </div>
   )
