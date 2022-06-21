@@ -20,7 +20,7 @@ const Contacts = (props) => {
         <td>{data.name}</td>
         <td>{data.email}</td>
         <td>{data.phone}</td>
-        <td><img src={trash_can} alt='delete'/></td>
+        <td><img src={trash_can} alt='delete' id='trash_can'/></td>
       </tr>
     )
     return fullContact;
@@ -33,12 +33,12 @@ const Contacts = (props) => {
       <table className='table table-striped table-bordered table-hover'>
         <thead className='table-dark'>
           <tr>
-          <th scope="col">#</th>
-          <th scope="col">Image</th>
-          <th scope="col">Name</th>
-          <th scope="col">Email</th>
-          <th scope="col">Phone #</th>
-          <th scope="col">Delete?</th>
+            <th scope="col">#</th>
+            <th scope="col">Image</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone #</th>
+            <th scope="col">Delete?</th>
           </tr>
         </thead>
         <tbody>
