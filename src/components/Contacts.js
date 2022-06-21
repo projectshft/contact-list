@@ -28,7 +28,7 @@ const Contacts = (props) => {
   return (
     <div>
       {addContactButton}
-      <table className='table table-striped'>
+      <table className='table table-striped table-bordered'>
         <thead className='table-dark'>
           <tr>
           <th scope="col">#</th>
