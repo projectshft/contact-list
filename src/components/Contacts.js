@@ -13,12 +13,18 @@ const Contacts = (props) => {
     const altToString = String(data.name)
     
     const fullContact = (
-      <ul key={i}>
-        <li>{data.name}</li>
-        <li>{data.email}</li>
-        <li>{data.phone}</li>
-        <li><img className="list-img" src={imageToString} alt={altToString}/></li>
-      </ul>
+      // <ul key={i}>
+      //   <li>{data.name}</li>
+      //   <li>{data.email}</li>
+      //   <li>{data.phone}</li>
+      //   <li><img className="list-img" src={imageToString} alt={altToString}/></li>
+      // </ul>
+      <tr>
+        <td><img className="list-img" src={imageToString} alt={altToString}/>{data.name}</td>
+        <td>{data.name}</td>
+        <td>{data.email}</td>
+        <td>{data.phone}</td>
+      </tr>
     )
     return fullContact;
   })
@@ -36,8 +42,10 @@ const Contacts = (props) => {
           <th scope="col">Phone #</th>
           </tr>
         </thead>
+        <tbody>
+          {listContacts}
+        </tbody>
       </table>
-      {listContacts}
     </div>
   )
 }
