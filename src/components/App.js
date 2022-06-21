@@ -64,7 +64,7 @@ function App() {
       </div>
       <Routes>
         <Route path='/contacts/new' element={<AddContacts addContactToggle={addContactToggle} submitHandler={submitHandler}/>} />
-        <Route path='/contacts' element={<Contacts />} />
+        <Route path='/contacts' element={<Contacts formData={formData} />} />
       </Routes>
     </div>
   );
