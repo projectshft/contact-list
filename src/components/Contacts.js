@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import trash_can from '../images/trash_can.png'
 
 const Contacts = (props) => {
   
@@ -19,6 +20,7 @@ const Contacts = (props) => {
         <td>{data.name}</td>
         <td>{data.email}</td>
         <td>{data.phone}</td>
+        <td><img src={trash_can} alt='delete'/></td>
       </tr>
     )
     return fullContact;
@@ -36,6 +38,7 @@ const Contacts = (props) => {
           <th scope="col">Name</th>
           <th scope="col">Email</th>
           <th scope="col">Phone #</th>
+          <th scope="col">Delete?</th>
           </tr>
         </thead>
         <tbody>
