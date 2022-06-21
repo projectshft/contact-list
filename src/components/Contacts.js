@@ -13,6 +13,8 @@ const Contacts = (props) => {
     const array = props.formData;
     const selectedArray = array[i]
     array.splice(selectedArray, 1)
+    console.log(`deleted index ${i}`)
+    console.log(props.formData)
   }
   
   const listContacts = props.formData.map((data, i) => {
