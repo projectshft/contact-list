@@ -8,6 +8,12 @@ const Contacts = (props) => {
       <button className="btn btn-primary">Add Contact</button>
     </Link>   
   )
+
+  const editHandler = (
+    <Link to='/contacts/:id/edit'>
+      <td>Edit</td>
+    </Link>   
+  )
   
   const listContacts = props.formData.map((data, i) => {
     const imageToString = String(data.img)
@@ -20,7 +26,7 @@ const Contacts = (props) => {
         <td>{data.name}</td>
         <td>{data.email}</td>
         <td>{data.phone}</td>
-        <td>Edit</td>
+        {editHandler}
         <td><img src={trash_can} alt='delete' id='trash_can' onClick={() => props.deleteHandler(i)}/></td>
       </tr>
     )

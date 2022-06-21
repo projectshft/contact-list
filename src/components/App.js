@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import AddContacts from "./AddContacts";
 import Contacts from "./Contacts";
+import EditContact from "./EditContact";
 
 function App() {
 
@@ -41,6 +42,7 @@ function App() {
       <Routes>
         <Route path='/contacts/new' element={<AddContacts submitHandler={submitHandler}/>} />
         <Route path='/contacts' element={<Contacts formData={formData} deleteHandler={deleteHandler}/>} />
+        <Route path='/contacts/:id/edit' element={<EditContact />} />
       </Routes>
     </div>
   );
