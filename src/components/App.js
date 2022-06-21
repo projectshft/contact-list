@@ -5,10 +5,10 @@ import PropTypes from 'prop-types';
 
 function App() {
 
-  const [button, setButton] = useState(false)
+  const [display, setDisplay] = useState(true)
 
   const addContactToggle = () => {
-    setButton(!button)
+    setDisplay(!display)
   }
 
   const [formData, setFormData] = useState([]);
@@ -58,8 +58,8 @@ function App() {
     <div>
       <div>
         <h1>React Contact List</h1>
-        {!button && addContactButton}
-        <ul>{!button && listContacts}</ul>
+        {display && addContactButton}
+        <ul>{display && listContacts}</ul>
       </div>
       <Routes>
         <Route path='/contacts/new' element={<AddContacts addContactToggle={addContactToggle} submitHandler={submitHandler}/>} />
