@@ -13,8 +13,14 @@ const AddContacts = (props) => {
 
   const submitHander = (
     <Link to="/contacts">
-        <button type="submit" className="btn btn-primary" onClick={() => props.submitHandler(name, email, phone, img)}>Submit Contact</button>
-      </Link>
+      <button type="submit" className="btn btn-primary" onClick={() => props.submitHandler(name, email, phone, img)}>Submit Contact</button>
+    </Link>
+  )
+
+  const goBackHandler = (
+    <Link to="/contacts">
+      <button className="btn btn-secondary">Go Back</button>
+    </Link>
   )
 
   return (
@@ -60,9 +66,7 @@ const AddContacts = (props) => {
         />
       </div>
       {submitHander}
-      <Link to="/contacts">
-        <button className="btn btn-secondary">Go Back</button>
-      </Link>
+      {goBackHandler}
     </form>
   );
 };
