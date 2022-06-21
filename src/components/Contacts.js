@@ -14,6 +14,7 @@ const Contacts = (props) => {
     
     const fullContact = (
       <tr>
+        <th scope="row">{i + 1}</th>
         <td><img className="list-img" src={imageToString} alt={altToString}/>{data.name}</td>
         <td>{data.name}</td>
         <td>{data.email}</td>
@@ -30,6 +31,7 @@ const Contacts = (props) => {
       <table className='table'>
         <thead>
           <tr>
+          <th scope="col">#</th>
           <th scope="col">Image</th>
           <th scope="col">Name</th>
           <th scope="col">Email</th>
