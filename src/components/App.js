@@ -27,6 +27,8 @@ function App() {
     ])
   }
 
+  //use this for editHandler()
+
   submitHandler.propTypes = {
     name: PropTypes.string,
     email: PropTypes.string,
