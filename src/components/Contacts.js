@@ -26,11 +26,8 @@ const Contacts = (props) => {
     return fullContact;
   })
 
-
-  return (
-    <div>
-      {addContactButton}
-      <table className='table table-striped table-bordered table-hover'>
+  const contentTable = (
+    <table className='table table-striped table-bordered table-hover'>
         <thead className='table-dark'>
           <tr>
             <th scope="col">#</th>
@@ -45,6 +42,12 @@ const Contacts = (props) => {
           {listContacts}
         </tbody>
       </table>
+  )
+
+  return (
+    <div>
+      {addContactButton}
+      {contentTable}
     </div>
   )
 }
