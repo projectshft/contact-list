@@ -47,6 +47,7 @@ const EditContact = () => {
 
   return (
     <div>
+      <p>Choose which field or feilds that you would like to edit and click 'Submit Edits'</p>
       {formHandler}
       {goBackHandler}
     </div>
