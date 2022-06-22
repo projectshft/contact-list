@@ -1,6 +1,9 @@
+import { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 const EditContact = (props) => {
+
+  useEffect(() => console.log('EditContacts rendered'), [])
   
   const formData = props.formData;
   
@@ -15,9 +18,10 @@ const EditContact = (props) => {
 
   const urlId = urlIDFinder(url)
 
+  // eslint-disable-next-line
   const currentData = formData.filter(data => data.id == urlId)
 
-  let namePlaceholder = currentData[0].name
+  const namePlaceholder = currentData[0].name
   
 
   const formHandler = (
