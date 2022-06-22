@@ -4,15 +4,16 @@ const EditContact = () => {
 
   const url = useLocation();
 
-  const urlID = (url) => {
+  const urlIDFinder = (url) => {
     const urlString = url.pathname
     const frontSlice = urlString.slice(11)
     const backSlice = frontSlice.slice(0, 5)
     return backSlice
   }
 
+  const urlId = urlIDFinder(url)
 
-  console.log(urlID(url))
+  console.log(urlId)
 
   const formHandler = (
     <form>
