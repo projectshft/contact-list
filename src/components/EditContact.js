@@ -19,6 +19,10 @@ const EditContact = (props) => {
 
   console.log(currentData)
 
+  const namePlaceholder = currentData[0].name
+
+  console.log(namePlaceholder)
+
 
   const formHandler = (
     <form>
@@ -28,6 +32,7 @@ const EditContact = (props) => {
           type="text" 
           className="form-control" 
           id="name-input" 
+          placeholder={namePlaceholder}
         />
       </div>
       <div className="form-group">
