@@ -43,8 +43,13 @@ function App() {
       ])
     }
 
-    const message = `If you delete a contact, it is perminantly erased. Are you sure you want to delete this contact?`
-    alert(message)
+    const message = 'If you delete a contact, it is perminantly erased. Are you sure you want to delete this contact?'
+
+    const result = window.confirm(message)
+
+    if (result === true) {
+      actionHandler()
+    }
     
   }
 
