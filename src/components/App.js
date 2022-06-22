@@ -42,15 +42,21 @@ function App() {
     ])
   }
 
-  const editHandler = (id) => {
+  const editHandler = (id, name, email, phone, img) => {
     // eslint-disable-next-line
-    const currentData = formData.find(data => data.id == id);
+    // const currentData = formData.find(data => data.id == id);
     // eslint-disable-next-line
     const currentIndex = formData.findIndex(el => el.id == id);
 
     setFormData([
       ...formData.slice(0, currentIndex),
-      currentData,
+      {
+        id: id,
+        name: name,
+        email: email, 
+        phone: phone,
+        img: img
+      },
       ...formData.slice(currentIndex + 1, formData.length)
     ])
     

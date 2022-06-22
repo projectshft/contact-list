@@ -1,9 +1,17 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 const EditContact = (props) => {
 
   useEffect(() => console.log('EditContacts rendered'), [])
+
+  const [name, setName] = useState('');
+
+  const [email, setEmail] = useState('');
+
+  const [phone, setPhone] = useState('');
+
+  const [img, setImg] = useState('');
   
   const formData = props.formData;
   
@@ -38,6 +46,8 @@ const EditContact = (props) => {
           className="form-control" 
           id="name-input" 
           placeholder={namePlaceholder}
+          value={name} 
+          onInput={e => setName(e.target.value)}
         />
       </div>
       <div className="form-group">
@@ -47,6 +57,8 @@ const EditContact = (props) => {
           className="form-control" 
           id="email-input" 
           placeholder={emailPlaceholder}
+          value={email} 
+          onInput={e => setEmail(e.target.value)}
         />
       </div>
       <div className="form-group">
@@ -56,6 +68,8 @@ const EditContact = (props) => {
           className="form-control" 
           id="phone-input" 
           placeholder={phonePlaceholder}
+          value={phone} 
+          onInput={e => setPhone(e.target.value)}
         />
       </div>
       <div className="form-group">
@@ -65,6 +79,8 @@ const EditContact = (props) => {
           className="form-control" 
           id="img_url" 
           placeholder={imgPlaceholder}
+          value={img}
+          onInput={e => setImg(e.target.value)}
         />
       </div>
     </form>
@@ -72,7 +88,7 @@ const EditContact = (props) => {
 
   const submitHander = (
     <Link to="/contacts">
-      <button type="submit" className="btn btn-primary" onClick={() => props.editHandler(urlId)}>Submit Edits</button>
+      <button type="submit" className="btn btn-primary" onClick={() => props.editHandler(urlId, name, email, phone, img)}>Submit Edits</button>
     </Link>
   )
 
