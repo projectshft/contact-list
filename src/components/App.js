@@ -11,15 +11,15 @@ function App() {
 
   const submitHandler = (name, email, phone, img) => {
     
-    // const idGenerator = () => {
-    //   const id = Math.floor(Math.random() * 1000000);
-    //   return id;
-    // }
+    const idGenerator = () => {
+      const id = Math.floor(Math.random() * 1000000);
+      return id;
+    }
 
     setFormData([
       ...formData,
       {
-      // id: idGenerator(),
+      id: idGenerator(),
       name: name,
       email: email, 
       phone: phone,
