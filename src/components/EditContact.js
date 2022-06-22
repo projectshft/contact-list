@@ -4,14 +4,6 @@ import { Link, useLocation } from 'react-router-dom';
 const EditContact = (props) => {
 
   useEffect(() => console.log('EditContacts rendered'), [])
-
-  const [name, setName] = useState('');
-
-  const [email, setEmail] = useState('');
-
-  const [phone, setPhone] = useState('');
-
-  const [img, setImg] = useState('');
   
   const formData = props.formData;
   
@@ -36,6 +28,14 @@ const EditContact = (props) => {
   const phonePlaceholder = currentData[0].phone
 
   const imgPlaceholder = currentData[0].img
+
+  const [name, setName] = useState(namePlaceholder);
+
+  const [email, setEmail] = useState(emailPlaceholder);
+
+  const [phone, setPhone] = useState(phonePlaceholder);
+
+  const [img, setImg] = useState(imgPlaceholder);
 
   const formHandler = (
     <form>
