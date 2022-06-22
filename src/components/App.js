@@ -78,6 +78,14 @@ function App() {
     img: PropTypes.string
   }
 
+  editHandler.PropTypes = {
+    id: PropTypes.number,
+    name: PropTypes.string,
+    email: PropTypes.string,
+    phone: PropTypes.number,
+    img: PropTypes.string
+  }
+
 
 
   return (
