@@ -36,10 +36,16 @@ function App() {
   }
 
   const deleteHandler = (i) => {
-    setFormData([
-      ...formData.slice(0, i),
-      ...formData.slice(i + 1, formData.length)
-    ])
+    const actionHandler = () => {
+      setFormData([
+        ...formData.slice(0, i),
+        ...formData.slice(i + 1, formData.length)
+      ])
+    }
+
+    const message = `If you delete a contact, it is perminantly erased. Are you sure you want to delete this contact?`
+    alert(message)
+    
   }
 
   const editHandler = (id, name, email, phone, img) => {
