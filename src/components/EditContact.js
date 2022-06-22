@@ -22,7 +22,12 @@ const EditContact = (props) => {
   const currentData = formData.filter(data => data.id == urlId)
 
   const namePlaceholder = currentData[0].name
+
+  const emailPlaceholder = currentData[0].email
   
+  const phonePlaceholder = currentData[0].phone
+
+  const imgPlaceholder = currentData[0].img
 
   const formHandler = (
     <form>
@@ -41,6 +46,7 @@ const EditContact = (props) => {
           type="text" 
           className="form-control" 
           id="email-input" 
+          placeholder={emailPlaceholder}
         />
       </div>
       <div className="form-group">
@@ -49,6 +55,7 @@ const EditContact = (props) => {
           type="number" 
           className="form-control" 
           id="phone-input" 
+          placeholder={phonePlaceholder}
         />
       </div>
       <div className="form-group">
@@ -57,6 +64,7 @@ const EditContact = (props) => {
           type="email" 
           className="form-control" 
           id="img_url" 
+          placeholder={imgPlaceholder}
         />
       </div>
     </form>
