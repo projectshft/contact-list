@@ -16,6 +16,10 @@ function App() {
       return id;
     }
 
+    formData.map(data => {
+      console.log(data.id)
+    })
+
     setFormData([
       ...formData,
       {
