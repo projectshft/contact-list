@@ -15,9 +15,9 @@ const EditContact = (props) => {
 
   const urlId = urlIDFinder(url)
 
-  const dataFiltered = formData.filter(data => data.id == urlId)
+  const currentData = formData.filter(data => data.id == urlId)
 
-  console.log(dataFiltered)
+  console.log(currentData)
 
 
   const formHandler = (
