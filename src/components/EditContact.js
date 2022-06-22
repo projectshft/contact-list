@@ -17,14 +17,8 @@ const EditContact = (props) => {
 
   const currentData = formData.filter(data => data.id == urlId)
 
-  let namePlaceholder;
+  let namePlaceholder = currentData[0].name
   
-  if (currentData[0].name) {
-    const name = currentData[0].name
-    namePlaceholder = name
-  } else {
-    namePlaceholder = ''
-  }
 
   const formHandler = (
     <form>
