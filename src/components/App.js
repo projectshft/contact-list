@@ -46,8 +46,13 @@ function App() {
     // eslint-disable-next-line
     const currentData = formData.find(data => data.id == id);
     // eslint-disable-next-line
-    const index = formData.findIndex(el => el.id == id)
-    console.log(index)
+    const currentIndex = formData.findIndex(el => el.id == id);
+
+    setFormData([
+      ...formData,
+      formData[currentIndex] = currentData
+    ])
+    
   }
 
   submitHandler.propTypes = {
