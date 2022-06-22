@@ -45,7 +45,6 @@ const EditContact = (props) => {
           type="text" 
           className="form-control" 
           id="name-input" 
-          placeholder={namePlaceholder}
           value={name} 
           onInput={e => setName(e.target.value)}
         />
@@ -56,7 +55,6 @@ const EditContact = (props) => {
           type="text" 
           className="form-control" 
           id="email-input" 
-          placeholder={emailPlaceholder}
           value={email} 
           onInput={e => setEmail(e.target.value)}
         />
@@ -67,7 +65,6 @@ const EditContact = (props) => {
           type="number" 
           className="form-control" 
           id="phone-input" 
-          placeholder={phonePlaceholder}
           value={phone} 
           onInput={e => setPhone(e.target.value)}
         />
@@ -78,7 +75,6 @@ const EditContact = (props) => {
           type="email" 
           className="form-control" 
           id="img_url" 
-          placeholder={imgPlaceholder}
           value={img}
           onInput={e => setImg(e.target.value)}
         />
