@@ -42,7 +42,12 @@ function App() {
     ])
   }
 
+  const editHandler = (id) => {
+    console.log(id)
+  }
+
   submitHandler.propTypes = {
+    id: PropTypes.number,
     name: PropTypes.string,
     email: PropTypes.string,
     phone: PropTypes.number,
@@ -59,7 +64,7 @@ function App() {
       <Routes>
         <Route path='/contacts/new' element={<AddContacts submitHandler={submitHandler}/>} />
         <Route path='/contacts' element={<Contacts formData={formData} deleteHandler={deleteHandler}/>} />
-        <Route path='/contacts/:id/edit' element={<EditContact formData={formData} />} />
+        <Route path='/contacts/:id/edit' element={<EditContact formData={formData} editHandler={editHandler}/>} />
       </Routes>
     </div>
   );

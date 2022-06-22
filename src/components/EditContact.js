@@ -72,7 +72,7 @@ const EditContact = (props) => {
 
   const submitHander = (
     <Link to="/contacts">
-      <button type="submit" className="btn btn-primary">Submit Edits</button>
+      <button type="submit" className="btn btn-primary" onClick={() => props.editHandler(urlId)}>Submit Edits</button>
     </Link>
   )
 
