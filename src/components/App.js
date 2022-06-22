@@ -22,7 +22,6 @@ function App() {
       const newNumber = Math.random() * 100000;
       id = newNumber;
     }
-    
 
     setFormData([
       ...formData,
@@ -54,8 +53,6 @@ function App() {
   }
 
   const editHandler = (id, name, email, phone, img) => {
-    // eslint-disable-next-line
-    // const currentData = formData.find(data => data.id == id);
     // eslint-disable-next-line
     const currentIndex = formData.findIndex(el => el.id == id);
 

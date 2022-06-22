@@ -23,8 +23,8 @@ const AddContacts = (props) => {
     </Link>
   )
 
-  return (
-    <form>
+  const formData = (
+    <div>
       <div className="form-group">
         <label htmlFor="name-input">Full Name</label>
         <input 
@@ -65,6 +65,12 @@ const AddContacts = (props) => {
           onInput={e => setImg(e.target.value)}
         />
       </div>
+    </div>
+  )
+
+  return (
+    <form>
+      {formData}
       {submitHander}
       {goBackHandler}
     </form>
