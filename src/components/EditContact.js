@@ -1,9 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 const EditContact = (props) => {
-
-  useEffect(() => console.log('EditContacts rendered'), [])
   
   const formData = props.formData;
   
