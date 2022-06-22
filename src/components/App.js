@@ -19,8 +19,8 @@ function App() {
     let id = idGenerator();
 
     if (formData.includes(id)) {
-      const addedNumber = Math.random() * 100;
-      id =+ addedNumber;
+      const newNumber = Math.random() * 100000;
+      id = newNumber;
     }
     
 

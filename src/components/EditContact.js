@@ -1,6 +1,18 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const EditContact = () => {
+
+  const url = useLocation();
+
+  const urlID = (url) => {
+    const urlString = url.pathname
+    const frontSlice = urlString.slice(11)
+    const backSlice = frontSlice.slice(0, 5)
+    return backSlice
+  }
+
+
+  console.log(urlID(url))
 
   const formHandler = (
     <form>
