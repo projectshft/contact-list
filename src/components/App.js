@@ -16,9 +16,9 @@ function App() {
       return id;
     }
 
-    formData.map(data => {
-      console.log(data.id)
-    })
+    const id = idGenerator()
+
+    console.log(id)
 
     setFormData([
       ...formData,
