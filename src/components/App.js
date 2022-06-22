@@ -10,9 +10,16 @@ function App() {
   const [formData, setFormData] = useState([]);
 
   const submitHandler = (name, email, phone, img) => {
+    
+    // const idGenerator = () => {
+    //   const id = Math.floor(Math.random() * 1000000);
+    //   return id;
+    // }
+
     setFormData([
       ...formData,
       {
+      // id: idGenerator(),
       name: name,
       email: email, 
       phone: phone,
@@ -35,6 +42,8 @@ function App() {
     phone: PropTypes.number,
     img: PropTypes.string
   }
+
+
 
   return (
     <div>

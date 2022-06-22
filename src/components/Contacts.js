@@ -10,9 +10,11 @@ const Contacts = (props) => {
   )
 
   const editHandler = (
-    <Link id='edit-btn' to='/contacts/:id/edit'>
-      <td >Edit</td>
-    </Link>   
+    <td>
+      <Link id='edit-btn' to='/contacts/:id/edit'>
+        Edit
+      </Link>   
+    </td>
   )
   
   const listContacts = props.formData.map((data, i) => {
