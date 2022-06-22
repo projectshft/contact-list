@@ -49,8 +49,9 @@ function App() {
     const currentIndex = formData.findIndex(el => el.id == id);
 
     setFormData([
-      ...formData,
-      formData[currentIndex] = currentData
+      ...formData.slice(0, currentIndex),
+      currentData,
+      ...formData.slice(currentIndex + 1, formData.length)
     ])
     
   }
