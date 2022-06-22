@@ -16,14 +16,18 @@ function App() {
       return id;
     }
 
-    const id = idGenerator()
+    let id = idGenerator();
 
-    console.log(id)
+    if (formData.includes(id)) {
+      const addedNumber = Math.random() * 100;
+      id =+ addedNumber;
+    }
+    
 
     setFormData([
       ...formData,
       {
-      id: idGenerator(),
+      id: id,
       name: name,
       email: email, 
       phone: phone,
