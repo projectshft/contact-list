@@ -2,6 +2,8 @@ import { Link, useLocation } from 'react-router-dom';
 
 const EditContact = (props) => {
   
+  const formData = props.formData;
+  
   const url = useLocation();
 
   const urlIDFinder = (url) => {
@@ -12,6 +14,10 @@ const EditContact = (props) => {
   }
 
   const urlId = urlIDFinder(url)
+
+  const dataFiltered = formData.filter(data => data.id == urlId)
+
+  console.log(dataFiltered)
 
 
   const formHandler = (
