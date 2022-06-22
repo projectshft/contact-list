@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 
-const EditContact = () => {
-
+const EditContact = (props) => {
+  
   const url = useLocation();
 
   const urlIDFinder = (url) => {
@@ -13,7 +13,6 @@ const EditContact = () => {
 
   const urlId = urlIDFinder(url)
 
-  console.log(urlId)
 
   const formHandler = (
     <form>
