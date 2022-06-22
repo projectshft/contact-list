@@ -6,8 +6,8 @@ const EditContact = () => {
 
   const urlIDFinder = (url) => {
     const urlString = url.pathname
-    const frontSlice = urlString.slice(11)
-    const backSlice = frontSlice.slice(0, 5)
+    const frontSlice = urlString.slice(10)
+    const backSlice = frontSlice.slice(0, 6)
     return backSlice
   }
 
