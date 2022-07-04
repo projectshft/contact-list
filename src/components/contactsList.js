@@ -19,7 +19,7 @@ const ContactsList = (props) => {
                         props.contacts.map(c => {
                             return (
                                 <tr key={c.id}>
-                                    <td><img className="img-fluid" src={c.imageUrl} alt="profile pic"/></td>
+                                    <td><img className="w-50" src={c.imageUrl} alt="profile pic"/></td>
                                     <td>{c.name}</td>
                                     <td>{c.email}</td>
                                     <td>{c.phoneNumber}</td>
