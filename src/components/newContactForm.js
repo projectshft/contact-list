@@ -1,4 +1,5 @@
 import { React, useState } from "react";
+import { Link } from "react-router-dom";
 
 const NewContactForm = (props) => {
     const [name, setName] = useState('');
@@ -59,7 +60,12 @@ const NewContactForm = (props) => {
                             <label htmlFor="imageUrl" className="form-label">Image URL:</label>
                             <input id="imageUrl" className="form-control" type="" placeholder="Image URL" onChange={imageUrlValue}/>
                         </div>
+                        <>
+                        <Link to="/">
+                            <button className="btn btn-danger">Cancel</button>
+                        </Link>
                         <button type="submit" className="btn btn-primary" onClick={handleButton}>Submit</button>
+                        </>
                     </form>
                 </div>
             </div>
