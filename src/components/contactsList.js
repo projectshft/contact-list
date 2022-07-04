@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const ContactsList = (props) => {
+    const navigate = useNavigate();
 
     return (
         <div className="table-responsive">
@@ -18,7 +19,7 @@ const ContactsList = (props) => {
                     {
                         props.contacts.map(contact => {
                             return (
-                                <tr key={contact.id}>
+                                <tr key={contact.id} onClick={() => navigate(`/contacts/${contact.id}`, {state: {contact}})}>
                                     <td><img className="w-50" src={contact.imageUrl} alt="profile pic"/></td>
                                     <td>{contact.name}</td>
                                     <td>{contact.email}</td>
