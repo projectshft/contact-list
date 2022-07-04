@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 const ContactsList = (props) => {
 
     return (
-        <div>
-            <table className="table">
+        <div className="table-responsive">
+            <table className="table table-hover table-bordered align-middle">
                 <thead>
-                    <tr>
+                    <tr className="align-middle">
                         <th scope="col">Profile Pic</th>
                         <th scope="col">Name</th>
                         <th scope="col">Email</th>
@@ -29,7 +29,7 @@ const ContactsList = (props) => {
                     }
                 </tbody>
             </table>
-            <Link to="/contacts-list/new">
+            <Link to="/contacts/new">
                 <button className="btn btn-primary">Add New Contact</button>
             </Link>
         </div>

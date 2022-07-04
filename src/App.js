@@ -1,6 +1,7 @@
 import { React, useState } from "react";
 import {Routes, Route} from 'react-router-dom';
 import ContactsList from './components/contactsList';
+import ContactView from './components/contactView';
 import NewContactForm from './components/newContactForm';
 import { getDummyData } from './dummyData';
 
@@ -21,7 +22,8 @@ function App() {
           <hr/>
           <Routes>
             <Route path="/" element={<ContactsList contacts={dummyData} />} />
-            <Route path="/contacts-list/new" element={<NewContactForm addContact={addContact} />} />
+            <Route path="/contacts/new" element={<NewContactForm addContact={addContact} />}/>
+            <Route path="/contacts/:id" element={<ContactView contacts={dummyData} />} />
           </Routes>
         </div>
       </div>
