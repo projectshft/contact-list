@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 
-const NewContactForm = () => {
+const NewContactForm = (props) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
@@ -36,6 +36,7 @@ const NewContactForm = () => {
             imageUrl,
         };
         console.log(newContact);
+        props.addContact(newContact);
     }
 
     return (
