@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const ContactsList = () => {
+const ContactsList = (props) => {
 
     return (
         <div>
@@ -15,7 +15,18 @@ const ContactsList = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr></tr>
+                    {
+                        props.contacts.map(c => {
+                            return (
+                                <tr key={c.id}>
+                                    <td><img className="img-fluid" src={c.imageUrl} alt="profile pic"/></td>
+                                    <td>{c.name}</td>
+                                    <td>{c.email}</td>
+                                    <td>{c.phoneNumber}</td>
+                                </tr>
+                            )
+                        })
+                    }
                 </tbody>
             </table>
             <Link to="/contacts-list/new">
