@@ -1,6 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ContactsList = () => {
+
     return (
         <div>
             <table className="table">
@@ -16,7 +18,9 @@ const ContactsList = () => {
                     <tr></tr>
                 </tbody>
             </table>
-            <button className="btn btn-primary">Add New Contact</button>
+            <Link to="/contacts-list/new">
+                <button className="btn btn-primary">Add New Contact</button>
+            </Link>
         </div>
     )
 };
