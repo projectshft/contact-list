@@ -16,13 +16,13 @@ const ContactsList = (props) => {
                 </thead>
                 <tbody>
                     {
-                        props.contacts.map(c => {
+                        props.contacts.map(contact => {
                             return (
-                                <tr key={c.id}>
-                                    <td><img className="w-50" src={c.imageUrl} alt="profile pic"/></td>
-                                    <td>{c.name}</td>
-                                    <td>{c.email}</td>
-                                    <td>{c.phoneNumber}</td>
+                                <tr key={contact.id}>
+                                    <td><img className="w-50" src={contact.imageUrl} alt="profile pic"/></td>
+                                    <td>{contact.name}</td>
+                                    <td>{contact.email}</td>
+                                    <td>{contact.phoneNumber}</td>
                                 </tr>
                             )
                         })

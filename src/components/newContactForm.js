@@ -30,6 +30,7 @@ const NewContactForm = (props) => {
     const handleButton = (e) => {
         e.preventDefault();
         let newContact = {
+            id: generateId(),
             name,
             email,
             phoneNumber,
@@ -38,6 +39,8 @@ const NewContactForm = (props) => {
         console.log(newContact);
         props.addContact(newContact);
     }
+
+    const generateId = () => Math.round(Math.random() * 10000000);
 
     return (
         <div className="container">
