@@ -23,7 +23,7 @@ function App() {
           <Routes>
             <Route path="/" element={<ContactsList contacts={dummyData} />} />
             <Route path="/contacts/new" element={<NewContactForm addContact={addContact} />}/>
-            <Route path="/contacts/:id" element={<ContactView contacts={dummyData} />} />
+            <Route path="/contacts/:id" element={<ContactView contacts={contacts} />} />
           </Routes>
         </div>
       </div>
