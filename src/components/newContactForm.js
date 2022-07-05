@@ -1,11 +1,13 @@
 import { React, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const NewContactForm = (props) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [imageUrl, setImageUrl] = useState('');
+
+    let navigate = useNavigate();
 
     const nameValue = (e) => {
         setName({
@@ -28,7 +30,20 @@ const NewContactForm = (props) => {
         });
     };
 
-    const handleButton = (e) => {
+    // const handleButton = (e) => {
+    //     e.preventDefault();
+    //     let newContact = {
+    //         id: generateId(),
+    //         name,
+    //         email,
+    //         phoneNumber,
+    //         imageUrl,
+    //     };
+    //     console.log(newContact);
+    //     props.addContact(newContact);
+    // }
+
+    const handleSubmit = (e) => {
         e.preventDefault();
         let newContact = {
             id: generateId(),
@@ -39,7 +54,8 @@ const NewContactForm = (props) => {
         };
         console.log(newContact);
         props.addContact(newContact);
-    }
+        navigate("/");
+    };
 
     const generateId = () => Math.round(Math.random() * 10000000);
 
@@ -49,7 +65,7 @@ const NewContactForm = (props) => {
                 <div className="col">
                     <h2>New Contact:</h2>
                     <hr/>
-                    <form className="contact-form">
+                    <form className="contact-form" onSubmit={handleSubmit}>
                         <div className="form-group">
                             <label htmlFor="name" className="form-label">Name:</label>
                             <input id="name" className="form-control" type="text" placeholder="Enter Full Name" onChange={nameValue}/>
@@ -64,7 +80,7 @@ const NewContactForm = (props) => {
                         <Link to="/">
                             <button className="btn btn-danger">Cancel</button>
                         </Link>
-                        <button type="submit" className="btn btn-primary" onClick={handleButton}>Submit</button>
+                        <button type="submit" className="btn btn-primary">Submit</button>
                         </>
                     </form>
                 </div>
