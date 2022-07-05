@@ -30,19 +30,6 @@ const NewContactForm = (props) => {
         });
     };
 
-    // const handleButton = (e) => {
-    //     e.preventDefault();
-    //     let newContact = {
-    //         id: generateId(),
-    //         name,
-    //         email,
-    //         phoneNumber,
-    //         imageUrl,
-    //     };
-    //     console.log(newContact);
-    //     props.addContact(newContact);
-    // }
-
     const handleSubmit = (e) => {
         e.preventDefault();
         let newContact = {
@@ -52,7 +39,6 @@ const NewContactForm = (props) => {
             phoneNumber,
             imageUrl,
         };
-        console.log(newContact);
         props.addContact(newContact);
         navigate("/");
     };
