@@ -3,7 +3,7 @@ import {Routes, Route} from 'react-router-dom';
 import ContactsList from './components/contactsList';
 import ContactView from './components/contactView';
 import NewContactForm from './components/newContactForm';
-import { getDummyData } from './dummyData';
+// import { getDummyData } from './dummyData';
 
 function App() {
   const [contacts, setContacts] = useState([]);
@@ -12,7 +12,7 @@ function App() {
     setContacts(contacts.concat(newContact));
   };
 
-  let dummyData = getDummyData();
+  // let dummyData = getDummyData();
 
   return (
     <div className="container">
@@ -21,7 +21,7 @@ function App() {
           <h1>Contacts List</h1>
           <hr/>
           <Routes>
-            <Route path="/" element={<ContactsList contacts={dummyData} />} />
+            <Route path="/" element={<ContactsList contacts={contacts} />} />
             <Route path="/contacts/new" element={<NewContactForm addContact={addContact} />}/>
             <Route path="/contacts/:id" element={<ContactView contacts={contacts} />} />
           </Routes>

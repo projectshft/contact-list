@@ -9,27 +9,6 @@ const NewContactForm = (props) => {
 
     let navigate = useNavigate();
 
-    const nameValue = (e) => {
-        setName({
-            name: e.target.value
-        });
-    };
-    const emailValue = (e) => {
-        setEmail({
-            email: e.target.value
-        });
-    };
-    const phoneNumberValue = (e) => {
-        setPhoneNumber({
-            phoneNumber: e.target.value
-        });
-    };
-    const imageUrlValue = (e) => {
-        setImageUrl({
-            imageUrl: e.target.value
-        });
-    };
-
     const handleSubmit = (e) => {
         e.preventDefault();
         let newContact = {
@@ -54,13 +33,13 @@ const NewContactForm = (props) => {
                     <form className="contact-form" onSubmit={handleSubmit}>
                         <div className="form-group">
                             <label htmlFor="name" className="form-label">Name:</label>
-                            <input id="name" className="form-control" type="text" placeholder="Enter Full Name" onChange={nameValue}/>
+                            <input id="name" className="form-control" type="text" placeholder="Enter Full Name" onChange={(e) => setName(e.target.value)}/>
                             <label htmlFor="email" className="form-label">Email:</label>
-                            <input id="email" className="form-control" type="email" placeholder="Enter Email" onChange={emailValue}/>
+                            <input id="email" className="form-control" type="email" placeholder="Enter Email" onChange={(e) => setEmail(e.target.value)}/>
                             <label htmlFor="phoneNumber" className="form-label">Phone Number:</label>
-                            <input id="phoneNumber" className="form-control" type="" placeholder="Enter Phone" onChange={phoneNumberValue}/>
+                            <input id="phoneNumber" className="form-control" type="" placeholder="Enter Phone" onChange={(e) => setPhoneNumber(e.target.value)}/>
                             <label htmlFor="imageUrl" className="form-label">Image URL:</label>
-                            <input id="imageUrl" className="form-control" type="" placeholder="Image URL" onChange={imageUrlValue}/>
+                            <input id="imageUrl" className="form-control" type="" placeholder="Image URL" onChange={(e) => setImageUrl(e.target.value)}/>
                         </div>
                         <>
                         <Link to="/">
