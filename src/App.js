@@ -3,7 +3,6 @@ import {Routes, Route} from 'react-router-dom';
 import ContactsList from './components/contactsList';
 import ContactView from './components/contactView';
 import NewContactForm from './components/newContactForm';
-// import { getDummyData } from './dummyData';
 
 function App() {
   const [contacts, setContacts] = useState([]);
@@ -12,12 +11,10 @@ function App() {
     setContacts(contacts.concat(newContact));
   };
 
-  // let dummyData = getDummyData();
-
   return (
     <div className="container">
       <div className="row">
-        <div className="col-md-6 offset-md-3">
+        <div className="col-md-6 offset-md-3 text-center">
           <h1>Contacts List</h1>
           <hr/>
           <Routes>

@@ -31,14 +31,14 @@ const NewContactForm = (props) => {
                     <h2>New Contact:</h2>
                     <hr/>
                     <form className="contact-form" onSubmit={handleSubmit}>
-                        <div className="form-group">
-                            <label htmlFor="name" className="form-label">Name:</label>
+                        <div className="form-group text-start">
+                            <label htmlFor="name" className="form-label"><strong>Name:</strong></label>
                             <input id="name" className="form-control" type="text" placeholder="Enter Full Name" onChange={(e) => setName(e.target.value)}/>
-                            <label htmlFor="email" className="form-label">Email:</label>
+                            <label htmlFor="email" className="form-label"><strong>Email:</strong></label>
                             <input id="email" className="form-control" type="email" placeholder="Enter Email" onChange={(e) => setEmail(e.target.value)}/>
-                            <label htmlFor="phoneNumber" className="form-label">Phone Number:</label>
+                            <label htmlFor="phoneNumber" className="form-label"><strong>Phone Number:</strong></label>
                             <input id="phoneNumber" className="form-control" type="" placeholder="Enter Phone" onChange={(e) => setPhoneNumber(e.target.value)}/>
-                            <label htmlFor="imageUrl" className="form-label">Image URL:</label>
+                            <label htmlFor="imageUrl" className="form-label"><strong>Image URL:</strong></label>
                             <input id="imageUrl" className="form-control" type="" placeholder="Image URL" onChange={(e) => setImageUrl(e.target.value)}/>
                         </div>
                         <>

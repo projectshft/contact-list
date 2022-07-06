@@ -19,7 +19,7 @@ const ContactsList = (props) => {
                             {props.contacts.map(contact => {
                                 return (
                                     <tr key={contact.id} onClick={() => navigate(`/contacts/${contact.id}`, {state: {contact}})}>
-                                        <td><img className="w-50" src={contact.imageUrl} alt="profile pic"/></td>
+                                        <td><img className="img-fluid" src={contact.imageUrl} alt="profile pic"/></td>
                                         <td>{contact.name}</td>
                                         <td>{contact.email}</td>
                                         <td>{contact.phoneNumber}</td>
