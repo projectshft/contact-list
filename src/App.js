@@ -1,8 +1,11 @@
-import { useState } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
+import { useState } from 'react';
+import AddContact from './components/AddContact';
+import ContactDetail from './components/ContactDetail';
 import ContactList from './components/ContactList';
-import Header from './components/Header';
 import ContactListAPI from './data/ContactListAPI';
+import Header from './components/Header';
+import NotFound from './components/NotFound';
 
 export default function App() {
   const [contacts, setContacts] = useState(ContactListAPI);
@@ -28,6 +31,16 @@ export default function App() {
               <ContactList contacts={contacts} deleteContact={deleteContact} />
             }
           />
+          <Route
+            path="contacts/:id"
+            element={<ContactDetail contacts={contacts} />}
+          />
+          <Route
+            path="contacts/new"
+            element={<AddContact addContact={addContact} />}
+          />
+          <Route path="notFound" element={<NotFound />} />
+          <Route path="*" element={<Navigate to="notFound" />} />
         </Routes>
       </div>
     </div>
