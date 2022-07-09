@@ -1,15 +1,14 @@
 import { Container, Button } from 'react-bootstrap';
-
-// Container Classes Header //
+// Header Bootstrap Classes //
 const containerStyleHeader =
   'd-flex justify-content-around align-items-center pt-3';
-const onClick = () => {
-  console.log('Click the Button');
+const onClickAdd = () => {
+  console.log('Click To Add a Contact');
 };
 const Header = () => (
   <Container className={containerStyleHeader}>
-    <h1>Contact List</h1>
-    <Button className="btn-warning" onClick={onClick}>
+    <h1 className="h1-header text-warning">Contact List </h1>
+    <Button className="btn-warning" onClick={onClickAdd}>
       Click To Add
     </Button>
   </Container>

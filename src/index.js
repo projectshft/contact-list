@@ -8,7 +8,7 @@ import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <Container className="pt-5">
+  <Container className="app-container pt-5">
     <React.StrictMode>
       <App />
     </React.StrictMode>
