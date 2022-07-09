@@ -1,4 +1,4 @@
-export default [
+const ContactListAPI = () => [
   {
     id: 1657078494901,
     image: '/images/6.png',
@@ -28,3 +28,5 @@ export default [
     phone: '(123) 456-7890',
   },
 ];
+
+export default ContactListAPI;
