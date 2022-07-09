@@ -1,6 +1,7 @@
 import { PropTypes } from 'prop-types';
 import { Link } from 'react-router-dom';
 import { ReactComponent as XIcon } from '../images/x.svg';
+import { ReactComponent as EditIcon } from '../images/edit.svg';
 
 const ContactCard = ({ id, name, email, phone, image, deleteContact }) => {
   const handleDeleteContact = () => {
@@ -24,12 +25,15 @@ const ContactCard = ({ id, name, email, phone, image, deleteContact }) => {
             <div className="flex items-center font-mono text-xs">{phone}</div>
           </div>
         </Link>
+        <Link to={`${id}/edit`} className="flex items-center mx-2">
+          <EditIcon className="w-4 h-4 hover:text-white " />
+        </Link>
         <Link
           to="/contacts"
           onClick={handleDeleteContact}
           className="flex items-center"
         >
-          <XIcon className="w-6 h-6 hover:text-white " />
+          <XIcon className="w-5 h-5 hover:text-white " />
         </Link>
       </div>
     </div>

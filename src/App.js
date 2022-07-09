@@ -6,6 +6,7 @@ import ContactList from './components/ContactList';
 import ContactListAPI from './data/ContactListAPI';
 import Header from './components/Header';
 import NotFound from './components/NotFound';
+import EditContact from './components/EditContact';
 
 export default function App() {
   const [contacts, setContacts] = useState(ContactListAPI);
@@ -17,6 +18,13 @@ export default function App() {
   const deleteContact = (contactId) => {
     const newContactList = contacts.filter((item) => item.id !== contactId);
     setContacts(newContactList);
+  };
+
+  const editContact = (editedContact) => {
+    const updatedContactList = contacts.map((item) =>
+      item.id === editedContact.id ? editedContact : item
+    );
+    setContacts(updatedContactList);
   };
 
   return (
@@ -34,6 +42,12 @@ export default function App() {
           <Route
             path="contacts/:id"
             element={<ContactDetail contacts={contacts} />}
+          />
+          <Route
+            path="contacts/:id/edit"
+            element={
+              <EditContact contacts={contacts} editContact={editContact} />
+            }
           />
           <Route
             path="contacts/new"

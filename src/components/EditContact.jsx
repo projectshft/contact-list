@@ -1,11 +1,12 @@
-import { PropTypes } from 'prop-types';
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { object, PropTypes } from 'prop-types';
+import { useState } from 'react';
+import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
 
-const AddContact = ({ addContact }) => {
+const EditContact = ({ contacts, editContact }) => {
   const navigate = useNavigate();
+  const { id } = useParams();
+  const contact = contacts.find((x) => x.id === +id);
 
-  // To use initialState (defaults), remove 'required' from input elements
   const initialState = {
     id: 0,
     name: '',
@@ -14,22 +15,26 @@ const AddContact = ({ addContact }) => {
     image: '/images/default.png',
   };
 
-  const [newContact, setNewContact] = useState(initialState);
+  const [updateContact, setUpdateContact] = useState(contact);
+  const { name, email, phone, image } = updateContact;
+
+  if (!contact) {
+    return <Navigate to="notFound" />;
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addContact({ ...newContact, id: +new Date() });
-    setNewContact(initialState);
+    editContact(updateContact);
     e.target.reset();
     navigate('../contacts');
   };
 
   const setInput = (e) => {
     if (e.target.value !== '') {
-      setNewContact({ ...newContact, [e.target.name]: e.target.value });
+      setUpdateContact({ ...updateContact, [e.target.name]: e.target.value });
     } else {
-      setNewContact({
-        ...newContact,
+      setUpdateContact({
+        ...updateContact,
         [e.target.name]: initialState[e.target.name],
       });
     }
@@ -44,7 +49,7 @@ const AddContact = ({ addContact }) => {
     <>
       <div className="flex-1 border-b pb-4">
         <h1 className="text-3xl font-bold text-gray-800 text-center">
-          Add Contact
+          Edit Contact
         </h1>
       </div>
       <div className="grid">
@@ -55,6 +60,7 @@ const AddContact = ({ addContact }) => {
               <input
                 type="text"
                 name="name"
+                value={name}
                 required="required"
                 className="border rounded-md mb-2 py-1 px-2 focus:outline-teal-300 grow"
                 onChange={setInput}
@@ -66,6 +72,7 @@ const AddContact = ({ addContact }) => {
               <input
                 type="email"
                 name="email"
+                value={email}
                 required="required"
                 className="border rounded-md mb-2 py-1 px-2 focus:outline-teal-300 grow"
                 onChange={setInput}
@@ -77,6 +84,7 @@ const AddContact = ({ addContact }) => {
               <input
                 type="text"
                 name="phone"
+                value={phone}
                 required="required"
                 className="border rounded-md mb-2 py-1 px-2 focus:outline-teal-300 grow"
                 onChange={setInput}
@@ -88,6 +96,7 @@ const AddContact = ({ addContact }) => {
               <input
                 type="text"
                 name="image"
+                value={image}
                 required="required"
                 className="border rounded-md mb-2 py-1 px-2 focus:outline-teal-300 grow"
                 onChange={setInput}
@@ -99,7 +108,7 @@ const AddContact = ({ addContact }) => {
                 type="submit"
                 className="block bg-gray-800 text-white hover:bg-teal-300 rounded-md mt-4 py-1 px-2 hover:text-gray-600 mr-2"
               >
-                Add Contact
+                Update Contact
               </button>
               <Link
                 to="/contacts"
@@ -115,8 +124,9 @@ const AddContact = ({ addContact }) => {
   );
 };
 
-AddContact.propTypes = {
-  addContact: PropTypes.func.isRequired,
+EditContact.propTypes = {
+  contacts: PropTypes.arrayOf(object).isRequired,
+  editContact: PropTypes.func.isRequired,
 };
 
-export default AddContact;
+export default EditContact;

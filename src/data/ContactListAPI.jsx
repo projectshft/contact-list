@@ -11,13 +11,13 @@ const ContactListAPI = () => [
     image: '/images/15.png',
     name: 'Lomruup',
     email: 'lomruup@galacticfed.gov',
-    phone: '(010) 110-0101-001',
+    phone: '110-0101-001001',
   },
   {
     id: 1657078672723,
     image: '/images/88.png',
     name: 'Flox Rhummdaa',
-    email: 'flox@extraterrestrialdad.org',
+    email: 'flox@etdads.org',
     phone: '(555) 555-5555',
   },
   {
