@@ -13,7 +13,9 @@
 .btn {
   cursor: pointer;
 }
-
+.btn-add-contact {
+  float: right;
+}
 .img {
   width: 150px;
   height: 150px;
@@ -22,4 +24,9 @@
 
 .card-body {
   text-align: center;
+}
+
+.form-group {
+  font-size: 20px;
+  padding-bottom: 10px;
 }
