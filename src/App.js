@@ -9,33 +9,20 @@ const containerStyleApp =
   'App d-flex flex-column bg-primary border border-warning';
 
 function App() {
-  const [contacts, setContacts] = useState([
-    {
-      id: 1,
-      name: 'Braydon Sutherland',
-      email: 'BraydonSutherland@gmail.com',
-      phoneNumber: '205-240-2240',
-      img: 'https://images.squarespace-cdn.com/content/v1/5b6e2e06506fbe88e59208e5/ea4b5cad-46bc-4bea-950c-cdbc78aaff24/DSCF5782.jpeg?format=750w',
-    },
-    {
-      id: 2,
-      name: 'Sally Sutherland',
-      email: 'SallySutherland@gmail.com',
-      phoneNumber: '205-240-2255',
-      img: 'https://images.squarespace-cdn.com/content/v1/5b6e2e06506fbe88e59208e5/ea4b5cad-46bc-4bea-950c-cdbc78aaff24/DSCF5782.jpeg?format=750w',
-    },
-    {
-      id: 3,
-      name: 'Colin Sutherland',
-      email: 'ColinSutherland@gmail.com',
-      phoneNumber: '205-240-2266',
-      img: 'https://images.squarespace-cdn.com/content/v1/5b6e2e06506fbe88e59208e5/ea4b5cad-46bc-4bea-950c-cdbc78aaff24/DSCF5782.jpeg?format=750w',
-    },
-  ]);
+  const [contacts, setContacts] = useState([]);
+  // Adding a Contact with Random ID //
+  const addContact = (contact) => {
+    const id = Math.floor(Math.random() * 5000) + 1;
+    // New Obj with id plus copy of contact //
+    const newContact = { id, ...contact };
+    // App State with existing contacts plus new //
+    setContacts([...contacts, newContact]);
+  };
   return (
     <Container className={containerStyleApp}>
       <Header />
-      <AddContact />
+      <hr />
+      <AddContact onAdd={addContact} />
       <hr />
       <Contacts contacts={contacts} />
     </Container>
