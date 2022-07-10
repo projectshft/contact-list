@@ -5,7 +5,9 @@ import { ReactComponent as EditIcon } from '../images/edit.svg';
 
 const ContactCard = ({ id, name, email, phone, image, deleteContact }) => {
   const handleDeleteContact = () => {
-    deleteContact(id);
+    if (window.confirm(`Do you really want to delete ${name}?`)) {
+      deleteContact(id);
+    }
   };
 
   return (
