@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Container } from 'react-bootstrap';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Contacts from './components/Contacts';
 import AddContact from './components/AddContact';
@@ -19,13 +20,22 @@ function App() {
     setContacts([...contacts, newContact]);
   };
   return (
-    <Container className={containerStyleApp}>
-      <Header />
-      <hr />
-      <AddContact onAdd={addContact} />
-      <hr />
-      <Contacts contacts={contacts} />
-    </Container>
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Container className={containerStyleApp}>
+              <Header />
+              <hr />
+              <AddContact onAdd={addContact} />
+              <hr />
+              <Contacts contacts={contacts} />
+            </Container>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
