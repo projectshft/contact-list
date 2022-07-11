@@ -1,25 +1,68 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import { Container } from 'react-bootstrap';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import SingleContact from './components/SingleContact';
+import Contacts from './components/Contacts';
+import AddContact from './components/AddContact';
+import Error from './components/Error';
 
-function App() {
+// Container Classes App //
+const containerStyleApp =
+  'd-flex flex-column bg-primary border border-warning p-2';
+
+const App = () => {
+  // Global State //
+  const [contacts, setContacts] = useState([]);
+
+  // Adding a New Contact with Random ID //
+  const addContact = (contact) => {
+    const id = Math.floor(Math.random() * 5000) + 1;
+    // New Obj with id plus copy of new contact //
+    const newContact = { id, ...contact };
+    // App State with existing contacts plus new contact //
+    setContacts([...contacts, newContact]);
+  };
+  // Deleting a Contact //
+  const deleteContact = (id) => {
+    // Set State - Filter contacts - don't show matched id //
+    setContacts(contacts.filter((contact) => contact.id !== id));
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Container className={containerStyleApp}>
+              <Header />
+              <hr />
+              <h1 className="h1-home text-warning">Please Add A Contact</h1>
+            </Container>
+          }
+        />
+        <Route path="addcontact" element={<AddContact onAdd={addContact} />} />
+        <Route
+          path="contacts"
+          element={
+            <Container className={containerStyleApp}>
+              <Header />
+              <hr />
+              <Contacts contacts={contacts} />
+            </Container>
+          }
+        />
+        <Route
+          path="contacts/:contactId"
+          element={
+            <SingleContact contacts={contacts} deleteContact={deleteContact} />
+          }
+        />
+        <Route path="*" element={<Error />} />
+      </Routes>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
