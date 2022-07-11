@@ -6,9 +6,11 @@
 body {
   background-color: cornsilk;
 }
+
 .app-container {
   max-width: 600px;
 }
+
 .contact-form {
   max-width: 600px;
 }
