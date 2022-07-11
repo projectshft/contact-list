@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { Container, Card, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 // Card Bootstrap Classes //
 const cardClass =
@@ -7,27 +8,24 @@ const cardClass =
 // Card-img Bootstrap Classes //
 const cardImg = 'img m-3 border border-warning';
 
-const Contacts = ({ contacts }) => {
-  const onClickCard = () => {
-    console.log('Click to Go to a contact page');
-  };
-  return (
-    <Container className="pb-5">
-      {contacts.map((contact) => (
-        <Card key={contact.id} className={cardClass}>
-          <Card.Img className={cardImg} src={contact.img} />
-          <Card.Body className="card-body">
-            <Card.Title>{contact.name}</Card.Title>
-            <hr />
-            <Card.Text>{contact.email}</Card.Text>
-            <Card.Text>{contact.phoneNumber}</Card.Text>
-            <Button onClick={onClickCard}>Click To View</Button>
-          </Card.Body>
-        </Card>
-      ))}
-    </Container>
-  );
-};
+const Contacts = ({ contacts }) => (
+  <Container className="p-2">
+    {contacts.map((contact) => (
+      <Card key={contact.id} className={cardClass}>
+        <Card.Img className={cardImg} src={contact.img} />
+        <Card.Body className="card-body">
+          <Card.Title>{contact.name}</Card.Title>
+          <hr />
+          <Card.Text>{contact.email}</Card.Text>
+          <Card.Text>{contact.phoneNumber}</Card.Text>
+          <Link to={`/contacts/${contact.id}`}>
+            <Button>Click To View</Button>
+          </Link>
+        </Card.Body>
+      </Card>
+    ))}
+  </Container>
+);
 
 // PropTypes //
 Contacts.propTypes = {
@@ -35,3 +33,4 @@ Contacts.propTypes = {
 };
 
 export default Contacts;
+// "contacts/:contactId"

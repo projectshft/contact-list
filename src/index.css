@@ -3,30 +3,71 @@
   margin: 0;
   padding: 0;
 }
+
 .app-container {
   max-width: 600px;
 }
+.contact-form {
+  max-width: 540px;
+}
+
 .h1-header {
   font-size: 50px;
+}
+
+.h1-home {
+  text-align: center;
+}
+
+.h1-contact {
+  font-size: 50px;
+  text-align: center;
+}
+
+.h1-single-contact {
+  font-size: 50px;
+  text-align: center;
 }
 
 .btn {
   cursor: pointer;
 }
+
 .btn-add-contact {
   float: right;
 }
+
 .img {
   width: 150px;
   height: 150px;
   object-fit: cover;
 }
 
+.form-group {
+  font-size: 20px;
+  padding-bottom: 10px;
+}
+
 .card-body {
   text-align: center;
 }
 
-.form-group {
-  font-size: 20px;
-  padding-bottom: 10px;
+.card:hover {
+  animation: bounce 0.5s linear;
+}
+
+@keyframes bounce {
+  20% {
+    transform: translateY(-6px);
+  }
+  40% {
+    transform: translateY(0px);
+  }
+
+  80% {
+    transform: translateY(-2px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }

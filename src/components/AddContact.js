@@ -1,8 +1,12 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
+// Container Classes AddContact //
+const containerStyleAdd = 'contact-form bg-primary pt-4 border border-warning';
 const AddContact = ({ onAdd }) => {
+  const navigate = useNavigate();
   // Setting the Component Level State for each input //
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -14,17 +18,21 @@ const AddContact = ({ onAdd }) => {
     event.preventDefault();
     if (!name || !email || !number || !img) {
       alert('Please Complete the Form');
+    } else {
+      onAdd({ name, email, number, img });
+      navigate('/contacts');
+      // Clearing Input //
+      setName('');
+      setEmail('');
+      setNumber('');
+      setPicture('');
     }
-    onAdd({ name, email, number, img });
-    // Clearing Input //
-    setName('');
-    setEmail('');
-    setNumber('');
-    setPicture('');
   };
   return (
-    <Container>
-      <Form onSubmit={onSubmit}>
+    <Container className={containerStyleAdd}>
+      <h1 className="h1-contact text-warning">Add a New Contact</h1>
+      <hr />
+      <Form onSubmit={onSubmit} className="pb-5">
         <Form.Group className="form-group" controlId="form.Name">
           <Form.Label>Enter First and Last Name</Form.Label>
           <Form.Control
@@ -37,7 +45,7 @@ const AddContact = ({ onAdd }) => {
         <Form.Group className="form-group" controlId="form.Email">
           <Form.Label>Email Address</Form.Label>
           <Form.Control
-            type="text"
+            type="email"
             placeholder="example@gmail.com"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
@@ -61,9 +69,11 @@ const AddContact = ({ onAdd }) => {
             onChange={(event) => setPicture(event.target.value)}
           />
         </Form.Group>
-        <Button className="btn-add-contact" variant="warning" type="submit">
-          Submit
-        </Button>
+        <Form.Group className="form-group" controlId="form.button">
+          <Button className="btn-add-contact" variant="warning" type="submit">
+            Submit
+          </Button>
+        </Form.Group>
       </Form>
     </Container>
   );
