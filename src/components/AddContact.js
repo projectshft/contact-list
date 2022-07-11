@@ -54,8 +54,8 @@ const AddContact = ({ onAdd }) => {
         <Form.Group className="form-group" controlId="form.Number">
           <Form.Label>Phone Number</Form.Label>
           <Form.Control
-            type="text"
-            placeholder="example: 123-456-7899"
+            type="number"
+            placeholder="example: 1234567899"
             value={number}
             onChange={(event) => setNumber(event.target.value)}
           />

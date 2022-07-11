@@ -9,7 +9,7 @@ const cardClass =
 const cardImg = 'img m-3 border border-warning';
 
 const Contacts = ({ contacts }) => (
-  <Container className="p-2">
+  <Container className="contacts-container p-2">
     {contacts.map((contact) => (
       <Card key={contact.id} className={cardClass}>
         <Card.Img className={cardImg} src={contact.img} />
@@ -17,7 +17,7 @@ const Contacts = ({ contacts }) => (
           <Card.Title>{contact.name}</Card.Title>
           <hr />
           <Card.Text>{contact.email}</Card.Text>
-          <Card.Text>{contact.phoneNumber}</Card.Text>
+          <Card.Text>{contact.number}</Card.Text>
           <Link to={`/contacts/${contact.id}`}>
             <Button>Click To View</Button>
           </Link>

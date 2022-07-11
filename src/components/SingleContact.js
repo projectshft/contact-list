@@ -19,18 +19,19 @@ const SingleContact = ({ contacts }) => {
     (value) => value.id === contactIdNumber
   );
 
-  const { name, email, phoneNumber, img, id } = selectedContact;
+  const { name, email, number, img, id } = selectedContact;
 
   return (
     <Container className={containerStyleApp}>
       <h1 className="h1-single-contact text-warning">You have selected</h1>
+      <hr />
       <Card key={id} className={cardClass}>
         <Card.Img className={cardImg} src={img} />
         <Card.Body className="card-body">
           <Card.Title>{name}</Card.Title>
           <hr />
           <Card.Text>{email}</Card.Text>
-          <Card.Text>{phoneNumber}</Card.Text>
+          <Card.Text>{number}</Card.Text>
           <Link to="/contacts">
             <Button>Back To Contacts</Button>
           </Link>
