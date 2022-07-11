@@ -13,8 +13,9 @@ const cardImg = 'img m-3 border border-warning';
 
 const SingleContact = ({ contacts, deleteContact }) => {
   const { contactId } = useParams();
+  // Converting from string to number //
   const contactIdNumber = Number(contactId);
-
+  // Matching ids //
   const selectedContact = contacts.find(
     (value) => value.id === contactIdNumber
   );
