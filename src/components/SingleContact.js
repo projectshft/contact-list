@@ -11,7 +11,7 @@ const cardClass =
 // Card-img Bootstrap Classes //
 const cardImg = 'img m-3 border border-warning';
 
-const SingleContact = ({ contacts }) => {
+const SingleContact = ({ contacts, deleteContact }) => {
   const { contactId } = useParams();
   const contactIdNumber = Number(contactId);
 
@@ -33,6 +33,10 @@ const SingleContact = ({ contacts }) => {
           <Card.Text>{email}</Card.Text>
           <Card.Text>{number}</Card.Text>
           <Link to="/contacts">
+            <Button className="btn-danger" onClick={() => deleteContact(id)}>
+              Click to Delete
+            </Button>
+            <hr />
             <Button>Back To Contacts</Button>
           </Link>
         </Card.Body>
@@ -46,4 +50,5 @@ export default SingleContact;
 // PropTypes //
 SingleContact.propTypes = {
   contacts: PropTypes.array,
+  deleteContact: PropTypes.func,
 };

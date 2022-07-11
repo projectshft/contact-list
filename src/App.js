@@ -14,13 +14,19 @@ const containerStyleApp =
 const App = () => {
   // Global State //
   const [contacts, setContacts] = useState([]);
-  // Adding a Contact with Random ID //
+
+  // Adding a New Contact with Random ID //
   const addContact = (contact) => {
     const id = Math.floor(Math.random() * 5000) + 1;
-    // New Obj with id plus copy of contact //
+    // New Obj with id plus copy of new contact //
     const newContact = { id, ...contact };
-    // App State with existing contacts plus new //
+    // App State with existing contacts plus new contact //
     setContacts([...contacts, newContact]);
+  };
+  // Deleting a Contact //
+  const deleteContact = (id) => {
+    // Set State - Filter contacts - don't show matched id //
+    setContacts(contacts.filter((contact) => contact.id !== id));
   };
 
   return (
@@ -49,7 +55,9 @@ const App = () => {
         />
         <Route
           path="contacts/:contactId"
-          element={<SingleContact contacts={contacts} />}
+          element={
+            <SingleContact contacts={contacts} deleteContact={deleteContact} />
+          }
         />
         <Route path="*" element={<Error />} />
       </Routes>

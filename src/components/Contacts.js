@@ -33,4 +33,3 @@ Contacts.propTypes = {
 };
 
 export default Contacts;
-// "contacts/:contactId"
