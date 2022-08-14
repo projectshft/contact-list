@@ -1,23 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { Switch, Route } from "react-router-dom";
+import Contacts from "./components/Contacts";
+// import NewContact from "./components/NewContact";
+import Home from "./components/Home";
+import './App.css'
 
 function App() {
+  const [contacts, setContacts] = useState([
+    {
+      id: 70219577,
+      name: "Albert Einstein",
+      image_url:
+        "https://en.wikipedia.org/wiki/Albert_Einstein#/media/File:Einstein_1921_by_F_Schmutzer_-_restoration.jpg",
+      email: "aeinstein@example.com",
+      phone_number: "15555555555",
+    },
+  ]);
+
+  const addContact = (contact) => {
+    setContacts((contacts) => {
+      return [...contacts, contact];
+    });
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1 className="header" >Contact List</h1>
+      <img src={"https://en.wikipedia.org/wiki/Chow_Chow#/media/File:ChowChow2Szczecin.jpg"} alt=""/>
+      <Switch>
+        <Route exact path="/" render={() => <Home contacts={contacts} />} />
+        {/* <Route path="/new" render={() => <NewContact contacts={contacts} addContact={addContact}/>} /> */}
+        <Route
+          path="/contacts"
+          render={() => (
+            <Contacts contacts={contacts} addContact={addContact} />
+          )}
+        />
+      </Switch>
     </div>
   );
 }
