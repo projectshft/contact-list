@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import "../App.css";
 import PropTypes from "prop-types";
 
@@ -10,7 +9,7 @@ const NewContact = ({ contacts, addContact, history }) => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const generateId = () => Math.round(Math.random() * 100000000);
 
-  const handleSubmitClick = () => {
+  const handleOnSubmit = () => {
     addContact({
       id: generateId(),
       name: name,
@@ -25,15 +24,15 @@ const NewContact = ({ contacts, addContact, history }) => {
   return (
     <div className="row" id="newcontact-info">
       <div className="col-md-4 center">
-        <form>
+        <form onSubmit={handleOnSubmit}>
           <div className="form-group">
             <label htmlFor="contact-fullName">Full Name</label>
             <input
-              type="text"
+              type="name"
               className="form-control"
               placeholder="Enter Full Name"
               onChange={(e) => setName(e.target.value)}
-              required
+              required={true}
             />
           </div>
 
@@ -44,18 +43,18 @@ const NewContact = ({ contacts, addContact, history }) => {
               className="form-control"
               placeholder="Enter email"
               onChange={(e) => setEmail(e.target.value)}
-              required
+              required={true}
             />
           </div>
 
           <div className="form-group">
             <label htmlFor="contact-phoneNumber">Phone Number</label>
             <input
-              type="number"
+              type="tel"
               className="form-control"
               placeholder="Enter Phone"
               onChange={(e) => setPhoneNumber(e.target.value)}
-              required
+              required={true}
             />
           </div>
 
@@ -66,30 +65,27 @@ const NewContact = ({ contacts, addContact, history }) => {
               className="form-control"
               placeholder="Image URL"
               onChange={(e) => setImageURL(e.target.value)}
-              required
+              required={true}
             />
           </div>
 
-          <Link to="/contacts">
-            <button
-              type="submit"
-              className="btn btn-primary"
-              onClick={handleSubmitClick}
-            >
-              Add Contact
-            </button>
-          </Link>
+          <button
+            type="submit"
+            className="btn btn-primary"
+          >
+            Add Contact
+          </button>
         </form>
       </div>
     </div>
   );
 };
 
-NewContact.propTypes = {
-  name: PropTypes.string.isRequired,
-  image_url: PropTypes.string.isRequired,
-  email: PropTypes.string.isRequired,
-  phone_number: PropTypes.string.isRequired,
-};
+// NewContact.propTypes = {
+//   name: PropTypes.string.isRequired,
+//   image_url: PropTypes.string.isRequired,
+//   email: PropTypes.string.isRequired,
+//   phone_number: PropTypes.string.isRequired,
+// };
 
 export default NewContact;
