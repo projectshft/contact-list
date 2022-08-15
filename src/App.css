@@ -5,6 +5,8 @@
 }
 
 #newcontact-info {
+  position: relative;
+  top: -100px;
   justify-content: center;
   align-items: center;
   height: 70vh;
@@ -23,6 +25,11 @@
 
 .profile-pic {
   text-align: center;
+  /* display: block; */
+  max-width:230px;
+  max-height:95px;
+  width: auto;
+  height: auto;
 }
 
 td {
@@ -30,6 +37,13 @@ td {
   text-align: left;
   padding: 10px;
 }
+
+/* thead {
+  text-align: right;
+  position: absolute;
+  margin-left: 10px;
+  padding: 10px 25px;
+} */
 
 .card {
   margin-left: auto;

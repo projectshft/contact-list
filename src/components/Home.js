@@ -1,16 +1,17 @@
 import React from "react";
 import "../App.css";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const Home = ({ contacts }) => {
+  const history = useHistory();
+  function handleRowClick(index) {
+    history.push(`/contacts/${index}`);
+  }
   return (
     <div>
       <Link to="/contacts/new">
-        <button
-          type="submit"
-          className="btn btn-primary"
-          id="addcontact-btn"
-        >
+        <button type="submit" className="btn btn-primary" id="addcontact-btn">
           Add Contact
         </button>
       </Link>
@@ -25,7 +26,7 @@ const Home = ({ contacts }) => {
         </thead>
         <tbody>
           {contacts.map((c, index) => (
-            <tr key={index}>
+            <tr key={index} onClick={() => handleRowClick(index)}>
               {/* <Link to={`/contacts/${index}`}></Link> */}
               <td className="profile-pic">
                 <img
@@ -37,9 +38,7 @@ const Home = ({ contacts }) => {
                 />
               </td>
 
-              <td>
-                <Link to={`/contacts/${index}`}>{c.name}</Link>
-              </td>
+              <td>{c.name}</td>
 
               <td>{c.email}</td>
 

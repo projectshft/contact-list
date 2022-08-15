@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
+import PropTypes from "prop-types";
 
 const NewContact = ({ contacts, addContact, history }) => {
   const [name, setName] = useState("");
@@ -32,6 +33,7 @@ const NewContact = ({ contacts, addContact, history }) => {
               className="form-control"
               placeholder="Enter Full Name"
               onChange={(e) => setName(e.target.value)}
+              required
             />
           </div>
 
@@ -42,6 +44,7 @@ const NewContact = ({ contacts, addContact, history }) => {
               className="form-control"
               placeholder="Enter email"
               onChange={(e) => setEmail(e.target.value)}
+              required
             />
           </div>
 
@@ -52,6 +55,7 @@ const NewContact = ({ contacts, addContact, history }) => {
               className="form-control"
               placeholder="Enter Phone"
               onChange={(e) => setPhoneNumber(e.target.value)}
+              required
             />
           </div>
 
@@ -62,6 +66,7 @@ const NewContact = ({ contacts, addContact, history }) => {
               className="form-control"
               placeholder="Image URL"
               onChange={(e) => setImageURL(e.target.value)}
+              required
             />
           </div>
 
@@ -78,6 +83,13 @@ const NewContact = ({ contacts, addContact, history }) => {
       </div>
     </div>
   );
+};
+
+NewContact.propTypes = {
+  name: PropTypes.string.isRequired,
+  image_url: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  phone_number: PropTypes.string.isRequired,
 };
 
 export default NewContact;

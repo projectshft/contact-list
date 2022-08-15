@@ -13,7 +13,11 @@ const ShowContact = ({ contactId, contacts }) => {
 
   return (
     <div className="card">
-      <img className="card-img-top" src="https://en.wikipedia.org/wiki/Albert_Einstein#/media/File:Einstein_1921_by_F_Schmutzer_-_restoration.jpg" alt={contact.name} />
+      <img
+        className="card-img-top"
+        src={contact.image_url}
+        alt={contact.name}
+      />
       <div className="card-body">
         <h5 className="card-title">{contact.name}</h5>
         <div className="card-text">
