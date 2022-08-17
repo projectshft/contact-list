@@ -2,6 +2,7 @@ import { Switch, Route } from "react-router-dom";
 import FullContacts from "./FullContacts";
 import NewContact from "./NewContact";
 import ShowContact from "./ShowContact";
+import PropTypes from "prop-types";
 
 const Contacts = ({ contacts, addContact }) => (
   <Switch>
@@ -30,5 +31,19 @@ const Contacts = ({ contacts, addContact }) => (
     />
   </Switch>
 );
+
+Contacts.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      imageUrl: PropTypes.string.isRequired,
+      email: PropTypes.string.isRequired,
+      phoneNumber: PropTypes.string.isRequired,
+    }).isRequired
+  ).isRequired,
+
+  addContact: PropTypes.func.isRequired,
+};
 
 export default Contacts;

@@ -2,6 +2,7 @@ import React from "react";
 import "../App.css";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const FullContacts = ({ contacts }) => {
   const history = useHistory();
@@ -39,6 +40,18 @@ const FullContacts = ({ contacts }) => {
       </table>
     </div>
   );
+};
+
+FullContacts.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      imageUrl: PropTypes.string.isRequired,
+      email: PropTypes.string.isRequired,
+      phoneNumber: PropTypes.string.isRequired,
+    }).isRequired
+  ).isRequired,
 };
 
 export default FullContacts;

@@ -9,8 +9,6 @@ function App() {
     {
       id: 70219577,
       name: "Albert Einstein",
-      // image_url:
-      //   "https://en.wikipedia.org/wiki/Albert_Einstein#/media/File:Einstein_1921_by_F_Schmutzer_-_restoration.jpg",
       imageUrl:
         "https://images.newscientist.com/wp-content/uploads/2019/06/18142824/einstein.jpg",
       email: "aeinstein@example.com",

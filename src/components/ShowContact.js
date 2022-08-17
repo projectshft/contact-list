@@ -27,6 +27,15 @@ const ShowContact = ({ contactId, contacts }) => {
 
 ShowContact.propTypes = {
   contactId: PropTypes.number.isRequired,
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      imageUrl: PropTypes.string.isRequired,
+      email: PropTypes.string.isRequired,
+      phoneNumber: PropTypes.string.isRequired,
+    }).isRequired
+  ).isRequired,
 };
 
 export default ShowContact;
