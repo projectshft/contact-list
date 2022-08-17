@@ -5,7 +5,6 @@ const instance = axios.create({
 });
 
 export default async function getUsers() {
-  console.log('hey im users');
   return (
     instance
       .get('../data.json')

@@ -1,26 +1,17 @@
 import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
 import _ from 'lodash';
-import { useCallback, useEffect, useState } from 'react';
-import getUser from '../api/getUser';
 
 function Contact({ users }) {
+  // Get user ID from url
   const { id } = useParams();
-  // const [user, setUser] = useState([]);
-
-  // // trying to fix eslint errors and this is the solution I came up with
-  // const fetchUser = useCallback(async () => {
-  //   const contacts = await getUser(id);
-  //   setUser(contacts);
-  // }, [id, setUser]);
-
-  // useEffect(() => {
-  //   fetchUser();
-  // }, [fetchUser]);
+  // Try to find user with id
   const user = _.find(users, { id });
+  // If no user with id provided in url exists, let user know
   if (!user) {
     return <div>Sorry, the user with id {id} has not been found</div>;
   }
+
   return (
     <div>
       <h1>{user.name}</h1>

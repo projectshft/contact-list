@@ -7,7 +7,7 @@ export default function Main() {
     <>
       <h1>{uuidv4()}</h1>
       <Routes>
-        <Route path="/*" element={<Contacts />} />
+        <Route path="/" element={<Contacts />} />
         <Route path="contacts/*" element={<Contacts />} />
       </Routes>
     </>
