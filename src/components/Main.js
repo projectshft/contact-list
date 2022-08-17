@@ -20,8 +20,8 @@ export default function Main() {
     <>
       <h1>{uuidv4()}</h1>
       <Routes>
-        <Route path="/*" element={<Contacts />} />
-        <Route path="/contacts" element={<Contacts />} />
+        <Route index element={<Contacts users={users} />} />
+        <Route path="contacts/*" element={<Contacts users={users} />} />
       </Routes>
     </>
   );
