@@ -2,6 +2,7 @@ import React from "react";
 import "../App.css";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const Home = ({ contacts }) => {
   const history = useHistory();
@@ -27,10 +28,9 @@ const Home = ({ contacts }) => {
         <tbody>
           {contacts.map((c, index) => (
             <tr key={index} onClick={() => handleRowClick(index)}>
-              {/* <Link to={`/contacts/${index}`}></Link> */}
               <td className="profile-pic">
                 <img
-                  src={c.image_url}
+                  src={c.imageUrl}
                   alt=""
                   border="3"
                   height="150"
@@ -42,13 +42,25 @@ const Home = ({ contacts }) => {
 
               <td>{c.email}</td>
 
-              <td>{c.phone_number}</td>
+              <td>{c.phoneNumber}</td>
             </tr>
           ))}
         </tbody>
       </table>
     </div>
   );
+};
+
+Home.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      imageUrl: PropTypes.string.isRequired,
+      email: PropTypes.string.isRequired,
+      phoneNumber: PropTypes.string.isRequired,
+    }).isRequired
+  ).isRequired,
 };
 
 export default Home;

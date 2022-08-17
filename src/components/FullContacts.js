@@ -27,16 +27,12 @@ const FullContacts = ({ contacts }) => {
         <tbody>
           {contacts.map((c, index) => (
             <tr key={index} onClick={() => handleRowClick(index)}>
-              {/* <Link to={`/contacts/${index}`}></Link> */}
               <td className="profile-pic">
-                <img src={c.image_url} alt=""  height="150" width="150"/>
+                <img src={c.imageUrl} alt="" height="150" width="150" />
               </td>
-
               <td>{c.name}</td>
-
               <td>{c.email}</td>
-
-              <td>{c.phone_number}</td>
+              <td>{c.phoneNumber}</td>
             </tr>
           ))}
         </tbody>

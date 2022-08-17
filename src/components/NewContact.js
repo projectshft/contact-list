@@ -2,20 +2,22 @@ import React, { useState } from "react";
 import "../App.css";
 import PropTypes from "prop-types";
 
-const NewContact = ({ contacts, addContact, history }) => {
+const NewContact = ({ addContact, history }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [imageURL, setImageURL] = useState("");
+  const [imageUrl, setImageURL] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const generateId = () => Math.round(Math.random() * 100000000);
 
-  const handleOnSubmit = () => {
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+
     addContact({
       id: generateId(),
-      name: name,
-      image_url: imageURL,
-      email: email,
-      phone_number: phoneNumber,
+      name,
+      imageUrl,
+      email,
+      phoneNumber,
     });
 
     history.push("/contacts");
@@ -69,10 +71,7 @@ const NewContact = ({ contacts, addContact, history }) => {
             />
           </div>
 
-          <button
-            type="submit"
-            className="btn btn-primary"
-          >
+          <button type="submit" className="btn btn-primary">
             Add Contact
           </button>
         </form>
@@ -81,11 +80,9 @@ const NewContact = ({ contacts, addContact, history }) => {
   );
 };
 
-// NewContact.propTypes = {
-//   name: PropTypes.string.isRequired,
-//   image_url: PropTypes.string.isRequired,
-//   email: PropTypes.string.isRequired,
-//   phone_number: PropTypes.string.isRequired,
-// };
+NewContact.propTypes = {
+  addContact: PropTypes.func.isRequired,
+  history: PropTypes.objectOf(PropTypes.any).isRequired,
+};
 
 export default NewContact;
