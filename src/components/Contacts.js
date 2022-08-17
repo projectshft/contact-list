@@ -19,10 +19,15 @@ const Contacts = () => {
     fetchContacts();
   }, [fetchContacts]);
 
+  const addUser = useCallback(
+    (user) => setUsers((prevUsers) => [...prevUsers, user]),
+    [setUsers]
+  );
+
   return (
     <Routes>
       <Route index element={<FullContacts users={users} />} />
-      <Route path="new" element={<NewContact />} />
+      <Route path="new" element={<NewContact addUser={addUser} />} />
       <Route path=":id" element={<Contact users={users} />} />
     </Routes>
   );
