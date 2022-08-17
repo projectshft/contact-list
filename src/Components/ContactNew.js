@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import uniqid from 'uniqid';
 
 
 const ContactNew = ({contactList, setContactList}) => {
@@ -23,7 +23,7 @@ const ContactNew = ({contactList, setContactList}) => {
         e.preventDefault();
 
         const newContact = {
-            id: 100000*Math.random(),
+            id: uniqid(),
             name: contactName,
             image_url: contactImageUrl,
             email: contactEmail,
