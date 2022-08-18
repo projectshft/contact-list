@@ -7,9 +7,14 @@ import { faTrash } from '@fortawesome/fontawesome-free-solid';
 const Contacts = ({ contactList, setContactList }) => {
   const icon = <FontAwesomeIcon icon={faTrash} />;
 
-  const handleClick = (contact) => {
+  const deleteContact = (contact) => {
     const newList = contactList.filter((c) => c !== contact);
     setContactList(newList);
+  };
+
+  const handleClick = (contact) => {
+    const text = 'Are you sure you want to delete this contact?';
+    return window.confirm(text) ? deleteContact(contact) : false;
   };
 
   return (
