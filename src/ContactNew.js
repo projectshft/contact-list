@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import React, { useState} from 'react'
-import Contacts from './Contacts';
+import PropTypes  from 'prop-types';
+
 
 
 const ContactNew = (props) => {
@@ -62,5 +63,12 @@ const ContactNew = (props) => {
     </div>
   )
 };
+
+ContactNew.propTypes = {
+  name: PropTypes.string,
+  email: PropTypes.string,
+  number: PropTypes.number,
+  imageURL: PropTypes.string,
+}
 
 export default ContactNew

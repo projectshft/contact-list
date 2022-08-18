@@ -10,13 +10,16 @@ const Contact = ({contactId, contacts}) => {
   }
 
   return (
-    <div>
-      <h1>{contact.name}</h1>
-      <img src={contact.imageURL}></img>
-      <h2>Number: {contact.number}</h2>
-      <h2>Email: {contact.email}</h2>
-      <Link to='/contacts'>Back</Link>
-    </div>
+    <div className="jumbotron jumbotron-fluid">
+  <div className="container">
+    <img className="img-thumbnail rounded-circle" src={contact.imageURL}></img>
+    <h1 className="display-4">{contact.name}</h1>
+    <p className="lead">Number: {contact.number}</p>
+    <p className="lead">Email: {contact.email}</p>
+  </div>
+  <Link to='/contacts'>Back</Link>
+</div>
+
   )
 }
 
