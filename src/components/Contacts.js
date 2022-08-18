@@ -9,7 +9,7 @@ import getUsers from '../api/getUsers';
 const Contacts = () => {
   const [users, setUsers] = useState([]);
 
-  // trying to fix eslint errors and this is the solution I came up with
+  // Use of useCallback() is needed to place setUsers() in useEffect() else there is an eslint error
   const fetchContacts = useCallback(async () => {
     const contacts = await getUsers();
     setUsers(contacts);
@@ -19,6 +19,7 @@ const Contacts = () => {
     fetchContacts();
   }, [fetchContacts]);
 
+  // Again, to fix an eslint error addUser is placed in useCallback()
   const addUser = useCallback(
     (user) => setUsers((prevUsers) => [...prevUsers, user]),
     [setUsers]

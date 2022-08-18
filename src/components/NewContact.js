@@ -10,14 +10,6 @@ export default function NewContact({ addUser }) {
   const [imgURL, setImgURL] = useState('#');
   const navigate = useNavigate();
 
-  // const use = {
-  //   name: 'hey',
-  //   email: 'ohshit@ohsss',
-  //   phone_number: 12412312312,
-  //   id: uuidv4(),
-  //   image_url: 'https://avatarfiles.alphacoders.com/285/285445.png',
-  // };
-
   function validateInput() {
     console.log(name, email, phoneNum, imgURL);
     return true;
