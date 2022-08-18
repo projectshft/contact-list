@@ -5,7 +5,7 @@ import ContactNew from './ContactNew'
 import Contact from './Contact'
 
 const test1 = {
-    "id": 101,
+    "id": "q101",
     "name": "Nathan Pak",
     "image_url": "",
     "email": "placeholder@placeholder.edu",
@@ -13,7 +13,7 @@ const test1 = {
 };
 
 const test2 = {
-    "id": 102,
+    "id": "s102",
     "name": "Hubert",
     "image_url": "",
     "email": "placeholder@placeholder.com",
@@ -28,21 +28,21 @@ const Main = () => {
             <Switch>
                 <Route exact path="/"><Contacts contactList={contactList}/></Route>
                 <Route exact path="/contacts"><Contacts contactList={contactList}/></Route>
-                <Route 
-                    path="/contacts/:id"
-                    render={(routerProps) => (
-                        <Contact
-                            contactList={contactList}
-                            contactId={parseInt(routerProps.match.params.id, 10)}
-                        />
-                    )}
-                />
-                <Route path="/contacts/new">
+                <Route exact path="/contacts/new">
                     <ContactNew 
                         contactList={contactList}
                         setContactList={setContactList}
                     />
                 </Route>
+                <Route 
+                    path="/contacts/:id"
+                    render={(routerProps) => (
+                        <Contact
+                            contactList={contactList}
+                            contactId={routerProps.match.params.id}
+                        />
+                    )}
+                />
             </Switch>
         </main>
     );
