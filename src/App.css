@@ -1,10 +1,26 @@
+/* ======================================= */
+/* Box sizing set for entire file */
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+/* ======================================= */
+/* Header styling */
 .navigation {
   display: flex;
   justify-content: space-around;
   align-items: center;
   background-color: rgb(37, 37, 65);
   height: 10vh;
-  margin-bottom: 5vh;
 }
 
 .navigation__link {
@@ -17,6 +33,9 @@
 .navigation__link:hover {
   color: rgb(255, 115, 0);
 }
+
+/* ======================================= */
+/* Home page styling */
 .container {
   display: flex;
   flex-direction: column;
@@ -29,3 +48,77 @@
   font-size: 5rem;
   text-align: center;
 }
+
+/* ======================================= */
+/* Contacts page styling */
+.contacts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5vh 0;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  width: 80%;
+  text-decoration: none;
+  border-top: 2px rgb(214, 214, 214) solid;
+  border-bottom: 2px rgb(214, 214, 214) solid;
+  border-left: 2px rgb(214, 214, 214) solid;
+  border-right: 2px rgb(214, 214, 214) solid;
+  color: black;
+}
+
+.row:nth-child(odd) {
+  background-color: rgb(233, 233, 233);
+}
+.row:visited {
+  color: black;
+}
+
+.row__image {
+  object-fit: cover;
+  object-position: center center;
+  width: 250px;
+  height: 250px;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.row__name {
+  font-size: 2.3rem;
+  font-weight: 600;
+  text-align: center;
+}
+.row__email,
+.row__phone {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+.row__name-box,
+.row__email-box,
+.row__image-box,
+.row__phone-box {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.row__image-box,
+.row__name-box,
+.row__email-box {
+  border-right: 2px rgb(214, 214, 214) solid;
+}
+
+.row__image-header,
+.row__name-header,
+.row__email-header,
+.row__phone-header {
+  font-size: 2rem;
+}
+
+/* ======================================= */

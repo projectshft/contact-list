@@ -38,6 +38,7 @@ export default function NewContact({ addUser }) {
           type="text"
           className="form-control"
           id="userName"
+          maxLength="25"
           onChange={(event) => setName(event.target.value)}
         />
 
@@ -48,6 +49,7 @@ export default function NewContact({ addUser }) {
           type="text"
           className="form-control"
           id="userEmail"
+          maxLength="254"
           onChange={(event) => setEmail(event.target.value)}
         />
 
