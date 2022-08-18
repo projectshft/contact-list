@@ -30,10 +30,10 @@ const Main = () => {
         {/* don't know if this is necessary, but use two routes so that
                 "/" and "/contacts" both display contact list */}
         <Route exact path="/">
-          <Contacts contactList={contactList} />
+          <Contacts contactList={contactList} setContactList={setContactList} />
         </Route>
         <Route exact path="/contacts">
-          <Contacts contactList={contactList} />
+          <Contacts contactList={contactList} setContactList={setContactList} />
         </Route>
 
         {/* route to the page that adds a new contact */}
