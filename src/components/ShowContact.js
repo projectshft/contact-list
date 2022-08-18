@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom";
-import "../App.css";
-import React from "react";
-import PropTypes from "prop-types";
+import { Link } from 'react-router-dom';
+import '../App.css';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const ShowContact = ({ contactId, contacts }) => {
-  let contact = contacts[contactId];
+  const contact = contacts[contactId];
 
   if (!contact) {
     return <div>Sorry, the contact was not found</div>;

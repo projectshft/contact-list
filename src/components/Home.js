@@ -1,8 +1,8 @@
-import React from "react";
-import "../App.css";
-import { Link } from "react-router-dom";
-import { useHistory } from "react-router-dom";
-import PropTypes from "prop-types";
+import React from 'react';
+import '../App.css';
+import { Link, useHistory } from 'react-router-dom';
+
+import PropTypes from 'prop-types';
 
 const Home = ({ contacts }) => {
   const history = useHistory();

@@ -1,8 +1,8 @@
-import { Switch, Route } from "react-router-dom";
-import FullContacts from "./FullContacts";
-import NewContact from "./NewContact";
-import ShowContact from "./ShowContact";
-import PropTypes from "prop-types";
+import { Switch, Route } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import FullContacts from './FullContacts';
+import NewContact from './NewContact';
+import ShowContact from './ShowContact';
 
 const Contacts = ({ contacts, addContact }) => (
   <Switch>

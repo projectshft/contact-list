@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import "../App.css";
-import PropTypes from "prop-types";
+import React, { useState } from 'react';
+import '../App.css';
+import PropTypes from 'prop-types';
 
 const NewContact = ({ addContact, history }) => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [imageUrl, setImageURL] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [imageUrl, setImageURL] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
   const generateId = () => Math.round(Math.random() * 100000000);
 
   const handleOnSubmit = (e) => {
@@ -20,7 +20,7 @@ const NewContact = ({ addContact, history }) => {
       phoneNumber,
     });
 
-    history.push("/contacts");
+    history.push('/contacts');
   };
 
   return (
@@ -34,7 +34,7 @@ const NewContact = ({ addContact, history }) => {
               className="form-control"
               placeholder="Enter Full Name"
               onChange={(e) => setName(e.target.value)}
-              required={true}
+              required
             />
           </div>
 
@@ -45,7 +45,7 @@ const NewContact = ({ addContact, history }) => {
               className="form-control"
               placeholder="Enter email"
               onChange={(e) => setEmail(e.target.value)}
-              required={true}
+              required
             />
           </div>
 
@@ -56,7 +56,7 @@ const NewContact = ({ addContact, history }) => {
               className="form-control"
               placeholder="Enter Phone"
               onChange={(e) => setPhoneNumber(e.target.value)}
-              required={true}
+              required
             />
           </div>
 
@@ -67,7 +67,7 @@ const NewContact = ({ addContact, history }) => {
               className="form-control"
               placeholder="Image URL"
               onChange={(e) => setImageURL(e.target.value)}
-              required={true}
+              required
             />
           </div>
 
