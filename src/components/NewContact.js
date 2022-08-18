@@ -8,6 +8,7 @@ export default function NewContact({ addUser }) {
   const [email, setEmail] = useState('');
   const [phoneNum, setPhoneNum] = useState(null);
   const [imgURL, setImgURL] = useState('#');
+  const [id] = useState(uuidv4());
   const navigate = useNavigate();
 
   function validateInput() {
@@ -23,7 +24,7 @@ export default function NewContact({ addUser }) {
         email,
         phone_number: phoneNum,
         image_url: imgURL,
-        id: uuidv4(),
+        id,
       };
       addUser(newUser);
       navigate('../', { replace: true });
@@ -31,12 +32,14 @@ export default function NewContact({ addUser }) {
   }
 
   return (
-    <div>
-      <form>
-        <label htmlFor="userName">Name</label>
+    <div className="form">
+      <form autoComplete="off" className="form__inner">
+        <label htmlFor="userName" className="form__name-label">
+          Name
+        </label>
         <input
           type="text"
-          className="form-control"
+          className="form-control form__name-input"
           id="userName"
           maxLength="25"
           onChange={(event) => setName(event.target.value)}
@@ -44,10 +47,12 @@ export default function NewContact({ addUser }) {
 
         <br />
 
-        <label htmlFor="userEmail">Email</label>
+        <label htmlFor="userEmail" className="form__email-label">
+          Email
+        </label>
         <input
           type="text"
-          className="form-control"
+          className="form-control form__email-input"
           id="userEmail"
           maxLength="254"
           onChange={(event) => setEmail(event.target.value)}
@@ -55,11 +60,14 @@ export default function NewContact({ addUser }) {
 
         <br />
 
-        <label htmlFor="userPhoneNum">Phone Number</label>
+        <label htmlFor="userPhoneNum" className="form__phone-label">
+          Phone Number
+        </label>
         <input
           type="tel"
           name="telphone"
           id="userPhoneNum"
+          className="form-control form__phone-input"
           placeholder="888 888 8888"
           maxLength="12"
           title="Ten digits code"
@@ -69,22 +77,30 @@ export default function NewContact({ addUser }) {
 
         <br />
 
-        <label htmlFor="userImg">Link to Profile Picture</label>
+        <label htmlFor="userImg" className="form__img-label">
+          Link to Profile Picture
+        </label>
         <input
           type="text"
-          className="form-control"
+          className="form-control form__img-input"
           id="userImg"
           onChange={(event) => setImgURL(event.target.value)}
         />
 
         <br />
 
-        <button type="button" onClick={handleAddUserClick}>
+        <button
+          type="button"
+          className="form__btn"
+          onClick={handleAddUserClick}
+        >
           Add User
         </button>
       </form>
 
-      <Link to="/contacts">Contacts</Link>
+      <Link to="/contacts" className="form__link-back">
+        Back to Contacts
+      </Link>
     </div>
   );
 }

@@ -79,6 +79,10 @@ html {
   color: black;
 }
 
+.row:not(:first-child):hover {
+  background-color: rgb(225, 234, 241);
+}
+
 .row__image {
   object-fit: cover;
   object-position: center center;
@@ -122,3 +126,96 @@ html {
 }
 
 /* ======================================= */
+/* Individual contact page */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+}
+.card__inner {
+  margin-top: 5vh;
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  border: 2px gray solid;
+  padding-bottom: 2vh;
+}
+
+.card__name {
+  font-size: 3rem;
+}
+
+.card__image {
+  width: 400px;
+  height: 400px;
+  align-self: center;
+}
+.card__btn {
+  width: 50%;
+  align-self: center;
+  font-size: 1.8rem;
+}
+
+.card__email,
+.card__phone {
+  font-size: 2rem;
+}
+
+.card__phone {
+  margin-top: 0;
+}
+
+/* ======================================= */
+/* Add new contact page */
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5vh;
+}
+
+.form__inner {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.form__name-label,
+.form__email-label,
+.form__phone-label,
+.form__img-label {
+  font-size: 2rem;
+}
+.form__name-input,
+.form__email-input,
+.form__phone-input,
+.form__img-input {
+  font-size: 2rem;
+  width: 100%;
+}
+
+.form__btn {
+  font-size: 3rem;
+  width: 20%;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.form__link-back {
+  font-size: 2rem;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  background-color: rgb(209, 209, 209);
+  border: 2px black solid;
+  margin-top: 10vh;
+  padding: 10px;
+}
+
+.form__link-back:hover {
+  background-color: rgb(53, 53, 53);
+  color: rgb(255, 115, 0);
+}

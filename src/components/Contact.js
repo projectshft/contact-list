@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import _ from 'lodash';
 
 function Contact({ users }) {
+  const navigate = useNavigate();
   // Get user ID from url
   const { id } = useParams();
   // Try to find user with id
@@ -12,13 +13,26 @@ function Contact({ users }) {
     return <div>Sorry, the user with id {id} has not been found</div>;
   }
 
+  function handleBackClick() {
+    navigate('../', { replace: true });
+  }
+
   return (
-    <div>
-      <h1>{user.name}</h1>
-      <img src={user.image_url} alt={`Profile pic of ${user.name}`} />
-      <h2>Email: {user.email}</h2>
-      <h2>Phone Number: {user.phone_number}</h2>
-    </div>
+    <section className="card">
+      <div className="card__inner">
+        <h1 className="card__name">{user.name}</h1>
+        <img
+          src={user.image_url}
+          alt={`Profile pic of ${user.name}`}
+          className="card__image"
+        />
+        <h2 className="card__email">Email: {user.email}</h2>
+        <h2 className="card__phone">Phone Number: {user.phone_number}</h2>
+        <button type="submit" className="card__btn" onClick={handleBackClick}>
+          Back
+        </button>
+      </div>
+    </section>
   );
 }
 
