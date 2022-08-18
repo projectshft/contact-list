@@ -3,6 +3,8 @@ import uniqid from 'uniqid';
 
 
 const ContactNew = ({contactList, setContactList}) => {
+    //setting up state for the different properties on the contact object
+    //do I need to use state for the unique id?
     const [contactName, setContactName] = useState("");
     const [contactImageUrl, setContactImageUrl] = useState("");
     const [contactEmail, setContactEmail] = useState("");

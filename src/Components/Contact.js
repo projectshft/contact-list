@@ -1,6 +1,7 @@
 import React from 'react';
 
-const Contact = ({contactList, contactId}) => {   
+const Contact = ({contactList, contactId}) => {
+    //find specific contact object matching the id passed in through props   
     const contact = contactList.find((c) => c.id === contactId);
 
     return (
@@ -11,5 +12,7 @@ const Contact = ({contactList, contactId}) => {
         </div>
     )
 };
+
+//can maybe use proptypes here to set up a default image?
 
 export default Contact;

@@ -2,11 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
-const Contacts = (props) => (
+const Contacts = ({contactList}) => (
     <div>
         <ul>
             {
-                props.contactList.map(contact => (
+                contactList.map(contact => (
                     <li key={contact.id}>
                         <Link to={`contacts/${contact.id}`}>{contact.name}</Link>
                     </li>
