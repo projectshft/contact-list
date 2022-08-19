@@ -60,6 +60,12 @@ html {
 
 .row {
   display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.row__inner {
+  display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: stretch;
@@ -72,14 +78,14 @@ html {
   color: black;
 }
 
-.row:nth-child(odd) {
+.row__inner:nth-child(odd) {
   background-color: rgb(233, 233, 233);
 }
-.row:visited {
+.row__inner:visited {
   color: black;
 }
 
-.row:not(:first-child):hover {
+.row__inner:not(:first-child):hover {
   background-color: rgb(225, 234, 241);
 }
 
@@ -125,6 +131,15 @@ html {
   font-size: 2rem;
 }
 
+.btn-row {
+  width: 5%;
+  padding: 10px 0;
+  align-self: stretch;
+}
+
+.row__table-header {
+  margin-right: 5%;
+}
 /* ======================================= */
 /* Individual contact page */
 

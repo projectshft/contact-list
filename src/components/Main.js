@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import { useCallback, useEffect, useState } from 'react';
+import _ from 'lodash';
 import Contacts from './Contacts';
 import Home from './Home';
 import NotHome from './NotHome';
@@ -24,12 +25,25 @@ export default function Main() {
     [setUsers]
   );
 
+  const removeUser = useCallback(
+    (id) =>
+      setUsers((prevUsers) => {
+        const currentUsers = [...prevUsers];
+        // Filters out user with the id passed to removeUser
+        const updatedUsers = currentUsers.filter((user) => user.id !== id);
+        return updatedUsers;
+      }),
+    []
+  );
+
   return (
     <Routes>
       <Route path="/" element={<Home />} />
       <Route
         path="contacts/*"
-        element={<Contacts addUser={addUser} users={users} />}
+        element={
+          <Contacts addUser={addUser} users={users} removeUser={removeUser} />
+        }
       />
       <Route path="*" element={<NotHome />} />
     </Routes>
