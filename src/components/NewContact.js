@@ -3,6 +3,7 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 // import { createConstructor } from 'typescript';
+import validateInput from './Validation';
 
 export default function NewContact({ addUser }) {
   const [name, setName] = useState('');
@@ -12,39 +13,17 @@ export default function NewContact({ addUser }) {
   const [id] = useState(uuidv4());
   const navigate = useNavigate();
 
-  function checkImage(url) {
-    const image = new Image();
-
-    image.onerror = function () {
-      alert(
-        'The Image URL imputted is invalid and the image has been replaced'
-      );
-    };
-    image.src = url;
-  }
-
-  function validateInput() {
-    // The only required field I have set is the name of the contact. The image will auto-replace itself only if the link is invalid
-    if (name.length > 0) {
-      checkImage(imgURL);
-      return true;
-    }
-    return false;
-  }
-
   function handleAddUserClick() {
-    if (validateInput()) {
-      const newUser = {
-        name,
-        email,
-        phone_number: phoneNum,
-        image_url: imgURL,
-        id,
-      };
+    const newUser = {
+      name,
+      email,
+      phone_number: phoneNum,
+      image_url: imgURL,
+      id,
+    };
+    if (validateInput(newUser)) {
       addUser(newUser);
       navigate('../', { replace: true });
-    } else {
-      alert('Please enter a name for this contact (required)');
     }
   }
 

@@ -2,10 +2,10 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import _ from 'lodash';
 import { Link, useNavigate, useParams } from 'react-router-dom';
+import validateInput from './Validation';
 
 export default function EditUser({ users, updateUserData }) {
   const navigate = useNavigate();
-  const FALLBACK = 'https://placekitten.com/400/400';
 
   // Get user ID from url
   const { id } = useParams();
@@ -23,7 +23,7 @@ export default function EditUser({ users, updateUserData }) {
     return <div>Sorry, the user with id {id} has not been found</div>;
   }
 
-  function changeUserData() {
+  function handleChangeUserData() {
     const editedUser = {
       name,
       email,
@@ -31,8 +31,10 @@ export default function EditUser({ users, updateUserData }) {
       image_url: imgURL,
       id: user.id,
     };
-    updateUserData(id, editedUser);
-    navigate('../', { replace: true });
+    if (validateInput(editedUser)) {
+      updateUserData(id, editedUser);
+      navigate('../', { replace: true });
+    }
   }
 
   return (
@@ -97,7 +99,11 @@ export default function EditUser({ users, updateUserData }) {
 
         <br />
 
-        <button type="button" className="form__btn" onClick={changeUserData}>
+        <button
+          type="button"
+          className="form__btn"
+          onClick={handleChangeUserData}
+        >
           Save Changes
         </button>
       </form>
