@@ -1,10 +1,15 @@
 import { Route, Routes } from 'react-router-dom';
+
 import { useState } from 'react';
 
 import Contacts from './Contacts';
+
 import Contact from './Contact';
+
 import ContactForm from './ContactForm';
+
 import Header from './Header';
+
 const data = require('../data/contacts.json');
 
 function App() {
@@ -16,21 +21,21 @@ function App() {
   };
 
   return (
-    <div className='App'>
+    <div className="App">
       <Header />
       <Routes>
         {/* <Route exact path='/' element={<Home />} /> */}
-        <Route path='/' element={<Contacts contacts={contacts} />} />
+        <Route path="/" element={<Contacts contacts={contacts} />} />
         <Route
-          path='/contacts/:id'
+          path="/contacts/:id"
           element={
             <Contact
-              contact={contacts.find(({ id }) => id === selectedContactId)}
+            // contact={contacts.find(({ id }) => id === selectedContactId)}
             />
           }
         />
         <Route
-          path='/contacts/new'
+          path="/contacts/new"
           element={<ContactForm addContact={addContact} />}
         />
       </Routes>

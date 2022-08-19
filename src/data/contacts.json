@@ -3,23 +3,23 @@
     {
       "id": 70219577,
       "name": "Albert Einstein",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Einstein_1921_by_F_Schmutzer_-_restoration.jpg/220px-Einstein_1921_by_F_Schmutzer_-_restoration.jpg",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Einstein_1921_by_F_Schmutzer_-_restoration.jpg/220px-Einstein_1921_by_F_Schmutzer_-_restoration.jpg",
       "email": "aeinstein@example.com",
-      "phone_number": "15555555555"
+      "phoneNumber": "15555555555"
     },
     {
       "id": 70219578,
       "name": "George Washington",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Gilbert_Stuart_Williamstown_Portrait_of_George_Washington.jpg/220px-Gilbert_Stuart_Williamstown_Portrait_of_George_Washington.jpg",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Gilbert_Stuart_Williamstown_Portrait_of_George_Washington.jpg/220px-Gilbert_Stuart_Williamstown_Portrait_of_George_Washington.jpg",
       "email": "gwashington@america.gov",
-      "phone_number": "15555555555"
+      "phoneNumber": "15555555555"
     },
     {
       "id": 70219579,
       "name": "Winston Churchill",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Sir_Winston_Churchill_-_19086236948.jpg/220px-Sir_Winston_Churchill_-_19086236948.jpg",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Sir_Winston_Churchill_-_19086236948.jpg/220px-Sir_Winston_Churchill_-_19086236948.jpg",
       "email": "wschurchill@england.co.uk",
-      "phone_number": "15555555555"
+      "phoneNumber": "15555555555"
     }
   ]
 }
