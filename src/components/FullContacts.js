@@ -1,9 +1,14 @@
 import PropTypes from 'prop-types';
 import ContactRow from './ContactRow';
 
-export default function FullContacts({ users, removeUser }) {
+export default function FullContacts({ users, removeUser, editUser }) {
   const contactRows = users.map((user, index) => (
-    <ContactRow user={user} key={index} removeUser={removeUser} />
+    <ContactRow
+      user={user}
+      key={index}
+      removeUser={removeUser}
+      editUser={editUser}
+    />
   ));
   return (
     <section className="contacts">
@@ -34,4 +39,5 @@ export default function FullContacts({ users, removeUser }) {
 FullContacts.propTypes = {
   users: PropTypes.array.isRequired,
   removeUser: PropTypes.func.isRequired,
+  editUser: PropTypes.func.isRequired,
 };

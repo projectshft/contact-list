@@ -3,15 +3,27 @@ import PropTypes from 'prop-types';
 import Contact from './Contact';
 import FullContacts from './FullContacts';
 import NewContact from './NewContact';
+import EditUser from './EditUser';
 
-const Contacts = ({ users, addUser, removeUser }) => (
+const Contacts = ({ users, addUser, removeUser, editUser, updateUserData }) => (
   <Routes>
     <Route
       index
-      element={<FullContacts users={users} removeUser={removeUser} />}
+      element={
+        <FullContacts
+          users={users}
+          removeUser={removeUser}
+          editUser={editUser}
+        />
+      }
     />
     <Route path="new" element={<NewContact addUser={addUser} />} />
+
     <Route path=":id" element={<Contact users={users} />} />
+    <Route
+      path=":id/edit"
+      element={<EditUser users={users} updateUserData={updateUserData} />}
+    />
   </Routes>
 );
 
@@ -21,4 +33,6 @@ Contacts.propTypes = {
   users: PropTypes.array.isRequired,
   addUser: PropTypes.func.isRequired,
   removeUser: PropTypes.func.isRequired,
+  editUser: PropTypes.func.isRequired,
+  updateUserData: PropTypes.func.isRequired,
 };

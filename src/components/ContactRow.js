@@ -1,10 +1,16 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-function ContactRow({ user, removeUser }) {
+function ContactRow({ user, removeUser, editUser }) {
+  const FALLBACK = 'https://placekitten.com/400/400';
   function handleDeleteUserClick() {
     removeUser(user.id);
   }
+
+  function handleEditUserClick() {
+    editUser(user.id);
+  }
+
   return (
     <section className="row">
       <Link to={`${user.id}`} className="row__inner">
@@ -14,7 +20,7 @@ function ContactRow({ user, removeUser }) {
             alt={`Profile pic of ${user.name}`}
             className="row__image"
             onError={(e) => {
-              e.target.src = 'https://placekitten.com/400/400';
+              e.target.src = FALLBACK;
             }}
           />
         </div>
@@ -34,6 +40,9 @@ function ContactRow({ user, removeUser }) {
       <button type="submit" className="btn-row" onClick={handleDeleteUserClick}>
         Delete
       </button>
+      <button type="submit" className="btn-row" onClick={handleEditUserClick}>
+        Edit
+      </button>
     </section>
   );
 }
@@ -43,4 +52,5 @@ export default ContactRow;
 ContactRow.propTypes = {
   user: PropTypes.object.isRequired,
   removeUser: PropTypes.func.isRequired,
+  editUser: PropTypes.func.isRequired,
 };

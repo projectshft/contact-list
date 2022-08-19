@@ -89,6 +89,9 @@ html {
 .row__inner:not(button):hover * {
   background-color: rgb(225, 234, 241);
 }
+.row:first-of-type:hover * {
+  background-color: white;
+}
 
 .row__image {
   object-fit: cover;
@@ -137,9 +140,9 @@ html {
   padding: 10px 0;
   align-self: stretch;
 }
-
+/* To deal with the buttons in the table, margin-right: 5% * num of buttons */
 .row__table-header {
-  margin-right: 5%;
+  margin-right: 10%;
 }
 /* ======================================= */
 /* Individual contact page */

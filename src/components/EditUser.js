@@ -1,51 +1,38 @@
-import { Link, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
 import PropTypes from 'prop-types';
-import { v4 as uuidv4 } from 'uuid';
-// import { createConstructor } from 'typescript';
+import { useState } from 'react';
+import _ from 'lodash';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
-export default function NewContact({ addUser }) {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phoneNum, setPhoneNum] = useState('');
-  const [imgURL, setImgURL] = useState('');
-  const [id] = useState(uuidv4());
+export default function EditUser({ users, updateUserData }) {
   const navigate = useNavigate();
+  const FALLBACK = 'https://placekitten.com/400/400';
 
-  function checkImage(url) {
-    const image = new Image();
+  // Get user ID from url
+  const { id } = useParams();
+  // Try to find user with id
+  const user = _.find(users, { id });
 
-    image.onerror = function () {
-      alert(
-        'The Image URL imputted is invalid and the image has been replaced'
-      );
+  // Set the initial state as the user's data or if no data set to an empty string
+  const [name, setName] = useState(user ? user.name : '');
+  const [email, setEmail] = useState(user ? user.email : '');
+  const [phoneNum, setPhoneNum] = useState(user ? user.phone_number : '');
+  const [imgURL, setImgURL] = useState(user ? user.image_url : '');
+
+  // If no user with id provided in url exists, let user know
+  if (!user) {
+    return <div>Sorry, the user with id {id} has not been found</div>;
+  }
+
+  function changeUserData() {
+    const editedUser = {
+      name,
+      email,
+      phone_number: phoneNum,
+      image_url: imgURL,
+      id: user.id,
     };
-    image.src = url;
-  }
-
-  function validateInput() {
-    // The only required field I have set is the name of the contact. The image will auto-replace itself only if the link is invalid
-    if (name.length > 0) {
-      checkImage(imgURL);
-      return true;
-    }
-    return false;
-  }
-
-  function handleAddUserClick() {
-    if (validateInput()) {
-      const newUser = {
-        name,
-        email,
-        phone_number: phoneNum,
-        image_url: imgURL,
-        id,
-      };
-      addUser(newUser);
-      navigate('../', { replace: true });
-    } else {
-      alert('Please enter a name for this contact (required)');
-    }
+    updateUserData(id, editedUser);
+    navigate('../', { replace: true });
   }
 
   return (
@@ -59,6 +46,7 @@ export default function NewContact({ addUser }) {
           className="form-control form__name-input"
           id="userName"
           maxLength="251"
+          value={name}
           onChange={(event) => setName(event.target.value)}
         />
 
@@ -72,6 +60,7 @@ export default function NewContact({ addUser }) {
           className="form-control form__email-input"
           id="userEmail"
           maxLength="254"
+          value={email}
           onChange={(event) => setEmail(event.target.value)}
         />
 
@@ -88,7 +77,8 @@ export default function NewContact({ addUser }) {
           placeholder="888 888 8888"
           maxLength="12"
           title="Ten digits code"
-          onChange={(event) => setPhoneNum(parseInt(event.target.value, 10))}
+          value={phoneNum}
+          onChange={(event) => setPhoneNum(event.target.value)}
           required
         />
 
@@ -101,27 +91,25 @@ export default function NewContact({ addUser }) {
           type="text"
           className="form-control form__img-input"
           id="userImg"
+          value={imgURL}
           onChange={(event) => setImgURL(event.target.value)}
         />
 
         <br />
 
-        <button
-          type="button"
-          className="form__btn"
-          onClick={handleAddUserClick}
-        >
-          Add User
+        <button type="button" className="form__btn" onClick={changeUserData}>
+          Save Changes
         </button>
       </form>
 
       <Link to="/contacts" className="form__link-back">
-        Back to Contacts
+        Cancel Edit
       </Link>
     </div>
   );
 }
 
-NewContact.propTypes = {
-  addUser: PropTypes.func.isRequired,
+EditUser.propTypes = {
+  users: PropTypes.array.isRequired,
+  updateUserData: PropTypes.func.isRequired,
 };

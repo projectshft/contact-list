@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import _ from 'lodash';
 
 function Contact({ users }) {
+  const FALLBACK = 'https://placekitten.com/400/400';
   const navigate = useNavigate();
   // Get user ID from url
   const { id } = useParams();
@@ -12,7 +13,6 @@ function Contact({ users }) {
   if (!user) {
     return <div>Sorry, the user with id {id} has not been found</div>;
   }
-
   function handleBackClick() {
     navigate('../', { replace: true });
   }
@@ -26,7 +26,7 @@ function Contact({ users }) {
           alt={`Profile pic of ${user.name}`}
           className="card__image"
           onError={(e) => {
-            e.target.src = 'https://placekitten.com/400/400';
+            e.target.src = FALLBACK;
           }}
         />
         <h2 className="card__email">Email: {user.email}</h2>
