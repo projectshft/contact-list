@@ -6,7 +6,7 @@ import PropTypes  from 'prop-types';
 
 const ContactNew = (props) => {
     const [name, setName] = useState('')
-    const [number, setNumber] = useState('')
+    const [number, setNumber] = useState(Number)
     const [email, setEmail] = useState('')
     const [imageURL, setImageURL] = useState('')
     const generateId = () => Math.round(Math.random() * 100000000);
@@ -20,6 +20,7 @@ const ContactNew = (props) => {
       id,
       imageURL,
     })
+
 
     props.history.push('/contacts')
   }
@@ -65,10 +66,9 @@ const ContactNew = (props) => {
 };
 
 ContactNew.propTypes = {
-  name: PropTypes.string,
-  email: PropTypes.string,
-  number: PropTypes.number,
-  imageURL: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  number: PropTypes.number.isRequired,
+  imageURL: PropTypes.string.isRequired,
 }
-
 export default ContactNew

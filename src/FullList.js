@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom'
 const FullList = ({contacts}) => (
 <div>
   <header>
-    <h1>Welcome to My Contact List!</h1>
+    <h1>My Contact List</h1>
   </header>
   <div className='container'>
-  <table class="table table-bordered">
+  <table className="table table-bordered">
     <thead>
       <tr>
         <th scope="col-md-4"></th>
@@ -18,8 +18,8 @@ const FullList = ({contacts}) => (
     <tbody>
         {
         contacts.map(c => (
-            <tr>
-                <td colSpan="1" scope="row" key={c.id}>
+            <tr key={c.id}>
+                <td colSpan="1" scope="row">
                     <div className="container">
                         <div className="row">
                             <div className="col-md-4 col-sm-4">
@@ -31,9 +31,9 @@ const FullList = ({contacts}) => (
                     </div>
                 </td>
 
-                <td colspan="1"><div className="col-md-2 col-sm-2"><Link to={`/contacts/${c.id}`}>{c.name}</Link> </div></td>
-                <td colspan="1"><div className="col-md-2 col-sm-2">{c.number}</div></td>
-                <td colspan="1"><div className="col-md-2 col-sm-2">{c.email}</div></td>
+                <td colSpan="1"><div className="col-md-2 col-sm-2"><Link to={`/contacts/${c.id}`}>{c.name}</Link> </div></td>
+                <td colSpan="1"><div className="col-md-2 col-sm-2">{c.number}</div></td>
+                <td colSpan="1"><div className="col-md-2 col-sm-2">{c.email}</div></td>
             </tr>
         ))
       }
