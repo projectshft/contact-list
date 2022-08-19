@@ -13,6 +13,7 @@ function Contact({ users }) {
   if (!user) {
     return <div>Sorry, the user with id {id} has not been found</div>;
   }
+
   function handleBackClick() {
     navigate('../', { replace: true });
   }

@@ -1,4 +1,4 @@
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { useCallback, useEffect, useState } from 'react';
 import Contacts from './Contacts';
 import Home from './Home';
@@ -7,9 +7,8 @@ import getUsers from '../api/getUsers';
 
 export default function Main() {
   const [users, setUsers] = useState([]);
-  const navigate = useNavigate();
 
-  // Use of useCallback() is needed to place setUsers() in useEffect() else there is an eslint error
+  // Use of useCallback() is needed to place setUsers() in useEffect() else there will be an infinite loop
   const fetchContacts = useCallback(async () => {
     const contacts = await getUsers();
     setUsers(contacts);
@@ -19,8 +18,9 @@ export default function Main() {
     fetchContacts();
   }, [fetchContacts]);
 
-  // Again, to fix an eslint error addUser is placed in useCallback()
+  // Again, to fix an error addUser is placed in useCallback()
   const addUser = useCallback(
+    // Passed in user and appends the array without directly mutating previous state
     (user) => setUsers((prevUsers) => [...prevUsers, user]),
     [setUsers]
   );
@@ -53,11 +53,6 @@ export default function Main() {
     });
   }, []);
 
-  const editUser = useCallback(
-    (id) => navigate(`./contacts/${id}/edit`),
-    [navigate]
-  );
-
   return (
     <Routes>
       <Route path="/" element={<Home />} />
@@ -68,7 +63,6 @@ export default function Main() {
             addUser={addUser}
             users={users}
             removeUser={removeUser}
-            editUser={editUser}
             updateUserData={updateUserData}
           />
         }

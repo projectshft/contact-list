@@ -5,17 +5,11 @@ import FullContacts from './FullContacts';
 import NewContact from './NewContact';
 import EditUser from './EditUser';
 
-const Contacts = ({ users, addUser, removeUser, editUser, updateUserData }) => (
+const Contacts = ({ users, addUser, removeUser, updateUserData }) => (
   <Routes>
     <Route
       index
-      element={
-        <FullContacts
-          users={users}
-          removeUser={removeUser}
-          editUser={editUser}
-        />
-      }
+      element={<FullContacts users={users} removeUser={removeUser} />}
     />
     <Route path="new" element={<NewContact addUser={addUser} />} />
 
@@ -33,6 +27,5 @@ Contacts.propTypes = {
   users: PropTypes.array.isRequired,
   addUser: PropTypes.func.isRequired,
   removeUser: PropTypes.func.isRequired,
-  editUser: PropTypes.func.isRequired,
   updateUserData: PropTypes.func.isRequired,
 };

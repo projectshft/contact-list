@@ -1,14 +1,20 @@
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
-function ContactRow({ user, removeUser, editUser }) {
+function ContactRow({ user, removeUser }) {
   const FALLBACK = 'https://placekitten.com/400/400';
-  function handleDeleteUserClick() {
+  const navigate = useNavigate();
+  function deleteUser() {
     removeUser(user.id);
+  }
+  // Using a modal proved more difficult than expected
+  function handleDeleteUserClick() {
+    const text = `Are you sure you want to delete ${user.name} from the contacts list?`;
+    return window.confirm(text) ? deleteUser(user.id) : false;
   }
 
   function handleEditUserClick() {
-    editUser(user.id);
+    navigate(`${user.id}/edit`);
   }
 
   return (
@@ -52,5 +58,4 @@ export default ContactRow;
 ContactRow.propTypes = {
   user: PropTypes.object.isRequired,
   removeUser: PropTypes.func.isRequired,
-  editUser: PropTypes.func.isRequired,
 };

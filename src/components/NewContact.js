@@ -2,7 +2,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
-// import { createConstructor } from 'typescript';
 import validateInput from './Validation';
 
 export default function NewContact({ addUser }) {
@@ -10,7 +9,6 @@ export default function NewContact({ addUser }) {
   const [email, setEmail] = useState('');
   const [phoneNum, setPhoneNum] = useState('');
   const [imgURL, setImgURL] = useState('');
-  const [id] = useState(uuidv4());
   const navigate = useNavigate();
 
   function handleAddUserClick() {
@@ -19,8 +17,9 @@ export default function NewContact({ addUser }) {
       email,
       phone_number: phoneNum,
       image_url: imgURL,
-      id,
+      id: uuidv4(),
     };
+
     if (validateInput(newUser)) {
       addUser(newUser);
       navigate('../', { replace: true });
