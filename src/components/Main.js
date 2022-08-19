@@ -1,6 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
 import { useCallback, useEffect, useState } from 'react';
-import _ from 'lodash';
 import Contacts from './Contacts';
 import Home from './Home';
 import NotHome from './NotHome';
