@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Contact from './Contact';
 
 const Contacts = ({ contacts }) => (
+  // console.log(contacts)
   <div>
     <h1>contacts list</h1>
     {contacts.map((contact) => (

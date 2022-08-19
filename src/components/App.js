@@ -18,6 +18,7 @@ function App() {
 
   const addContact = (contact) => {
     setContacts([...contacts, contact]);
+    console.log(contact);
   };
 
   return (

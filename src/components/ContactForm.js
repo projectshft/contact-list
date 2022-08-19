@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 
-const ContactForm = () => {
+const ContactForm = (props) => {
+  const navigate = useNavigate();
   const [newContact, setNewContact] = useState({
     id: '',
     name: '',
@@ -9,23 +11,27 @@ const ContactForm = () => {
     imageUrl: '',
   });
 
-  const inputHandler = (e) => {
-    setNewContact({ [e.target.name]: e.target.value });
-    // console.log(setNewContact);
+  // const inputHandler = (e) => {
+  //   setNewContact({ [e.target.name]: e.target.value });
+  // };
+  const generateId = () => Math.round(Math.random() * 100000000);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // setNewContact({ ...newContact, id: generateId() });
+    console.log(newContact);
+    navigate('../', { replace: true, state: { newContact } });
   };
 
-  const submitButton = (e) => {
-    e.preventDefault();
-    setNewContact(newContact);
-    console.log(e);
-  };
   return (
-    <form action="submit">
+    <form onSubmit={handleSubmit}>
       <div>
         <input
           type="text"
           name="name"
-          onChange={inputHandler}
+          onChange={(e) =>
+            setNewContact({ ...newContact, name: e.target.value })
+          }
           placeholder="Name"
           value={newContact.name}
         />
@@ -33,7 +39,9 @@ const ContactForm = () => {
         <input
           type="email"
           name="email"
-          onChange={inputHandler}
+          onChange={(e) =>
+            setNewContact({ ...newContact, email: e.target.value })
+          }
           placeholder="Email"
           value={newContact.email}
         />
@@ -41,7 +49,9 @@ const ContactForm = () => {
         <input
           type="tel"
           name="phoneNumber"
-          onChange={inputHandler}
+          onChange={(e) =>
+            setNewContact({ ...newContact, phoneNumber: e.target.value })
+          }
           placeholder="Phone Number"
           value={newContact.phoneNumber}
         />
@@ -49,12 +59,19 @@ const ContactForm = () => {
         <input
           type="text"
           name="imageUrl"
-          onChange={inputHandler}
+          onChange={(e) =>
+            setNewContact({ ...newContact, imageUrl: e.target.value })
+          }
           placeholder="Submit an image (optional)"
           value={newContact.imageUrl}
         />
         <br />
-        <button type="submit">Submit Now</button>
+        <button
+          type="submit"
+          onSubmit={() => setNewContact({ ...newContact, id: generateId() })}
+        >
+          Submit Now
+        </button>
       </div>
     </form>
   );

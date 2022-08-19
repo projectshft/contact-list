@@ -51,3 +51,37 @@ function Submit() {
 }
 
 export default Submit
+//////////////////////////////////
+
+import React, { useState } from 'react';
+import Row from 'react-bootstrap/Row'
+
+export default function Greeting(props) {
+  const [name, setName] = useState('Mary')
+  const [surname, setSurname] = useState('Poppins')
+
+  function handleNameChange(e) {
+    setName(e.target.value)
+  }
+
+  function handleSurnameChange(e) {
+    setSurname(e.target.value)
+  }
+
+  return (
+    <section>
+      <Row label="Name">
+        <input
+          value={name}
+          onChange={handleNameChange} >
+        </input>
+      </Row>
+      <Row label="Name">
+        <input
+          value={surname}
+          onChange={handleSurnameChange} >
+        </input>
+      </Row>
+    </section>
+  )
+};
