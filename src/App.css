@@ -78,14 +78,15 @@ html {
   color: black;
 }
 
-.row__inner:nth-child(odd) {
+/* Bad workaround for JSX structure in place, might fix later */
+.row:nth-child(odd) a {
   background-color: rgb(233, 233, 233);
 }
 .row__inner:visited {
   color: black;
 }
-
-.row__inner:not(:first-child):hover {
+/* Same as above, doesn't follow BEM */
+.row__inner:not(button):hover * {
   background-color: rgb(225, 234, 241);
 }
 
