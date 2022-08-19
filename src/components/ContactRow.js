@@ -9,6 +9,9 @@ function ContactRow({ user }) {
           src={user.image_url}
           alt={`Profile pic of ${user.name}`}
           className="row__image"
+          onError={(e) => {
+            e.target.src = 'https://placekitten.com/400/400';
+          }}
         />
       </div>
 

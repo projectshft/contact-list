@@ -2,23 +2,38 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
+// import { createConstructor } from 'typescript';
 
 export default function NewContact({ addUser }) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phoneNum, setPhoneNum] = useState(null);
-  const [imgURL, setImgURL] = useState('#');
+  const [imgURL, setImgURL] = useState('');
   const [id] = useState(uuidv4());
   const navigate = useNavigate();
 
+  function checkImage(url) {
+    const image = new Image();
+
+    image.onerror = function () {
+      alert(
+        'The Image URL imputted is invalid and the image has been replaced'
+      );
+    };
+    image.src = url;
+  }
+
   function validateInput() {
-    console.log(name, email, phoneNum, imgURL);
-    return true;
+    // The only required field I have set is the name of the contact. The image will auto-replace itself only if the link is invalid
+    if (name.length > 0) {
+      checkImage(imgURL);
+      return true;
+    }
+    return false;
   }
 
   function handleAddUserClick() {
     if (validateInput()) {
-      console.log(phoneNum);
       const newUser = {
         name,
         email,
@@ -28,6 +43,8 @@ export default function NewContact({ addUser }) {
       };
       addUser(newUser);
       navigate('../', { replace: true });
+    } else {
+      alert('Please enter a name for this contact (required)');
     }
   }
 
@@ -35,13 +52,13 @@ export default function NewContact({ addUser }) {
     <div className="form">
       <form autoComplete="off" className="form__inner">
         <label htmlFor="userName" className="form__name-label">
-          Name
+          Name (Required)
         </label>
         <input
           type="text"
           className="form-control form__name-input"
           id="userName"
-          maxLength="25"
+          maxLength="251"
           onChange={(event) => setName(event.target.value)}
         />
 

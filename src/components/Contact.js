@@ -25,6 +25,9 @@ function Contact({ users }) {
           src={user.image_url}
           alt={`Profile pic of ${user.name}`}
           className="card__image"
+          onError={(e) => {
+            e.target.src = 'https://placekitten.com/400/400';
+          }}
         />
         <h2 className="card__email">Email: {user.email}</h2>
         <h2 className="card__phone">Phone Number: {user.phone_number}</h2>
