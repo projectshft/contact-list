@@ -1,32 +1,41 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Switch, Route } from 'react-router-dom';
+import ContactInfo from './ContactInfo';
+import ContactEdit from './ContactEdit';
 
-const Contact = ({ name, email, phoneNumber, imageUrl }) => (
-  // find specific contact object matching the id passed in through props
-  // const contact = contactList.find((c) => c.id === contactId);
-  <div>
-    <h1>{name}</h1>
-    <img src={imageUrl} alt="Contact" />
-    <h3>{email}</h3>
-    <h3>{phoneNumber}</h3>
-  </div>
+// TODO: add error handling if id doesn't exist
+
+const Contact = ({ contact, contactList, setContactList }) => (
+  <Switch>
+    <Route path="/contacts/:id/edit">
+      <ContactEdit
+        contactId={contact.id}
+        contactName={contact.name}
+        contactImageUrl={contact.image_url}
+        contactEmail={contact.email}
+        contactPhoneNumber={contact.phone_number}
+        contactList={contactList}
+        setContactList={setContactList}
+      />
+    </Route>
+
+    <Route path="/contacts/:id">
+      <ContactInfo
+        contactId={contact.id}
+        contactName={contact.name}
+        contactImageUrl={contact.image_url ? contact.image_url : undefined}
+        contactEmail={contact.email}
+        contactPhoneNumber={contact.phone_number}
+      />
+    </Route>
+  </Switch>
 );
 
-// can maybe use proptypes here to set up a default image?
-
 Contact.propTypes = {
-  // contactList: PropTypes.array,
-  // contactId: PropTypes.number,
-  // contact: PropTypes.object,
-  name: PropTypes.string.isRequired,
-  email: PropTypes.string,
-  phoneNumber: PropTypes.string,
-  imageUrl: PropTypes.string,
-};
-
-Contact.defaultProps = {
-  imageUrl:
-    'https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png',
+  contact: PropTypes.object,
+  contactList: PropTypes.array,
+  setContactList: PropTypes.func,
 };
 
 export default Contact;

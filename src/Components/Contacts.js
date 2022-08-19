@@ -26,6 +26,9 @@ const Contacts = ({ contactList, setContactList }) => {
             <button type="button" onClick={() => handleClick(contact)}>
               {icon}
             </button>
+            <Link to={`contacts/${contact.id}/edit`}>
+              <button type="button">Edit</button>
+            </Link>
           </li>
         ))}
       </ul>

@@ -4,22 +4,6 @@ import Contacts from './Contacts';
 import ContactNew from './ContactNew';
 import Contact from './Contact';
 
-// const test1 = {
-//     "id": "q101",
-//     "name": "Nathan Pak",
-//     "image_url": "",
-//     "email": "placeholder@placeholder.edu",
-//     "phone_number": "1408412312"
-// };
-
-// const test2 = {
-//     "id": "s102",
-//     "name": "Hubert",
-//     "image_url": "",
-//     "email": "placeholder@placeholder.com",
-//     "phone_number": "1408412416"
-// }
-
 const Main = () => {
   // set up array in state for contact list
   const [contactList, setContactList] = useState([]);
@@ -27,7 +11,7 @@ const Main = () => {
   return (
     <main>
       <Switch>
-        {/* don't know if this is necessary, but use two routes so that
+        {/* I don't know if this is necessary, but use two routes so that
                 "/" and "/contacts" both display contact list */}
         <Route exact path="/">
           <Contacts contactList={contactList} setContactList={setContactList} />
@@ -44,21 +28,15 @@ const Main = () => {
         {/* route to the page for individual contact info */}
         <Route
           path="/contacts/:id"
-          render={(routerProps) => {
-            const contact = contactList.find(
-              (c) => c.id === routerProps.match.params.id
-            );
-            return (
-              <Contact
-                // contactList={contactList}
-                // contactId={routerProps.match.params.id}
-                name={contact.name}
-                email={contact.email}
-                phoneNumber={contact.phone_number}
-                imageUrl={contact.image_url ? contact.image_url : undefined}
-              />
-            );
-          }}
+          render={(routerProps) => (
+            <Contact
+              contactList={contactList}
+              setContactList={setContactList}
+              contact={contactList.find(
+                (c) => c.id === routerProps.match.params.id
+              )}
+            />
+          )}
         />
       </Switch>
     </main>
