@@ -5,32 +5,42 @@ const FullList = ({contacts}) => (
   <header>
     <h1>Welcome to My Contact List!</h1>
   </header>
+  <div className='container'>
   <table class="table table-bordered">
     <thead>
       <tr>
-        <th scope="col"></th>
-        <th scope="col">Name</th>
-        <th scope="col">Number</th>
-        <th scope="col">Email</th>
+        <th scope="col-md-4"></th>
+        <th scope="col-md-2">Name</th>
+        <th scope="col-md-2">Number</th>
+        <th scope="col-md-2">Email</th>
       </tr>
     </thead>
     <tbody>
         {
         contacts.map(c => (
             <tr>
-                <th colSpan="2" scope="row" key={c.id}>
-                    <div className="container w-50 p-3">
-                        <img className="img-thumbnail" src={c.imageURL}></img>
+                <td colSpan="1" scope="row" key={c.id}>
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-md-4 col-sm-4">
+                            <Link to={`/contacts/${c.id}`}>
+                                <img className="img-thumbnail" src={c.imageURL}></img>
+                            </Link>
+                            </div>
+                        </div>
                     </div>
-                </th>
-                <td colspan="1"><Link to={`/contacts/${c.id}`}>{c.name}</Link></td>
-                <td colspan="1">{c.number}</td>
-                <td colspan="1">{c.email}</td>
+                </td>
+
+                <td colspan="1"><div className="col-md-2 col-sm-2"><Link to={`/contacts/${c.id}`}>{c.name}</Link> </div></td>
+                <td colspan="1"><div className="col-md-2 col-sm-2">{c.number}</div></td>
+                <td colspan="1"><div className="col-md-2 col-sm-2">{c.email}</div></td>
             </tr>
         ))
       }
     </tbody>
   </table>
+  </div>
+
   <div>
     <button type="button" className="btn btn-lg btn-link btn-block"><Link to="/contacts/new">Add a New Contact</Link></button>
   </div>

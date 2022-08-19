@@ -12,7 +12,9 @@ const Contact = ({contactId, contacts}) => {
   return (
     <div className="jumbotron jumbotron-fluid">
   <div className="container">
+  <div className="col-md-4 col-sm-4">
     <img className="img-thumbnail rounded-circle" src={contact.imageURL}></img>
+    </div>
     <h1 className="display-4">{contact.name}</h1>
     <p className="lead">Number: {contact.number}</p>
     <p className="lead">Email: {contact.email}</p>
