@@ -6,8 +6,18 @@ const Contact = ({contactId, contacts}) => {
   const contact = _.find(contacts, { id: contactId });
 
   if (!contact) {
-    return <div>Sorry, but the contact was not found</div>
-  }
+    return (
+        <div className="jumbotron jumbotron-fluid">
+            <div className="container">
+             <h1 className="display-4">Sorry, but the contact was not found</h1>
+             <div>
+                <button className="btn btn-lg btn-link btn-block">
+                    <Link to='/contacts'>Back</Link>
+                </button>
+             </div>
+             </div>
+           </div>
+  )}
 
   return (
     <div className="jumbotron jumbotron-fluid">
