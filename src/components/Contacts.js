@@ -10,7 +10,9 @@ const Contacts = ({ contacts }) => {
       {contacts.map((contact) => (
         <Contact
           key={contact.id}
-          name={contact.name}
+          id={contact.id}
+          fName={contact.fName}
+          lName={contact.lName}
           imageUrl={contact.imageUrl}
           email={contact.email}
           phoneNumber={contact.phoneNumber}
@@ -24,7 +26,8 @@ Contacts.propTypes = {
   contacts: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number,
-      name: PropTypes.string,
+      fName: PropTypes.string,
+      lName: PropTypes.string,
       imageUrl: PropTypes.string,
       email: PropTypes.string,
       phoneNumber: PropTypes.string,

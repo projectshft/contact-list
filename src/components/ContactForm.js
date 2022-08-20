@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
 const ContactForm = (props) => {
+  const generateId = () => Math.round(Math.random() * 100000000);
   const history = useHistory();
   const { contacts, setContacts } = props;
   const [newContact, setNewContact] = useState({
-    id: '',
-    name: '',
+    id: generateId(),
+    fName: '',
+    lName: '',
     imageUrl: '',
     email: '',
     phoneNumber: '',
@@ -18,7 +20,6 @@ const ContactForm = (props) => {
     const newArray = contacts;
     newArray.push(newContact);
     setContacts(newArray);
-    // <Redirect to="/" />;
     history.push('/');
   };
 
@@ -27,12 +28,22 @@ const ContactForm = (props) => {
       <div>
         <input
           type="text"
-          name="name"
+          name="fName"
           onChange={(e) =>
-            setNewContact({ ...newContact, name: e.target.value })
+            setNewContact({ ...newContact, fName: e.target.value })
           }
-          placeholder="Name"
-          value={newContact.name}
+          placeholder="First Name"
+          value={newContact.fName}
+        />
+        <br />
+        <input
+          type="text"
+          name="lName"
+          onChange={(e) =>
+            setNewContact({ ...newContact, lName: e.target.value })
+          }
+          placeholder="Last Name"
+          value={newContact.lName}
         />
         <br />
         <input
@@ -80,7 +91,8 @@ ContactForm.propTypes = {
   contacts: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number,
-      name: PropTypes.string,
+      fName: PropTypes.string,
+      lName: PropTypes.string,
       imageUrl: PropTypes.string,
       email: PropTypes.string,
       phoneNumber: PropTypes.string,
