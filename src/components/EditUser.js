@@ -12,7 +12,7 @@ export default function EditUser({ users, updateUserData }) {
   // Try to find user with id
   const user = _.find(users, { id });
 
-  // Set the initial state as the user's data or if no data set to an empty string
+  // Set the initial state as the user's data or if no data is found set to an empty string
   const [name, setName] = useState(user ? user.name : '');
   const [email, setEmail] = useState(user ? user.email : '');
   const [phoneNum, setPhoneNum] = useState(user ? user.phone_number : '');
@@ -72,7 +72,7 @@ export default function EditUser({ users, updateUserData }) {
           Phone Number
         </label>
         <input
-          type="tel"
+          type="number"
           name="telphone"
           id="userPhoneNum"
           className="form-control form__phone-input"
@@ -101,7 +101,7 @@ export default function EditUser({ users, updateUserData }) {
 
         <button
           type="button"
-          className="form__btn"
+          className="form__btn form__btn--small-text"
           onClick={handleChangeUserData}
         >
           Save Changes
@@ -115,7 +115,11 @@ export default function EditUser({ users, updateUserData }) {
   );
 }
 
+EditUser.defaultProps = {
+  users: [],
+};
+
 EditUser.propTypes = {
-  users: PropTypes.array.isRequired,
+  users: PropTypes.array,
   updateUserData: PropTypes.func.isRequired,
 };

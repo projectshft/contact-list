@@ -14,6 +14,7 @@ function Contact({ users }) {
     return <div>Sorry, the user with id {id} has not been found</div>;
   }
 
+  // Navigates 1 level up to /contacts
   function handleBackClick() {
     navigate('../', { replace: true });
   }
@@ -42,6 +43,10 @@ function Contact({ users }) {
 
 export default Contact;
 
+Contact.defaultProps = {
+  users: [],
+};
+
 Contact.propTypes = {
-  users: PropTypes.array.isRequired,
+  users: PropTypes.array,
 };

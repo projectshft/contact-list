@@ -55,7 +55,16 @@ function ContactRow({ user, removeUser }) {
 
 export default ContactRow;
 
+ContactRow.defaultProps = {
+  user: {
+    name: '',
+    email: '',
+    phone_number: '',
+    image_url: '',
+    id: '',
+  },
+};
 ContactRow.propTypes = {
-  user: PropTypes.object.isRequired,
+  user: PropTypes.object,
   removeUser: PropTypes.func.isRequired,
 };

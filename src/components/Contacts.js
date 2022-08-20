@@ -23,8 +23,12 @@ const Contacts = ({ users, addUser, removeUser, updateUserData }) => (
 
 export default Contacts;
 
+Contacts.defaultProps = {
+  users: [],
+};
+
 Contacts.propTypes = {
-  users: PropTypes.array.isRequired,
+  users: PropTypes.array,
   addUser: PropTypes.func.isRequired,
   removeUser: PropTypes.func.isRequired,
   updateUserData: PropTypes.func.isRequired,

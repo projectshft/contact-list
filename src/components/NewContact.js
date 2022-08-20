@@ -59,7 +59,7 @@ export default function NewContact({ addUser }) {
           Phone Number
         </label>
         <input
-          type="tel"
+          type="number"
           name="telphone"
           id="userPhoneNum"
           className="form-control form__phone-input"

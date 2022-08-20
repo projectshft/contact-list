@@ -1,4 +1,8 @@
 /* ======================================= */
+
+/* I decided to use BEM for my styling just becuase I enjoy writing pure CSS over bootstrap and want to keep my base CSS skills sharp for the future */
+
+/* ======================================= */
 /* Box sizing set for entire file */
 html {
   -webkit-box-sizing: border-box;
@@ -188,7 +192,7 @@ html {
 }
 
 /* ======================================= */
-/* Add new contact page */
+/* Add new contact page and edit contact page */
 .form {
   display: flex;
   flex-direction: column;
@@ -237,4 +241,9 @@ html {
 .form__link-back:hover {
   background-color: rgb(53, 53, 53);
   color: rgb(255, 115, 0);
+}
+
+.form__btn--small-text {
+  width: 30%;
+  font-size: 2.5rem;
 }

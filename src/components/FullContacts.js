@@ -31,7 +31,11 @@ export default function FullContacts({ users, removeUser }) {
     </section>
   );
 }
+
+FullContacts.defaultProps = {
+  users: [],
+};
 FullContacts.propTypes = {
-  users: PropTypes.array.isRequired,
+  users: PropTypes.array,
   removeUser: PropTypes.func.isRequired,
 };

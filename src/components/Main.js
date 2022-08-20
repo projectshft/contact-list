@@ -2,18 +2,20 @@ import { Routes, Route } from 'react-router-dom';
 import { useCallback, useEffect, useState } from 'react';
 import Contacts from './Contacts';
 import Home from './Home';
-import NotHome from './NotHome';
 import getUsers from '../api/getUsers';
+import PageNotFound from './PageNotFound';
 
 export default function Main() {
+  // The model that our application will be synced with
   const [users, setUsers] = useState([]);
 
-  // Use of useCallback() is needed to place setUsers() in useEffect() else there will be an infinite loop
+  // Use of useCallback() is needed to place setUsers() in useEffect() else there will be an infinite loop of API calls
   const fetchContacts = useCallback(async () => {
     const contacts = await getUsers();
     setUsers(contacts);
   }, [setUsers]);
 
+  // Data should only be fetched once when the main component mounts
   useEffect(() => {
     fetchContacts();
   }, [fetchContacts]);
@@ -25,7 +27,7 @@ export default function Main() {
     [setUsers]
   );
 
-  // Remove user with id passed to function
+  // Remove user with id passed to function from users state
   const removeUser = useCallback(
     (id) =>
       setUsers((prevUsers) => {
@@ -67,7 +69,7 @@ export default function Main() {
           />
         }
       />
-      <Route path="*" element={<NotHome />} />
+      <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
 }
