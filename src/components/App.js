@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import { useState } from 'react';
 
@@ -14,32 +14,32 @@ const data = require('../data/contacts.json');
 
 function App() {
   const [contacts, setContacts] = useState(data.contacts);
-  const [selectedContactId, setSelectedContactId] = useState(null);
+  // const [selectedContactId, setSelectedContactId] = useState(null);
 
-  const addContact = (contact) => {
-    setContacts([...contacts, contact]);
-    console.log(contact);
-  };
+  // const addContact = (contact) => {
+  //   setContacts([...contacts, contact]);
+  //   console.log(contact);
+  // };
 
   return (
     <div className="App">
       <Header />
-      <Routes>
-        {/* <Route exact path='/' element={<Home />} /> */}
-        <Route path="/" element={<Contacts contacts={contacts} />} />
-        <Route
+      <Switch>
+        <Route exact path="/">
+          <Contacts contacts={contacts} />
+        </Route>
+        {/* <Route
           path="/contacts/:id"
-          element={
+          component={
             <Contact
             // contact={contacts.find(({ id }) => id === selectedContactId)}
             />
           }
-        />
-        <Route
-          path="/contacts/new"
-          element={<ContactForm addContact={addContact} />}
-        />
-      </Routes>
+        /> */}
+        <Route path="/contacts/new">
+          <ContactForm contacts={contacts} setContacts={setContacts} />
+        </Route>
+      </Switch>
     </div>
   );
 }

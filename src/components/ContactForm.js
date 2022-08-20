@@ -1,26 +1,25 @@
+import { Link, Redirect, useHistory } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
 
 const ContactForm = (props) => {
-  const navigate = useNavigate();
+  const history = useHistory();
+  const { contacts, setContacts } = props;
   const [newContact, setNewContact] = useState({
     id: '',
     name: '',
+    imageUrl: '',
     email: '',
     phoneNumber: '',
-    imageUrl: '',
   });
-
-  // const inputHandler = (e) => {
-  //   setNewContact({ [e.target.name]: e.target.value });
-  // };
-  const generateId = () => Math.round(Math.random() * 100000000);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // setNewContact({ ...newContact, id: generateId() });
-    console.log(newContact);
-    navigate('../', { replace: true, state: { newContact } });
+    const newArray = contacts;
+    newArray.push(newContact);
+    setContacts(newArray);
+    // <Redirect to="/" />;
+    history.push('/');
   };
 
   return (
@@ -68,7 +67,7 @@ const ContactForm = (props) => {
         <br />
         <button
           type="submit"
-          onSubmit={() => setNewContact({ ...newContact, id: generateId() })}
+          // onSubmit={() => setNewContact({ ...newContact, id: generateId() })}
         >
           Submit Now
         </button>
@@ -77,4 +76,16 @@ const ContactForm = (props) => {
   );
 };
 
+ContactForm.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+      imageUrl: PropTypes.string,
+      email: PropTypes.string,
+      phoneNumber: PropTypes.string,
+    }).isRequired
+  ).isRequired,
+  setContacts: PropTypes.func,
+};
 export default ContactForm;
