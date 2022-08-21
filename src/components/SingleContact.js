@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Table from 'react-bootstrap/esm/Table';
 import Button from 'react-bootstrap/esm/Button';
 import { PropTypes } from 'prop-types';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import './Contact.css';
 
 const SingleContact = (props) => {
@@ -26,27 +26,38 @@ const SingleContact = (props) => {
         <tbody>
           <tr>
             <td className="table-pic">
-              <img src={contact.imageUrl} alt={contact.lName} />
+              <img
+                src={
+                  contact[0].imageUrl === ''
+                    ? 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'
+                    : contact[0].imageUrl
+                }
+                alt={contact[0].lName}
+              />
             </td>
 
-            <td>{contact.fName}</td>
-            <td>{contact.lName}</td>
+            <td>{contact[0].fName}</td>
+            <td>{contact[0].lName}</td>
             <td>
               <a href="mailto:" target="_blank" rel="noreferrer">
-                {contact.email}
+                {contact[0].email}
               </a>
             </td>
-            <td>{contact.phoneNumber}</td>
+            <td>{contact[0].phoneNumber}</td>
           </tr>
         </tbody>
       </Table>
       <div className="button-row">
-        <Button variant="Secondary" className="editButton">
-          Edit
-        </Button>
-        <Button variant="Danger" className="deleteButton">
-          Delete
-        </Button>
+        <Link to={`/contacts/${contact[0].id}/edit`}>
+          <Button variant="Secondary" className="editButton">
+            Edit
+          </Button>
+        </Link>
+        <Link to={`/contacts/${contact[0].id}/delete`}>
+          <Button variant="Danger" className="deleteButton">
+            Delete
+          </Button>
+        </Link>
       </div>
     </div>
   );

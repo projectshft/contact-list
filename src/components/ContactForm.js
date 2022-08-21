@@ -10,8 +10,7 @@ const ContactForm = (props) => {
     id: generateId(),
     fName: '',
     lName: '',
-    imageUrl:
-      'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',
+    imageUrl: '',
     email: '',
     phoneNumber: '',
   });
@@ -71,18 +70,16 @@ const ContactForm = (props) => {
           type="text"
           name="imageUrl"
           onChange={(e) =>
-            setNewContact({ ...newContact, imageUrl: e.target.value })
+            setNewContact({
+              ...newContact,
+              imageUrl: e.target.value,
+            })
           }
           placeholder="Submit an image (optional)"
           value={newContact.imageUrl}
         />
         <br />
-        <button
-          type="submit"
-          // onSubmit={() => setNewContact({ ...newContact, id: generateId() })}
-        >
-          Submit Now
-        </button>
+        <button type="submit">Submit Now</button>
       </div>
     </form>
   );
