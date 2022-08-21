@@ -6,15 +6,20 @@ import './Contact.css';
 const Contact = ({ id, fName, lName, imageUrl, email, phoneNumber }) => {
   const fullName = `${fName} ${lName}`;
   return (
-    <div className="contact">
-      <Link to={`/contacts/${id}`}>
-        <h3>{lName}</h3>
-        <h3>{fName}</h3>
-      </Link>
-      <img src={imageUrl} alt={fullName} />
-      <h2>{email}</h2>
-      <h2>{phoneNumber}</h2>
-    </div>
+    <tr>
+      <td className="table-pic">
+        <img src={imageUrl} alt={fullName} />
+      </td>
+
+      <td>
+        <Link to={`/contacts/${id}`}>
+          <td>{lName}</td>
+        </Link>
+      </td>
+      <td>{fName}</td>
+      <td>{email}</td>
+      <td>{phoneNumber}</td>
+    </tr>
   );
 };
 
