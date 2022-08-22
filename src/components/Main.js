@@ -1,7 +1,6 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { useCallback, useEffect, useState } from 'react';
 import Contacts from './Contacts';
-import Home from './Home';
 import getUsers from '../api/getUsers';
 import PageNotFound from './PageNotFound';
 
@@ -57,7 +56,7 @@ export default function Main() {
 
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route index element={<Navigate replace to="/contacts" />} />
       <Route
         path="contacts/*"
         element={
