@@ -48,11 +48,11 @@ const SingleContact = (props) => {
         </tbody>
       </Table>
       <div className="button-row">
-        <Link to={`/contacts/${contact[0].id}/edit`}>
+        {/* <Link to={`/contacts/${contact[0].id}/edit`}>
           <Button variant="Secondary" className="editButton">
             Edit
           </Button>
-        </Link>
+        </Link> */}
         <Link to={`/contacts/${contact[0].id}/delete`}>
           <Button variant="Danger" className="deleteButton">
             Delete

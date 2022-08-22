@@ -12,6 +12,8 @@ import ContactForm from './ContactForm';
 
 import EditContact from './EditContact';
 
+import ErrorPage from './404';
+
 import DeleteContact from './DeleteContact';
 
 import Header from './Header';
@@ -68,6 +70,9 @@ function App() {
             />
           )}
         />
+        <Route path="*">
+          <ErrorPage />
+        </Route>
       </Switch>
     </div>
   );

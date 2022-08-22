@@ -7,9 +7,11 @@ const Contact = ({ id, fName, lName, imageUrl, email, phoneNumber }) => {
   const fullName = `${fName} ${lName}`;
   return (
     <tr>
-      <td className="table-pic">
-        <img src={imageUrl} alt={fullName} />
-      </td>
+      <Link to={`/contacts/${id}`}>
+        <td className="table-pic">
+          <img src={imageUrl} alt={fullName} />
+        </td>
+      </Link>
 
       <td>
         <Link to={`/contacts/${id}`}>

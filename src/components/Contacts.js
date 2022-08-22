@@ -1,10 +1,7 @@
 import { Table } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
-import { Route, Switch } from 'react-router-dom';
 import Contact from './Contact';
-import SingleContact from './SingleContact';
-import ContactForm from './ContactForm';
 
 const Contacts = ({ contacts, setContacts }) => {
   console.log(contacts);

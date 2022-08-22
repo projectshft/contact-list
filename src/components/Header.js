@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './Header.css';
 
 const Header = () => (
-  <div>
+  <div className="container header">
     <h1>Hypothetical Dinner Party Rolodex</h1>
     <nav>
       <ul>
