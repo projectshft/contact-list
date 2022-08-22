@@ -39,7 +39,11 @@ export default function EditUser({ users, updateUserData }) {
 
   return (
     <div className="form">
-      <form autoComplete="off" className="form__inner">
+      <form
+        autoComplete="off"
+        className="form__inner"
+        onSubmit={handleChangeUserData}
+      >
         <label htmlFor="userName" className="form__name-label">
           Name (Required)
         </label>
@@ -99,11 +103,7 @@ export default function EditUser({ users, updateUserData }) {
 
         <br />
 
-        <button
-          type="button"
-          className="form__btn form__btn--small-text"
-          onClick={handleChangeUserData}
-        >
+        <button type="submit" className="form__btn form__btn--small-text">
           Save Changes
         </button>
       </form>

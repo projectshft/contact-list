@@ -28,7 +28,11 @@ export default function NewContact({ addUser }) {
 
   return (
     <div className="form">
-      <form autoComplete="off" className="form__inner">
+      <form
+        autoComplete="off"
+        className="form__inner"
+        onSubmit={handleAddUserClick}
+      >
         <label htmlFor="userName" className="form__name-label">
           Name (Required)
         </label>
@@ -84,11 +88,7 @@ export default function NewContact({ addUser }) {
 
         <br />
 
-        <button
-          type="button"
-          className="form__btn"
-          onClick={handleAddUserClick}
-        >
+        <button type="submit" className="form__btn">
           Add User
         </button>
       </form>
