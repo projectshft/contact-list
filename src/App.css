@@ -1,38 +1,249 @@
-.App {
+/* ======================================= */
+
+/* I decided to use BEM for my styling just becuase I enjoy writing pure CSS over bootstrap and want to keep my base CSS skills sharp for the future */
+
+/* ======================================= */
+/* Box sizing set for entire file */
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+/* ======================================= */
+/* Header styling */
+.navigation {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgb(37, 37, 65);
+  height: 10vh;
+}
+
+.navigation__link {
+  color: white;
+  text-decoration: none;
+  padding: 2vh;
+  font-size: 2.6rem;
+}
+
+.navigation__link:hover {
+  color: rgb(255, 115, 0);
+}
+
+/* ======================================= */
+/* Home page styling */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+.container__header {
+  font-size: 5rem;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* ======================================= */
+/* Contacts page styling */
+.contacts {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 5vh 0;
+}
+
+.row {
+  display: flex;
+  width: 100%;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+}
+.row__inner {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  width: 80%;
+  text-decoration: none;
+  border-top: 2px rgb(214, 214, 214) solid;
+  border-bottom: 2px rgb(214, 214, 214) solid;
+  border-left: 2px rgb(214, 214, 214) solid;
+  border-right: 2px rgb(214, 214, 214) solid;
+  color: black;
 }
 
-.App-link {
-  color: #61dafb;
+/* Bad workaround for JSX structure in place, might fix later */
+.row:nth-child(odd) a {
+  background-color: rgb(233, 233, 233);
+}
+.row__inner:visited {
+  color: black;
+}
+/* Same as above, doesn't follow BEM */
+.row__inner:not(button):hover * {
+  background-color: rgb(225, 234, 241);
+}
+.row:first-of-type:hover * {
+  background-color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.row__image {
+  object-fit: cover;
+  object-position: center center;
+  width: 250px;
+  height: 250px;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.row__name {
+  font-size: 2.3rem;
+  font-weight: 600;
+  text-align: center;
+}
+.row__email,
+.row__phone {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+.row__name-box,
+.row__email-box,
+.row__image-box,
+.row__phone-box {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.row__image-box,
+.row__name-box,
+.row__email-box {
+  border-right: 2px rgb(214, 214, 214) solid;
+}
+
+.row__image-header,
+.row__name-header,
+.row__email-header,
+.row__phone-header {
+  font-size: 2rem;
+}
+
+.btn-row {
+  width: 5%;
+  padding: 10px 0;
+  align-self: stretch;
+}
+/* To deal with the buttons in the table, margin-right: 5% * num of buttons */
+.row__table-header {
+  margin-right: 10%;
+}
+/* ======================================= */
+/* Individual contact page */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+}
+.card__inner {
+  margin-top: 5vh;
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  border: 2px gray solid;
+  padding-bottom: 2vh;
+}
+
+.card__name {
+  font-size: 3rem;
+}
+
+.card__image {
+  width: 400px;
+  height: 400px;
+  align-self: center;
+}
+.card__btn {
+  width: 50%;
+  align-self: center;
+  font-size: 1.8rem;
+}
+
+.card__email,
+.card__phone {
+  font-size: 2rem;
+}
+
+.card__phone {
+  margin-top: 0;
+}
+
+/* ======================================= */
+/* Add new contact page and edit contact page */
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5vh;
+}
+
+.form__inner {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.form__name-label,
+.form__email-label,
+.form__phone-label,
+.form__img-label {
+  font-size: 2rem;
+}
+.form__name-input,
+.form__email-input,
+.form__phone-input,
+.form__img-input {
+  font-size: 2rem;
+  width: 100%;
+}
+
+.form__btn {
+  font-size: 3rem;
+  width: 20%;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.form__link-back {
+  font-size: 2rem;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  background-color: rgb(209, 209, 209);
+  border: 2px black solid;
+  margin-top: 10vh;
+  padding: 10px;
+}
+
+.form__link-back:hover {
+  background-color: rgb(53, 53, 53);
+  color: rgb(255, 115, 0);
+}
+
+.form__btn--small-text {
+  width: 30%;
+  font-size: 2.5rem;
 }

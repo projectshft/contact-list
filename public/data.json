@@ -1,0 +1,32 @@
+{
+  "contacts": [
+    {
+      "id": "dc706a64-0896-4e9f-a761-8e1f3bf21d52",
+      "name": "Albert Einstein",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Einstein_1921_by_F_Schmutzer_-_restoration.jpg/800px-Einstein_1921_by_F_Schmutzer_-_restoration.jpg",
+      "email": "aeinstein@example.com",
+      "phone_number": "3254258758"
+    },
+    {
+      "id": "bc92d3b7-b0b0-4d11-843c-4ca1f9f1c614",
+      "name": "Dillon Hess",
+      "image_url": "https://www.pngitem.com/pimgs/m/238-2381636_happy-face-color-in-smiley-face-hd-png.png",
+      "email": "dhess268@gmail.com",
+      "phone_number": "5245864585"
+    },
+    {
+      "id": "dsadasdd-b0b0-4d11-843c-4ca1f9f1c614",
+      "name": "Bojack Horseman",
+      "image_url": "https://avatarfiles.alphacoders.com/320/320272.jpg",
+      "email": "heyItsBJH@gmail.com",
+      "phone_number": "9281927849"
+    },
+    {
+      "id": "guwedggg-312d-daxf-843c-4ca1fgasd614",
+      "name": "Diane Nguyen",
+      "image_url": "https://64.media.tumblr.com/69b6a465e1cd36b6331b50e4d29dae4e/90da960ced8175cc-86/s540x810/b34de437e0b334051b240ca29bb7dded08b7053f.pnj",
+      "email": "dianeIsAWriter@gmail.com",
+      "phone_number": "4123918293"
+    }
+  ]
+}
