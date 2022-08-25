@@ -13,50 +13,54 @@ const App = () => (
 
 const New = () => (
   <div>
+    <h1>Add New Contact</h1>
     <form>
       <div class="form-group">
         <label for="InputImg">Profile Picture</label>
-        <input type="image" class="form-control" id="InputImg" aria-describedby="emailHelp" placeholder="Enter img URL"/>
+        <input type="text" class="form-control" id="InputImg" placeholder="Enter Image URL"/>
       </div>
       <div class="form-group">
-        <label for="inputName">Name</label>
+        <label for="inputName">Enter Name</label>
         <input type="text" class="form-control" id="inputName" placeholder="Name"/>
       </div>
       <div class="form-group">
         <label for="InputEmail">Email address</label>
-        <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="Enter email"/>
+        <input type="email" class="form-control" id="InputEmail" aria-describedby="addContact" placeholder="Enter email"/>
       </div>
       <div class="form-group">
-        <label for="inputPhoneNumber">Phone Number</label>
+        <label for="inputPhoneNumber">Enter Phone Number</label>
         <input type="password" class="form-control" id="inputPhoneNumber" placeholder="Phone Number"/>
       </div>
-      <button type="submit" class="btn btn-primary">Add Contact</button>
+      <button type="submit" class="btn btn-primary submit-contact">Add Contact</button>
     </form>
   </div>
 );
 
 
 const Contacts = () => (
-  <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th>Profile Pic</th>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Phone Number</th>
-        </tr>
-      </thead>
-      <tbody>
-        {ContactAPI.all().map(p => (
-          <tr key={p.id}>
-            <td>{p.profilePic}</td>
-            <td><Link to={`/${p.id}`}>{p.name}</Link></td>
-            <td>{p.email}</td>
-            <td>{p.phoneNumer}</td>
+  <div>
+    <Link to={`/newcontact`}>Add New Contact</Link>
+    <table class="table table-bordered ">
+        <thead>
+          <tr>
+            <th>Profile Pic</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
           </tr>
-        ))} 
-      </tbody>
-  </table>
+        </thead>
+        <tbody>
+          {ContactAPI.all().map(p => (
+            <tr key={p.id}>
+              <td><img src={p.profilePic} alt='profile pic' class='rounded img-thumbnail'></img></td>
+              <td><Link to={`/${p.id}`}>{p.name}</Link></td>
+              <td>{p.email}</td>
+              <td>{p.phoneNumer}</td>
+            </tr>
+          ))} 
+        </tbody>
+    </table>
+  </div>
 );
 
 
@@ -80,7 +84,7 @@ const Contact = props => {
 
 const ContactAPI = {
   contacts: [
-    { id: 1, name: 'Ben Blocker', email: 'dnlbui@protonmail.com', phoneNumer: '8174238623', profilePic: `https://www.google.com/imgres?imgurl=https%3A%2F%2Fi.pinimg.com%2F736x%2F25%2F78%2F61%2F25786134576ce0344893b33a051160b1.jpg&imgrefurl=https%3A%2F%2Fwww.pinterest.com%2Fpin%2Fcool-profile-picture--1017461740786087404%2F&tbnid=08VDftRIkEnVuM&vet=12ahUKEwiI5vfj8uD5AhUkgokEHW1GBocQMygFegUIARDoAQ..i&docid=n4-9K2e47rmqpM&w=736&h=852&q=profile%20pic&ved=2ahUKEwiI5vfj8uD5AhUkgokEHW1GBocQMygFegUIARDoAQ` }
+    { id: 1, name: 'Ben Blocker', email: 'dnlbui@protonmail.com', phoneNumer: '8174238623', profilePic: `https://cdn-icons-png.flaticon.com/512/3135/3135715.png` }
   ],
   all: function() {
     return this.contacts;
@@ -91,13 +95,18 @@ const ContactAPI = {
   }
 };
 
+const Header = () => (
+  <header>
+    <h1>Contacts</h1>
+  </header>
+);
 
 const Main = () => (
   <main>
     <Switch>
       <Route exact path="/" component={Contacts} />
+      <Route path="/newcontact" component={New} />
       <Route path="/:id" component={Contact} />
-      <Route path="/new" component={New} />
     </Switch>
   </main>
 );
