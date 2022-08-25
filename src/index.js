@@ -5,7 +5,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 const App = () => (
-  <div>
+  <div class="col-md-6 offset-md-3 text-center">
+    <Header/>
     <Main />
   </div>
 );
