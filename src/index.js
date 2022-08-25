@@ -1,68 +1,89 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+//import AddContact from '..\components\AddContact.js'
 
-const App = () => (
-  <div class="col-md-6 offset-md-3 text-center">
-    <Header/>
-    <Main />
-  </div>
-);
+const App = () => {
+  
+  
+  
 
-
-const New = () => (
-  <div>
-    <h1>Add New Contact</h1>
-    <form>
-      <div class="form-group">
-        <label for="InputImg">Profile Picture</label>
-        <input type="text" class="form-control" id="InputImg" placeholder="Enter Image URL"/>
-      </div>
-      <div class="form-group">
-        <label for="inputName">Enter Name</label>
-        <input type="text" class="form-control" id="inputName" placeholder="Name"/>
-      </div>
-      <div class="form-group">
-        <label for="InputEmail">Email address</label>
-        <input type="email" class="form-control" id="InputEmail" aria-describedby="addContact" placeholder="Enter email"/>
-      </div>
-      <div class="form-group">
-        <label for="inputPhoneNumber">Enter Phone Number</label>
-        <input type="password" class="form-control" id="inputPhoneNumber" placeholder="Phone Number"/>
-      </div>
-      <button type="submit" class="btn btn-primary submit-contact">Add Contact</button>
-    </form>
-  </div>
-);
+  return (
+    <div class="col-md-6 offset-md-3 text-center">
+      <Header/>
+      <Main contacts={contacts}/>
+    </div>
+  );
+};
 
 
-const Contacts = () => (
-  <div>
-    <Link to={`/newcontact`}>Add New Contact</Link>
-    <table class="table table-bordered ">
-        <thead>
-          <tr>
-            <th>Profile Pic</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Phone Number</th>
-          </tr>
-        </thead>
-        <tbody>
-          {ContactAPI.all().map(p => (
-            <tr key={p.id}>
-              <td><img src={p.profilePic} alt='profile pic' class='rounded img-thumbnail'></img></td>
-              <td><Link to={`/${p.id}`}>{p.name}</Link></td>
-              <td>{p.email}</td>
-              <td>{p.phoneNumer}</td>
+const AddContact = () => {
+  const [imageURL, setImageURL] = useState('')
+  const [name, setName] = useState('')
+  const [eMail, setEMail] = useState('')
+  const [number, setNumber] = useState('')
+  
+  return (
+    <div>
+      <h1>Add New Contact</h1>
+      <form onSubmit={handleSubmit}>
+        <div class="form-group">
+          <label for="InputImg">Profile Picture</label>
+          <input type="text" class="form-control" id="InputImg" placeholder="Enter Image URL"/>
+        </div>
+        <div class="form-group">
+          <label for="inputName">Enter Name</label>
+          <input type="text" class="form-control" id="inputName" placeholder="Name"/>
+        </div>
+        <div class="form-group">
+          <label for="InputEmail">Email address</label>
+          <input type="email" class="form-control" id="InputEmail" aria-describedby="addContact" placeholder="Enter email"/>
+        </div>
+        <div class="form-group">
+          <label for="inputPhoneNumber">Enter Phone Number</label>
+          <input type="password" class="form-control" id="inputPhoneNumber" placeholder="Phone Number"/>
+        </div>
+        <button type="submit" class="btn btn-primary submit-contact">Add Contact</button>
+        <Link to={`/`}>Back to Contacts</Link>
+      </form>
+    </div>
+  )
+}; 
+
+
+const Contacts = () => {
+  const [contacts, setContacts] = useState([data.ContactAPI]);
+
+  setContacts()
+
+  return (
+    <div>
+      <Link to={`/newcontact`}>Add New Contact</Link>
+      <table class="table table-bordered ">
+          <thead>
+            <tr>
+              <th>Profile Pic</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone Number</th>
             </tr>
-          ))} 
-        </tbody>
-    </table>
-  </div>
-);
+          </thead>
+          <tbody>
+            {ContactAPI.all().map(p => (
+              <tr key={p.id}>
+                <td><img src={p.profilePic} alt='profile pic' class='rounded img-thumbnail'></img></td>
+                <td><Link to={`/${p.id}`}>{p.name}</Link></td>
+                <td>{p.email}</td>
+                <td>{p.phoneNumer}</td>
+              </tr>
+            ))} 
+          </tbody>
+      </table>
+    </div>
+  );
+};
 
 
 const Contact = props => {
@@ -106,7 +127,7 @@ const Main = () => (
   <main>
     <Switch>
       <Route exact path="/" component={Contacts} />
-      <Route path="/newcontact" component={New} />
+      <Route path="/newcontact" component={AddContact} />
       <Route path="/:id" component={Contact} />
     </Switch>
   </main>
