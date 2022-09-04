@@ -1,9 +1,7 @@
-import {Link} from 'react-router-dom'
-import RenderContacts from '../components/RenderContacts';
+import { Link } from 'react-router-dom';
 import {Table, Button} from 'react-bootstrap'
 
-
-const ContactList = () => (
+const AllContacts = ({contacts}) => (
   <div className="row">
     <div className="col-md-6 offset-md-3">
       <div className="page-header">
@@ -12,7 +10,7 @@ const ContactList = () => (
         </h1>
       </div>
       <div>
-        <Link to="/addcontact">
+        <Link to="/rolodex/new">
           <Button variant="primary">
             Add New Contact
           </Button>
@@ -28,10 +26,21 @@ const ContactList = () => (
             <th scope="col">Phone</th>
           </tr>
         </thead>
-        <RenderContacts/>
+        <tbody>
+          {
+        contacts.map(p => (
+          <tr key={p.id}>
+              <td><img style={{height: '200px', width: '300px'}} src={p.img_url} alt='portrait'/></td>
+              <td><Link to={`/rolodex/${p.id}`}>{p.contact_name}</Link></td>
+              <td>{p.email}</td>
+              <td>{p.phone_number}</td>
+          </tr>
+        ))
+          }
+        </tbody>
       </Table>
     </div>
   </div>
- );
+)
 
- export default ContactList;
+export default AllContacts

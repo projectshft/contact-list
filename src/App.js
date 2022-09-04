@@ -1,35 +1,31 @@
-import { Component } from 'react';
+import { Switch, Route } from 'react-router-dom'
+import React, { useState } from 'react'
+import Home from './Home'
+import Rolodex from './Rolodex'
+// import data from './components/data.json'
+import 'react-bootstrap'
 
-// class App extends Component {
-//   render() {
-//     return (
-//       <div className="row">
-//         <div className="col-md-6 offset-md-3">
-//           <div className="page-header">
-//             <h1>Contact List</h1>
-//           </div>
+const App = () => {
+  const [contacts, setContacts] = useState([
+    // data.contacts
+  ])
 
-//           <div className="posts">
-//           </div>
+  const addContact = (contact) => {
+    setContacts(contacts => {
+      return [contact,...contacts]
+    });
+  }
 
-//           <form className="post-form">
-//             <h3>Add a New Post</h3>
+  return (
+    <div>
+      <Switch>
+        <Route exact path='/' component={Home}/>
+        <Route path='/rolodex' render={() => (
+          <Rolodex addContact={addContact} contacts={contacts} />
+        )}/>
+      </Switch>
+    </div>
+  )
+}
 
-//             <div className="form-group">
-//               <input type="text" id="post-text" className="form-control" placeholder="Post Text"/>
-
-//               <br/>
-
-//               <input type="text" id="post-user" className="form-control" placeholder="Your Name"/>
-//             </div>
-
-//             <button type="button" className="btn btn-primary add-post">Post</button>
-//           </form>
-
-//         </div>
-//       </div>
-//     );
-//   }
-// }
-
-export default App;
+export default App
