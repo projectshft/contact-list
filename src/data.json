@@ -1,0 +1,39 @@
+{
+  "contacts": [
+    {
+      "id": 16851750,
+      "contact_name": "Johann Sebastian Bach",
+      "img_url": "https://cdn.britannica.com/61/114461-050-E9206DB5/Johann-Sebastian-Bach-oil-canvas-Elias-Gottlieb-1746.jpg",
+      "email": "jsbach@example.com",
+      "phone_number": "15551234567"
+    },
+    {
+      "id": 16851757,
+      "contact_name": "Domenico Scarlatti",
+      "img_url": "https://api.brilliantclassicslicensing.com//storage/images/artists/NYKse1sFpWXkBzn9ziQZjudlEiwE6t2ErItCRozT.jpeg",
+      "email": "dscarlattin@example.com",
+      "phone_number": "15557891234"
+    },
+    {
+      "id": 16851759,
+      "contact_name": "Georg Frederic Handel",
+      "img_url": "https://i.guim.co.uk/img/media/ca5a04a5b6d834077674d2441d89762450323b5f/0_112_2346_1408/master/2346.jpg?width=620&quality=85&fit=max&s=61ec8f51796edaac8ec28ed71bdac7b7",
+      "email": "gfhandel@example.com",
+      "phone_number": "15556666666"
+    },
+    {
+      "id": 16681733,
+      "contact_name": "Francois Couperin",
+      "img_url": "https://thefreelancehistorywriter.files.wordpress.com/2013/06/francois-couperin.jpg?w=809",
+      "email": "fcouperin@example.com",
+      "phone_number": "15557778888"
+    },
+    {
+      "id": 16811767,
+      "contact_name": "Georg Phillip Telemann",
+      "img_url": "https://cdn.naxos.com/SharedFiles/Images/Composers/Pictures/23879-1.jpg",
+      "email": "gptelemann@example.com",
+      "phone_number": "15558889999"
+    }
+  ]
+}
