@@ -37,7 +37,7 @@ function ContactList({ contacts }) {
           <h3>Email</h3>
         </div>
         <div className="col-md-3">
-          <h3>Phone Number</h3>
+          <h3>Phone</h3>
         </div>
       </div>
       {c}

@@ -13,10 +13,11 @@ const Contact = ({ contactId, contacts }) => {
     return <div>Sorry, but the contact was not found</div>;
   }
 
+  const imageUrl = `{contact.imageUrl}`;
   return (
-    <div>
-      <div>
-        <img src="{contact.imageUrl}" alt={contact.name} />
+    <div className="justify-content-md-center">
+      <div className="col-md-auto">
+        <img src={imageUrl} alt={contact.name} />
       </div>
       <h3>{contact.name}</h3>
       <h3>{contact.phoneNumber}</h3>

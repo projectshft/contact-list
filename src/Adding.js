@@ -1,6 +1,4 @@
-/* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
 import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
 // import PropTypes from 'prop-types';
@@ -79,9 +77,9 @@ const Adding = ({ addContact, history }) => {
   );
 };
 
-// Adding.propTypes = {
+/* // Adding.propTypes = {
 //   name: PropTypes.string.isRequired,
 //   imageUrl: PropTypes.bigint.isRequired,
-// };
+// }; */
 
 export default Adding;
