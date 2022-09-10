@@ -1,9 +1,10 @@
-//acomponent with a state of contacts with a function for adding new contacts, which is displaying contact list itself and switching to contact list ? 
+/* eslint-disable no-unused-vars */
+// acomponent with a state of contacts with a function for adding new contacts, which is displaying contact list itself and switching to contact list ?
 
 import { Switch, Route } from 'react-router-dom';
 import React, { useState } from 'react';
 import Contacts from './Contacts';
-// import Home from './Home';
+import Home from './Home';
 import './App.css';
 
 const App = () => {
@@ -19,8 +20,7 @@ const App = () => {
     {
       id: 70219578,
       name: 'Albert Einstein',
-      imageUrl:
-        'https://en.wikipedia.org/wiki/Albert_Einstein#/media/File:Einstein_1921_by_F_Schmutzer_-_restoration.jpg',
+      imageUrl: 'https://unsplash.com/s/photos/human',
       email: 'aeinstein@example.com',
       phoneNumber: '155',
     },
@@ -35,18 +35,17 @@ const App = () => {
     <div className="container">
       <div className="row justify-content-md-center">
         <div className="col-md-auto">
-          <h1>Contact list!</h1>
-          <Switch>
-            {/* <Route exact path="/" component={Home} /> */}
-            <Route
-              exact
-              path="/"
-              render={() => (
-                <Contacts contacts={contacts} addContact={addContact} />
-              )}
-            />
-          </Switch>
+          <h1 className="header">Contact list</h1>
         </div>
+        <Switch>
+          {/* <Route exact path="/" component={Home} /> */}
+          <Route
+            path="/contacts"
+            render={() => (
+              <Contacts contacts={contacts} addContact={addContact} />
+            )}
+          />
+        </Switch>
       </div>
     </div>
   );

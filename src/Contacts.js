@@ -1,4 +1,5 @@
-//route component whic is itself a contact list , which is switching to adding new ones and displaying a contact list on clicking the name/photo???
+/* eslint-disable react/prop-types */
+// route component whic is itself a contact list , which is switching to adding new ones and displaying a contact list on clicking the name/photo???
 
 import { Switch, Route } from 'react-router-dom';
 import Contact from './Contact';
@@ -24,15 +25,15 @@ const Contacts = ({ contacts, addContact }) => (
       )}
     />
     <Route
-      path="/contacts/:number"
+      path="/contacts/:id"
       render={(routerProps) => (
         <Contact
-          contactId={// id number }
+          contactId={parseInt(routerProps.match.params.id, 10)}
           contacts={contacts}
         />
       )}
     />
   </Switch>
-)
+);
 
 export default Contacts;
