@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-// function component for creating a table of contactList
 
 import { Link } from 'react-router-dom';
 import React from 'react';
@@ -25,7 +24,7 @@ function ContactList({ contacts }) {
   ));
 
   return (
-    <div className="container-fluid">
+    <div className="container">
       <div className="row">
         <div className="col-md-3">
           <h3>Photo</h3>

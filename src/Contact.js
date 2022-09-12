@@ -13,16 +13,23 @@ const Contact = ({ contactId, contacts }) => {
     return <div>Sorry, but the contact was not found</div>;
   }
 
-  const imageUrl = `{contact.imageUrl}`;
+  const { imageUrl } = contact;
   return (
-    <div className="justify-content-md-center">
-      <div className="col-md-auto">
-        <img src={imageUrl} alt={contact.name} />
+    <div className="container">
+      <div className="row justify-content-md-center">
+        <div className="col-md-auto contact-display">
+          <img width={200} height={200} src={imageUrl} alt={contact.name} />
+          <br />
+          <h4>{contact.name}</h4>
+          <h5>{contact.phoneNumber}</h5>
+          <h6>{contact.email}</h6>
+        </div>
+        <Link to="/contacts">
+          {/* <button type="button" className="btn btn-default"> */}
+          Back to contacts
+          {/* </button> */}
+        </Link>
       </div>
-      <h3>{contact.name}</h3>
-      <h3>{contact.phoneNumber}</h3>
-      <h3>{contact.email}</h3>
-      <Link to="/contacts">Back</Link>
     </div>
   );
 };

@@ -1,8 +1,9 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
+import _ from 'lodash';
 // import PropTypes from 'prop-types';
-// import urlPropType from 'url-prop-type';
 
 const Adding = ({ addContact, history }) => {
   const [id, setId] = useState('');
@@ -12,9 +13,10 @@ const Adding = ({ addContact, history }) => {
   const [email, setEmail] = useState('');
 
   const generateId = () => Math.round(Math.random() * 100000000);
+  // const idGen = _.random(100000000, 19999999);
 
   const handleSubmitAddingContact = () => {
-    setId(generateId());
+    setId(Number(`${generateId()}`));
     addContact({
       id,
       name,
@@ -22,7 +24,6 @@ const Adding = ({ addContact, history }) => {
       phoneNumber,
       email,
     });
-
     history.push('/contacts');
   };
 
@@ -64,22 +65,23 @@ const Adding = ({ addContact, history }) => {
             className="form-control"
             onChange={(event) => setNumber(Number(event.target.value))}
           />
-          <br />
-
-          <button type="button" onClick={handleSubmitAddingContact}>
+          <button
+            type="button"
+            className="btn btn-danger"
+            onClick={handleSubmitAddingContact} && {setId(Number(`${generateId()}`))}
+          >
             Submit
           </button>
         </form>
 
-        <Link to="/contacts">Back to Contact List</Link>
+        <Link to="/contacts">
+          <button type="button" className="btn btn-default">
+            Back to contacts
+          </button>
+        </Link>
       </div>
     </div>
   );
 };
-
-/* // Adding.propTypes = {
-//   name: PropTypes.string.isRequired,
-//   imageUrl: PropTypes.bigint.isRequired,
-// }; */
 
 export default Adding;
