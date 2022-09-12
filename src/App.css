@@ -36,6 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+.head {
+  background-color: lightslategray;
+  color: white;
+}
 .container .row .col-md-3 {
   justify-content: center;
   align-content: center;
@@ -54,7 +59,8 @@
 }
 
 img {
-  width: 100%;
+  width: 200px;
+  height: auto;
 }
 .contact-display {
   border: black solid 0.5px;
@@ -66,4 +72,7 @@ img {
 .btn-primary {
   margin-bottom: 5px;
   margin-left: -11px;
+}
+.btn-danger {
+  margin-top: 5px;
 }

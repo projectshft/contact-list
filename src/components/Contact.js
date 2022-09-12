@@ -18,10 +18,10 @@ const Contact = ({ contactId, contacts }) => {
     <div className="container">
       <div className="row justify-content-md-center">
         <div className="col-md-auto contact-display">
-          <img width={200} height={200} src={imageUrl} alt={contact.name} />
+          <img src={imageUrl} alt={contact.name} />
           <br />
           <h4>{contact.name}</h4>
-          <h5>{contact.phoneNumber}</h5>
+          <h5>{contact.phone}</h5>
           <h6>{contact.email}</h6>
         </div>
         <Link to="/contacts">

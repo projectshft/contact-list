@@ -18,14 +18,14 @@ function ContactList({ contacts }) {
         <h6>{contact.email}</h6>
       </div>
       <div className="col-md-3">
-        <h6>{contact.phoneNumber}</h6>
+        <h6>{contact.phone}</h6>
       </div>
     </div>
   ));
 
   return (
     <div className="container">
-      <div className="row">
+      <div className="row head">
         <div className="col-md-3">
           <h3>Photo</h3>
         </div>
