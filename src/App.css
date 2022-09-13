@@ -66,13 +66,14 @@ img {
   border: black solid 0.5px;
   padding: 10px;
 }
-.btn-default {
-  margin-left: -320px;
-}
 .btn-primary {
   margin-bottom: 5px;
   margin-left: -11px;
 }
 .btn-danger {
-  margin-top: 5px;
+  margin-top: -15px;
+  margin-bottom: 35px;
+}
+.contact-display {
+  margin-bottom: 55px;
 }

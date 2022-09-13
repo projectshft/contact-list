@@ -1,10 +1,8 @@
-/* eslint-disable react/void-dom-elements-no-children */
 /* eslint-disable react/prop-types */
-// function component on creating a contact with a number in URL which is matched with its id
-
-import { Link } from 'react-router-dom';
 import React from 'react';
 import _ from 'lodash';
+// import PropTypes from 'prop-types';
+// import { ContactType } from '../types';
 
 const Contact = ({ contactId, contacts }) => {
   const contact = _.find(contacts, { id: contactId });
@@ -24,14 +22,16 @@ const Contact = ({ contactId, contacts }) => {
           <h5>{contact.phone}</h5>
           <h6>{contact.email}</h6>
         </div>
-        <Link to="/contacts">
-          {/* <button type="button" className="btn btn-default"> */}
-          Back to contacts
-          {/* </button> */}
-        </Link>
       </div>
     </div>
   );
 };
+
+// Contact.propTypes = {
+//   contacts: PropTypes.array(ContactType).isRequired,
+//   contactId: PropTypes.number.isRequired,
+// };
+
+// // PropTypes.checkPropTypes(ContactType);
 
 export default Contact;

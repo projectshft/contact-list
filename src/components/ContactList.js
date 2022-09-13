@@ -1,13 +1,16 @@
 /* eslint-disable react/prop-types */
-
 import { Link } from 'react-router-dom';
 import React from 'react';
+// import PropTypes from 'prop-types';
+// import { ContactType } from '../types';
 
 function ContactList({ contacts }) {
   const c = contacts.map((contact) => (
     <div className="row" key={contact.id}>
       <div className="col-md-3">
-        <img src={contact.imageUrl} alt={contact.name} />
+        <Link to={`/contacts/${contact.id}`}>
+          <img src={contact.imageUrl} alt={contact.name} />
+        </Link>
       </div>
       <div className="col-md-3">
         <Link to={`/contacts/${contact.id}`}>
@@ -43,5 +46,11 @@ function ContactList({ contacts }) {
     </div>
   );
 }
+
+// ContactList.propTypes = {
+//   contacts: PropTypes.array(ContactType).isRequired,
+// };
+
+// PropTypes.checkPropTypes(ContactType);
 
 export default ContactList;
