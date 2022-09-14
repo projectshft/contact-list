@@ -36,3 +36,44 @@
     transform: rotate(360deg);
   }
 }
+
+.head {
+  background-color: lightslategray;
+  color: white;
+}
+.container .row .col-md-3 {
+  justify-content: center;
+  align-content: center;
+  display: flex;
+  border: black solid 0.5px;
+}
+
+.container {
+  align-self: center;
+  align-self: flex-end;
+}
+
+.header {
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+img {
+  width: 200px;
+  height: auto;
+}
+.contact-display {
+  border: black solid 0.5px;
+  padding: 10px;
+}
+.btn-primary {
+  margin-bottom: 5px;
+  margin-left: -11px;
+}
+.btn-danger {
+  margin-top: -15px;
+  margin-bottom: 35px;
+}
+.contact-display {
+  margin-bottom: 55px;
+}
