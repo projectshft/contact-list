@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { Switch, Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { ContactType } from '../types';
@@ -12,7 +11,7 @@ const Contacts = ({ contacts, addUpdateContact }) => (
       render={(routerProps) => (
         <AddUpdateContact
           history={routerProps.history}
-          addUpdateContactt={addUpdateContact}
+          addUpdateContact={addUpdateContact}
         />
       )}
     />
@@ -22,11 +21,9 @@ const Contacts = ({ contacts, addUpdateContact }) => (
         <AddUpdateContact
           history={routerProps.history}
           addUpdateContact={addUpdateContact}
-          selected={
-            contacts.find(
-              (contact) => contact.id.toString() === routerProps.match.params.id
-            ) || {}
-          }
+          selected={contacts.find(
+            (contact) => contact.id.toString() === routerProps.match.params.id
+          )}
         />
       )}
     />
@@ -46,6 +43,5 @@ Contacts.propTypes = {
   contacts: PropTypes.arrayOf(ContactType).isRequired,
   addUpdateContact: PropTypes.func.isRequired,
 };
-
 
 export default Contacts;

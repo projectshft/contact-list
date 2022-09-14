@@ -1,6 +1,4 @@
-/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
-import _ from 'lodash';
 import Contacts from './Contacts';
 import ContactList from './ContactList';
 
@@ -24,6 +22,9 @@ const Main = () => {
   ]);
 
   const generateId = () => Math.round(Math.random() * 100000000);
+  const sortedContacts = contacts.sort((a, b) =>
+    a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1
+  );
 
   const addUpdateContact = (newContact) => {
     console.log(newContact);
@@ -50,7 +51,7 @@ const Main = () => {
   return (
     <main>
       <Contacts contacts={contacts} addUpdateContact={addUpdateContact} />
-      <ContactList contacts={contacts} />
+      <ContactList contacts={sortedContacts} />
     </main>
   );
 };
