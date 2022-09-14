@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import _ from 'lodash';
-// import PropTypes from 'prop-types';
-// import { ContactType } from '../types';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import { ContactType } from '../types';
 
 const Contact = ({ contactId, contacts }) => {
   const contact = _.find(contacts, { id: contactId });
@@ -23,15 +24,14 @@ const Contact = ({ contactId, contacts }) => {
           <h6>{contact.email}</h6>
         </div>
       </div>
+      <Link to={`/contacts/edit/${contact.id}`}>Edit contact</Link>
     </div>
   );
 };
 
-// Contact.propTypes = {
-//   contacts: PropTypes.array(ContactType).isRequired,
-//   contactId: PropTypes.number.isRequired,
-// };
-
-// // PropTypes.checkPropTypes(ContactType);
+Contact.propTypes = {
+  contacts: PropTypes.arrayOf(ContactType).isRequired,
+  contactId: PropTypes.number.isRequired,
+};
 
 export default Contact;

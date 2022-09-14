@@ -1,22 +1,19 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-const NewContact = ({ addContact, history }) => {
-  const [name, setName] = useState('');
-  const [imageUrl, setImageURL] = useState('');
-  const [phone, setPhone] = useState('');
-  const [email, setEmail] = useState('');
-
-
-  const generateId = () => Math.round(Math.random() * 100000000);
+const AddUpdateContact = ({ addUpdateContact, history, selected }) => {
+  const [name, setName] = useState(selected?.name || '');
+  const [imageUrl, setImageURL] = useState(selected?.imageUrl || '');
+  const [phone, setPhone] = useState(selected?.phone || '');
+  const [email, setEmail] = useState(selected?.email || '');
 
   const handleSubmitAddingContact = () => {
-    addContact({
-      id: generateId(),
+    addUpdateContact({
+      id: selected?.id || null,
       name,
       imageUrl,
-      phone,
       email,
+      phone,
     });
     history.push('/');
   };
@@ -29,6 +26,7 @@ const NewContact = ({ addContact, history }) => {
           <input
             type="text"
             id="name"
+            value={name}
             placeholder="Name"
             className="form-control"
             onChange={(event) => setName(event.target.value)}
@@ -39,6 +37,7 @@ const NewContact = ({ addContact, history }) => {
           <input
             type="text"
             id="image-url"
+            value={imageUrl}
             placeholder="Image URL"
             className="form-control"
             onChange={(event) => setImageURL(event.target.value)}
@@ -49,6 +48,7 @@ const NewContact = ({ addContact, history }) => {
           <input
             type="text"
             id="email"
+            value={email}
             placeholder="Email"
             className="form-control"
             onChange={(event) => setEmail(event.target.value)}
@@ -59,9 +59,10 @@ const NewContact = ({ addContact, history }) => {
           <input
             type="text"
             id="phone-number"
+            value={phone}
             placeholder="Phone number"
             className="form-control"
-            onChange={(event) => setPhone(Number(event.target.value))}
+            onChange={(event) => setPhone(event.target.value)}
           />
           <br />
 
@@ -70,7 +71,7 @@ const NewContact = ({ addContact, history }) => {
             className="btn btn-danger"
             onClick={handleSubmitAddingContact}
           >
-            Add contact
+            Submit
           </button>
         </form>
       </div>
@@ -78,11 +79,12 @@ const NewContact = ({ addContact, history }) => {
   );
 };
 
-NewContact.propTypes = {
-  addContact: PropTypes.func.isRequired,
+AddUpdateContact.propTypes = {
+  addUpdateContact: PropTypes.func,
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
   }).isRequired,
+  selected: PropTypes.object,
 };
 
-export default NewContact;
+export default AddUpdateContact;

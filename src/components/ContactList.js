@@ -1,8 +1,7 @@
-/* eslint-disable react/prop-types */
 import { Link } from 'react-router-dom';
 import React from 'react';
-// import PropTypes from 'prop-types';
-// import { ContactType } from '../types';
+import PropTypes from 'prop-types';
+import { ContactType } from '../types';
 
 function ContactList({ contacts }) {
   const c = contacts.map((contact) => (
@@ -47,10 +46,8 @@ function ContactList({ contacts }) {
   );
 }
 
-// ContactList.propTypes = {
-//   contacts: PropTypes.array(ContactType).isRequired,
-// };
-
-// PropTypes.checkPropTypes(ContactType);
+ContactList.propTypes = {
+  contacts: PropTypes.arrayOf(ContactType).isRequired,
+};
 
 export default ContactList;

@@ -1,5 +1,6 @@
-import { Switch, Route } from 'react-router-dom';
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
+import _ from 'lodash';
 import Contacts from './Contacts';
 import ContactList from './ContactList';
 
@@ -22,21 +23,33 @@ const Main = () => {
     },
   ]);
 
-  const addContact = (contact) => {
-    const newContacts = [...contacts, contact];
-    return setContacts(newContacts);
+  const generateId = () => Math.round(Math.random() * 100000000);
+
+  const addUpdateContact = (newContact) => {
+    console.log(newContact);
+    if (newContact.id) {
+      setContacts(
+        contacts.map((contact) => {
+          if (contact.id === newContact.id) {
+            return newContact;
+          }
+          return contact;
+        })
+      );
+    } else {
+      setContacts([
+        ...contacts,
+        {
+          ...newContact,
+          id: generateId(),
+        },
+      ]);
+    }
   };
 
   return (
     <main>
-      <Switch>
-        <Route
-          path="/"
-          render={() => (
-            <Contacts contacts={contacts} addContact={addContact} />
-          )}
-        />
-      </Switch>
+      <Contacts contacts={contacts} addUpdateContact={addUpdateContact} />
       <ContactList contacts={contacts} />
     </main>
   );
