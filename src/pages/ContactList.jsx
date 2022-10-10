@@ -6,7 +6,6 @@ import { contactData } from '../data/contactData';
 
 export default function ContactList() {
   const [contacts, setContacts] = useState(contactData);
-  const [filteredContacts, setFilteredContacts] = useState(contacts);
 
   useEffect(() => {
     const nextContacts = [...contacts];
@@ -17,21 +16,13 @@ export default function ContactList() {
     setContacts(contacts.filter((contact) => contact.id !== id));
   };
 
-  const handleSearchContacts = (e) => {
-    // filteredContacts(contacts.filter((contact) => contact.first === e || contact.last === e));
-  };
-
   return (
     <div className="flex flex-col items-start justify-start h-screen bg-blue-100">
       <div className="flex h-16 w-full">
         <Header />
       </div>
       <div className="flex flex-row w-full h-full overflow-clip p-4">
-        <Sidebar
-          contacts={contacts}
-          handleDeleteContact={handleDeleteContact}
-          handleSearchContacts={handleSearchContacts}
-        />
+        <Sidebar contacts={contacts} handleDeleteContact={handleDeleteContact} />
         <Outlet context={[contacts, setContacts]} />
       </div>
     </div>
