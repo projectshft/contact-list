@@ -19,7 +19,7 @@ export default function Contact() {
   const currentContact = contacts.reduce((acc, contact) => (contact.id === +contactId ? contact : acc), {});
 
   return (
-    <div className="bg-white max-h-96 w-80 rounded-lg p-5 ml-5 flex flex-col items-center justify-evenly shadow-lg">
+    <div className="animate-fadeIn bg-white max-h-96 w-80 rounded-lg p-5 ml-5 flex flex-col items-center justify-evenly shadow-lg">
       <img src={currentContact.avatar} alt="avatar" className="bg-blue-100 rounded-full" />
       <div className="flex flex-col items-center">
         <div className="text-lg font-semibold">

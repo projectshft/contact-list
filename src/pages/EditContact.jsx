@@ -25,7 +25,7 @@ const EditContact = () => {
   };
 
   return (
-    <form className="bg-white max-h-96 w-80 rounded-lg p-5 ml-5 flex flex-col items-center justify-evenly shadow-lg">
+    <form className="animate-fadeIn bg-white max-h-96 w-80 rounded-lg p-5 ml-5 flex flex-col items-center justify-evenly shadow-lg">
       <img src={currentContact.avatar} alt="avatar" className="bg-blue-100 rounded-full" />
       <div className="flex flex-col w-full items-center">
         <div className="flex flex-row">
@@ -60,7 +60,7 @@ const EditContact = () => {
         className="border-2 text-green-500 font-semibold border-green-500 hover:bg-green-500 rounded p-1 hover:text-white"
         onClick={(e) => handleSubmitClick(e)}
       >
-        Edit Contact
+        Confirm Edit
       </button>
     </form>
   );
