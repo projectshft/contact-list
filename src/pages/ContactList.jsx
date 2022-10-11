@@ -4,7 +4,7 @@ import Header from '../components/Header';
 import Sidebar from '../components/Sidebar';
 import { contactData } from '../data/contactData';
 
-export default function ContactList() {
+const ContactList = () => {
   const [contacts, setContacts] = useState(contactData);
 
   useEffect(() => {
@@ -17,14 +17,16 @@ export default function ContactList() {
   };
 
   return (
-    <div className="flex flex-col items-start justify-start h-screen bg-blue-100">
+    <div className="flex h-screen flex-col items-start justify-start bg-slate-200">
       <div className="flex h-16 w-full">
         <Header />
       </div>
-      <div className="flex flex-row w-full h-full overflow-clip p-4">
+      <div className="flex h-full w-full flex-row overflow-hidden text-clip p-4">
         <Sidebar contacts={contacts} handleDeleteContact={handleDeleteContact} />
         <Outlet context={[contacts, setContacts]} />
       </div>
     </div>
   );
-}
+};
+
+export default ContactList;

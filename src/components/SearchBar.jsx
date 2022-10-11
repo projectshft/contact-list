@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 
 const SearchBar = ({ handleSearchChange }) => (
-  <form className="flex justify-center w-full border-b drop-shadow-sm ">
+  <form className="flex w-full justify-center border-b drop-shadow-sm ">
     <input
-      className="border border-gray-300 rounded px-3 mb-4 self-center"
+      className="mb-4 self-center rounded border border-gray-300 px-3"
       type="text"
       placeholder="Search"
       onChange={(e) => handleSearchChange(e.target.value)}

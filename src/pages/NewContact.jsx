@@ -1,6 +1,7 @@
-import { useNavigate, useOutletContext, useParams } from 'react-router-dom';
+import { useNavigate, useOutletContext } from 'react-router-dom';
 import { useState } from 'react';
 import generateUserId from '../utils/generateUserId';
+import AvatarExamples from '../components/AvatarExamples';
 
 const NewContact = () => {
   const [contacts, setContacts] = useOutletContext();
@@ -16,74 +17,84 @@ const NewContact = () => {
   const handleCreateClick = (e) => {
     e.preventDefault();
     const newContactId = generateUserId(contacts);
-    setContacts([...contacts, { id: newContactId, first, last, phone, email }]);
+    setContacts([...contacts, { id: newContactId, avatar, first, last, phone, email }]);
     navigate(`/contacts/${newContactId}`);
   };
 
+  const handleAvatarSelect = (link) => {
+    setAvatar(link);
+  };
+
+  const handleCancel = () => {
+    navigate('/contacts');
+  };
   return (
-    <form className="animate-fadeIn bg-white max-h-96 w-80 rounded-lg p-5 ml-5 flex flex-col items-center justify-evenly shadow-lg">
-      {/* <AvatarSelector avatar={avatar} handleAvatarSelect={handleAvatarSelect} /> */}
-      <div className="flex flex-col w-full items-center">
-        <input
-          type="text"
-          className="text-center border border-blue-100 mb-1 font-light w-full rounded"
-          value={avatar}
-          placeholder="Avatar Link"
-          onChange={(e) => setAvatar(e.target.value)}
-          required
-        />
-        <div className="flex flex-row">
+    <div className="animate-fadeIn flex flex-col">
+      <form className=" ml-5 mb-5 flex h-80 w-80 flex-col items-center justify-evenly rounded-lg bg-white p-5 shadow-lg">
+        <div className="flex w-full flex-col items-center">
           <input
             type="text"
-            className="text-end border border-blue-100 mb-1 text-lg font-semibold w-full rounded mr-1"
-            onChange={(e) => setFirst(e.target.value)}
-            value={first}
-            placeholder="First"
+            className="mb-1 w-full rounded border border-blue-100 text-center font-light"
+            value={avatar}
+            placeholder="Avatar Link"
+            onChange={(e) => setAvatar(e.target.value)}
+            required
+          />
+          <div className="flex flex-row">
+            <input
+              type="text"
+              className="mb-1 mr-1 w-full rounded border border-blue-100 text-end text-lg font-semibold"
+              onChange={(e) => setFirst(e.target.value)}
+              value={first}
+              placeholder="First"
+              required
+            />
+            <input
+              type="text"
+              className="mb-1 w-full rounded border border-blue-100 text-start text-lg font-semibold"
+              onChange={(e) => setLast(e.target.value)}
+              value={last}
+              placeholder="Last"
+              required
+            />
+          </div>
+          <input
+            type="phone"
+            className="mb-1 w-full rounded border border-blue-100 text-center font-light"
+            onChange={(e) => setPhone(e.target.value)}
+            value={phone}
+            placeholder="Phone"
             required
           />
           <input
-            type="text"
-            className="text-start border border-blue-100 mb-1 text-lg font-semibold w-full rounded"
-            onChange={(e) => setLast(e.target.value)}
-            value={last}
-            placeholder="Last"
+            type="email"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$"
+            className="mb-1 w-full rounded border border-blue-100 text-center font-light"
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+            placeholder="Email"
             required
           />
         </div>
-        <input
-          type="phone"
-          className="text-center border border-blue-100 mb-1 font-light w-full rounded"
-          onChange={(e) => setPhone(e.target.value)}
-          value={phone}
-          placeholder="Phone"
-          required
-        />
-        <input
-          type="email"
-          className="text-center border border-blue-100 mb-1 font-light w-full rounded"
-          onChange={(e) => setEmail(e.target.value)}
-          value={email}
-          placeholder="Email"
-          required
-        />
-      </div>
-      <div className="w-full flex flex-row">
-        <button
-          type="submit"
-          className="w-full m-1 border-2 text-green-500 font-semibold border-green-500 hover:bg-green-500 rounded p-1 hover:text-white"
-          onClick={(e) => handleCreateClick(e)}
-        >
-          Create
-        </button>
-        <button
-          type="submit"
-          className="w-full m-1 border-2 text-blue-500 font-semibold border-blue-500 hover:bg-blue-500 rounded p-1 hover:text-white"
-          onClick={(e) => handleCreateClick(e)}
-        >
-          Cancel
-        </button>
-      </div>
-    </form>
+        <div className="flex w-full flex-row">
+          <button
+            type="submit"
+            className="m-1 w-full rounded border-2 border-green-500 p-1 font-semibold text-green-500 hover:bg-green-500 hover:text-white"
+            onClick={(e) => handleCreateClick(e)}
+          >
+            Create
+          </button>
+          <button
+            type="button"
+            className="m-1 w-full rounded border-2 border-blue-500 p-1 font-semibold text-blue-500 hover:bg-blue-500 hover:text-white"
+            onClick={handleCancel}
+          >
+            Cancel
+          </button>
+        </div>
+      </form>
+      <AvatarExamples handleAvatarSelect={handleAvatarSelect} />
+    </div>
   );
 };
 

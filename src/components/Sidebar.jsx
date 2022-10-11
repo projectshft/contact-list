@@ -4,50 +4,45 @@ import { useState } from 'react';
 import ContactSnippet from './ContactSnippet';
 import SearchBar from './SearchBar';
 
-export default function Sidebar({ contacts, handleContactDelete }) {
+const Sidebar = ({ contacts, handleContactDelete }) => {
   const [searchInput, setSearchInput] = useState('');
-  const [filteredContacts, setFilteredContacts] = useState(contacts);
 
   const handleSearchChange = (e) => {
     setSearchInput(e);
-    if (searchInput !== '') {
-      setFilteredContacts(
-        filteredContacts.filter((contact) => contact.first.toLowerCase().includes(searchInput.toLowerCase()))
-      );
-    } else {
-      setFilteredContacts(contacts);
-    }
   };
 
-  const contactSnippetToRender = () =>
-    searchInput.length > 1
-      ? filteredContacts.map((contact) => (
-          <ContactSnippet contact={contact} handleContactDelete={handleContactDelete} />
-        ))
-      : contacts.map((contact) => <ContactSnippet contact={contact} handleContactDelete={handleContactDelete} />);
-
   return (
-    <div className="flex flex-col justify-start items-center w-80 bg-white  rounded-lg shadow-md overflow-clip">
-      <div className="flex flex-row self-end p-3">
+    <div className="flex h-full w-80 flex-col items-center justify-start text-clip rounded-lg bg-white shadow-md">
+      <div className="mb-4 flex w-full flex-row items-center justify-between rounded-t-md bg-blue-600 p-3 drop-shadow-md">
+        <div className="px-2 text-center text-white">Total Contacts: {contacts.length}</div>
         <Link
           to="new-contact"
           type="button"
-          className="px-2 rounded-md border-2 text-green-500 font-bold border-green-500 hover:bg-green-500 hover:text-white"
+          className="rounded-md border-2 border-green-600 bg-green-600 px-2 font-bold text-white shadow-md hover:bg-white hover:text-green-600"
         >
           +ADD
         </Link>
       </div>
 
       <SearchBar handleSearchChange={handleSearchChange} />
-      <div className=" overflow-y-auto border-b w-full">{contactSnippetToRender()}</div>
-      <div className="py-2 border-t w-full text-center">
-        Total: {filteredContacts.length === 0 ? contacts.length : filteredContacts.length}
+      <div className=" w-full overflow-y-auto border-b">
+        {contacts
+          .filter(
+            (contact) =>
+              contact.first.toLowerCase().includes(searchInput.toLowerCase()) ||
+              contact.last.toLowerCase().includes(searchInput.toLowerCase())
+          )
+          .map((contact) => (
+            <ContactSnippet contact={contact} handleContactDelete={handleContactDelete} />
+          ))}
       </div>
     </div>
   );
-}
+};
 
 Sidebar.propTypes = {
   contacts: PropTypes.array,
   handleContactDelete: PropTypes.func,
 };
+
+export default Sidebar;

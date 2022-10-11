@@ -1,5 +1,5 @@
 {
-  "extends": ["wesbos"],
+  "extends": ["wesbos", "plugin:tailwindcss/recommended"],
   "rules": {
     "no-console": 2,
     "prettier/prettier": [
@@ -11,5 +11,6 @@
         "tabWidth": 2
       }
     ]
-  }
+  },
+  "plugins": ["tailwindcss"]
 }

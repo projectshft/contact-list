@@ -25,39 +25,41 @@ const EditContact = () => {
   };
 
   return (
-    <form className="animate-fadeIn bg-white max-h-96 w-80 rounded-lg p-5 ml-5 flex flex-col items-center justify-evenly shadow-lg">
-      <img src={currentContact.avatar} alt="avatar" className="bg-blue-100 rounded-full" />
-      <div className="flex flex-col w-full items-center">
+    <form className="animate-fadeIn ml-5 flex max-h-80 w-80 flex-col items-center justify-start rounded-lg bg-white shadow-lg">
+      <div className="mb-5 flex w-full items-center justify-center rounded-t-lg bg-blue-600 py-5 drop-shadow-md">
+        <img src={currentContact.avatar} alt="avatar" className="rounded-full bg-white p-2" />
+      </div>
+      <div className="mx-4 mb-5 flex flex-col items-center">
         <div className="flex flex-row">
           <input
             type="text"
-            className="text-end border border-blue-100 mb-1 text-lg font-semibold w-full rounded mr-1"
+            className="mb-1 mr-1 w-full rounded border border-blue-300 bg-yellow-50 px-1  text-end text-xl font-semibold"
             onChange={(e) => setFirst(e.target.value)}
             value={first}
           />
           <input
             type="text"
-            className="text-start border border-blue-100 mb-1 text-lg font-semibold w-full rounded"
+            className="mb-1 mr-1 w-full rounded border border-blue-300 bg-yellow-50 px-1 text-start  text-xl font-semibold"
             onChange={(e) => setLast(e.target.value)}
             value={last}
           />
         </div>
         <input
           type="text"
-          className="text-center border border-blue-100 mb-1 font-light w-full rounded"
+          className="mb-1 w-full rounded border border-blue-300 bg-yellow-50 px-1 text-center font-light"
           onChange={(e) => setPhone(e.target.value)}
           value={phone}
         />
         <input
           type="text"
-          className="text-center border border-blue-100 mb-1 font-light w-full rounded"
+          className="mb-1 w-full rounded border border-blue-300 bg-yellow-50 px-1 text-center font-light"
           onChange={(e) => setEmail(e.target.value)}
           value={email}
         />
       </div>
       <button
         type="submit"
-        className="border-2 text-green-500 font-semibold border-green-500 hover:bg-green-500 rounded p-1 hover:text-white"
+        className="rounded border-2 border-green-500 bg-green-500 p-1 font-semibold text-white drop-shadow-md hover:bg-white hover:text-green-500"
         onClick={(e) => handleSubmitClick(e)}
       >
         Confirm Edit

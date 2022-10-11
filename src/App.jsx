@@ -3,11 +3,13 @@ import ContactList from './pages/ContactList';
 import Contact from './pages/Contact';
 import NewContact from './pages/NewContact';
 import EditContact from './pages/EditContact';
+import Home from './pages/Home';
 import './App.css';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
+      <Route path="/" element={<Home />} />
       <Route path="/contacts" element={<ContactList />}>
         <Route path=":contactId" element={<Contact />} />
         <Route path=":contactId/edit" element={<EditContact />} />

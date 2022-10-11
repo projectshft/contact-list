@@ -2,10 +2,10 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const DeleteConfirmation = ({ handleConfirmDeleteButton, handleDelete, id }) => (
-  <div className="flex flex-row justify-center items-center w-full">
+  <div className="mx-8 flex w-full flex-row items-center justify-center">
     <Link
       to="/contacts"
-      className="hover:bg-red-400 text-center hover:text-white rounded w-full p-1 m-2 text-red-400 border-2 border-red-400"
+      className="m-2 w-full rounded border-2 border-red-600 bg-red-600 p-1 text-center text-white shadow-md hover:bg-white hover:text-red-600"
       type="button"
       onClick={() => handleDelete(id)}
     >
@@ -13,7 +13,7 @@ const DeleteConfirmation = ({ handleConfirmDeleteButton, handleDelete, id }) => 
     </Link>
     <button
       type="button"
-      className="hover:bg-slate-900 hover:text-white rounded w-full p-1 m-2 text-slate-900 border-2 border-slate-900"
+      className="m-2 w-full rounded border-2 border-blue-600 bg-blue-600 p-1 text-center text-white shadow-md hover:bg-white hover:text-blue-600"
       onClick={handleConfirmDeleteButton}
     >
       No
