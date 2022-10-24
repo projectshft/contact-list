@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Switch, Route, Redirect } from "react-router-dom";
+import { useState } from "react";
+import Home from "./components/Homepage";
+import IndividualContact from "./components/IndividualContact";
+import NewContact from "./components/NewContact";
+import Header from "./components/Heading";
 
-function App() {
+const App = () => {
+  const [contacts, setContacts] = useState([]);
+
+  const addContact = (newContact) => {
+    setContacts(contacts.concat([newContact]));
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App container">
+      <Header />
+      <Switch>
+        <Route
+          exact
+          path="/contacts"
+          render={() => <Home contacts={contacts} />}
+        />
+        <Route
+          path="/contacts/new"
+          render={() => <NewContact addContact={addContact} />}
+        />
+        <Route
+          exact
+          path="/contacts/:id"
+          render={({ match }) => (
+            <IndividualContact contacts={contacts} match={match} />
+          )}
+        />
+        <Redirect to="/contacts" />
+      </Switch>
     </div>
   );
-}
+};
 
 export default App;
