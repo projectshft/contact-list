@@ -1,0 +1,30 @@
+.App {
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  padding: 30px;
+}
+
+.mb-3 {
+  margin: auto;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+  padding: 10px;
+  object-fit: cover;
+}
+
+#back-button,
+#add-contact {
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+thead,
+td {
+  text-align: center;
+}
