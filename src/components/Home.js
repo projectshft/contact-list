@@ -3,8 +3,11 @@ import PropTypes from 'prop-types';
 import { Button, Container, Table } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-const Home = ({ contacts }) => {
-  console.log(contacts);
+const Home = ({ contacts, setCurrentContact, history }) => {
+  const handleContactClick = (index) => {
+    setCurrentContact(contacts[index]);
+    history.push(`/${contacts[index].name}`);
+  };
   return (
     <Container>
       <Table>
@@ -17,9 +20,11 @@ const Home = ({ contacts }) => {
           </tr>
         </thead>
         <tbody>
-          {contacts.map((contact) => (
-            <tr>
-              <td>{contact.imageUrl}</td>
+          {contacts.map((contact, index) => (
+            <tr onClick={() => handleContactClick(index)} key={index}>
+              <td>
+                <img src={contact.imageUrl} alt={`${contact.name}`} className="table-image" />
+              </td>
               <td>{contact.name}</td>
               <td>{contact.email}</td>
               <td>{contact.phone}</td>
@@ -35,7 +40,9 @@ const Home = ({ contacts }) => {
 };
 
 Home.propTypes = {
-  contacts: PropTypes.array,
+  contacts: PropTypes.array.isRequired,
+  setCurrentContact: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired,
 };
 
 export default Home;

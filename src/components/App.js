@@ -8,6 +8,7 @@ import User from './User';
 
 function App() {
   const [contacts, setContacts] = useState([]);
+  const [currentContact, setCurrentContact] = useState(null);
 
   const addContact = (name, email, phone, imageUrl) => {
     const newContact = { name, email, phone, imageUrl };
@@ -18,14 +19,32 @@ function App() {
     <div className="App">
       <Header />
       <Switch>
-        <Route exact path="/" render={() => <Home contacts={contacts} />} />
+        <Route
+          exact
+          path="/"
+          render={(routerProps) => (
+            <Home
+              contacts={contacts}
+              setCurrentContact={setCurrentContact}
+              history={routerProps.history}
+            />
+          )}
+        />
         <Route
           path="/new-contact"
           render={(routerProps) => (
             <NewContact addContact={addContact} history={routerProps.history} />
           )}
         />
-        <Route path="/:user" component={User} />
+        <Route
+          path="/:user"
+          render={() => (
+            <User
+              setCurrentContact={setCurrentContact}
+              contactInfo={currentContact}
+            />
+          )}
+        />
       </Switch>
     </div>
   );
