@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import AddContact from './components/AddContact';
+import ContactList from './components/ContactList';
+import ContactPage from './components/ContactPage';
+import data from './components/data.json';
 
-function App() {
+export default function App() {
+  const [contacts, setContacts] = useState(data.contacts);
+  const addContact = (newContact) => {
+    setContacts(prevState => {
+      return [...prevState, newContact];
+    });
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path='/add-contact' element={<AddContact addContact={addContact} />} />
+      <Route path='/contacts/:contactId' element={<ContactPage contacts={contacts} />} />
+      <Route path='/' element={<ContactList contacts={contacts} />} />
+    </Routes>
   );
-}
-
-export default App;
+};
