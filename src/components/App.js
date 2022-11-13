@@ -1,6 +1,7 @@
 import '../App.css';
 import React, { useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
+import axios from 'axios';
 import Header from './Header';
 import Home from './Home';
 import NewContact from './NewContact';
@@ -9,6 +10,10 @@ import User from './User';
 function App() {
   const [contacts, setContacts] = useState([]);
   const [currentContact, setCurrentContact] = useState(null);
+
+  axios.get('./data.json').then(({ data }) => {
+    setContacts(data.contacts);
+  });
 
   const addContact = (name, email, phone, imageUrl) => {
     const newContact = { name, email, phone, imageUrl };
