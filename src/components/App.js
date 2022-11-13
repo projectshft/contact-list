@@ -11,12 +11,12 @@ function App() {
   const [contacts, setContacts] = useState([]);
   const [currentContact, setCurrentContact] = useState(null);
 
-  axios.get('./data.json').then(({ data }) => {
-    setContacts(data.contacts);
-  });
+  // axios.get('./data.json').then(({ data }) => {
+  //   setContacts(data.contacts);
+  // });
 
-  const addContact = (name, email, phone, imageUrl) => {
-    const newContact = { name, email, phone, imageUrl };
+  const addContact = (name, email, phone, imageUrl, id) => {
+    const newContact = { name, email, phone, imageUrl, id };
     setContacts([...contacts, newContact]);
   };
 

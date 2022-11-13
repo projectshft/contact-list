@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Container } from 'react-bootstrap';
+import { Container, Button } from 'react-bootstrap';
 
-const User = ({ contactInfo }) => {
+const User = ({ contactInfo, setCurrentContact }) => {
   if (!contactInfo) {
     return (
       <div>
@@ -18,7 +18,9 @@ const User = ({ contactInfo }) => {
       <h1>{contactInfo.name}</h1>
       <p>{contactInfo.email}</p>
       <p>{contactInfo.phone}</p>
-      <Link to="/">Back</Link>
+      <Button onClick={() => setCurrentContact(null)}>
+        <Link to="/">Back</Link>
+      </Button>
     </Container>
   );
 };

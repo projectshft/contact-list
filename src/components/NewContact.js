@@ -8,12 +8,10 @@ const NewContact = ({ addContact, history }) => {
   const [imageUrl, setImageUrl] = useState();
 
   const handleClick = () => {
-    addContact(name, email, phone, imageUrl);
+    const uniqueId = Math.round(Math.random() * 10000)
+    addContact(name, email, phone, imageUrl, uniqueId);
     history.push('/')
   }
-
-  console.log(history)
-
 
   return (
     <Container>
