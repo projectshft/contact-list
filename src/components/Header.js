@@ -4,7 +4,7 @@ import { Navbar, Container, Button } from "react-bootstrap";
 
 const Header = () => {
   return (
-    <Navbar bg='dark' variant='dark'>
+    <Navbar bg='dark' variant='dark' fixed="top">
       <Container>
         <Navbar.Brand>
           <Link to={'/'}>
