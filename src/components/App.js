@@ -5,7 +5,7 @@ import axios from 'axios';
 import Header from './Header';
 import Home from './Home';
 import NewContact from './NewContact';
-import User from './User';
+import ContactRoutes from './ContactRoutes'
 
 function App() {
   const [contacts, setContacts] = useState([
@@ -64,6 +64,31 @@ function App() {
     setContacts([...contacts, newContact]);
   };
 
+  const deleteContact = (contactId) => {
+    let foundIndex = 0;
+    contacts.find((contact, index) => {
+      foundIndex = index;
+      return contact.id === contactId;
+    })
+
+    const newContacts = contacts;
+    newContacts.splice(foundIndex, 1);
+    setContacts(newContacts);
+  }
+
+  const editContact = (contactEdits) => {
+    let foundIndex = 0;
+    contacts.find((contact, index) => {
+      foundIndex = index;
+      return contact.id === contactEdits.id;
+    })
+    const newContacts = contacts;
+    newContacts[foundIndex] = contactEdits;
+    setContacts(newContacts);
+
+    setCurrentContact(null);
+  }
+
   return (
     <div className="App">
       <Header />
@@ -86,11 +111,14 @@ function App() {
           )}
         />
         <Route
-          path="/:user"
-          render={() => (
-            <User
+          path="/:contactid"
+          render={(routerProps) => (
+            <ContactRoutes
               setCurrentContact={setCurrentContact}
               contactInfo={currentContact}
+              deleteContact={deleteContact}
+              editContact={editContact}
+              history={routerProps.history}
             />
           )}
         />

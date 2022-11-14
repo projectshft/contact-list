@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
+.main-container {
+  margin-top: 100px;
+}
+
 a {
   text-decoration: none;
   color: whitesmoke;
@@ -24,10 +28,15 @@ a:hover {
 .profile-img {
   max-width: min-content;
   margin: 0 auto;
+  border-radius: 50px;
 }
 
 .table-image {
-  max-width: 20%;
+  border-radius: 50px;
+}
+
+.table-image {
+  max-width: 50%;
 }
 
 input.form-control {
@@ -41,6 +50,7 @@ input.form-control {
 .contact-form-pic {
   max-width: min-content;
   margin: 0 auto;
+  border-radius: 50px;
 }
 
 div.card-title.h5 {
@@ -61,12 +71,20 @@ thead {
   margin-top: 20px;
 }
 
-tr td {
-  padding-top: 33%;
+td {
+  width: 25%;
 }
 
 button.btn:hover,
 button.btn-primary:hover {
   background-color: blue;
   color: white;
+}
+
+.icon {
+  margin: 5px;
+}
+
+.icon:hover {
+  font-size: 1.2em;
 }

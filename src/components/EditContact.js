@@ -1,17 +1,26 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import PropTypes from 'prop-types'
-import { Container, Form, Row, Col, Button, Card } from 'react-bootstrap'
+import { Container, Button, Row, Col, Card, Form } from 'react-bootstrap';
 
-const NewContact = ({ addContact, history }) => {
-  const [name, setName] = useState('Damian');
-  const [email, setEmail] = useState();
-  const [phone, setPhone] = useState();
-  const [imageUrl, setImageUrl] = useState();
+const EditContact = ({ contactInfo, editContact, history }) => {
+  // if (!contactInfo) {
+  //   return (
+  //     <div>
+  //       <h1>Sorry we could not find this contact</h1>
+  //       <Link to="/">Back</Link>
+  //     </div>
+  //   );
+  // }
+  const [name, setName] = useState(contactInfo.name);
+  const [email, setEmail] = useState(contactInfo.email);
+  const [phone, setPhone] = useState(contactInfo.phone);
+  const [imageUrl, setImageUrl] = useState(contactInfo.imageUrl);
+
 
   const handleClick = () => {
-    const uniqueId = Math.round(Math.random() * 10000)
-    addContact(name, email, phone, imageUrl, uniqueId);
-    history.push('/')
+    const contactEdits = { name, email, phone, imageUrl, id: contactInfo.id }
+    editContact(contactEdits);
+    history.push('/');
   }
 
   return (
@@ -35,7 +44,7 @@ const NewContact = ({ addContact, history }) => {
                 <Form.Group>
                   <Form.Control value={imageUrl} onChange={(e) => { setImageUrl(e.target.value) }} type="text" placeholder="Image URL" />
                 </Form.Group>
-                <Button onClick={handleClick} variant='primary' type='submit'>Add Contact</Button>
+                <Button onClick={handleClick} variant='primary' type='submit'>Save Changes</Button>
               </Form>
             </Card.Body>
           </Card>
@@ -45,9 +54,10 @@ const NewContact = ({ addContact, history }) => {
   );
 };
 
-NewContact.propTypes = {
-  addContact: PropTypes.func.isRequired,
-  history: PropTypes.object.isRequired
+EditContact.propTypes = {
+  contacInfo: PropTypes.shape({ name: PropTypes.string, email: PropTypes.string, phone: PropTypes.string, imageUrl: PropTypes.string, id: PropTypes.number }),
+  editContact: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired,
 }
 
-export default NewContact;
+export default EditContact;

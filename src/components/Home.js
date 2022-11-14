@@ -7,11 +7,11 @@ const Home = ({ contacts, setCurrentContact, history }) => {
   const handleContactClick = (id) => {
     const clickedContact = contacts.find((contact) => contact.id === id)
     setCurrentContact(clickedContact);
-    history.push(`/${clickedContact.name}`);
+    history.push(`/${clickedContact.id}`);
   };
 
   return (
-    <Container>
+    <Container className="main-container">
       <Table striped bordered hover>
         <thead>
           <tr>
@@ -27,9 +27,9 @@ const Home = ({ contacts, setCurrentContact, history }) => {
               <td>
                 <img src={contact.imageUrl} alt={`${contact.name}`} className="table-image" />
               </td>
-              <td>{contact.name}</td>
-              <td>{contact.email}</td>
-              <td>{contact.phone}</td>
+              <td><div className='contact-info'>{contact.name}</div></td>
+              <td><div className='contact-info'>{contact.email}</div></td>
+              <td><div className='contact-info'>{contact.phone}</div></td>
             </tr>
           ))}
         </tbody>
