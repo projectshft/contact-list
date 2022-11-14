@@ -12,6 +12,15 @@ code {
     monospace;
 }
 
+a {
+  text-decoration: none;
+  color: whitesmoke;
+}
+
+a:hover {
+  color: aliceblue;
+}
+
 .profile-img {
   max-width: min-content;
   margin: 0 auto;
@@ -41,4 +50,23 @@ div.card-title.h5 {
 
 .contact-card {
   box-shadow: 4px 4px 15px;
+}
+
+thead {
+  font-weight: 700;
+}
+
+.table {
+  box-shadow: 4px 4px 15px;
+  margin-top: 20px;
+}
+
+tr td {
+  padding-top: 33%;
+}
+
+button.btn:hover,
+button.btn-primary:hover {
+  background-color: blue;
+  color: white;
 }

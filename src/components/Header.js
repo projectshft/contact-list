@@ -1,15 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Navbar, Container } from "react-bootstrap";
+import { Navbar, Container, Button } from "react-bootstrap";
 
 const Header = () => {
   return (
-    <Navbar>
+    <Navbar bg='dark' variant='dark'>
       <Container>
-        <Link to={'/'}>
-          <h1>Goodenough Contacts</h1>
-        </Link>
-        <Link to={'/new-contact'}>Add Contact</Link>
+        <Navbar.Brand>
+          <Link to={'/'}>
+            <h1>Goodenough Contacts</h1>
+          </Link>
+        </Navbar.Brand>
+        <Button>
+          <Link to={'/new-contact'}>Add Contact</Link>
+        </Button>
       </Container>
     </Navbar>
   );

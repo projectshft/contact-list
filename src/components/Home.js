@@ -12,7 +12,7 @@ const Home = ({ contacts, setCurrentContact, history }) => {
 
   return (
     <Container>
-      <Table>
+      <Table striped bordered hover>
         <thead>
           <tr>
             <td>Picture</td>

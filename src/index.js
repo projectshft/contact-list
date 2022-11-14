@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import { BrowserRouter } from 'react-router-dom';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 
 import 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './index.css';
 
 ReactDOM.render(
   <BrowserRouter>
