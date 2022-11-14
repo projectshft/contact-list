@@ -13,7 +13,8 @@ code {
 }
 
 .profile-img {
-  max-width: 25%;
+  max-width: min-content;
+  margin: 0 auto;
 }
 
 .table-image {
@@ -36,4 +37,8 @@ input.form-control {
 div.card-title.h5 {
   font-size: 2rem;
   margin: 8px;
+}
+
+.contact-card {
+  box-shadow: 4px 4px 15px;
 }
