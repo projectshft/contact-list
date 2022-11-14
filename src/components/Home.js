@@ -42,7 +42,7 @@ const Home = ({ contacts, setCurrentContact, history }) => {
 };
 
 Home.propTypes = {
-  contacts: PropTypes.array.isRequired,
+  contacts: PropTypes.arrayOf(PropTypes.shape({ name: PropTypes.string, email: PropTypes.string, phone: PropTypes.string, imageUrl: PropTypes.string, id: PropTypes.number })).isRequired,
   setCurrentContact: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired,
 };

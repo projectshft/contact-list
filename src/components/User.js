@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom';
 import { Container, Button } from 'react-bootstrap';
 
@@ -11,7 +12,7 @@ const User = ({ contactInfo, setCurrentContact }) => {
       </div>
     );
   }
-  console.log(contactInfo.imageUrl);
+
   return (
     <Container>
       <img src={contactInfo.imageUrl} alt="profile" className="profile-img" />
@@ -24,5 +25,10 @@ const User = ({ contactInfo, setCurrentContact }) => {
     </Container>
   );
 };
+
+User.propTypes = {
+  contacInfo: PropTypes.shape({ name: PropTypes.string, email: PropTypes.string, phone: PropTypes.string, imageUrl: PropTypes.string, id: PropTypes.number }),
+  setCurrentContact: PropTypes.func.isRequired
+}
 
 export default User;

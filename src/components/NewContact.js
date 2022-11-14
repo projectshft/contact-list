@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from 'prop-types'
 import { Container, Form, Row, Col, Button, Card } from 'react-bootstrap'
 
 const NewContact = ({ addContact, history }) => {
@@ -43,5 +44,10 @@ const NewContact = ({ addContact, history }) => {
     </Container>
   );
 };
+
+NewContact.propTypes = {
+  addContact: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired
+}
 
 export default NewContact;
