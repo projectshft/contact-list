@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Home = ({ contacts, setCurrentContact, history }) => {
   const handleContactClick = (id) => {
-    const clickedContact = contacts.find((contact) => contact.id === id)
+    const clickedContact = contacts.find((contact) => contact.id === id);
     setCurrentContact(clickedContact);
     history.push(`/${clickedContact.id}`);
   };
@@ -25,11 +25,21 @@ const Home = ({ contacts, setCurrentContact, history }) => {
           {contacts.map((contact) => (
             <tr onClick={() => handleContactClick(contact.id)} key={contact.id}>
               <td>
-                <img src={contact.imageUrl} alt={`${contact.name}`} className="table-image" />
+                <img
+                  src={contact.imageUrl}
+                  alt={`${contact.name}`}
+                  className="table-image"
+                />
               </td>
-              <td><div className='contact-info'>{contact.name}</div></td>
-              <td><div className='contact-info'>{contact.email}</div></td>
-              <td><div className='contact-info'>{contact.phone}</div></td>
+              <td>
+                <div className="contact-info">{contact.name}</div>
+              </td>
+              <td>
+                <div className="contact-info">{contact.email}</div>
+              </td>
+              <td>
+                <div className="contact-info">{contact.phone}</div>
+              </td>
             </tr>
           ))}
         </tbody>
@@ -42,7 +52,15 @@ const Home = ({ contacts, setCurrentContact, history }) => {
 };
 
 Home.propTypes = {
-  contacts: PropTypes.arrayOf(PropTypes.shape({ name: PropTypes.string, email: PropTypes.string, phone: PropTypes.string, imageUrl: PropTypes.string, id: PropTypes.number })).isRequired,
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      email: PropTypes.string,
+      phone: PropTypes.string,
+      imageUrl: PropTypes.string,
+      id: PropTypes.number,
+    })
+  ).isRequired,
   setCurrentContact: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired,
 };
