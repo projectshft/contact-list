@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 export default function AddContact({addContact}) {
@@ -7,7 +7,9 @@ export default function AddContact({addContact}) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
-  const [imageURL, setImageURL] = useState('');
+  const [imageUrl, setImageURL] = useState('');
+
+  const navigate = useNavigate();
   
   // function that calls the addContact function on form submit, and generates a random Id for the new contact
   const handleSaveContact = e => {
@@ -15,9 +17,11 @@ export default function AddContact({addContact}) {
 
     const generateId = () => Math.round(Math.random() * 100000000);
 
-    addContact({id: generateId(), name, email, phoneNumber, imageURL});
+    addContact({id: generateId(), name, email, phoneNumber, imageUrl});
 
     alert("Contact saved successfully!");
+    
+    navigate("/");
   };
 
   // Add New Contact form
@@ -73,13 +77,13 @@ export default function AddContact({addContact}) {
             className="form-control" 
             id="imageInput" 
             placeholder="Enter Image URL" 
-            value={imageURL} 
+            value={imageUrl} 
             onChange={e => setImageURL(e.target.value)} 
             required/>
         </div>
 
         <div className="mb-3 col-sm-5">
-          <button type="submit" className="btn btn-primary">Save Contact</button> 
+          <button type="submit" className="btn btn-primary">Save Contact</button>
         </div>
       </div>
     </form>
