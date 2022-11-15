@@ -14,7 +14,7 @@ function App() {
       id: 70219577,
       name: 'Albert Einstein',
       imageUrl:
-        'https://en.wikipedia.org/wiki/Albert_Einstein#/media/File:Einstein_1921_by_F_Schmutzer_-_restoration.jpg',
+        'https://imgs.search.brave.com/lUwy2z_CSWWiflhxsR5DCheWxdkZVpKiGa_HWr7xL28/rs:fit:400:225:1/g:ce/aHR0cHM6Ly90c2Uz/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5w/S01jcmh1WTlpdFN0/TC0tcHM0WS1BSGFJ/eCZwaWQ9QXBp',
       email: 'aeinstein@example.com',
       phone: '15555555555',
     },
