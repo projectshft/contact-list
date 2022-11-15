@@ -4,9 +4,12 @@ import { Button, Container, Table } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const Home = ({ contacts, setCurrentContact, history }) => {
+  
   const handleContactClick = (id) => {
     const clickedContact = contacts.find((contact) => contact.id === id);
+
     setCurrentContact(clickedContact);
+
     history.push(`/${clickedContact.id}`);
   };
 
