@@ -1,20 +1,22 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Container, Button, Row, Col, Card, Form } from 'react-bootstrap';
 
 const EditContact = ({ contactInfo, editContact, history }) => {
-  // if (!contactInfo) {
-  //   return (
-  //     <div>
-  //       <h1>Sorry we could not find this contact</h1>
-  //       <Link to="/">Back</Link>
-  //     </div>
-  //   );
-  // }
-  const [name, setName] = useState(contactInfo.name);
-  const [email, setEmail] = useState(contactInfo.email);
-  const [phone, setPhone] = useState(contactInfo.phone);
-  const [imageUrl, setImageUrl] = useState(contactInfo.imageUrl);
+  const [name, setName] = useState(contactInfo ? contactInfo.name : '');
+  const [email, setEmail] = useState(contactInfo ? contactInfo.email : '');
+  const [phone, setPhone] = useState(contactInfo ? contactInfo.phone : '');
+  const [imageUrl, setImageUrl] = useState(contactInfo ? contactInfo.imageUrl : '');
+  
+  if (!contactInfo) {
+    return (
+      <Container className="main-container">
+        <h1>Sorry we could not find this contact</h1>
+        <Button><Link to="/">Back</Link></Button>
+      </Container>
+    );
+  }
 
   const handleClick = () => {
     const contactEdits = { name, email, phone, imageUrl, id: contactInfo.id };
