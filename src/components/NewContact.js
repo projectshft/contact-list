@@ -3,19 +3,19 @@ import PropTypes from 'prop-types';
 import { Container, Form, Row, Col, Button, Card } from 'react-bootstrap';
 
 const NewContact = ({ addContact, history }) => {
-  const [name, setName] = useState('Damian');
-  const [email, setEmail] = useState();
-  const [phone, setPhone] = useState();
-  const [imageUrl, setImageUrl] = useState();
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [imageUrl, setImageUrl] = useState('');
 
   const handleClick = () => {
-    const uniqueId = Math.round(Math.random() * 10000);
+    const id = Math.round(Math.random() * 10000);
 
-    const newContact = { name, email, phone, imageUrl, uniqueId };
-    
-    addContact(newContact);
+    const newContact = { name, email, phone, imageUrl, id };
 
     history.push('/');
+
+    addContact(newContact);
   };
 
   return (
