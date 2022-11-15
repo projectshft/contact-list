@@ -1,7 +1,8 @@
 import '../App.css';
+
 import React, { useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import axios from 'axios';
+
 import Header from './Header';
 import Home from './Home';
 import NewContact from './NewContact';
@@ -61,10 +62,6 @@ function App() {
   // const [contacts, setContacts] = useState([])
   const [currentContact, setCurrentContact] = useState(null);
 
-  // axios.get('./data.json').then(({ data }) => {
-  //   setContacts(data.contacts);
-  // });
-
   const addContact = (name, email, phone, imageUrl, id) => {
     const newContact = { name, email, phone, imageUrl, id };
     setContacts([...contacts, newContact]);
@@ -79,6 +76,7 @@ function App() {
 
     const newContacts = contacts;
     newContacts.splice(foundIndex, 1);
+
     setContacts(newContacts);
   };
 
@@ -88,8 +86,10 @@ function App() {
       foundIndex = index;
       return contact.id === contactEdits.id;
     });
+
     const newContacts = contacts;
     newContacts[foundIndex] = contactEdits;
+
     setContacts(newContacts);
 
     setCurrentContact(null);
@@ -110,12 +110,14 @@ function App() {
             />
           )}
         />
+
         <Route
           path="/new-contact"
           render={(routerProps) => (
             <NewContact addContact={addContact} history={routerProps.history} />
           )}
         />
+
         <Route
           path="/:contactid"
           render={(routerProps) => (
