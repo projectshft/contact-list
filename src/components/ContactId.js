@@ -11,10 +11,10 @@ const ContactId = ({
 }) => {
   if (!contactInfo) {
     return (
-      <div>
+      <Container className="main-container">
         <h1>Sorry we could not find this contact</h1>
-        <Link to="/">Back</Link>
-      </div>
+        <Button><Link to="/">Back</Link></Button>     
+      </Container>
     );
   }
 
