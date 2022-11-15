@@ -57,9 +57,9 @@ const ContactId = ({
                   className="fa-solid fa-file-pen icon"
                 />
               </div>
-              <Button onClick={() => setCurrentContact(null)}>
-                <Link to="/">Back</Link>
-              </Button>
+              <Link to="/"><Button onClick={() => setCurrentContact(null)}>
+                Back
+              </Button></Link>
             </Card.Body>
           </Card>
         </Col>
