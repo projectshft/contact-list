@@ -62,9 +62,8 @@ function App() {
   // const [contacts, setContacts] = useState([])
   const [currentContact, setCurrentContact] = useState(null);
 
-  const addContact = (name, email, phone, imageUrl, id) => {
-    const newContact = { name, email, phone, imageUrl, id };
-    setContacts([...contacts, newContact]);
+  const addContact = (contact) => {
+    setContacts([...contacts, contact]);
   };
 
   const deleteContact = (contactId) => {

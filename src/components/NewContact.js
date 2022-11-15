@@ -10,7 +10,11 @@ const NewContact = ({ addContact, history }) => {
 
   const handleClick = () => {
     const uniqueId = Math.round(Math.random() * 10000);
-    addContact(name, email, phone, imageUrl, uniqueId);
+
+    const newContact = { name, email, phone, imageUrl, uniqueId };
+    
+    addContact(newContact);
+
     history.push('/');
   };
 
