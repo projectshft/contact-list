@@ -6,6 +6,7 @@ const New = (props) => {
     const [name, setName] = useState('')
     const [number, setNumber]= useState('')
     const [email, setEmail] = useState('')
+    
 
     const handleSubmitContactClick = () => {
         if(name.length <1 || number.length <1 || email.length<1 ){
@@ -16,10 +17,14 @@ const New = (props) => {
             alert('Number field must contain a number')
             return
         }
+      
+        const contactId = props.generateId(); 
+
         props.addContact({
           name,
           number,
           email,
+          contactId,
         })
 
         props.history.push('/')
