@@ -5,11 +5,13 @@ import New from './New'
 import Contact from './Contact'
 import 'bootstrap';
 import './App.css';
+import jackPic from './christian-buehner-DItYlc26zVI-unsplash.jpg'
+import stevePic from './alex-starnes-PK_t0Lrh7MM-unsplash.jpg'
 
 const App = () => {
   const [contacts, setContacts] = useState([
-    {number: 8479044099, name: "Jack Mullinkosson", email: "jack.mullinkosson@gmail.com", contactId: 423423, img: 'PK_t0Lrh7MM'},
-    {number: 8472259011, name: "Steve Nash", email: "stevenash@hotmail.com", contactId: 3523523, img: 'KbsvM7Bzhsg' }
+    {number: 8479044099, name: "Jack Mullinkosson", email: "jack.mullinkosson@gmail.com", contactId: 423423, img: jackPic},
+    {number: 8472259011, name: "Steve Nash", email: "stevenash@hotmail.com", contactId: 3523523, img: stevePic}
   ])
 
   const addContact = (newContact) => {
@@ -18,7 +20,6 @@ const App = () => {
   } 
 
   const generateId = () => {
-     console.log(Math.round(Math.random() * 100000000))
      return(Math.round(Math.random() * 100000000))
   }
 
@@ -34,7 +35,7 @@ return (
   <div>
     <Switch>
       <Route exact path='/' render={(routerProps) => (
-          <Home contacts={contacts} removeItem={removeItem} history={routerProps.history} />
+          <Home contacts={contacts} removeItem={removeItem} history={routerProps.history} jackPic={jackPic} stevePic={stevePic}/>
         )}/>
       <Route path='/New' render={(routerProps) => (
         <New contacts={contacts} addContact={addContact} generateId={generateId} history={routerProps.history} />

@@ -6,6 +6,7 @@ const New = (props) => {
     const [name, setName] = useState('')
     const [number, setNumber]= useState('')
     const [email, setEmail] = useState('')
+    const [img, setImg] = useState(`https://source.unsplash.com/random?sig=${props.generateId()}`)
     
 
     const handleSubmitContactClick = () => {
@@ -25,6 +26,7 @@ const New = (props) => {
           number,
           email,
           contactId,
+          img,
         })
 
         props.history.push('/')
@@ -51,6 +53,11 @@ const New = (props) => {
             <label>Email</label>
             <input type='text' className='form-control'onChange={event =>
               setEmail(event.target.value)
+            } required="required"/>
+            <br/>
+            <label>Img (input URL or leave blank to generate random)</label>
+            <input placeholder={img} type='text' className='form-control'onChange={event =>
+              setImg(event.target.value)
             } required="required"/>
     
             <input type="submit" className="btn btn-success" onClick={handleSubmitContactClick} required="required"/>

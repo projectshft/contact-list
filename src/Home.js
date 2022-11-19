@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import { FaTrash } from 'react-icons/fa';
 
 
-const Home = ({contacts, removeItem, history}) => (
+
+const Home = ({contacts, removeItem, history, jackPic, stevePic}) => (
     <div>
     <h1>CONTACT LIST</h1>
     <Link to='/New'><button className='btn btn-success'>Add New</button></Link>
@@ -12,9 +13,11 @@ const Home = ({contacts, removeItem, history}) => (
     <thead>
     <tr>
       <th scope="col"></th>
+      <th scope="col"></th>
       <th scope="col">Name</th>
       <th scope="col">Number</th>
       <th scope="col">Email</th>
+      <th scope="col"></th>
     </tr>
     </thead>
     <tbody>
@@ -23,7 +26,7 @@ const Home = ({contacts, removeItem, history}) => (
     <tr className="table-row" data-key={item.contactId}>
       <th onClick={()=> history.push(`/${item.contactId}`)}key={item.number} scope="row">
     </th>
-    <td onClick={()=> history.push(`/${item.contactId}`)}><img src={`unsplash.com/photos/${item.img}`}></img></td>
+    <td onClick={()=> history.push(`/${item.contactId}`)}><img src={item.img}/></td>
      <td onClick={()=> history.push(`/${item.contactId}`)}>{item.name}</td>
       <td onClick={()=> history.push(`/${item.contactId}`)}>{item.number}</td>
       <td onClick={()=> history.push(`/${item.contactId}`)}>{item.email}</td>
@@ -41,7 +44,8 @@ Home.propTypes = {
         name: PropTypes.string,
         number: PropTypes.number,
         email: PropTypes.string,
-        contactId: PropTypes.number
+        contactId: PropTypes.number,
+        img: PropTypes.string
     }))
   }
 
