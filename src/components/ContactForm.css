@@ -1,0 +1,28 @@
+.contact-form{
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  width: 400px;
+  border-radius: 10%;
+  margin: 50px auto;
+}
+.add{
+  width: 200px;
+  padding: 5px;
+  margin: 20px auto;
+  display: flex;
+  text-align: center;
+}
+.contact-content{
+  width: 300px;
+  margin: 50px auto;
+}
+input{
+  padding: 7px;
+  width: 300px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid black;
+}
+label{
+  margin-bottom: 5px;
+}
