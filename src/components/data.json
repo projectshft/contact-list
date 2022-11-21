@@ -1,0 +1,25 @@
+{
+  "contacts": [
+    {
+      "id": 83642002,
+      "name": "Albert Einstein",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Einstein_1921_by_F_Schmutzer_-_restoration.jpg/1024px-Einstein_1921_by_F_Schmutzer_-_restoration.jpg",
+      "email": "a.einstein@physics.com",
+      "phoneNumber": "1555555555"
+    },
+    {
+      "id": 37454329,
+      "name": "Aristotle",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Aristotle_Altemps_Inv8575.jpg/220px-Aristotle_Altemps_Inv8575.jpg",
+      "email": "aristotle@philosophy.com",
+      "phoneNumber": "1234567890"
+    },
+    {
+      "id": 71192721,
+      "name": "William Shakespeare",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Shakespeare.jpg/220px-Shakespeare.jpg",
+      "email": "shakespeare@drama.com",
+      "phoneNumber": "9876543210"
+    }
+  ]
+}
