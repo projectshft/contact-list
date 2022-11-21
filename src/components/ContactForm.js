@@ -1,45 +1,51 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './ContactForm.css';
+ 
+const ContactForm = ({name, setName, email, setEmail, phone, setPhone}) => {
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  }; 
 
-const ContactForm = () => {
-  const [name, setName] = useState(''); 
-  const [email, setEmail] = useState(''); 
-  const [phone, setPhone] = useState(''); 
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
 
+  const handlePhoneChange = (e) => {
+    setPhone(e.target.value);
+  };
+  
   return (
     <div className="contact-content">
-      <h1 className="contact-title">New Contact</h1>
+      <h1 className="contact-title">New Contact</h1> 
       <form>
         <label>Name</label>
-        <input 
+        <input
           type='text'
           value={name}
-          onChange={(e) => setName(e.target.value)}
+          onChange={handleNameChange}
         />
-
+ 
         <label>Phone</label>
-        <input 
+        <input
           type='text'
           value={phone}
-          onChange={(e) => setPhone(e.target.value)} 
+          onChange={handlePhoneChange}
         />
-
+ 
         <label>Email</label>
-        <input 
+        <input
           type='text'
           value={email}
-          onChange={(e) => setEmail(e.target.value)} 
+          onChange={handleEmailChange}
         />
-        
-        <Link to="/">
-          <button>Submit</button>
-        </Link>      
 
-      </form>
+      </form> 
+        <Link to="/"><button className='submit'>Submit</button></Link>
+ 
     </div>
   )
 }
-
+ 
 export default ContactForm;
-
+ 
+ 
