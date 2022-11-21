@@ -38,24 +38,28 @@ export default function Forms() {
       <div className="form-group">
         <label for="fullName">Full Name</label>
         <input
-          value={name} 
+          // value={name} 
+          onChange={event => setName({name: event.target.value})}
           type="text" id="search-name" className="form-control" placeholder="Full Name" />
 
         <br />
         <label for="inputEmail1">Email address</label>
         <input
-          value={email}
+          // value={email}
+          onChange={event => setEmail({email: event.target.value})}
           type="text" id="post-user" className="form-control" placeholder="Email Address" />
         <br />
         <label for="phoneNumber">Phone Number</label>
         <input
-          value={phoneNum}
+          // value={phoneNum}
+          onChange={event => setPhone({phoneNum: event.target.value})}
           type="text" id="post-text" className="form-control" placeholder="Phone Number" />
 
         <br />
         <label for="image-url">Image URL</label>
         <input
-          value={pic}
+          // value={pic}
+          onChange={event => setPic({pic: event.target.value})}
           type="url" id="post-user" className="form-control" placeholder="Image URL" />
       </div>
       <button type="button" className="btn btn-primary add-post" onClick={handleClick}>Add Contact</button>
