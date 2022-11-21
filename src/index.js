@@ -12,6 +12,7 @@ const Home = () => {
   <Switch>
   <div>
     <h1>Contact List </h1>
+    <button id='homeContactAdd' type="button" class="btn btn-primary">Add Contact</button>
     <table class="table table-striped">
   <thead>
     <tr>
