@@ -1,0 +1,59 @@
+body{
+  width: 100vw;
+  height: 100vh;
+  background-color: aliceblue;
+}
+.list-container{
+  margin: 50px auto;
+}
+.header{
+  margin: 40px auto;
+  display: flex;
+  justify-content: center;
+}
+.contact-info, .contact-info-new{
+  display: flex;  
+  width: 400px;
+  height: 180px;
+  margin: 50px auto;
+  border-radius: 25px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; 
+  justify-content: space-around;
+}
+.leftside{
+  width: 10%;
+  height: 100%;
+  flex-direction: row;
+}
+.name{
+  font-weight: bolder;
+  font-size: 22px;
+  color: black;
+}
+.email, .phone{
+  color: black;
+}
+.photo{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 40px auto;
+}
+.new-contact{
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  font-size: 16px;
+  background-color: lightseagreen;
+}
+
+@media (min-width: 640px){
+  .contact-list{
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+}
+  

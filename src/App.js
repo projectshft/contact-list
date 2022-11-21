@@ -1,23 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import {
+	BrowserRouter as Router,
+	Route,
+	Routes,
+} from 'react-router-dom';
+import ContactList from './components/ContactList';
+import ContactForm from './components/ContactForm';
 
-function App() {
+function App() { 
+	const [name, setName] = useState(null);
+	const [phone, setPhone] = useState(null);
+	const [email, setEmail] = useState(null);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+			<Router>
+				<Routes>
+					<Route path="/" element={<ContactList
+						name={name}
+						phone={phone}
+						email={email}
+					/>}/>
+					<Route path="/form" element={<ContactForm
+						name={name}
+						setName={setName}
+						email={email}
+						setEmail={setEmail}
+						phone={phone}
+						setPhone={setPhone}
+					/>}/>
+				</Routes>
+			</Router>
     </div>
   );
 }
