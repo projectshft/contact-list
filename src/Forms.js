@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+// import { useState } from 'react';
 
 // function Example() {
 //   // Declare a new state variable, which we'll call "count"
@@ -17,11 +17,12 @@ import { useState } from 'react';
 
 
 export default function Forms() {
-  const [name, setName] = useState('Name');
+  // const [name, setName] = useState('Name');
 
 
   const handleClick = () => {
-  setName('Josh');
+  // setName
+  alert('Josh');
 }
 return (
 <form className="post-form">
