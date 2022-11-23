@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
-import ContactList from "./ContactList";
 import Contacts from "./Contacts";
 import { Link, useHistory } from "react-router-dom";
+import PropTypes from "prop-types";
 
-const ContactNew = ({ newContact }) => {
-  const history = useHistory();
-
+const ContactNew = (props) => {
   const [contactName, setContactName] = useState("");
   const [contactImageUrl, setContactImageUrl] = useState("");
   const [contactEmail, setContactEmail] = useState("");
@@ -23,20 +21,16 @@ const ContactNew = ({ newContact }) => {
     e.preventDefault();
     alert("Contact Added!");
 
-    const newContact = [
-      {
-        id: Math.floor(100000 * Math.random()),
-        name: contactName,
-        image_url: contactImageUrl,
-        email: contactEmail,
-        phone_number: contactPhoneNumber,
-      },
-    ];
+    const newContact = {
+      id: Math.floor(100000 * Math.random()),
+      name: contactName,
+      image_url: contactImageUrl,
+      email: contactEmail,
+      phone_number: contactPhoneNumber,
+    };
 
-    console.log(newContact);
-    Contacts(newContact);
+    props.handleNewContact(newContact);
 
-    history.push("/");
     resetFields();
   };
 
@@ -61,7 +55,6 @@ const ContactNew = ({ newContact }) => {
                       value={contactName}
                     />
                   </div>
-
                   <label>Email</label>
                   <div className="col-md-12">
                     <input
@@ -103,11 +96,8 @@ const ContactNew = ({ newContact }) => {
                     >
                       Register
                     </button>
-
                     <div className="button-goback">
-                      <Link to="/">
-                        <Button>Go Back</Button>
-                      </Link>
+                      <Button onClick={props.goBack}>Go Back</Button>
                     </div>
                   </div>
                 </div>
@@ -118,6 +108,13 @@ const ContactNew = ({ newContact }) => {
       </form>
     </div>
   );
+};
+
+ContactNew.propTypes = {
+  name: PropTypes.string.isRequired,
+  img_url: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  phone_number: PropTypes.number.isRequired,
 };
 
 export default ContactNew;

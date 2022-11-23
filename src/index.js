@@ -5,7 +5,6 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Table } from "react-bootstrap";
-// import { BrowserRouter as Router } from "react-router-dom";
 import ContactList from "./Components/ContactList";
 
 ReactDOM.render(

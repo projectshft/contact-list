@@ -16,23 +16,9 @@ function ContactList() {
     <div>
       <div className="col-md-8 offset-2 contactListStyling">
         <Table className="table table-bordered">
-          <thead>
-            <tr>
-              <th scope="col">Avatar</th>
-              <th scope="col">Name</th>
-              <th scope="col">Email</th>
-              <th scope="col">Phone</th>
-            </tr>
-          </thead>
-          {/* Contacts will populate here */}
           <Contacts />
         </Table>
       </div>
-      <Link to="/addcontact">
-        <Button className="contact-add" variant="primary">
-          Add Contact
-        </Button>
-      </Link>
     </div>
   );
 }
