@@ -1,0 +1,25 @@
+{
+  "contacts": [
+    {
+      "id": 70219577,
+      "name": "Albert Einstein",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Einstein_1921_by_F_Schmutzer_-_restoration.jpg",
+      "email": "aeinstein@example.com",
+      "phone_number": "15555555555"
+    },
+    {
+      "id": 70219578,
+      "name": "Albert Guy",
+      "image_url": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/rick-and-morty-season-6-image-1668593792.jpg?crop=0.374xw:0.665xh;0.469xw,0.0291xh&resize=640:*",
+      "email": "aeinstein@example.com",
+      "phone_number": "15555557777"
+    },
+    {
+      "id": 70219579,
+      "name": "Guy Einstein",
+      "image_url": "https://miro.medium.com/max/1400/1*oC1wQeImbqzcfO3jixK2oQ.jpeg",
+      "email": "guy@example.com",
+      "phone_number": "15555558888"
+    }
+  ]
+}
