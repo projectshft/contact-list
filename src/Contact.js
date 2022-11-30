@@ -16,7 +16,7 @@ const Contact = ({contactId, contacts}) => {
       <h2>Phone Number:{contact.number}</h2>
 
       <Link to='/'>
-      <button type="button" class="btn btn-primary">Back</button></Link>
+      <button type="button" className="btn btn-primary">Back</button></Link>
     </div>
   )
 }

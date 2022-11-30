@@ -13,13 +13,15 @@ class App extends React.Component {
         { number: 1213234354, name: "Patrick Bateman", profilePic: "https://cdn.mos.cms.futurecdn.net/PzPq6Pbn5RqgrWunhEx6rg.jpg", email: "xclusive@gmail.com"}
       ]
     }
-    
+    console.log(this.state);
     this.addContact = this.addContact.bind(this);
   }
   
   addContact (contact) {
     console.log(contact);
-    this.setState({contact: this.state.contacts.push([contact])});
+    const updatedContact = this.state.contacts.push(contact);
+    console.log(this.state.contacts);
+    this.setState({contacts: this.state.contacts});
   }
 
   render() {

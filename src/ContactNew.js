@@ -22,7 +22,7 @@ class ContactNew extends React.Component {
       profilePic: this.state.profilePic,
       email: this.state.email
     };
-    
+    console.log(this.props);
     console.log(this.props.addContact, newContact)
     this.props.addContact(newContact)
     this.props.history.push('/')
@@ -32,7 +32,7 @@ class ContactNew extends React.Component {
     return (
       <div>
                 <Link to='/'>
-        <button type="button" class="btn btn-primary">Back</button>
+        <button type="button" className="btn btn-primary">Back</button>
         </Link>
         
         <form>
@@ -57,10 +57,10 @@ class ContactNew extends React.Component {
 
         <label>Email</label>
         <input type='text' className='form-control'onChange={event =>
-          this.setState({ name: event.target.value })
+          this.setState({ email: event.target.value })
         }/>   
 
-        <button type="button" class="btn btn-primary" onClick={this.handleSubmitClick}>Add Contact</button>
+        <button type="button" className="btn btn-primary" onClick={this.handleSubmitClick}>Add Contact</button>
         </form>
 
       </div>
