@@ -7,7 +7,7 @@ const App = () => (
     <div className="row">
       <div className="col">
       </div>
-      <div className="col order-2">
+      <div className="col order-2" align="center">
         <Header />
       </div>
       <div className="col order-3">

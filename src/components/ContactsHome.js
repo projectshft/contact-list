@@ -20,7 +20,7 @@ const ContactsHome = ({contacts}) => {
           contacts.map(c => (
               <tr key={c.id}>
                 <th>
-                  <img src={c.image_url} alt="headshot" width="50" height="80"/>
+                  <img src={c.image_url} alt="headshot" width="80" height="100"/>
                 </th>
                 <td>
                   <Link to={()=>ref(c.id)}>
