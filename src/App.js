@@ -13,12 +13,11 @@ const App = () => (
       <div className="col order-3">
       </div>
     </div>
-  <div className="row">
-    <div className="col-md-6 offset-md-3">
-      <Main />
+    <div className="row">
+      <div className="col-md-6 offset-md-3">
+        <Main />
+      </div>
     </div>
-  </div>
-    
   </div>
 );
 

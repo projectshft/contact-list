@@ -8,22 +8,18 @@ const AddContactForm = (props) => {
   const [phone_number, setNumber] = useState('');
   const [image_url, setImageURL] = useState('');
   const [id, setID] = useState('');
+ 
+  const history = useHistory();
 
   const back = () => history.push('/');
-  
   const generatedId = () => Math.round(Math.random() * 100000000);
-  
+ 
   useEffect(()=>{
     const newID = generatedId();
     setID(newID);
   },[])
-  
-  const history = useHistory();
-  
 
   const handleSubmitClick = () => {
-    
-    
     props.addContact({
       name,
       email,
