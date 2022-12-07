@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types';
-//4 columns using bootstrap and a button for adding contact
 
 const ContactsHome = ({contacts}) => {
   const ref = (id) => `contact/${id}`

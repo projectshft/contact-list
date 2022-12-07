@@ -4,13 +4,11 @@ import ContactsHome from './ContactsHome';
 import AddContactForm from './AddContactForm';
 import Contact from './Contact';
 import contactsAPI from '../contacts.json'
+
 const importedContacts = contactsAPI.contacts;
 
-
 const Main = () => {
-  const [contacts, setContacts] = useState([
-    ...importedContacts
-  ])
+  const [contacts, setContacts] = useState([...importedContacts])
 
   const history = useHistory();
 
