@@ -1,14 +1,11 @@
 import React, { useState } from 'react'
-import { Switch, Route, Link, useHistory } from 'react-router-dom';
+import { Switch, Route, useHistory } from 'react-router-dom';
 import ContactsHome from './ContactsHome';
 import AddContactForm from './AddContactForm';
 import Contact from './Contact';
 import contactsAPI from '../contacts.json'
-  //Full Name
-  //Email Address
-  //Phone Number
-  //Image URL
 const importedContacts = contactsAPI.contacts;
+
 
 const Main = () => {
   const [contacts, setContacts] = useState([

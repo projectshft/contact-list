@@ -1,5 +1,6 @@
 import {useHistory} from 'react-router-dom'
 import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types';
 
 const AddContactForm = (props) => {
   const [name, setName] = useState('');
@@ -15,7 +16,7 @@ const AddContactForm = (props) => {
   useEffect(()=>{
     const newID = generatedId();
     setID(newID);
-  })
+  },[])
   
   const history = useHistory();
   
@@ -55,11 +56,11 @@ const AddContactForm = (props) => {
       <button onClick={() => history.push('/')} className="btn btn-secondary">Go back</button>
     </form>
   )
-  //Full Name
-  //Email Address
-  //Phone Number
-  //Image URL
-  //Add Contact Button
 }
+
+AddContactForm.propTypes = {
+  addContact: PropTypes.func.isRequired
+}
+
 
 export default AddContactForm;
