@@ -46,11 +46,11 @@ const AddContactForm = (props) => {
       </div>
       <div className="form-group">
         <label for="newphoneNumber">Phone Number</label>
-        <input onChange={event => setNumber(event.target.value)} type="number" className="form-control" id="exampleInputPassword1" placeholder="Enter Phone Number"/>
+        <input onChange={event => setNumber(event.target.value)} type="number" className="form-control" id="newNumber" placeholder="Enter Phone Number"/>
       </div>
       <div className="form-group">
         <label for="newimageURL">Image URL</label>
-        <input onChange={event => setImageURL(event.target.value)} type="text" className="form-control" id="exampleInputPassword1" placeholder="Enter Image URL"/>
+        <input onChange={event => setImageURL(event.target.value)} type="text" className="form-control" id="newImage" placeholder="Enter Image URL"/>
       </div>
       <button onClick={event => handleSubmitClick(event.target)} type="submit" className="btn btn-primary">Submit</button>
       <button onClick={() => history.push('/')} className="btn btn-secondary">Go back</button>
