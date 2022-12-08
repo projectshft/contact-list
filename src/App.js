@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import Home from './Home'
 import Roster from './Roster'
 import ContactNew from './ContactNew'
+import ContactList from './ContactList'
 
 
 const App = () => {
@@ -34,7 +35,7 @@ number : 3}
     <div>
       <Switch>
         <Route exact path='/' component={Home}/>
-        <Route path='/contacts' render={() => (
+        <Route exact path='/contacts' render={() => (
           <Roster addContact={addContact} contacts={contacts} />
         )}/>
         <Route path='/new' render={() => (

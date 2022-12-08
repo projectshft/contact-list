@@ -5,11 +5,11 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 
 const ContactNew = (props) => {
-  const [profilePic, setProfilePic] = useState('')
-  const [name, setName] = useState('')
-  const [phoneNumber, setPhoneNumber] = useState('')
-  const [email, setEmail] = useState('')
-  let history = useHistory()
+  const [profilePic, setProfilePic] = useState('');
+  const [name, setName] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [email, setEmail] = useState('');
+  let history = useHistory();
 
   const handleSubmitContactClick = () => {
     let generateId = Math.round(Math.random() * 100000000);

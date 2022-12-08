@@ -15,7 +15,7 @@ const ContactList = ({contacts}) => (
       </tr>
     </thead>
     <tbody>
-    {contacts.map((contact) => (
+    { contacts.map((contact) => (
         <tr  key={contact.number}>
           <td><img src={contact.profilePic} alt={contact.name + "'s profile pitcure"} /></td>
           {/* <td>{contact.name}</td> */}

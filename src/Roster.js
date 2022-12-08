@@ -6,7 +6,7 @@ import ContactList from './ContactList'
 
 const Roster = ({contacts, addContact}) => (
   <Switch>    
-    <Route path='/contacts/new' render={(routerProps) => (
+    <Route path='/new' render={(routerProps) => (
       <ContactNew history={routerProps.history} contacts={contacts} addContact={addContact} />
     )}/>
   
