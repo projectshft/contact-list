@@ -1,7 +1,7 @@
-import { Link, useHistory } from 'react-router-dom';
-import React from 'react'
-import _ from 'lodash'
-import PropTypes from 'prop-types';
+import { Link, useHistory } from "react-router-dom";
+import React from "react"
+import _ from "lodash"
+import PropTypes from "prop-types";
 
 const Contact = ({contactID, contacts}) => {
   const history = useHistory();
@@ -11,7 +11,7 @@ const Contact = ({contactID, contacts}) => {
     return (
       <div>
         <h2>Contact not found</h2>
-        <Link to='/'>Back</Link>
+        <Link to="/">Back</Link>
       </div>
     )
   }
@@ -23,7 +23,7 @@ const Contact = ({contactID, contacts}) => {
         <h5 className="card-title">{contact.name}</h5>
         <p className="card-text">Number: {contact.phone_number}</p>
         <p className="card-text">Email: {contact.email}</p>
-        <button onClick={() => history.push('/')} className="btn btn-secondary">Go back</button>
+        <button onClick={() => history.push("/")} className="btn btn-secondary">Go back</button>
       </div>
     </div>
   )

@@ -1,6 +1,6 @@
-import Header from './components/Header'
-import Main from './components/Main'
-import './index.css';
+import Header from "./components/Header"
+import Main from "./components/Main"
+import "./index.css";
 
 const App = () => (
   <div className="App container">

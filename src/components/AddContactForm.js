@@ -1,17 +1,17 @@
-import {useHistory} from 'react-router-dom'
-import React, { useState, useEffect } from 'react'
-import PropTypes from 'prop-types';
+import {useHistory} from "react-router-dom"
+import React, { useState, useEffect } from "react"
+import PropTypes from "prop-types";
 
 const AddContactForm = (props) => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone_number, setNumber] = useState('');
-  const [image_url, setImageURL] = useState('');
-  const [id, setID] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone_number, setNumber] = useState("");
+  const [image_url, setImageURL] = useState("");
+  const [id, setID] = useState("");
  
   const history = useHistory();
 
-  const back = () => history.push('/');
+  const back = () => history.push("/");
   const generatedId = () => Math.round(Math.random() * 100000000);
  
   useEffect(()=>{
@@ -49,7 +49,7 @@ const AddContactForm = (props) => {
         <input onChange={event => setImageURL(event.target.value)} type="text" className="form-control" id="newImage" placeholder="Enter Image URL"/>
       </div>
       <button onClick={event => handleSubmitClick(event.target)} type="submit" className="btn btn-primary">Submit</button>
-      <button onClick={() => history.push('/')} className="btn btn-secondary">Go back</button>
+      <button onClick={() => history.push("/")} className="btn btn-secondary">Go back</button>
     </form>
   )
 }

@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
-import { Switch, Route, useHistory } from 'react-router-dom';
-import ContactsHome from './ContactsHome';
-import AddContactForm from './AddContactForm';
-import Contact from './Contact';
-import contactsAPI from '../contacts.json'
+import React, { useState } from "react"
+import { Switch, Route, useHistory } from "react-router-dom";
+import ContactsHome from "./ContactsHome";
+import AddContactForm from "./AddContactForm";
+import Contact from "./Contact";
+import contactsAPI from "../contacts.json"
 
 const importedContacts = contactsAPI.contacts;
 
@@ -20,7 +20,7 @@ const Main = () => {
 
   return (
     <main>
-      <button onClick={() => history.push('/AddContactForm')} className="btn btn-primary">Add New Contact</button>
+      <button onClick={() => history.push("/AddContactForm")} className="btn btn-primary">Add New Contact</button>
       
       <Switch>
         <Route exact path="/" render={() => (
