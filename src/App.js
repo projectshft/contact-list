@@ -2,6 +2,7 @@ import Header from "./components/Header"
 import Main from "./components/Main"
 import "./index.css";
 
+//app function that displays header and main
 const App = () => (
   <div className="App container">
     <div className="row">

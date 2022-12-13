@@ -1,9 +1,11 @@
-import { Link } from "react-router-dom"
+import { useHistory } from "react-router-dom"
 import PropTypes from "prop-types";
 
-const ContactsHome = ({contacts}) => {
-  const ref = (id) => `contact/${id}`
+const ContactsList = ({contacts}) => {
   
+  const history = useHistory();
+
+
   return(
     <table className="table table-hover">
       <thead>
@@ -17,14 +19,12 @@ const ContactsHome = ({contacts}) => {
       <tbody>
         {
           contacts.map(c => (
-              <tr key={c.id}>
+              <tr key={c.id} onClick={() => history.push(`/contact/${c.id}`)}>
                 <th>
                   <img src={c.image_url} alt="headshot" width="80" height="100"/>
                 </th>
                 <td>
-                  <Link to={()=>ref(c.id)}>
-                    {c.name}
-                  </Link>
+                  {c.name}
                 </td>
                 <td>
                   {c.email}
@@ -41,8 +41,8 @@ const ContactsHome = ({contacts}) => {
   )
 }
 
-ContactsHome.propTypes = {
+ContactsList.propTypes = {
   contacts: PropTypes.array.isRequired,
 }
 
-export default ContactsHome;
+export default ContactsList;

@@ -17,6 +17,8 @@ const Contact = ({contactID, contacts}) => {
   }
   
   return(
+    <div>
+    <br></br>
     <div className="card">
       <img src={contact.image_url} className="card-img-top" alt="headshot"/>
       <div className="card-body">
@@ -25,6 +27,7 @@ const Contact = ({contactID, contacts}) => {
         <p className="card-text">Email: {contact.email}</p>
         <button onClick={() => history.push("/")} className="btn btn-secondary">Go back</button>
       </div>
+    </div>
     </div>
   )
 }
