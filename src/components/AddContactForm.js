@@ -33,6 +33,7 @@ const AddContactForm = (props) => {
   
   return (
     <form>
+      <br></br>
       <div className="form-group">
         <label htmlFor="newName">Name</label>
         <input onChange={event => setName(event.target.value)} type="text" className="form-control" id="name" placeholder="Enter Name"/>
@@ -49,8 +50,10 @@ const AddContactForm = (props) => {
         <label htmlFor="newimageURL">Image URL</label>
         <input onChange={event => setImageURL(event.target.value)} type="text" className="form-control" id="newImage" placeholder="Enter Image URL"/>
       </div>
-      <button onClick={event => handleSubmitClick(event.target)} type="submit" className="btn btn-primary">Submit</button>
-      <button onClick={() => history.push("/")} className="btn btn-secondary">Go back</button>
+      <br></br>
+      <button onClick={event => handleSubmitClick(event.target)} type="button" className="btn btn-primary">Submit Contact</button>
+      <br></br><br></br>
+      <button onClick={() => history.push("/")} type="button" className="btn btn-secondary">Go back</button>
     </form>
   )
 }
