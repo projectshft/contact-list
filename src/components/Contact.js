@@ -25,8 +25,8 @@ const Contact = ({contactID, contacts}) => {
         <h5 className="card-title">{contact.name}</h5>
         <p className="card-text">Number: {contact.phone_number}</p>
         <p className="card-text">Email: {contact.email}</p>
-        <button onClick={() => history.push("/")} className="btn btn-secondary">Go back</button>
       </div>
+      <button onClick={() => history.push("/")} className="btn btn-secondary">Go Back to Contact List</button>
     </div>
     </div>
   )
