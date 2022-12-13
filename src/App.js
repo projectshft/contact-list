@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import Header from "./components/Header"
 import Main from "./components/Main"
 import "./index.css";
@@ -23,3 +24,7 @@ const App = () => (
 );
 
 export default App;
+
+App.propType = {
+  children: PropTypes.element.isRequired
+};

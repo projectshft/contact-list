@@ -8,7 +8,7 @@ const AddContactForm = (props) => {
   const [email, setEmail] = useState("");
   const [phone_number, setNumber] = useState("");
   const [image_url, setImageURL] = useState("");
-  const [id, setID] = useState("");
+  const [id, setID] = useState();
  
   const history = useHistory();
 
@@ -34,19 +34,19 @@ const AddContactForm = (props) => {
   return (
     <form>
       <div className="form-group">
-        <label for="newName">Name</label>
+        <label htmlFor="newName">Name</label>
         <input onChange={event => setName(event.target.value)} type="text" className="form-control" id="name" placeholder="Enter Name"/>
       </div>
       <div className="form-group">
-        <label for="newEmail">Email address</label>
+        <label htmlFor="newEmail">Email address</label>
         <input onChange={event => setEmail(event.target.value)} type="email" className="form-control" id="email" placeholder="Enter Email"/>
       </div>
       <div className="form-group">
-        <label for="newphoneNumber">Phone Number</label>
+        <label htmlFor="newphoneNumber">Phone Number</label>
         <input onChange={event => setNumber(event.target.value)} type="number" className="form-control" id="newNumber" placeholder="Enter Phone Number"/>
       </div>
       <div className="form-group">
-        <label for="newimageURL">Image URL</label>
+        <label htmlFor="newimageURL">Image URL</label>
         <input onChange={event => setImageURL(event.target.value)} type="text" className="form-control" id="newImage" placeholder="Enter Image URL"/>
       </div>
       <button onClick={event => handleSubmitClick(event.target)} type="submit" className="btn btn-primary">Submit</button>

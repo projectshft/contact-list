@@ -3,10 +3,11 @@ import React from "react"
 import _ from "lodash"
 import PropTypes from "prop-types";
 
+
 //function component which returns and displays individual contact information from state depending on the route parameter id 
 const Contact = ({contactID, contacts}) => {
   const history = useHistory();
-  //lodash used to find and return object that's inside of another object by searcing for a specific contactID.
+  //lodash used to find and return the object that's inside of the contacts array by searching for a specific contactID inside the object.
   const contact = _.find(contacts, {id: contactID})
   if (!contact) {
     return (
@@ -38,5 +39,9 @@ Contact.propTypes = {
   contactID: PropTypes.number.isRequired 
 }
 
+Contact.propTypes = {
+  id: PropTypes.number,
+  contacts : PropTypes.array,
+}
 
 export default Contact;

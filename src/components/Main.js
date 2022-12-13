@@ -4,6 +4,7 @@ import ContactsList from "./ContactsList";
 import AddContactForm from "./AddContactForm";
 import Contact from "./Contact";
 import contactsAPI from "../contacts.json"
+import PropTypes from 'prop-types';
 
 //create importedContacts variable and defining it with contacts from contactsAPI
 const importedContacts = contactsAPI.contacts;
@@ -50,3 +51,7 @@ const Main = () => {
 }
 
 export default Main;
+
+Main.propType = {
+  children: PropTypes.element.isRequired
+};
