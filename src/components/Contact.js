@@ -3,9 +3,10 @@ import React from "react"
 import _ from "lodash"
 import PropTypes from "prop-types";
 
+//function component which returns and displays individual contact information from state depending on the route parameter id 
 const Contact = ({contactID, contacts}) => {
   const history = useHistory();
-  //check json for ID then out that contact
+  //lodash used to find and return object that's inside of another object by searcing for a specific contactID.
   const contact = _.find(contacts, {id: contactID})
   if (!contact) {
     return (
@@ -26,7 +27,7 @@ const Contact = ({contactID, contacts}) => {
         <p className="card-text">Number: {contact.phone_number}</p>
         <p className="card-text">Email: {contact.email}</p>
       </div>
-      <button onClick={() => history.push("/")} className="btn btn-secondary">Go Back to Contact List</button>
+      <button onClick={() => history.push("/")} className="btn btn-secondary">Back</button>
     </div>
     </div>
   )

@@ -2,6 +2,7 @@ import {useHistory} from "react-router-dom"
 import React, { useState, useEffect } from "react"
 import PropTypes from "prop-types";
 
+//function component used to take user input and store in local component and then using addContact function add the new contact to the contact state in main.
 const AddContactForm = (props) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");

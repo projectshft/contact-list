@@ -1,6 +1,7 @@
 import { useHistory } from "react-router-dom"
 import PropTypes from "prop-types";
 
+//Function component which returns and displays each item in the contacts state.
 const ContactsList = ({contacts}) => {
   
   const history = useHistory();
