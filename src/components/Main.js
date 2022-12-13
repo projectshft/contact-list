@@ -24,7 +24,6 @@ const Main = () => {
 
   return (
     <main>
-
       <button onClick={() => history.push("/AddContactForm")} className="btn btn-primary">Add New Contact</button>
       
       <Switch>
@@ -46,7 +45,6 @@ const Main = () => {
           )}
         />
       </Switch>
-
     </main>
   );
 }
