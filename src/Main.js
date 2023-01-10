@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import {  Container, Row, Table } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
@@ -33,7 +34,7 @@ const Main = () => {
     </Container>
     <Container fluid="md">
       { contacts ? 
-          <Table bordered variant="dark">
+        <Table bordered hover variant="dark">
           <thead>
             <tr>
               <th>Photo</th>
@@ -42,9 +43,7 @@ const Main = () => {
               <th>Phone Number</th>
             </tr>
           </thead>
-          <tbody>
             <ContactList contacts={contacts} />
-          </tbody>
         </Table>
       : <Row> {error} </Row>
       } 
