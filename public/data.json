@@ -1,0 +1,18 @@
+{
+  "contacts": [
+    {
+      "id": 2,
+      "name": "Nils Landsberg",
+      "image_url": "https://media.licdn.com/dms/image/C5603AQFTz0yYEV_H4g/profile-displayphoto-shrink_200_200/0/1517695452598?e=1678924800&v=beta&t=QqBS0bWGSBUceh2J2t0OWVN-_poTi38WA2devUdD3b4",
+      "email": "nils.landsberg78@gmail.com",
+      "phone": "7634586321"
+    },
+    {
+      "id": 3,
+      "name": "Megan Landsberg",
+      "image_url": "https://media.licdn.com/dms/image/C5603AQFETgaiSDBSvA/profile-displayphoto-shrink_800_800/0/1517371551810?e=2147483647&v=beta&t=2onn_zIL2tc0r1b7uQuqDZbhq9Yi0G6LJMHrLGZCtGE",
+      "email": "meganelandsberg@gmail.com",
+      "phone": "8325954267"
+    }
+  ]
+}
