@@ -1,8 +1,12 @@
 import React from 'react';
+import { Row, Col } from 'react-bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const AddContact = () => {
   return ( 
-    <h2>Add Contact</h2>
+      <Row>
+        <Col className="text-center">Add Contact</Col>
+      </Row>   
    );
 }
  
