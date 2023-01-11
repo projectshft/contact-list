@@ -1,11 +1,14 @@
 import React from 'react';
 import {  Row, Button } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Home = () => {
   return ( 
     <Row>
-    <Button variant="dark" href="/contacts">Who Do You Know?</Button>
+      <LinkContainer to="/contacts">
+        <Button variant="dark">Who Do You Know?</Button>
+      </LinkContainer>
     </Row>
    );
 }
