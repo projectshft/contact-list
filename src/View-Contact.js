@@ -1,15 +1,13 @@
-import { useParams, useRouteMatch, Link } from "react-router-dom"
+import { useEffect } from "react";
+import { useMemo, Link } from "react-router-dom"
 
-const ViewContact = ({contactName, contacts}) => {
+const ViewContact = ({contactId, contacts}) => {
 
-  const getContact = () => (
-    contacts.find((c) => {
-      return c.name === contactName;
-    })
-  )
+  const contactArray = contacts.filter((contact) => {
+    return contact.Id == contactId});
+
+  const specificContact = contactArray[0]
   
-  const specificContact = getContact();
-
   return (
     <div>
       <h6>{specificContact.name}</h6>

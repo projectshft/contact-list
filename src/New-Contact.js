@@ -1,17 +1,22 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { Link, useRouteMatch } from 'react-router-dom'
 
 const NewContact = (props) => {
+  const [Id, setId] = useState('')
   const [name, setName] = useState('')
   const [image, setImage] = useState('')
   const [email, setEmail] = useState('')
   const [phoneNumber, setphoneNumber] = useState('')
 
   const handleSubmit = () => {
-    props.addContact({name, image, email, phoneNumber})
+    props.addContact({Id, name, image, email, phoneNumber})
 
     props.history.push('/contacts')
   }
+
+  useEffect (() => {
+    setId(Math.random() * 100000000)
+  }, []);
 
   return (
     <div>
@@ -46,8 +51,7 @@ const NewContact = (props) => {
       </form>
 
       <br/>
-
-      <button onClick={handleSubmit}>Submit</button>
+      <button onClick={handleSubmit}>Save</button>
       
     </div>
   )

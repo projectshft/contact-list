@@ -5,14 +5,7 @@ import Contacts from './Contacts'
 import ViewContact from './View-Contact';
 
 function App() {
-  const [contacts, setContacts] = useState([
-    {
-    name: "Albert Einstein",
-    image: "https://en.wikipedia.org/wiki/Albert_Einstein#/media/File:Einstein_1921_by_F_Schmutzer_-_restoration.jpg",
-    email: "aeinstein@example.com",
-    phoneNumber: "15555555555"
-  }
-]);
+  const [contacts, setContacts] = useState([]);
 
   const addContact = (contact) => (
     setContacts( contacts => {

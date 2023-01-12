@@ -13,8 +13,8 @@ const Contacts = ({contacts, addContact}) => (
       <NewContact addContact={addContact} history={routerProps.history} />
     )} />
 
-    <Route path='/contacts/:name' render={(routerProps) => (
-      <ViewContact contacts={contacts} contactName={routerProps.match.params.name} />
+    <Route path='/contacts/:Id' render={(routerProps) => (
+      <ViewContact contacts={contacts} contactId={routerProps.match.params.Id} />
     )} />
   </Switch>
   

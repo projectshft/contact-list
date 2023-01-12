@@ -4,7 +4,7 @@ const FullContact = ({contacts}) => (
     <ul>
       {contacts.map(individual => (
         <li>
-          <Link to={`/contacts/${individual.name}`}>{individual.name}</Link>
+          <Link to={`/contacts/${individual.Id}`}>{individual.name}</Link>
         </li>
       ))}
     </ul>
