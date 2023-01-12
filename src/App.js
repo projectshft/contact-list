@@ -1,25 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import { Switch, Route } from 'react-router-dom'
+import { useState } from 'react';
+import Home from './Home'
+import Contacts from './Contacts'
+import ViewContact from './View-Contact';
 
 function App() {
+  const [contacts, setContacts] = useState([
+    {
+    name: "Albert Einstein",
+    image: "https://en.wikipedia.org/wiki/Albert_Einstein#/media/File:Einstein_1921_by_F_Schmutzer_-_restoration.jpg",
+    email: "aeinstein@example.com",
+    phoneNumber: "15555555555"
+  }
+]);
+
+  const addContact = (contact) => (
+    setContacts( contacts => {
+      return [...contacts, contact]
+    })
+  )
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Switch>
+        <Route exact path='/' component={Home}/>
+        <Route path='/contacts' render={() => (
+          <Contacts addContact={addContact} contacts={contacts} />
+        )} />
+      </Switch>
     </div>
   );
 }
 
 export default App;
+
+
+// {
+//   "contacts": [
+//     {
+//       "id": 70219577,
+//       "name": "Albert Einstein",
+//       "image_url": "https://en.wikipedia.org/wiki/Albert_Einstein#/media/File:Einstein_1921_by_F_Schmutzer_-_restoration.jpg",
+//       "email": "aeinstein@example.com",
+//       "phone_number": "15555555555"
+//     }
+//   ]
+// }
