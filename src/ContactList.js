@@ -1,6 +1,7 @@
 import React from 'react';
 import { Image } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap';
+import PropTypes from 'prop-types';
 
 
 const ContactList = ({ contacts }) => {
@@ -21,5 +22,9 @@ const ContactList = ({ contacts }) => {
     </tbody>
    );
 }
- 
+
+ContactList.propTypes = {
+  contacts: PropTypes.arrayOf(PropTypes.object).isRequired
+};
+
 export default ContactList;
