@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { useMemo, Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 const ViewContact = ({contactId, contacts}) => {
 
@@ -7,11 +6,17 @@ const ViewContact = ({contactId, contacts}) => {
     return contact.Id == contactId});
 
   const specificContact = contactArray[0]
-  console.log(specificContact)
+  
+  if(!specificContact) {
+    return <div>
+      <h1>Contact Does Not Exist</h1>
+      <Link to={'/contacts'}>Contacts</Link>
+    </div>
+  }
   
   return (
     <div>
-      <h6>{specificContact.name}</h6>
+      <h3>{specificContact.name}</h3>
       <img src={`${specificContact.image}`}/>
       <br/>
       <div>{specificContact.email}</div>

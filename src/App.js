@@ -2,7 +2,7 @@ import { Switch, Route } from 'react-router-dom'
 import { useState } from 'react';
 import Home from './Home'
 import Contacts from './Contacts'
-import ViewContact from './View-Contact';
+import NoMatch from './No-Match'
 
 function App() {
   const [contacts, setContacts] = useState([]);
@@ -20,6 +20,7 @@ function App() {
         <Route path='/contacts' render={() => (
           <Contacts addContact={addContact} contacts={contacts} />
         )} />
+        <Route path='*' component={NoMatch}/>
       </Switch>
     </div>
   );
