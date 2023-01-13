@@ -29,7 +29,7 @@ function App() {
   });
 
   // Func to add new contact
-  const addContact = (contact) => {
+  const addNewContact = (contact) => {
     setContacts()
   }
 
@@ -37,9 +37,9 @@ function App() {
     <div className="container">
       <div className="row">
         <h1 className="text-center">👯 Contacts App 👥</h1>
-        <ContactsList />
+        <ContactsList contacts={contacts} />
         <ContactItem />
-        <AddContact />
+        <AddContact addNewContact={addNewContact}/>
       </div>
     </div>
   )
