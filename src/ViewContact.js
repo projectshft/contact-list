@@ -1,27 +1,36 @@
 import React from 'react';
-import { Card } from 'react-bootstrap';
+import { Card, Button } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 import { useParams } from 'react-router-dom';
-import useFetch from './useFetch';
 
-const ViewContact = () => {
+
+const ViewContact = ({ contacts }) => {
   const { id } = useParams()
-  const { data: contact, error } = useFetch("data.json/contacts/" + id)
-  console.log(error)
+  console.log(id)
+  const isContact = c => c.id === Number(id);
+  const contact = contacts.find(isContact);
+  console.log(contacts);
   return ( 
     
-    <Card>
-      { error && <h2>{ error }</h2>}
-      { contact && (
+    <>
+      <Card className="mt-4" style={{ width: '18rem' }}>
+        {/* { error && <h2>{ error }</h2>} */}
+        {contact && (
           <>
             <Card.Img variant="top" src={contact.image_url} />
-            <Card.Body>
+            <Card.Body className="text-center">
               <Card.Title>{contact.name}</Card.Title>
               <Card.Text>{contact.email}</Card.Text>
               <Card.Text>{contact.phone}</Card.Text>
+              <LinkContainer to="/contacts">
+                <Button variant="dark">Back</Button>
+              </LinkContainer>
             </Card.Body>
           </>
-      )}
-    </Card>
+        )}
+      </Card>
+      
+    </>
    );
 }
  

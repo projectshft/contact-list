@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -7,24 +7,27 @@ import AddContact from './AddContact';
 import Home from './Home';
 import NavBar from './NavBar';
 import ViewContact from './ViewContact';
+import data from './data.json';
 
 const App = () => {
+  const [contacts, setContacts] = useState(data.contacts);
+
   return ( 
     <>
       <NavBar />
-      <Container fluid="md">
+      <Container fluid="md" style={{width: "max-content"}}>
         <Switch>
           <Route exact path="/">
             <Home />
           </Route>
           <Route exact path="/contacts">
-            <Contacts />
+            <Contacts contacts={contacts}/>
           </Route>
           <Route path="/contacts/new">
-            <AddContact />
+            <AddContact contacts={contacts} setContacts={setContacts}/>
           </Route>
           <Route path="/contacts/:id">
-            <ViewContact />
+            <ViewContact contacts={contacts}/>
           </Route>
         </Switch>  
       </Container>

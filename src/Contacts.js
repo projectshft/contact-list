@@ -1,17 +1,16 @@
 import React from 'react';
-import {  Row, Table } from 'react-bootstrap';
+import {  Container, Row, Table } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ContactList from './ContactList';
-import useFetch from './useFetch';
 
 
-const Contacts = () => {
-  const { data: contacts, error } = useFetch("data.json");
+const Contacts = ({ contacts }) => {
  
   return (
+
     <>
       { contacts ? 
-        <Table bordered hover variant="dark">
+        <Table className="mt-4" bordered hover variant="dark">
           <thead>
             <tr>
               <th>Photo</th>
@@ -22,7 +21,7 @@ const Contacts = () => {
           </thead>
             <ContactList contacts={contacts} />
         </Table>
-      : <Row> {error} </Row>
+      : <Row>'Cannot access contact list.  Please contact administrator for assistance.'</Row>
       } 
     </>
   );

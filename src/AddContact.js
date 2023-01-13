@@ -1,18 +1,24 @@
 import React, { useState } from 'react';
 import { Container, Form, Row, Col, Button } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useHistory } from 'react-router'
+import { propTypes } from 'react-bootstrap/esm/Image';
 
-const AddContact = () => {
+const AddContact = ({ contacts, setContacts }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [imageUrl, setImageUrl] = useState('');
   const generateID = () => Math.round(Math.random() * 100000000);
+  const history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const contact = { name, email, phone, imageUrl, id: generateID() }
-    console.log(contact)
+    contacts.push(contact)
+    console.log(contacts);
+    setContacts(contacts);
+    history.push("/contacts");
   }
   
   return ( 
