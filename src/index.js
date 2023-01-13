@@ -6,11 +6,14 @@ import { LinkContainer } from 'react-router-bootstrap';
 import { NavItemLink } from 'react-router-bootstrap';
 import './index.css';
 import App from './App';
+import { BrowserRouter, Route } from 'react-router-dom'
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
