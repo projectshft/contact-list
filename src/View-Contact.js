@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import { PropTypes } from "prop-types"
 
 const ViewContact = ({contactId, contacts}) => {
 
@@ -27,6 +28,10 @@ const ViewContact = ({contactId, contacts}) => {
   )
   
 }
+
+ViewContact.propTypes = {
+  contactId: PropTypes.number.isRequired
+};
 
 
 export default ViewContact

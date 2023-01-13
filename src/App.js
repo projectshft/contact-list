@@ -3,6 +3,8 @@ import { useState } from 'react';
 import Home from './Home'
 import Contacts from './Contacts'
 import NoMatch from './No-Match'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
   const [contacts, setContacts] = useState([]);

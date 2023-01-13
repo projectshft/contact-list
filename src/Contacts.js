@@ -2,6 +2,7 @@ import { Route, Switch } from "react-router-dom"
 import FullContact from "./Full-Contact"
 import NewContact from "./New-Contact"
 import ViewContact from "./View-Contact"
+import PropTypes, { object } from 'prop-types';
 
 const Contacts = ({contacts, addContact}) => (
   <Switch>
@@ -19,6 +20,11 @@ const Contacts = ({contacts, addContact}) => (
   </Switch>
   
 )
+
+Contacts.propTypes = {
+  contacts: PropTypes.oneOfType([object])
+
+}
 
 
 export default Contacts
