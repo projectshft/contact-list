@@ -7,12 +7,12 @@ const ViewContact = ({contactId, contacts}) => {
     return contact.Id == contactId});
 
   const specificContact = contactArray[0]
+  console.log(specificContact)
   
   return (
     <div>
       <h6>{specificContact.name}</h6>
-      <br/>
-      <div>{specificContact.image}</div>
+      <img src={`${specificContact.image}`}/>
       <br/>
       <div>{specificContact.email}</div>
       <br/>
