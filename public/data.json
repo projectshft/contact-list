@@ -1,0 +1,18 @@
+{
+  "contacts": [
+    {
+      "id": 70219577,
+      "name": "Albert Einstein",
+      "image_url": "https://en.wikipedia.org/wiki/Albert_Einstein#/media/File:Einstein_1921_by_F_Schmutzer_-_restoration.jpg",
+      "email": "aeinstein@example.com",
+      "phone_number": "15555555555"
+    },
+    {
+      "id": 70219578,
+      "name": "Rick Rubin",
+      "image_url": "https://cdn.britannica.com/98/108998-050-1531FDB8/American-record-producer-Rick-Rubin-2014.jpg",
+      "email": "rrubin@example.com",
+      "phone_number": "15555555555"
+    }
+  ]
+}
