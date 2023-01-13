@@ -15,7 +15,7 @@ const Contacts = ({contacts, addContact}) => (
     )} />
 
     <Route path='/contacts/:Id' render={(routerProps) => (
-      <ViewContact contacts={contacts} contactId={routerProps.match.params.Id} />
+      <ViewContact contacts={contacts} history={routerProps.history} contactId={routerProps.match.params.Id} />
     )} />
   </Switch>
   

@@ -19,13 +19,16 @@ const NewContact = (props) => {
     props.history.push('/contacts')
   }
 
+  const handleCancel = () => {
+    props.history.push('/contacts')
+  }
+
   useEffect (() => {
     setId(Math.random() * 100000000)
   }, []);
 
   return (
     <div>
-      <Link to='/contacts'> Contacts </Link>
       <Container>
         <Row>
           <Col md={8}>
@@ -57,8 +60,14 @@ const NewContact = (props) => {
         </Row>
       </Container>
 
-      <br/>
+      <Row>
+      <Col sm='auto'>
       <button onClick={handleSubmit}>Save</button>
+      </Col>
+      <Col>
+      <button onClick={handleCancel}>Cancel</button>
+      </Col>
+      </Row>
       
     </div>
   )
