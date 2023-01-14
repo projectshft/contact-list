@@ -1,14 +1,13 @@
 import React, { useState, useEffect} from "react";
 import './App.css';
-import "./Navbar.css";
 import Home from "./componenets/home";
-import ContactItem from "./componenets/contact-item";
-import ContactsList from "./componenets/contacts-list";
-import AddContact from "./componenets/add-contact";
-import NotFound from "./componenets/not-found";
-import { Routes, Route } from 'react-router-dom';
-import { Link } from "react-router-dom";
+import ContactItem from "./componenets/ContactItem";
+import ContactsList from "./componenets/ContactList";
+import AddContact from "./componenets/AddContact";
+import NotFound from "./componenets/NotFound";
+import { Routes, Route, Link } from 'react-router-dom';
 import { Navbar, Nav } from "react-bootstrap";
+import data from "./data.json";
 
 
 function App() {
@@ -18,23 +17,13 @@ function App() {
   }, []);
   
   // Define initial state of contacts and define setContacts method(?) -- setup useState hook
-  const [contacts, setContacts] = useState([])
-
-  // Fetch contacts data from JSON file. (using as componentDidUpdate)
-  useEffect(() => {
-    fetch('data.json')
-    .then((response) => response.json())
-    .then((data) => setContacts(data))
-    .catch(error => {
-      console.error(error);
-    });
-  }, []);
-
+  const [contacts, setContacts] = useState(data)
 
   // Func to add new contact
-  const addNewContact = (contact) => {
-    setContacts(setContacts([...contacts, contact])
-    )
+  const addNewContact = (newContact) => {
+    console.log(newContact);
+    console.log(contacts);
+    setContacts(contacts => [...contacts.contacts, newContact])
   }
 
   return (
@@ -57,9 +46,9 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/contacts" >
-              <Route index element={<ContactsList />} />
+              <Route index element={<ContactsList contacts={contacts} />} />
               <Route path=":id" element={<ContactItem />} />
-              <Route path="new" element={<AddContact />} />
+              <Route path="new" element={<AddContact onSubmit={addNewContact} />} />
             </Route>
             <Route path="/*" element={<NotFound />} />
           </Routes>

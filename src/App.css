@@ -40,3 +40,8 @@
 .form-floating {
   margin-bottom: 20px;
 }
+
+.contactPhoto {
+  width: 250px;
+  height: auto;
+}
