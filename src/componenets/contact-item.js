@@ -1,4 +1,4 @@
-const ContactItem = () => {
+const ContactItem = (props) => {
   return <div>Contact Item</div>;
 };
 

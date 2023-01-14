@@ -23,20 +23,19 @@ function App() {
     .catch(error => {
       console.error(error);
     });
+  }, []);
 
-    // (use as componentWillUnmount to clean up when component is no longer in use)
-    return () => {}
-  });
 
   // Func to add new contact
   const addNewContact = (contact) => {
-    setContacts()
+    setContacts(setContacts([...contacts, contact])
+    )
   }
 
   return (
     <div className="container">
       <div className="row">
-        <h1 className="text-center">👯 Contacts App 👥</h1>
+        <h1 className="text-center">Contacts App</h1>
         <ContactsList contacts={contacts} />
         <ContactItem />
         <AddContact addNewContact={addNewContact}/>
