@@ -15,14 +15,17 @@ const AddContact = ({onSubmit}) => {
   const [photo, setPhoto] = useState("")
   
   const addContact = () => {
-    console.log('submit button works');
+    const generateID = () => {
+      return (Math.round(Math.random() * 100000000))
+    };
 
-    setContactData([...contactData, {name: name, email: email, phone: phone, photo: photo}])
+    const id = generateID();
+
+    const newContact = {id:id, name: name, email: email, phone_number: phone, image_url: photo};
+    setContactData([...contactData, newContact])
+    onSubmit(newContact);
     
-    onSubmit(contactData);
-    
-    // navigate("/contacts");
-    
+    navigate("/contacts");
   }
 
   return (

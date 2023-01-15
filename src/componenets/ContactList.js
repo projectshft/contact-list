@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 
 
 const ContactsList = ({contacts}) => {
-  const contactsArr = contacts?.contacts
   const navigate = useNavigate();
 
   const contactClick = (data) => {
@@ -25,7 +24,6 @@ const ContactsList = ({contacts}) => {
       <Table striped bordered hover className="table">
         <thead>
           <tr>
-            <th scope="col">id</th>
             <th scope="col">Photo</th>
             <th scope="col">Name</th>
             <th scope="col">Phone</th>
@@ -33,10 +31,9 @@ const ContactsList = ({contacts}) => {
           </tr>
         </thead>
         <tbody>
-          {contactsArr.map((contact, index) => {
+          {contacts.map((contact, index) => {
             return (
               <tr key={index} onClick={() => contactClick(contact)}>
-                <th scope="row">{index}</th>
                 <td width='250px'>
                   <img className='contactPhoto' src={contact.image_url} alt="A photo of the contact"  />
                 </td>

@@ -17,13 +17,12 @@ function App() {
   }, []);
   
   // Define initial state of contacts and define setContacts method(?) -- setup useState hook
-  const [contacts, setContacts] = useState(data)
+  const [contacts, setContacts] = useState(data.contacts)
 
   // Func to add new contact
   const addNewContact = (newContact) => {
     console.log(newContact);
-    console.log(contacts);
-    setContacts(contacts => [...contacts.contacts, newContact])
+    setContacts(() => [...contacts, newContact])
   }
 
   return (

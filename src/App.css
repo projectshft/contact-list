@@ -41,7 +41,8 @@
   margin-bottom: 20px;
 }
 
-.contactPhoto {
+.contactPhoto,
+.welcome_gif {
   width: 250px;
   height: auto;
 }
