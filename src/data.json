@@ -1,0 +1,25 @@
+{
+  "contacts": [
+    {
+      "id": 1,
+      "name": "John Smith",
+      "email": "johnsmith@example.com",
+      "phone_number": "555-555-5555",
+      "image_url": "https://via.placeholder.com/100x100"
+    },
+    {
+      "id": 2,
+      "name": "Jane Doe",
+      "email": "janedoe@example.com",
+      "phone_number": "555-555-5556",
+      "image_url": "https://via.placeholder.com/100x100"
+    },
+    {
+      "id": 3,
+      "name": "Bob Johnson",
+      "email": "bobjohnson@example.com",
+      "phone_number": "555-555-5557",
+      "image_url": "https://via.placeholder.com/100x100"
+    }
+  ]
+}
