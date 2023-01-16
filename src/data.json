@@ -1,0 +1,25 @@
+{
+  "contacts": [
+    {
+      "id": 70219577,
+      "name": "Albert Einstein",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Einstein_1921_by_F_Schmutzer_-_restoration.jpg/1280px-Einstein_1921_by_F_Schmutzer_-_restoration.jpg",
+      "email": "aeinstein@example.com",
+      "phone_number": "949-468-2750"
+    },
+    {
+      "id": 70219578,
+      "name": "Rick Rubin",
+      "image_url": "https://cdn.britannica.com/98/108998-050-1531FDB8/American-record-producer-Rick-Rubin-2014.jpg",
+      "email": "rrubin@defjam.com",
+      "phone_number": "949-468-2750"
+    },
+    {
+      "id": 70219578,
+      "name": "Giannis Antetokounmpo",
+      "image_url": "https://imageio.forbes.com/specials-images/imageserve/627bd323672c41ea74c88a13/0x0.jpg?format=jpg&crop=1834,1833,x583,y167,safe&height=416&width=416&fit=bounds",
+      "email": "giannis@nba.com",
+      "phone_number": "949-468-2750"
+    }
+  ]
+}

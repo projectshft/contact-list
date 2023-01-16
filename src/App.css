@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+.form-floating {
+  margin-bottom: 20px;
+}
+
+.contactPhoto,
+.welcome_gif {
+  width: 250px;
+  height: auto;
+}
