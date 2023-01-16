@@ -1,3 +1,36 @@
+.centered {
+  height: 100vh; /* Magic here */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.same-image-size {
+  height: auto;
+  max-height: 200px;
+  width: auto;
+  max-width: 300px;
+}
+
+.same-card-size {
+  width: 100px;
+  height: 300px;
+  text-align: center;
+  border-style: solid !important;
+  border-color: black !important;
+  background-color: #282c34 !important;
+}
+
+.view-contact {
+  background-color: #282c34;
+}
+
+.full-contact-button {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
 .App {
   text-align: center;
 }
