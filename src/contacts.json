@@ -1,0 +1,18 @@
+{
+  "contacts": [
+    {
+      "id": 70219577,
+      "name": "Albert Einstein",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Einstein_1921_by_F_Schmutzer_-_restoration.jpg/1024px-Einstein_1921_by_F_Schmutzer_-_restoration.jpg",
+      "email": "aeinstein@example.com",
+      "phone_number": "15555555555"
+    },
+    {
+      "id": 12312451,
+      "name": "Bobby Hill",
+      "image_url": "https://i.ebayimg.com/images/g/h20AAOSw~nZijOkP/s-l500.jpg",
+      "email": "bobby@example.com",
+      "phone_number": "21938462398"
+    }
+  ]
+}

@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import PropTypes from 'prop-types';
+import Header from "./components/Header"
+import Main from "./components/Main"
+import "./index.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+//app function that displays header and main
+const App = () => (
+  <div className="App container">
+    <div className="row">
+      <div className="col">
+      </div>
+      <div className="col order-2" align="center">
+        <Header />
+      </div>
+      <div className="col order-3">
+      </div>
     </div>
-  );
-}
+    <div className="row">
+      <div className="col-md-6 offset-md-3">
+        <Main />
+      </div>
+    </div>
+  </div>
+);
 
 export default App;
+
+App.propType = {
+  children: PropTypes.element.isRequired
+};
