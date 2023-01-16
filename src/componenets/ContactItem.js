@@ -1,8 +1,8 @@
-import { useParams, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import NotFound from "./NotFound";
 
-const ContactItem = (props) => {
+const ContactItem = ( ) => {
   const { state } = useLocation()
-  const { id } = useParams();
   const navigate = useNavigate();
 
   const goBack = () => {
@@ -22,7 +22,7 @@ const ContactItem = (props) => {
     );
   } else {
     return (
-      <h2>👋 I am a contact (id # {id})</h2>
+      <NotFound />
     )
   }
 };

@@ -18,21 +18,23 @@ const AddContact = ({onSubmit}) => {
     const generateID = () => {
       return (Math.round(Math.random() * 100000000))
     };
-
     const id = generateID();
-
     const newContact = {id:id, name: name, email: email, phone_number: phone, image_url: photo};
     setContactData([...contactData, newContact])
     onSubmit(newContact);
-    
     navigate("/contacts");
   }
-
+  
+  const goBack = () => {
+    navigate("/contacts");
+  }
   return (
     <div>
+      <button className='btn btn-dark d-flex float-end' onClick={goBack} type="button" value="Submit">Go Back</button>
+      <br />
       <h2>Add a New Contact</h2>
-
-      <Form id="add-contact-form">
+      <hr />
+      <Form id="add-contact-form" onSubmit={addContact}>
         <FloatingLabel controlId="floatingInput" label="Name">
           <Form.Control
             type="text" 
@@ -79,8 +81,7 @@ const AddContact = ({onSubmit}) => {
             required>
           </Form.Control>
         </FloatingLabel>
-
-        <button className='btn btn-dark' onClick={addContact} type="button" value="Submit">Submit</button>
+        <button className='btn btn-dark' type="submit" value="Submit">Submit</button>
       </Form>
     </div>
   );

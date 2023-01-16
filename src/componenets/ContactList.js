@@ -1,5 +1,4 @@
 import Table from 'react-bootstrap/Table'
-import ContactItem from "./ContactItem";
 import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 
