@@ -1,4 +1,5 @@
 import Table from 'react-bootstrap/Table'
+import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 
@@ -47,5 +48,10 @@ const ContactsList = ({contacts}) => {
     </div>
   )
 };
+
+// typecheck props with propTypes
+ContactsList.propTypes = {
+ contacts: PropTypes.array.isRequired,
+}
 
 export default ContactsList;

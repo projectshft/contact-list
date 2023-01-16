@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 
@@ -28,6 +29,7 @@ const AddContact = ({onSubmit}) => {
   const goBack = () => {
     navigate("/contacts");
   }
+  
   return (
     <div>
       <button className='btn btn-dark d-flex float-end' onClick={goBack} type="button" value="Submit">Go Back</button>
@@ -86,5 +88,10 @@ const AddContact = ({onSubmit}) => {
     </div>
   );
 };
+
+// typecheck with proptypes
+AddContact.propTypes = {
+  onSubmit: PropTypes.func.isRequired
+}
 
 export default AddContact;

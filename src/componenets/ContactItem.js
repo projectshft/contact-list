@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import NotFound from "./NotFound";
 
-const ContactItem = ( ) => {
+const ContactItem = () => {
   const { state } = useLocation()
   const navigate = useNavigate();
 
