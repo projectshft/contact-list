@@ -5,6 +5,7 @@ import App from "./App"
 //makes bootstrap available every where in app 
 import "bootstrap/dist/css/bootstrap.min.css";
 
+//browswer router should be at the top lovel of App.js and not in a component or root
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
