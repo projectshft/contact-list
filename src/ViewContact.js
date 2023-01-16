@@ -1,7 +1,9 @@
 import React from 'react';
-import { Card, Button, Row } from 'react-bootstrap';
+import { Card, Button } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { useParams } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserSecret } from '@fortawesome/free-solid-svg-icons';
 
 
 const ViewContact = ({ contacts }) => {
@@ -9,7 +11,6 @@ const ViewContact = ({ contacts }) => {
   console.log(id)
   const isContact = c => c.id === Number(id);
   const contact = contacts.find(isContact);
-  console.log(contacts);
   return ( 
     <Card className="mt-4" style={{ width: '18rem' }}>
       {contact ? 
@@ -25,6 +26,7 @@ const ViewContact = ({ contacts }) => {
           </Card.Body>
         </>
         : <Card.Body className="text-center">
+            <Card.Text><FontAwesomeIcon className="fa-5x" icon={ faUserSecret } /></Card.Text>
             <Card.Text>Sorry, the contact was not found in your rolodex.</Card.Text>
             <LinkContainer to="/contacts">
               <Button variant="dark">Back</Button>

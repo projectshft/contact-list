@@ -3,6 +3,8 @@ import { Container, Navbar, Nav } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { LinkContainer } from 'react-router-bootstrap';
 import './index.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAddressBook } from '@fortawesome/free-solid-svg-icons';
 
 const NavBar = () => {
   return ( 
@@ -10,7 +12,8 @@ const NavBar = () => {
         <Navbar expand="md" bg="light" variant="light">
           <Container>
             <LinkContainer to="/contacts">
-              <Navbar.Brand>Contacts Rolodex</Navbar.Brand>
+              <Navbar.Brand>Contacts Rolodex <FontAwesomeIcon icon={ faAddressBook } /></Navbar.Brand>
+              
             </LinkContainer>
             <Nav>
               <LinkContainer to="/contacts/new">

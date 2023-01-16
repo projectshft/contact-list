@@ -14,23 +14,25 @@ const App = () => {
 
   return ( 
     <>
-      <NavBar />
-      <Container fluid="sm" style={{width: "max-content"}}>
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route exact path="/contacts">
-            <Contacts contacts={contacts}/>
-          </Route>
-          <Route path="/contacts/new">
-            <AddContact contacts={contacts} setContacts={setContacts}/>
-          </Route>
-          <Route path="/contacts/:id">
-            <ViewContact contacts={contacts}/>
-          </Route>
-        </Switch>  
-      </Container>
+      <Router>
+        <NavBar />
+        <Container fluid="sm" style={{width: "max-content"}}>
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route exact path="/contacts">
+              <Contacts contacts={contacts}/>
+            </Route>
+            <Route path="/contacts/new">
+              <AddContact contacts={contacts} setContacts={setContacts}/>
+            </Route>
+            <Route path="/contacts/:id">
+              <ViewContact contacts={contacts}/>
+            </Route>
+          </Switch>  
+        </Container>
+      </Router>
     </>
    );
 }
