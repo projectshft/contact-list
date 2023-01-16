@@ -1,15 +1,15 @@
-import { Link } from "react-router-dom"
-import { PropTypes } from "prop-types"
+import { Link } from "react-router-dom";
 import Card from 'react-bootstrap/Card';
 import { Container, Image } from "react-bootstrap";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { ListGroup } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
+import PropTypes from 'prop-types';
 
 
 const ViewContact = ({contactId, contacts, history}) => {
-
+console.log(contacts)
   const contactArray = contacts.filter((contact) => {
     return contact.Id == contactId});
 
@@ -50,9 +50,27 @@ const ViewContact = ({contactId, contacts, history}) => {
   
 }
 
+ViewContact.defaultProps = {
+  contacts: PropTypes.shape({
+    name: 'John Doe',
+    image: 'https://tse1.mm.bing.net/th?id=OIP.7o-Gaf6oMuM3_XvLGQZuMgHaEo&pid=Api&rs=1&c=1&qlt=95&w=181&h=113',
+    email: 'johndoe@idk.com',
+    phoneNumber: 111223333
+  })
+}
+
 ViewContact.propTypes = {
-  contactId: PropTypes.number.isRequired
+  contacts: PropTypes.shape({
+    name: PropTypes.string,
+    image: PropTypes.string,
+    email: PropTypes.string,
+    phoneNumber: PropTypes.number
+  })
 };
+
+
+
+
 
 
 export default ViewContact
