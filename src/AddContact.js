@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Container, Form, Row, Col, Button } from 'react-bootstrap'
+import { Container, Form, Row, Col, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useHistory } from 'react-router'
-import { propTypes } from 'react-bootstrap/esm/Image';
+import { useHistory } from 'react-router';
+import PropTypes from 'prop-types';
+
 
 const AddContact = ({ contacts, setContacts }) => {
   const [name, setName] = useState('');
@@ -14,7 +15,7 @@ const AddContact = ({ contacts, setContacts }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const contact = { name, email, phone, imageUrl, id: generateID() }
+    const contact = { id: generateID(), name, imageUrl, email, phone }
     contacts.push(contact)
     console.log(contacts);
     setContacts(contacts);
@@ -82,5 +83,10 @@ const AddContact = ({ contacts, setContacts }) => {
     </Container>
    );
 }
- 
+
+AddContact.propTypes = {
+  contacts: PropTypes.arrayOf(PropTypes.object).isRequired,
+  setContacts: PropTypes.func.isRequired
+};
+
 export default AddContact;

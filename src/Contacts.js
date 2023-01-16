@@ -2,7 +2,7 @@ import React from 'react';
 import {  Container, Row, Table } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ContactList from './ContactList';
-
+import PropTypes from 'prop-types';
 
 const Contacts = ({ contacts }) => {
  
@@ -10,7 +10,7 @@ const Contacts = ({ contacts }) => {
 
     <>
       { contacts ? 
-        <Table className="mt-4" bordered hover variant="dark">
+        <Table className="mt-4" responsive bordered hover variant="dark">
           <thead>
             <tr>
               <th>Photo</th>
@@ -26,5 +26,9 @@ const Contacts = ({ contacts }) => {
     </>
   );
 }
+
+Contacts.propTypes = {
+  contacts: PropTypes.arrayOf(PropTypes.object).isRequired
+};
 
 export default Contacts;

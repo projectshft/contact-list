@@ -15,7 +15,7 @@ const App = () => {
   return ( 
     <>
       <NavBar />
-      <Container fluid="md" style={{width: "max-content"}}>
+      <Container fluid="sm" style={{width: "max-content"}}>
         <Switch>
           <Route exact path="/">
             <Home />
