@@ -4,6 +4,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 import { useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons';
+import PropTypes from 'prop-types';
 
 
 const ViewContact = ({ contacts }) => {
@@ -37,4 +38,8 @@ const ViewContact = ({ contacts }) => {
    );
 }
  
+ViewContact.propTypes = {
+  contacts: PropTypes.arrayOf(PropTypes.object).isRequired
+};
+
 export default ViewContact;

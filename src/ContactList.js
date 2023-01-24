@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 
 const ContactList = ({ contacts }) => {
-  
+  console.log({contacts});
   return ( 
     <tbody className="class-list">{contacts.map((contact) => (
       <React.Fragment key={contact.id} >

@@ -9,13 +9,13 @@ const AddContact = ({ contacts, setContacts }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
-  const [imageUrl, setImageUrl] = useState('');
+  const [image_url, setImageUrl] = useState('');
   const generateID = () => Math.round(Math.random() * 100000000);
   const history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const contact = { id: generateID(), name, imageUrl, email, phone }
+    const contact = { id: generateID(), name, image_url, email, phone }
     contacts.push(contact)
     console.log(contacts);
     setContacts(contacts);
@@ -72,7 +72,7 @@ const AddContact = ({ contacts, setContacts }) => {
                 required
                 type="url" 
                 placeholder="Image URL"
-                value={imageUrl}
+                value={image_url}
                 onChange={(e) => setImageUrl(e.target.value)}
               />
             </Col>
