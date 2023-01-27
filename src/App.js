@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { Container } from 'react-bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Contacts from './Contacts';
+import AddContact from './AddContact';
+import Home from './Home';
+import NavBar from './NavBar';
+import ViewContact from './ViewContact';
+import data from './data.json';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+  const [contacts, setContacts] = useState(data.contacts);
+
+  return ( 
+    <>
+      <Router>
+        <NavBar />
+        <Container fluid="sm" style={{width: "max-content"}}>
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route exact path="/contacts">
+              <Contacts contacts={contacts}/>
+            </Route>
+            <Route path="/contacts/new">
+              <AddContact contacts={contacts} setContacts={setContacts}/>
+            </Route>
+            <Route path="/contacts/:id">
+              <ViewContact contacts={contacts}/>
+            </Route>
+          </Switch>  
+        </Container>
+      </Router>
+    </>
+   );
 }
-
+ 
 export default App;
