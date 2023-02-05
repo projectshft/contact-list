@@ -5,7 +5,7 @@ import Header from './Header';
 import AddContact from './AddContact';
 import ContactList from './ContactList';
 import ContactInfo from './ContactInfo';
-// import ContactCard from './ContactCard';
+import ContactCard from './ContactCard';
 
 
 function App() {
@@ -44,17 +44,21 @@ function App() {
            /> 
           <Route exact path='/add' 
            element = {<AddContact />}
-           render={(props)=>(
+           render={(props)=> (
            <AddContact 
            {...props} addContactHandler={addContactHandler}/>
            )}
        />
 
-       <Route path='/contact/id' component={ContactInfo} />
+       <Route exact path='/contact/id' 
+        element = {<ContactCard />} 
+        render = {(props) => (
+          <ContactCard
+        {...props} ContactInfo={ContactInfo} /> 
+        )}
+        />
        </Routes>
         
-       {/* <AddContact addContactHandler={addContactHandler} /> */}
-       {/* <ContactList contacts={contacts} />  */}
       </Router>
     </div>
   );
