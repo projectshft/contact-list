@@ -6,7 +6,7 @@ import ContactList from './ContactList';
 
 function App() {
   
-  const [contacts, setContact] = useState([
+  const [contacts, setContacts] = useState([
     {
       id: 1,
       name: "Joe Harris",
@@ -29,6 +29,12 @@ function App() {
       phone_number: 1220193453
     }
   ])
+
+  const addContact = (contact) => {
+    setContacts(contacts => {
+      return [...contacts, contact]
+    });
+  }
   
 
   return (
@@ -36,7 +42,7 @@ function App() {
       <Switch>
         <Route exact path='/' component={ContactList}/>
         <Route path='/contacts' render={() => (
-          <Contacts contacts={contacts}/>
+          <Contacts addContact={addContact} contacts={contacts}/>
         )}/>
       </Switch>
     </div>
