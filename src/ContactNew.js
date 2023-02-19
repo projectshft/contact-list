@@ -7,7 +7,11 @@ const ContactNew = (props) => {
   const [image_url, setImage] = useState("");
 
   const handleSubmitContact = () => {
+    const generateId = () => Math.round(Math.random() * 100000000);
+    let id = generateId();
+
     props.addContact({
+      id,
       name,
       email,
       phone_number,
