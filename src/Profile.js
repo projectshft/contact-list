@@ -1,22 +1,35 @@
 import { Link } from "react-router-dom";
+import React from "react";
+import _ from "lodash";
 
-const Profile = () => {
+const Profile = ({ contactId, contacts }) => {
+  const contact = _.find(contacts, { id: contactId });
+
+  if (!contact) {
+    return (
+      <div className="text-center mt-5">
+        <h3>Sorry, player not found.</h3>
+      </div>
+    );
+  }
+
   return (
     <div>
       <h1 className="text-center mt-5">Contact List</h1>
       <div className="text-center mt-5">
         <div className="d-inline-block border">
-          <img src="https://image.shutterstock.com/image-photo/stock-photo-head-shot-portrait-close-up-smiling-confident-businessman-wearing-glasses-looking-at-camera-250nw-1714666150.jpg" />
-          <h4 className="mt-3">Bob Muller</h4>
-          <p className="mt-3">bobmuller@gmail.com</p>
-          <p>5555555555</p>
+          <img
+            src={contact.image_url}
+            className="img-fluid"  style={{ maxWidth: "300px", maxHeight: "300px" }}
+          />
+          <h4 className="mt-3">{contact.name}</h4>
+          <p className="mt-3">{contact.email}</p>
+          <p>{contact.phone_number}</p>
         </div>
       </div>
       <div className="text-center mt-3">
         <Link to="/contacts">
-          <a className="btn btn-primary" role="button">
-            Back
-          </a>
+          <button className="btn btn-primary">Back</button>
         </Link>
       </div>
     </div>
