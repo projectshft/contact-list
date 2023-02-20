@@ -7,6 +7,12 @@ const ContactNew = (props) => {
   const [image_url, setImage] = useState("");
 
   const handleSubmitContact = () => {
+    // alerts user if fields are empty
+    if (name === '' || email === '' || phone_number === '') {
+      alert('Please fill in all the fields');
+      return;
+    }
+
     const generateId = () => Math.round(Math.random() * 100000000);
     let id = generateId();
 
