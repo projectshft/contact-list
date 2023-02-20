@@ -1,12 +1,8 @@
 import { Link, useHistory } from "react-router-dom";
-import Contacts from "./Contacts";
+import PropTypes from "prop-types";
 
 const ContactList = ({ contacts }) => {
   const history = useHistory();
-
-  const handleRowClick = () => {
-    history.push("/contacts/num");
-  };
 
   return (
     <div>
@@ -26,10 +22,14 @@ const ContactList = ({ contacts }) => {
           </thead>
           <tbody>
             {contacts.map((contact) => (
-              <tr onClick={handleRowClick} key={contact.id}>
+              <tr
+                onClick={() => history.push(`/contacts/${contact.id}`)}
+                key={contact.id}
+              >
                 <td className="">
                   <img
                     className="mx-auto d-block img-fluid"
+                    style={{ maxWidth: "200px", maxHeight: "200px" }}
                     src={contact.image_url}
                   />
                 </td>
@@ -43,6 +43,18 @@ const ContactList = ({ contacts }) => {
       </div>
     </div>
   );
+};
+
+ContactList.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      email: PropTypes.string.isRequired,
+      phone_number: PropTypes.number.isRequired,
+      image_url: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 };
 
 export default ContactList;

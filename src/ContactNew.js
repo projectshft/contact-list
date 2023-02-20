@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 
 const ContactNew = (props) => {
   const [name, setName] = useState("");
@@ -7,9 +8,13 @@ const ContactNew = (props) => {
   const [image_url, setImage] = useState("");
 
   const handleSubmitContact = () => {
-    // alerts user if fields are empty
-    if (name === '' || email === '' || phone_number === '') {
-      alert('Please fill in all the fields');
+    if (
+      name === "" ||
+      email === "" ||
+      phone_number === "" ||
+      image_url === ""
+    ) {
+      alert("Please fill in all the fields");
       return;
     }
 
@@ -67,12 +72,32 @@ const ContactNew = (props) => {
             onChange={(event) => setImage(event.target.value)}
           />
         </div>
-        <button type="button" onClick ={handleSubmitContact} className="btn btn-primary mt-3">
+        <button
+          type="button"
+          onClick={handleSubmitContact}
+          className="btn btn-primary mt-3"
+        >
           Add Contact
         </button>
       </form>
     </div>
   );
+};
+
+ContactNew.propTypes = {
+  addContact: PropTypes.func.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      email: PropTypes.string.isRequired,
+      phone_number: PropTypes.number.isRequired,
+      image_url: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 };
 
 export default ContactNew;

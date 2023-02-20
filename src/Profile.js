@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import React from "react";
 import _ from "lodash";
 
@@ -8,7 +9,7 @@ const Profile = ({ contactId, contacts }) => {
   if (!contact) {
     return (
       <div className="text-center mt-5">
-        <h3>Sorry, player not found.</h3>
+        <h3>Sorry, contact was not found.</h3>
       </div>
     );
   }
@@ -20,7 +21,8 @@ const Profile = ({ contactId, contacts }) => {
         <div className="d-inline-block border">
           <img
             src={contact.image_url}
-            className="img-fluid"  style={{ maxWidth: "300px", maxHeight: "300px" }}
+            className="img-fluid"
+            style={{ maxWidth: "300px", maxHeight: "300px" }}
           />
           <h4 className="mt-3">{contact.name}</h4>
           <p className="mt-3">{contact.email}</p>
@@ -34,6 +36,19 @@ const Profile = ({ contactId, contacts }) => {
       </div>
     </div>
   );
+};
+
+Profile.propTypes = {
+  contactId: PropTypes.number.isRequired,
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      email: PropTypes.string.isRequired,
+      phone_number: PropTypes.number.isRequired,
+      image_url: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 };
 
 export default Profile;
