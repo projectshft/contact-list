@@ -1,16 +1,21 @@
+import { Link } from "react-router-dom";
+
 const ContactList = ({contacts, title}) => {
 
-  
-  // const contacts =props.contacts
   return ( 
     <div className="contact-list">
       <h2 className="title">{title}</h2>
       {contacts.map((cont) => (
         <div className="preview" key={cont.id}>
-        <img className="userphoto" src="{p.image}" />
+        <img
+        src={cont.image} 
+        alt=""
+        className="userphoto" />
         <p>{cont.name}</p>
         <p>{cont.phone}</p>
+        <Link to={`/contact/${cont.id}`}>
         <p>{cont.email}</p>
+        </Link>
         </div>
       ))}
     </div>
