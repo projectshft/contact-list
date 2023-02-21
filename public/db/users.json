@@ -1,0 +1,11 @@
+{
+  "contacts": [
+    {
+      "image": "https://assets.stickpng.com/thumbs/585e4beacb11b227491c3399.png",
+      "name": "Benjamin",
+      "phone": "609-333-3333",
+      "email": "b@yahoo.com",
+      "id": 3
+    }
+  ]
+}
