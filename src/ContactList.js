@@ -1,4 +1,4 @@
-const ContactList = ({contacts, title, handleDelete}) => {
+const ContactList = ({contacts, title}) => {
 
   
   // const contacts =props.contacts
@@ -11,8 +11,6 @@ const ContactList = ({contacts, title, handleDelete}) => {
         <p>{cont.name}</p>
         <p>{cont.phone}</p>
         <p>{cont.email}</p>
-        <button onClick={() => handleDelete(cont.id)}>Delete</button>
-
         </div>
       ))}
     </div>

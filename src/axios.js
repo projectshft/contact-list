@@ -1,27 +1,26 @@
-import './App.css';
-// import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useState, useEffect } from "react";
+import axios from "axios";
 
-function App() {
-  // const axios = require('axios');
-  const path = "db/users.json";
+const useAxios = (url) => {
+  const [data, setData] = useState(null);
 
-  axios.get(path)
-  .then(function (response) {
-    // handle success
-    console.log(response);
-  })
-  .catch(function (error) {
-    // handle error
-    console.log(error);
-  })
-  .finally(function () {
-    // always executed
-  });
-  return (
-    <div className="App">
-    </div>
-  );
+  useEffect(() => {
+    axios.get(url)
+    .then(response => {
+      Object.keys(response.data).forEach(function(key) {
+        const needData = response.data[key]
+        setData(needData)
+        console.log(key, response.data[key])
+      })
+    })
+    .catch(function (error)  {
+      console.log(error.message);
+    })
+  }, [])
+
+  
+
+  return {data};
 }
-
-export default App;
+ 
+export default useAxios;
