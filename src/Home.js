@@ -8,7 +8,7 @@ const Home = () => {
   const {data: contacts} = useAxios("db/users.json")
   return (
     <div className="home">
-      {contacts && <ContactList contacts={contacts} title="Contacts"/>}
+      {contacts && <ContactList contacts={contacts}/>}
     </div>
     );
 }
