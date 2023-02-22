@@ -1,25 +1,16 @@
-import logo from './logo.svg';
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import ContactList from './components/ContactList';
+import AddContactForm from './components/AddContactForm';
+
+const App = () => (
+  <main>
+    <Routes>
+      <Route exact path="/" element={<ContactList />} />
+      <Route path="/add_contact_form" element={<AddContactForm />} />
+    </Routes>
+  </main>
+);
 
 export default App;
