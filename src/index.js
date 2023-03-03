@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
-// import NewContact from './components/new';
-// import Contact from './components/contact';
+import ContactList from './components/contact_list';
+import NewContact from './components/new';
+import ContactInfo from './components/contact_info';
 
 
 const App = () => (
@@ -14,11 +15,13 @@ const App = () => (
   </div>
 );
 
-const ContactsIndex = () => <h1>List of Contacts</h1>;
-
-const Person = () => <h1>Person's Contact Info</h1>;
-
-const NewContact = () => <h1>Add a Contact Here</h1>;
+const ContactsIndex = () => {
+  return (
+  <div>
+    <ContactList />
+  </div>
+  )
+}
 
 const Header = () => {
   console.log('Hello World');
@@ -33,7 +36,7 @@ const Main = () => (
   <main>
     <Switch>
       <Route exact path="/contacts" component={ContactsIndex} />
-      <Route path="/contacts/person" component={Person} />
+      <Route path="/contacts/id" component={ContactInfo} />
       <Route path="/contacts/new" component={NewContact} />
     </Switch>
   </main>
