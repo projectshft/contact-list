@@ -4,6 +4,7 @@ import './App.css';
 import { ContactProvider } from './components/Context';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Nav from './components/NavBar';
+import ContactDetails from './components/Individual';
 
 function App() {
   return (
@@ -11,12 +12,15 @@ function App() {
       <Router>
         <Nav/>
         <ContactProvider>
+          <Switch>
         <Route exact path="/">
           <HomePage />
         </Route>
         <Route path="/addContact">
           <Add />
         </Route>
+        <Route to="/:id" element={<ContactDetails />} />
+        </Switch>
         </ContactProvider>
       </Router>
 

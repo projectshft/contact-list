@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useContactsDispatch } from "./Context";
+import { useHistory } from "react-router-dom";
 
 const Add = ({onAdd}) => {
   const [name, setName] = useState("");
@@ -8,6 +9,7 @@ const Add = ({onAdd}) => {
   const [image, setImage] = useState("");
 
   const dispatch = useContactsDispatch();
+  const history = useHistory("/")
 
 
   return (
@@ -50,6 +52,7 @@ const Add = ({onAdd}) => {
                   email: email,
                   image: image
                 });
+                history.push("/")
               }}
                 type="button" class="btn btn-primary">Add</button>
               </div>

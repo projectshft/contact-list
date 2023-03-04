@@ -46,6 +46,7 @@ function contactReducer(contacts, action) {
   }
 }
 
+
 const originalcontacts = [
   {id: 0, name: "Benjamin Corbett", phone: "6099254444", email: "b@yahoo.com", image: "https://e7.pngegg.com/pngimages/178/595/png-clipart-user-profile-computer-icons-login-user-avatars-monochrome-black-thumbnail.png"},
   {id: 1, name: "Laura Corbett", phone: "6092229999", email: "laura@yahoo.com", image: "https://e7.pngegg.com/pngimages/178/595/png-clipart-user-profile-computer-icons-login-user-avatars-monochrome-black-thumbnail.png"}
