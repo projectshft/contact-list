@@ -1,16 +1,17 @@
 import HomePage from './components/Home';
+import Add from './components/Add';
 import './App.css';
+import { ContactProvider } from './components/Context';
 
 function App() {
   return (
     <div className="App">
+      <ContactProvider>
+        <h1>Contact List</h1>
+      <Add/>
       <HomePage/>
-      <div class="input-group mb-3">
-  <span class="input-group-text" id="basic-addon1">@</span>
-  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"></input>
+      </ContactProvider>
 </div>
-
-    </div>
   );
 }
 

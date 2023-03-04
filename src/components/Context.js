@@ -19,7 +19,7 @@ export function ContactProvider({children}) {
 }
 
 export function useContacts() {
-  return useContacts(ContactContext);
+  return useContext(ContactContext);
 }
 
 export function useContactsDispatch() {
