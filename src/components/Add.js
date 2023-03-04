@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { useContactsDispatch } from "./Context";
 
 const Add = () => {
   const [name, setName] = useState("");
@@ -7,10 +8,15 @@ const Add = () => {
   const[image, setImage] = useState("");
 
   function handleSubmit(e) {
-    
+
   }
   return (
-    <div className="addContact"></div>
+    <div className="addContact">
+      <div class="container-fluid">
+        
+      </div>
+
+    </div>
     );
 }
  
