@@ -1,3 +1,6 @@
+import React from 'react'
+import { useHistory } from 'react-router-dom';
+
 const ContactList = () => {
   const contacts = {
       id: 70219577,
@@ -6,7 +9,13 @@ const ContactList = () => {
       email: "aeinstein@example.com",
       phone_number: "15555555555"
     }
-  console.log(contacts.image_url)
+  
+  const history = useHistory();
+
+  const addNewPage = () => {
+    history.push("/contacts/new")
+  }
+  
   return (
       /*<h1>List of Contacts</h1>*/
       <div className="container-fluid">
@@ -40,7 +49,7 @@ const ContactList = () => {
             </tr>
           </tbody>
         </table>
-        <button type="button" className="btn btn-primary">Add Contact</button>
+        <button type="button" className="btn btn-primary btn-list" onClick={addNewPage}>Add Contact</button>
       </div>
   )
 };

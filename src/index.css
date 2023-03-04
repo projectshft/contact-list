@@ -16,7 +16,16 @@ code {
   text-align: center;
 }
 
-.table {
+.container-fluid {
   margin: 0px auto;
   width: 70%;
+}
+
+#form {
+  margin: 30px auto 0px;
+  width: 50%;
+}
+
+form {
+  margin-bottom: 15px;
 }

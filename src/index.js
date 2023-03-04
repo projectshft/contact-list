@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
@@ -8,12 +8,17 @@ import NewContact from './components/new';
 import ContactInfo from './components/contact_info';
 
 
-const App = () => (
-  <div>
-    <Header />
-    <Main />
-  </div>
-);
+const App = () => {
+  
+
+
+  return (
+    <div>
+      <Header />
+      <Main />
+    </div>
+  )
+};
 
 const ContactsIndex = () => {
   return (
@@ -28,6 +33,7 @@ const Header = () => {
   return (
     <div className='page-header'>
       <h1>Contact List</h1>
+      <hr/>
     </div>
   )
 }
