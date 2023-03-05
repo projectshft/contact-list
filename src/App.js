@@ -12,14 +12,14 @@ function App() {
       <Router>
         <Nav/>
         <ContactProvider>
-          <Switch>
+        <Switch>
         <Route exact path="/">
           <HomePage />
         </Route>
         <Route path="/addContact">
           <Add />
         </Route>
-        <Route to="/:id" element={<ContactDetails />} />
+        <Route path="/:id" children={<ContactDetails />} />
         </Switch>
         </ContactProvider>
       </Router>

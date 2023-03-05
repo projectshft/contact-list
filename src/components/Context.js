@@ -41,7 +41,7 @@ function contactReducer(contacts, action) {
       return contacts.filter(e => e.id !== action.id);
     }
     default: {
-      throw Error("Unknow" + action.type)
+      throw Error("Unknown" + action.type)
     }
   }
 }

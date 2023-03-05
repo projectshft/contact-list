@@ -1,13 +1,13 @@
-import React from "react";
 import {useParams} from 'react-router-dom';
+import { useContacts } from "react";
 
 const ContactDetails = () => {
-const params = this.props.match.params.id
-console.log(params)
+let {id} = useParams();
+
+
+
   return (
-    <>
-      <h1>Product id: </h1>
-    </>
+<div className="contactDetails">ID: {id}</div>
   );
 };
  

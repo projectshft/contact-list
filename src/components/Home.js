@@ -14,7 +14,7 @@ const HomePage = () => {
         <p><strong>Phone:  </strong>{contact.phone}</p>
         <p><strong>Email:  </strong>{contact.email}</p>
         <Link to={`/${contact.id}`}>
-        <button class="btn btn-secondary" href="#">View details »</button>
+        <button class="btn btn-secondary">View details »</button>
         </Link>
       </div>
         ))}
