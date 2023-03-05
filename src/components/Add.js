@@ -3,7 +3,7 @@ import { useContactsDispatch } from "./Context";
 import { useHistory } from "react-router-dom";
 import { formatNumber } from "../helpers";
 
-const Add = ({onAdd}) => {
+const Add = () => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");

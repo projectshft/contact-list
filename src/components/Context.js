@@ -4,7 +4,10 @@ const ContactContext = createContext(null);
 const ContactDispatchContext = createContext(null);
 
 export function ContactProvider({ children }) {
-  const [contacts, dispatch] = useReducer(contactReducer, originalcontacts.allContacts);
+  const [contacts, dispatch] = useReducer(
+    contactReducer,
+    originalcontacts.allContacts
+  );
 
   return (
     <ContactContext.Provider value={contacts}>
@@ -37,9 +40,6 @@ function contactReducer(contacts, action) {
         },
       ];
     }
-    case "deleted": {
-      return contacts.filter((e) => e.id !== action.id);
-    }
     default: {
       throw Error("Unknown" + action.type);
     }
@@ -51,7 +51,7 @@ const originalcontacts = {
     {
       id: 0,
       name: "Benjamin Corbett",
-      phone: "6099254444",
+      phone: "(609)925-4444",
       email: "b@yahoo.com",
       image:
         "https://e7.pngegg.com/pngimages/178/595/png-clipart-user-profile-computer-icons-login-user-avatars-monochrome-black-thumbnail.png",
@@ -59,21 +59,12 @@ const originalcontacts = {
     {
       id: 1,
       name: "Laura Corbett",
-      phone: "6092229999",
+      phone: "(609) 222-9999",
       email: "laura@yahoo.com",
       image:
         "https://e7.pngegg.com/pngimages/178/595/png-clipart-user-profile-computer-icons-login-user-avatars-monochrome-black-thumbnail.png",
     },
   ],
-  all: function () {
-    return this.allContacts
-  },
-  get: function (number) {
-    const isContact = (e) => e.id === number;
-    return this.allContacts.find(isContact);
-  },
 };
 
 // const mapNeed = originalcontacts.allContacts
-
-
