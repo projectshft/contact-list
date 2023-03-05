@@ -1,13 +1,16 @@
 import {useParams} from 'react-router-dom';
-import { useContacts } from "react";
+import { useContacts } from "./Context";
 
-const ContactDetails = () => {
-let {id} = useParams();
-
+const ContactDetails = props => {
+  let {id} = useParams();
+  const myContacts = useContacts()
+  console.log(myContacts.get(id))
 
 
   return (
-<div className="contactDetails">ID: {id}</div>
+<div className="contactDetails">
+  {id}
+</div>
   );
 };
  

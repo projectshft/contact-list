@@ -14,18 +14,18 @@ const Add = ({onAdd}) => {
 
   return (
     <div className="addContact">
-      <div class="container text-center">
-          <div class="row">
-            <div class="addTitle col">Add Contact</div>
+      <div className="container text-center">
+          <div className="row">
+            <div className="addTitle col">Add Contact</div>
             <form className="addForm">
             <div className="row">
-              <div class="col">
-              <input type="text" class="form-control" required placeholder="Name" value={name} onChange={e =>setName (e.target.value)}></input>
+              <div className="col">
+              <input type="text" className="form-control" required placeholder="Name" value={name} onChange={e =>setName (e.target.value)}></input>
               </div>
             </div>
             <div className="row">
-              <div class="col">
-              <input type="text" class="form-control" required placeholder="Phone" value={phone} onChange={e =>setPhone (e.target.value)}></input>
+              <div className="col">
+              <input type="text" className="form-control" required placeholder="Phone" value={phone} onChange={e =>setPhone (e.target.value)}></input>
 
               </div>
             </div>
@@ -54,7 +54,7 @@ const Add = ({onAdd}) => {
                 });
                 history.push("/")
               }}
-                type="button" class="btn btn-primary">Add</button>
+                type="button" className="btn btn-primary">Add</button>
               </div>
             </div>
             </form>

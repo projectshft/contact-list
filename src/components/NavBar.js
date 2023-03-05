@@ -2,12 +2,12 @@ import { Link } from "react-router-dom";
 
 const Nav = () => {
   return (
-    <nav class="navbar bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand">Contact List</a>
-      <form class="d-flex" role="search">
+    <nav className="navbar bg-body-tertiary">
+    <div className="container-fluid">
+      <a className="navbar-brand">Contact List</a>
+      <form className="d-flex" role="search">
         <Link to="/addContact">
-        <button class="btn btn-outline-success" type="submit">Add Contact</button>
+        <button className="btn btn-outline-success" type="submit">Add Contact</button>
         </Link>
       </form>
     </div>
