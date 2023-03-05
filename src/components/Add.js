@@ -28,7 +28,6 @@ const Add = () => {
             <div className="row">
               <div className="col">
               <input type="text" className="form-control" required placeholder="Phone" value={phone} onChange={e =>setPhone (formatNumber(e.target.value))}></input>
-
               </div>
             </div>
             <div className="row">
