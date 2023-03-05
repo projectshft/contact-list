@@ -4,7 +4,7 @@ const ContactContext = createContext(null);
 const ContactDispatchContext = createContext(null);
 
 export function ContactProvider({ children }) {
-  const [contacts, dispatch] = useReducer(contactReducer, originalcontacts);
+  const [contacts, dispatch] = useReducer(contactReducer, originalcontacts.allContacts);
 
   return (
     <ContactContext.Provider value={contacts}>
@@ -47,7 +47,7 @@ function contactReducer(contacts, action) {
 }
 
 const originalcontacts = {
-  contacts: [
+  allContacts: [
     {
       id: 0,
       name: "Benjamin Corbett",
@@ -66,10 +66,14 @@ const originalcontacts = {
     },
   ],
   all: function () {
-    return this.contacts;
+    return this.allContacts
   },
   get: function (number) {
     const isContact = (e) => e.id === number;
-    return this.contacts.find(isContact);
+    return this.allContacts.find(isContact);
   },
 };
+
+// const mapNeed = originalcontacts.allContacts
+
+
