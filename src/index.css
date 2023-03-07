@@ -29,3 +29,7 @@ code {
 form {
   margin-bottom: 15px;
 }
+
+.img-thumbnail {
+  max-width: 100px;
+}

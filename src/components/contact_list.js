@@ -1,15 +1,15 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom';
+import { useState, useHistory } from 'react-router-dom';
 
 const ContactList = () => {
   const contacts = {
       id: 70219577,
       name: "Albert Einstein",
-      image_url: "https://en.wikipedia.org/wiki/Albert_Einstein#/media/File:Einstein_1921_by_F_Schmutzer_-_restoration.jpg",
+      image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Einstein_1921_by_F_Schmutzer_-_restoration.jpg/800px-Einstein_1921_by_F_Schmutzer_-_restoration.jpg",
       email: "aeinstein@example.com",
       phone_number: "15555555555"
     }
-  
+    
   const history = useHistory();
 
   const addNewPage = () => {
@@ -30,19 +30,19 @@ const ContactList = () => {
           </thead>
           <tbody className="table-group-divider">
             <tr>
-              <td><img className="img" src={contacts.image_url} alt=""/></td>
+              <th><img className="img-thumbnail" src={contacts.image_url} alt=""/></th>
               <td>{contacts.name}</td>
               <td>{contacts.email}</td>
               <td>{contacts.phone_number}</td>
             </tr>
             <tr>
-              <th>2</th>
+              <th><img className="img-thumbnail" src={contacts.image_url} alt=""/></th>
               <td>Jacob</td>
               <td>Thornton</td>
               <td>@fat</td>
             </tr>
             <tr>
-              <th>3</th>
+              <th><img className="img-thumbnail" src={contacts.image_url} alt=""/></th>
               <td>Larry</td>
               <td>the Bird</td>
               <td>@twitter</td>
