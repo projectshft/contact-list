@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useEffect, Component} from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
@@ -8,34 +8,73 @@ import NewContact from './components/new';
 import ContactInfo from './components/contact_info';
 import axios from "axios";
 
+// var newContactArray = [];
 
-const App = () => {
-  const [contacts, setContacts] = useState([]);
+class App extends Component {
+  // const [ contacts, setContacts] = useState([]);
+  constructor () {
+    super()
 
-  const addContact = (contact) => {
-    setContacts(contacts.concat(contact));
+    this.state = {
+      contacts: []
+    }
+
+    this.addContact = this.addContact.bind(this)
   }
-
-  const fetchContacts = () => {
+  componentDidMount() {
     axios.get('./data.json')
     .then(response => {
-      console.log(response);
-      setContacts(response.data.contacts);
+      // newContactArray.push(response.data)
+      // console.log(response);
+      console.log(response.data.contacts);
+      this.setState({contacts: response.data.contacts});
+
     })
     .catch(error => {
       console.error(error);
     });
   }
+  // this.setContacts = this.setContacts.bind(this)
+  // React.useEffect(() => fetchContacts(), []);
+  
+  addContact (contact) {
+    // newContactArray.push(contact)
+    // this.setContacts(newContactArray);
+    // console.log(newContactArray);
+    // setContacts(contacts.concat(contact))
+    this.setState({contacts: this.state.contacts.concat([contact])})
+  }
+  render() {
 
-  React.useEffect(() => fetchContacts(), []);
+    const Main = () => (
+      <main>
+        <Switch>
+          <Route exact path="/contacts" component={ContactsIndex} />
+          <Route path="/contacts/id" component={ContactInfo} />
+          <Route path="/contacts/new" render= {(props) => (<NewContact addContact={this.addContact} contacts={this.state.contacts} {...props} />)} />
+        </Switch>
+      </main>
+    );
 
-  return (
-    <div>
-      <Header />
-      <Main />
-    </div>
-  )
+    return (
+      <div>
+        <Header />
+        <Main />
+      </div>
+    )
+  }
 };
+
+
+
+// export function addContact(contact) {
+//   // newContactArray.push(contact)
+  
+//   // this.setContacts(newContactArray);
+//   // console.log(newContactArray);
+//   setContacts(contacts.concat(contact))
+
+// }
 
 const ContactsIndex = () => {
   return (
@@ -54,15 +93,7 @@ const Header = () => {
   )
 }
 
-const Main = () => (
-  <main>
-    <Switch>
-      <Route exact path="/contacts" component={ContactsIndex} />
-      <Route path="/contacts/id" component={ContactInfo} />
-      <Route path="/contacts/new" component={NewContact} />
-    </Switch>
-  </main>
-);
+
 
 ReactDOM.render(
   <React.StrictMode>

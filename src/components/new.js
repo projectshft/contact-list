@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+// import { addContact } from "../index";
 
 
-const NewContact = () => {
+const NewContact = (props) => {
+  const {addContact,} = props
   const history = useHistory();
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [imageURL, setImageURL] = useState('')
-  const [phone, setPhone] = useState('')
+  const [phone, setPhone] = useState(null)
   // const [id, setID] = useState(null)
 
   const handleName = (e) => setName(e.target.value)
@@ -21,13 +23,15 @@ const NewContact = () => {
   }
 
   const handleClick = () => {
-    const contact = {
+    const newContact = {
       name: name,
       email: email,
       phone_number: phone,
       image_url: imageURL
     }
-    console.log(contact);
+    addContact(newContact);
+    contactsPage();
+
   }
   
 
@@ -51,7 +55,7 @@ const NewContact = () => {
           <input className="form-control" onChange={handleImageURL} placeholder="Enter Image URL Here"/>
         </div>
       </form>
-      <button type="button" className="btn btn-primary" id="btn-list" onClick={/*contactsPage*/handleClick}>Add Contact</button>
+      <button type="button" className="btn btn-primary" id="btn-list" onClick={handleClick}>Add Contact</button>
     </div>
   )
 }
