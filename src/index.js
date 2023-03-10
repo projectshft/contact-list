@@ -1,4 +1,4 @@
-import React, { useEffect, Component} from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
@@ -8,10 +8,8 @@ import NewContact from './components/new';
 import ContactInfo from './components/contact_info';
 import axios from "axios";
 
-// var newContactArray = [];
 
 class App extends Component {
-  // const [ contacts, setContacts] = useState([]);
   constructor () {
     super()
 
@@ -24,8 +22,6 @@ class App extends Component {
   componentDidMount() {
     axios.get('./data.json')
     .then(response => {
-      // newContactArray.push(response.data)
-      // console.log(response);
       console.log(response.data.contacts);
       this.setState({contacts: response.data.contacts});
 
@@ -34,14 +30,8 @@ class App extends Component {
       console.error(error);
     });
   }
-  // this.setContacts = this.setContacts.bind(this)
-  // React.useEffect(() => fetchContacts(), []);
-  
+ 
   addContact (contact) {
-    // newContactArray.push(contact)
-    // this.setContacts(newContactArray);
-    // console.log(newContactArray);
-    // setContacts(contacts.concat(contact))
     this.setState({contacts: this.state.contacts.concat([contact])})
   }
   render() {
@@ -56,6 +46,13 @@ class App extends Component {
       </main>
     );
 
+    const ContactsIndex = () => (
+      <Switch>
+        <Route exact path="/contacts" render={(props) => (<ContactList contacts={this.state.contacts} {...props} />)} />
+        <Route  path="/contacts/:id" component={ContactInfo}/>
+      </Switch>
+      )
+
     return (
       <div>
         <Header />
@@ -65,24 +62,13 @@ class App extends Component {
   }
 };
 
-
-
-// export function addContact(contact) {
-//   // newContactArray.push(contact)
-  
-//   // this.setContacts(newContactArray);
-//   // console.log(newContactArray);
-//   setContacts(contacts.concat(contact))
-
+// const ContactsIndex = () => {
+//   return (
+//   <div>
+//     <ContactList contacts={contacts}/>
+//   </div>
+//   )
 // }
-
-const ContactsIndex = () => {
-  return (
-  <div>
-    <ContactList />
-  </div>
-  )
-}
 
 const Header = () => {
   return (
@@ -92,8 +78,6 @@ const Header = () => {
     </div>
   )
 }
-
-
 
 ReactDOM.render(
   <React.StrictMode>

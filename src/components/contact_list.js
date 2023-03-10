@@ -1,14 +1,18 @@
 import React from 'react'
-import { useState, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+import ContactRow from './contact_row';
 
-const ContactList = () => {
-  const contacts = {
-      id: 70219577,
-      name: "Albert Einstein",
-      image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Einstein_1921_by_F_Schmutzer_-_restoration.jpg/800px-Einstein_1921_by_F_Schmutzer_-_restoration.jpg",
-      email: "aeinstein@example.com",
-      phone_number: "15555555555"
-    }
+const ContactList = (props) => {
+  const contactRows = props.contacts.map((contact, index) => {
+    return (
+      <ContactRow key={index} contact={contact} />
+    )
+  })
+      // id: 70219577,
+      // name: "Albert Einstein",
+      // image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Einstein_1921_by_F_Schmutzer_-_restoration.jpg/800px-Einstein_1921_by_F_Schmutzer_-_restoration.jpg",
+      // email: "aeinstein@example.com",
+      // phone_number: "15555555555"
     
   const history = useHistory();
 
@@ -29,7 +33,8 @@ const ContactList = () => {
             </tr>
           </thead>
           <tbody className="table-group-divider">
-            <tr>
+            {contactRows}
+            {/* <tr>
               <th><img className="img-thumbnail" src={contacts.image_url} alt=""/></th>
               <td>{contacts.name}</td>
               <td>{contacts.email}</td>
@@ -46,7 +51,7 @@ const ContactList = () => {
               <td>Larry</td>
               <td>the Bird</td>
               <td>@twitter</td>
-            </tr>
+            </tr> */}
           </tbody>
         </table>
         <button type="button" className="btn btn-primary btn-list" onClick={addNewPage}>Add Contact</button>
