@@ -51,13 +51,6 @@ class App extends Component {
       </main>
     );
 
-    // const ContactsIndex = () => (
-    //   <Switch>
-    //     <Route exact path="/contacts" render={(props) => (<ContactList contacts={this.state.contacts} {...props} />)} />
-    //     <Route path="/contacts/:id" render={(props) => (<ContactInfo contacts={this.state.contacts} {...props} />)}/>
-    //   </Switch>
-    //   )
-
     return (
       <div>
         <Header />
@@ -68,7 +61,6 @@ class App extends Component {
 };
 
 App.propTypes = {
-  //we simply state that this component should expect an array of objects to be passed as props
   contacts: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 

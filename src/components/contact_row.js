@@ -4,11 +4,7 @@ import { useHistory } from 'react-router-dom';
 const ContactRow = ({contact}) => {
   const history = useHistory();
   const contactInfoPage = () => {
-    // const infoCard = () => (
-      // <ContactInfo contact={contact}/>
-    // )
     history.push(`/contacts/${contact.id}`)
-    // console.log(contact);
   }
   return (
 

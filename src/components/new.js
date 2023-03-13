@@ -34,10 +34,7 @@ const NewContact = ({addContact}) => {
     contactsPage();
 
   }
-
   
-  
-
   return (
     <div className="container-fluid" id="form">
       <form className="row g-3">
