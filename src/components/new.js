@@ -1,38 +1,41 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-// import { addContact } from "../index";
+import PropTypes from 'prop-types';
 
 
-const NewContact = (props) => {
-  const {addContact,} = props
+const NewContact = ({addContact}) => {
+
   const history = useHistory();
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [imageURL, setImageURL] = useState('')
   const [phone, setPhone] = useState(null)
-  // const [id, setID] = useState(null)
 
   const handleName = (e) => setName(e.target.value)
   const handleEmail = (e) => setEmail(e.target.value)
   const handleImageURL = (e) => setImageURL(e.target.value)
   const handlePhone = (e) => setPhone(e.target.value)
-  // const handleID = (e) => setID (e.target.value);
 
   const contactsPage = () => {
     history.push("/contacts")
   }
 
   const handleClick = () => {
+    const generateId = () => Math.round(Math.random() * 100000000);
+    let newID = generateId();
     const newContact = {
+      id: newID,
       name: name,
       email: email,
       phone_number: phone,
-      image_url: imageURL
+      image_url: imageURL,
     }
     addContact(newContact);
     contactsPage();
 
   }
+
+  
   
 
   return (
@@ -59,5 +62,13 @@ const NewContact = (props) => {
     </div>
   )
 }
+
+NewContact.propTypes = {
+  name: PropTypes.string,
+  email: PropTypes.string,
+  phone: PropTypes.string,
+  image_url: PropTypes.string,
+  id: PropTypes.number
+} 
 
 export default NewContact;

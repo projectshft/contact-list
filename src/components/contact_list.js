@@ -2,24 +2,20 @@ import React from 'react'
 import { useHistory } from 'react-router-dom';
 import ContactRow from './contact_row';
 
+
 const ContactList = (props) => {
+  const history = useHistory();
   const contactRows = props.contacts.map((contact, index) => {
     return (
-      <ContactRow key={index} contact={contact} />
+        <ContactRow key={contact.id} index={index} contact={contact} />
+
     )
   })
-      // id: 70219577,
-      // name: "Albert Einstein",
-      // image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Einstein_1921_by_F_Schmutzer_-_restoration.jpg/800px-Einstein_1921_by_F_Schmutzer_-_restoration.jpg",
-      // email: "aeinstein@example.com",
-      // phone_number: "15555555555"
-    
-  const history = useHistory();
 
   const addNewPage = () => {
     history.push("/contacts/new")
   }
-  
+
   return (
       /*<h1>List of Contacts</h1>*/
       <div className="container-fluid">
