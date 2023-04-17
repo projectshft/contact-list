@@ -1,0 +1,25 @@
+{
+  "contacts": [
+    {
+      "id": 1,
+      "profileUrl": "https://a.pinatafarm.com/660x495/433e59ffcb/awkward-smiling-old-man.jpg",
+      "name": "Becky Zhou",
+      "email": "becky.zhou@temple.edu",
+      "phoneNumber": "(123) 456-7890"
+    },
+    {
+      "id": 2,
+      "name": "Jane Doe",
+      "email": "jane.doe@example.com",
+      "phoneNumber": "(123) 456-7890",
+      "profileUrl": "https://cdn.mos.cms.futurecdn.net/BX7vjSt8KMtcBHyisvcSPK-1920-80.jpg.webp"
+    },
+    {
+      "profileUrl": "https://cdn.britannica.com/18/137318-050-29F7072E/rooster-Rhode-Island-Red-roosters-chicken-domestication.jpg",
+      "name": "Yue Zhou",
+      "email": "BECKY_zhou@qq.com",
+      "phoneNumber": "7322680667",
+      "id": 3
+    } 
+  ]
+}
