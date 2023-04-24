@@ -1,0 +1,25 @@
+{
+  "contacts": [
+    {
+      "profileUrl": "https://i.imgflip.com/1cf8by.jpg",
+      "name": "Becky",
+      "email": "BECKY_zhou@qq.com",
+      "phoneNumber": "7322680667",
+      "id": 1
+    },
+    {
+      "profileUrl": "https://upload.wikimedia.org/wikipedia/commons/2/20/Chicken_February_2009-1.jpg",
+      "name": "Yue Zhou",
+      "email": "becky.zhou@temple.edu",
+      "phoneNumber": "7322680667",
+      "id": 2
+    },
+    {
+      "profileUrl": "https://assets.epicurious.com/photos/62f16ed5fe4be95d5a460eed/1:1/w_2240,c_limit/RoastChicken_RECIPE_080420_37993.jpg",
+      "name": "Yue Zhou",
+      "email": "becky.zhou@temple.edu",
+      "phoneNumber": "7322680667",
+      "id": 2
+    }
+  ]
+}

@@ -1,8 +1,6 @@
 import React from "react";
 import sample from "./sample.json"; 
 
-console.log('hi'); 
-
 const Info = () => {
     return(
     <>
