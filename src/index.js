@@ -1,156 +1,115 @@
-import { BrowserRouter, Switch, Route, Link, useHistory } from 'react-router-dom';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { useState } from 'react';
-import data from "./data.json"
-import PropTypes from 'prop-types';
+import {
+  BrowserRouter,
+  Switch,
+  Route,
+  Link,
+  useHistory,
+} from "react-router-dom";
+import React, { useState } from "react";
+import ReactDOM from "react-dom";
+import "bootstrap/dist/css/bootstrap.css";
+import "./App.css";
+import "./index.css";
 
+import data from "./data.json";
+import New from "./New";
 
+//App renders the routes to each page and the state of the contact list
+const App = () => {
+  const [contacts] = useState(data);
 
-
-const App = () => (
-  <Switch>
-      <Route exact path='/' component={Home}/>
-      <Route path='/create' component={CreateNewContact}/>
-    </Switch>
-);
-
-const Home = () => {
+  console.log("contacts", contacts);
   return (
     <div className="row">
       <div className="col-md-6 offset-md-3">
-        <div className="page-header">
-          <ContactList />
-        </div>
+        <Switch>
+          <Route exact path="/" component={List} />
+          <Route path="/create" component={New} />
+          <Route path="/:id" component={Contact} />
+        </Switch>
       </div>
     </div>
-  )
-}
+  );
+};
 
-//list spans across bootstrap table components
+//ContactAPI contains our json information for each contact in the list
+const ContactAPI = {
+  contacts: data.contacts,
+  all: function () {
+    return this.contacts;
+  },
+  get: function (id) {
+    const isContact = (contact) => contact.id === id;
+    return this.contacts.find(isContact);
+  },
+};
 
-function ContactList () {
- const [contacts, setContacts] = useState(data)
- const [addContactData, setAddContactData] = useState({
-  img_url: "",
-  name: "",
-  phone: "",
-  email: ""
- })
- 
-
-function handleAddContactData(e){
-  e.preventDefault();
-
-  const contactName = e.target.getAttribute("name")
-  const contactValue = e.target.value
-
-  //create our copy of the initial data object
-  const newContactData = { ...addContactData};
-  newContactData[contactName] = contactValue
- 
-
-  setAddContactData(newContactData)
-}
-
-const handleAddContactSubmit = (e) => {
-  e.preventDefault();
-  const generateId = () => Math.round(Math.random() * 100000000);
-
-  
-
-  const newContact = {
-    id: generateId(),
-    img_url: addContactData.img_url,
-    name: addContactData.name,
-    phone: addContactData.phone,
-    email: addContactData.email
+//Contact component renders the single page of an individual contact
+const Contact = (props) => {
+  const contact = ContactAPI.get(parseInt(props.match.params.id, 10));
+  if (!contact) {
+    return (
+      <div>
+        <h3>Could not find contact</h3>
+        <Link to={"/"}>Contacts</Link>
+      </div>
+    );
   }
+  return (
+    <div>
+      <img alt='' src={contact.image_url}></img>
+      <h1>{contact.name}</h1>
+      <h2> {contact.phone_number}</h2>
+      <h2> {contact.email}</h2>
+      <Link to={"/"}>Contacts</Link>
+    </div>
+  );
+};
 
-  const newContacts = [...contacts, newContact];
-  setContacts(newContacts)
-}
-
-// const handleClickToNew = () => (<div><Link to='/create'></Link></div>)
-const history = useHistory();
-
-  const newContactPage = () => {
-    history.push('/create')
-  }
-
-return (
-  <div>
-    <h1>Contact List</h1>
-    <button onClick={newContactPage} className="btn btn-primary">Create New Contact</button>
-    {contacts.map((contact)=> 
-    <ul className="list-group" key={contact.id}>
-    <li className="list-group-item">{contact.img} - {contact.name} - {contact.phone} - {contact.email}</li>
-    </ul>
-  )}<Switch>
-    <CreateNewContact handleAddContactData={handleAddContactData} handleAddContactSubmit={handleAddContactSubmit}/>        
-    </Switch>
-  </div>       
-  )
-}
-
-function CreateNewContact ({handleAddContactData, handleAddContactSubmit}) {
-
+//List renders our table of contacts
+const List = () => {
   const history = useHistory();
 
-  const returnHome = () => {
-    history.push('/')
+  function handleClick(row) {
+    history.push(`/${row.id}`);
   }
 
-  return(
-    <div className="row">
-    <div className="col-md-6 offset-md-3">
-    <div className="page-header">
-    <h1>Make a new Contact</h1>
+  return (
     <div>
-      
-    <input 
-    type='text'
-    name="name"
-    placeholder='Name'
-    onChange={handleAddContactData}
-    required="required"
-    />
-    
+      <h1>Contact List</h1>
+      <br />
+      <Link to={"/create"}>
+        <button className="btn btn-primary">Add New</button>
+      </Link>
+      <br />
+      <table className="table table-hover table-striped">
+        <thead>
+          <tr>
+            <th>Profile</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+          </tr>
+        </thead>
+        <tbody>
+          {ContactAPI.all().map((contact) => (
+            <tr key={contact.id} onClick={() => handleClick(contact)}>
+              <td><img alt='' src={contact.image_url}></img></td>
+              <td>{contact.name}</td>
+              <td>{contact.email}</td>
+              <td>{contact.phone_number}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
-    <div>
-    <input 
-    type='text'
-    name="phone"
-    placeholder='Phone Number'
-    onChange={handleAddContactData}
-    required="required"
-    />
-    </div>
-    <div>
-    <input 
-    type='email'
-    name="email"
-    placeholder='Email'
-    onChange={handleAddContactData}
-    required="required"
-    />
-    </div>
+  );
+};
 
-    <button onClick={handleAddContactSubmit} type="button" className="btn btn-primary add-post">Add Contact</button> 
-    
-    </div>
-  </div>
-</div>
-    
-  )
-  }
 
 ReactDOM.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </React.StrictMode>,
-  document.getElementById('root')
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+  document.getElementById("root")
 );
