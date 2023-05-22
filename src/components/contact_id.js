@@ -1,24 +1,36 @@
-import React, {Component} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { useParams, Link } from 'react-router-dom';
 
-class Contact extends Component {
-  render () {
+
+const Contact = ({ contacts }) => {
+ const { id } = useParams();
+ const contact = contacts.find((c) => c.id === parseInt(id, 10));
 return (
 
-<div className='continer'>
-
-
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
+  <div className='container'>
+  <div class="card">
+    <img 
+      src={contact.imageUrl}
+      alt="new"
+    />
+    <div class="card-body">
+      <h5 class="card-title">{contact.name}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Email: {contact.name}</h6>
+      <p class="card-text">Phone Number: {contact.name}</p>
+    </div>
+    <div className="card-footer">
+      <Link to="contacts" className="btn btn-primary"> Back to Contact List
+      </Link>
+    </div>
   </div>
-</div>
-</div>
-)
-}
-}
+  </div>
+  )
+  }
 
-export default Contact;
+
+  Contact.propTypes = {
+    contacts: PropTypes.array.isRequired,
+  };
+
+  export default Contact;
