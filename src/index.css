@@ -15,3 +15,11 @@ code {
 input {
   margin-bottom: 10px;
 }
+
+.btn {
+  margin-bottom: 10px;
+}
+
+.contact:hover {
+  background-color: lightgrey;
+}
