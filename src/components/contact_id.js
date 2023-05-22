@@ -9,15 +9,15 @@ const Contact = ({ contacts }) => {
 return (
 
   <div className='container'>
-  <div class="card">
+  <div className="card">
     <img 
       src={contact.imageUrl}
-      alt="new"
+      alt="contact info"
     />
-    <div class="card-body">
-      <h5 class="card-title">{contact.name}</h5>
-      <h6 class="card-subtitle mb-2 text-muted">Email: {contact.name}</h6>
-      <p class="card-text">Phone Number: {contact.name}</p>
+    <div className="card-body">
+      <h5 className="card-title">{contact.name}</h5>
+      <h6 className="card-subtitle mb-2 text-muted">Email: {contact.email}</h6>
+      <p className="card-text">Phone Number: {contact.phoneNumber}</p>
     </div>
     <div className="card-footer">
       <Link to="contacts" className="btn btn-primary"> Back to Contact List

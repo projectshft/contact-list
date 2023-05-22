@@ -3,25 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
-import AddNewContact from './components/add_new_contact';
-import ContactList from './components/contact_list';
-import Contact from './components/contact_id';
-
-
-
-
-
-const App = () => {
-  return (
-    <div>
-      <ContactList />
-      <AddNewContact />
-      <Contact />
-    </div>
-  );
-};
-
-
+import App from './App';
 
 
 ReactDOM.render(

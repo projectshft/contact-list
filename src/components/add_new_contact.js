@@ -100,7 +100,7 @@ return (
     <button type="submit" className="btn btn-primary">
       Add Contact
     </button>
-    <Link to="/ContactList" className="btn btn-primary" > Back to Contact List
+    <Link to="/contactList" className="btn btn-primary" > Back to Contact List
     </Link>
   </form>
 </div>

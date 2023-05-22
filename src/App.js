@@ -34,7 +34,7 @@ function App() {
         <Route exact path="/" element={<ContactList contacts={contacts} />} />
         <Route path="/contacts" element={<ContactList contacts={contacts} />}/>
         <Route path="/new" element={<AddNewContact addContact={addContact} setContacts={setContacts}/>}/>
-        <Route pathh="contacts/id" element={<Contact contacts={contacts}/>} />
+        <Route path="contacts/id" element={<Contact contacts={contacts}/>} />
       </Routes>
     </div>
   );

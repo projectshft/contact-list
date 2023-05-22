@@ -8,7 +8,7 @@ const ContactList = ({ contacts }) => (
     <Link to="/new" className="btn btn-primary">
       Add Contact
     </Link>
-    <table class="table table-bordered">
+    <table className="table table-bordered">
     <thead>
       <tr>
         <th scope="col">Profile Picture</th>
@@ -19,10 +19,8 @@ const ContactList = ({ contacts }) => (
     </thead>
     <tbody>
       {contacts.map((contact) => (
-        <tr>
-          key={contact.id}
-          className="contact-row"
-          onClick={() => window.location.href = `/contacts/${contact.id}`}
+        <tr
+          key={contact.id} className="contact-row" onClick={() => window.location.href = `/contacts/${contact.id}`}>
         
         <td>
         <img
@@ -43,7 +41,7 @@ const ContactList = ({ contacts }) => (
 </div>
 );
 
-ContactList.prototype = {
+ContactList.propType = {
   contacts: PropTypes.array.isRequired
 }
 
