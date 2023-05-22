@@ -2,30 +2,44 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter, Switch, Route  } from 'react-router-dom';
+// import { BrowserRouter, Routes, Route  } from 'react-router-dom';
+import AddNewContact from './components/add_new_contact';
 
-const Main = () => (
-  <main>
-    <Switch>
-      <Route exact path="/" component={Contacts} />
-      <Route path="/contacts/new" component={NewContacts} />
-      <Route path="/contacts/id" component={Id} />
-    </Switch>
-  </main>
-);
 
-const App = () => (
-  <div>
-    <Header />
-    <Main />
-  </div>
-);
+const App = () => {
+  return (
+    <div>
+      <AddNewContact />
+    </div>
+  );
+};
+
+
+// const Contacts = () => (
+//   <div>
+//     <h1>Contacts page</h1>
+//   </div>
+// );
+
+// const NewContacts = () => <h1>New Contacts</h1>;
+
+// const Id = () => <h1>Player ID</h1>;
+
+// const Main = () => (
+//   <main>
+//     <Routes>
+//       <Route exact path="/" element={Contacts} />
+//       <Route path="/contacts/new" element={NewContacts} />
+//       <Route path="/contacts/id" element={Id} />
+//     </Routes>
+//   </main>
+// );
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+    {/* <BrowserRouter> */}
       <App />
-      </BrowserRouter>
+      {/* </BrowserRouter> */}
   </React.StrictMode>,
   document.getElementById('root')
 );
