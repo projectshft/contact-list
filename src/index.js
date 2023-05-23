@@ -1,17 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ContactList from './components/contact_list';
+import AddNewContact from './components/add_new_contact';
+import ContactProfileInfo from './components/contact_profile';
+
+const App = () => (
+  <div>
+    <Main />
+  </div>
+);
+
+const Main = () => {
+  const [contacts, setContacts] = useState([]);
+
+  const handleAddContact = (newContact) => {
+    setContacts(previousContact => [...previousContact, newContact])
+  }
+
+  return (
+    <div>
+      <h2 className="text-center">Contact List</h2>
+      <Routes>
+        <Route exact path="/" element={<ContactList contacts={contacts} />} />
+        <Route path="/new" element={<AddNewContact onSubmit={handleAddContact} />} />
+        <Route path="/contacts/id" element={<ContactProfileInfo contacts={contacts} />} />
+      </Routes>
+    </div>
+  )
+};
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

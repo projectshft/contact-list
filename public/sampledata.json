@@ -1,0 +1,25 @@
+{
+  "contacts": [
+    {
+      "id": 70219577,
+      "name": "Albert Einstein",
+      "image_url": "https://en.wikipedia.org/wiki/Albert_Einstein#/media/File:Einstein_1921_by_F_Schmutzer_-_restoration.jpg",
+      "email": "aeinstein@example.com",
+      "phone_number": "15555555555"
+    },
+    {
+      "id": 80319597,
+      "name": "Michele Besso",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Photo_Michele_Besso.jpg",
+      "email": "mbesso@example.com",
+      "phone_number": "15557778888"
+    },
+    {
+      "id": 61249876,
+      "name": "Marcel Grossmann",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/e0/ETH-BIB-Grossmann%2C_Marcel_%281878-1936%29-Portrait-Portr_01239.tif_%28cropped%29.jpg",
+      "email": "mgrossmann@example.com",
+      "phone_number": "15558889999"
+    }
+  ]
+}
