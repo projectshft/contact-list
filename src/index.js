@@ -22,10 +22,9 @@ const Main = () => {
 
   return (
     <div>
-      <h2 className="text-center">Contact List</h2>
       <Routes>
         <Route exact path="/" element={<ContactList contacts={contacts} />} />
-        <Route path="/new" element={<AddNewContact onSubmit={handleAddContact} />} />
+        <Route path="/new" element={<AddNewContact addContact={handleAddContact} />} />
         <Route path="/contacts/id" element={<ContactProfileInfo contacts={contacts} />} />
       </Routes>
     </div>

@@ -1,7 +1,7 @@
-import React, { useState} from "react";
-import { useNavigate, Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
-const AddNewContact = ({ addNew }) => {
+const AddNewContact = ({ addContact }) => {
   const nav = useNavigate();
 
   const [fullName, setFullName] = useState('');
@@ -11,7 +11,8 @@ const AddNewContact = ({ addNew }) => {
 
   const generateId = () => Math.round(Math.random() * 100000000);
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     const newContact = {
       id: generateId(),
       fullName,
@@ -20,7 +21,7 @@ const AddNewContact = ({ addNew }) => {
       imageURL
     };
 
-    addNew(newContact);
+    addContact(newContact);
     nav('/');
   };
 
@@ -61,14 +62,14 @@ const AddNewContact = ({ addNew }) => {
           id="imageURL" 
           value={imageURL} 
           onChange={(e) => setImageURL(e.target.value)} 
-          placeholder="Enter Email" 
+          placeholder="Enter Image URL" 
           required 
         />
       </div>
       <button className="btn btn-primary offset-md-3" onClick={handleSubmit} to="/contact_list">
         Add Contact
       </button>
-      <Link className="btn btn-primary offset-md-4" to="/">Back to Contact List</Link>
+      <Link className="btn btn-primary offset-md-3" to="/">Back to Contact List</Link>
     </div>
   )
 };

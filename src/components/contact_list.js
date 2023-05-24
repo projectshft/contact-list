@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const ContactList = ({ contacts }) => (
   <div className="container">
     <h2 className="text-center">Contact List</h2>
-    <Link className="btn btn-primary offset-md-1" to="/new">Add Contact</Link>
+    <Link className="btn btn-primary col-md-2" to="/new">Add Contact</Link>
     <table className="table table-bordered table-hover">
       <thead>
         <tr>
@@ -26,6 +26,8 @@ const ContactList = ({ contacts }) => (
               <td className="col-md-3">
                 <img 
                   src={contact.imageURL} 
+                  width="50%"
+                  height="auto"
                   className="thumbnail" 
                   alt="contact profile" 
                 />
