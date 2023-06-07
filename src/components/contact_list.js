@@ -14,7 +14,7 @@ const ContactList = ({ contacts }) => (
         <th scope="col">Profile Picture</th>
         <th scope="col">Name</th>
         <th scope="col">Email</th>
-        <th scope="col">PhoneNumber</th>
+        <th scope="col">Phone Number</th>
       </tr>
     </thead>
     <tbody>
@@ -24,7 +24,7 @@ const ContactList = ({ contacts }) => (
         
         <td>
         <img
-                src={contact.imageUrl}
+                src={contact.ImageUrl}
                 className="rounded mx-auto d-block"
                 width="25%"
                 height="auto"

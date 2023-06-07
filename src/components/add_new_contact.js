@@ -5,7 +5,7 @@ import { useNavigate, Link } from 'react-router-dom';
 const AddNewContact = ({ addContact }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [number, setNumber] = useState('');
+  const [phoneNumber, setNumber] = useState('');
   const [ImageUrl, setImageUrl] = useState('');
 
   const nav = useNavigate();
@@ -34,7 +34,7 @@ const handleSubmit = (e) => {
     id: giveId(),
     name,
     email,
-    number,
+    phoneNumber,
     ImageUrl,
   };
 
@@ -67,7 +67,7 @@ return (
         className="form-control"
         id="phone"
         onChange={handleNumberChange}
-        value={number}
+        value={phoneNumber}
         pattern="[0-9]{10}"
         placeholder="5552223333"
         required

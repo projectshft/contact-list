@@ -11,7 +11,7 @@ return (
   <div className='container'>
   <div className="card">
     <img 
-      src={contact.imageUrl}
+      src={contact.ImageUrl}
       alt="contact info"
     />
     <div className="card-body">
