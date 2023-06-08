@@ -20,7 +20,7 @@ return (
       <p className="card-text">Phone Number: {contact.phoneNumber}</p>
     </div>
     <div className="card-footer">
-      <Link to="contacts" className="btn btn-primary"> Back to Contact List
+      <Link to="/" className="btn btn-primary"> Back to Contact List
       </Link>
     </div>
   </div>

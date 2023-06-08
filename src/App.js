@@ -32,9 +32,9 @@ function App() {
       <h1>Contact List</h1>
       <Routes>
         <Route exact path="/" element={<ContactList contacts={contacts} />} />
-        <Route path="/contacts" element={<ContactList contacts={contacts} />}/>
+        {/* <Route path="/contacts" element={<ContactList contacts={contacts} />}/> */}
         <Route path="/new" element={<AddNewContact addContact={addContact} setContacts={setContacts}/>}/>
-        <Route path="contacts/id" element={<Contact contacts={contacts}/>} />
+        <Route path="contacts/:id" element={<Contact contacts={contacts}/>} />
       </Routes>
     </div>
   );
