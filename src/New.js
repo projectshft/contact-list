@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import data from "./data.json";
 import PropTypes from "prop-types";
-// import axios from 'axios';
+import axios from 'axios';
 
 
-// const apiKey = 'wVOP1uQI4HpLgUeaYdwvFeRSKYqWPn5QXGXK3Ruw-kE'
+const apiKey = 'wVOP1uQI4HpLgUeaYdwvFeRSKYqWPn5QXGXK3Ruw-kE'
 
 //The "New" component takes values from input fields and sets them as state. Then when you click submit it will push a new contact object to the data.json file
 function New () {
@@ -35,37 +35,39 @@ function New () {
 
   //I thought the image was supposed to be some sort of api request which is why I put the axios call in here
   
-  // const url = `https://api.unsplash.com/photos/random?client_id=${apiKey}`;
-  // const params = {
-  //   method: "get",
-  //   orientation: "portrait",
-  //   query: "person",
-  //   w: 20,
-  //   h:30 
+  const url = `https://api.unsplash.com/photos/random?client_id=${apiKey}`;
+  const params = {
+    method: "get",
+    orientation: "portrait",
+    query: "person",
+    w: 20,
+    h:30 
+  }
+
+  // const getImage = async () => {
+  //   await axios.get(url, { params: params })
+  //     .then(response => {
+  //       // console.log("api response", response.data.urls.small)
+  //         const image_url = response.data.urls.thumb
+  //         setImage(image_url)
+  //     })
+  //     .catch(err => console.error(err))
+  //   }
+
+  // const getImage = async () => {
+  //   await axios.get(url, {params: params})
+  //   .then(response => {
+      
+  //     let image_url = response.data.urls.small
+  //     console.log(typeof image_url)
+  //     setImage(image_url)
+  //   })
   // }
-
-//   const getImage = async () => {
-//     await axios.get(url, { params: params })
-//       .then(response => {
-//         // console.log("api response", response.data.urls.small)
-//           const image_url = response.data.urls.thumb
-//           setImage(image_url)
-//       })
-//       .catch(err => console.error(err))
-//     }
-
-//   // const getImage = async () => {
-//   //   const { image_url } = await axios.get(url, {params: params})
-//   //   .then(response => {
-//   //     image_url = response.data.urls.small
-//   //     setImage(image_url)
-//   //   })
-//   // }
 
 // useEffect(()=> {
 //     getImage()
 //     // handleSubmitClick()
-//   })
+//   },[])
     
     function handleSubmitClick(n) {
       // getImage()
