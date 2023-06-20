@@ -15,7 +15,7 @@ function App() {
         name: 'Maximus Mighty-Dog Mueller II',
         email: 'mayordog@govern.com',
         phoneNumber: '5558881234',
-        ImageUrl: 'https://en.wikipedia.org/wiki/Mayor_Max_II#/media/File:Max_II_with_medal,_11.24.13.jpg'
+        ImageUrl: 'https://ghk.h-cdn.co/assets/17/18/2560x2560/square-gettyimages-147786673.jpg'
       }
     ]
   );
