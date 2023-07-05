@@ -1,13 +1,19 @@
 import { Routes, Route, Link } from "react-router-dom";
+import ContactsList from "./ContactsList";
+import NewContact from "./NewContact";
 
 const App = () => {
   return (
     <>
       <nav>
-        <h1>Contact List</h1>
+        <h1>Carlys Contact List App</h1>
         <ul>
-          <button>List</button>
-          <button>Add Contact</button>
+          <button>
+            <Link to="contacts">List</Link>
+          </button>
+          <button>
+            <Link to="contacts/new">Add Contact</Link>
+          </button>
         </ul>
       </nav>
 
