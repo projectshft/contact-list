@@ -1,7 +1,7 @@
 import { useState } from "react";
 // import { useNavigate } from "react-router-dom";
 
-const NewContact = () => {
+const NewContact = ({ addContact }) => {
   //Set state for profile ID
   const [profileID, setProfileID] = useState("");
   //Set state for name
@@ -13,14 +13,16 @@ const NewContact = () => {
   //Set state for image
   const [imageURL, setImageURL] = useState("");
 
-  handleClick () {
+  function handleClick() {
     const contact = {
       profileID: Math.round(Math.random() * 100000000),
       name: name,
       email: email,
       phoneNumber: phoneNumber,
-      imageURL: imageURL
-    }
+      imageURL: imageURL,
+    };
+
+    addContact(contact);
   }
 
   return (
@@ -51,6 +53,7 @@ const NewContact = () => {
           value={imageURL}
           onChange={(event) => setImageURL(event.target.value)}
         />
+        <br />
         <button onClick={handleClick} type="button">
           Add Contact
         </button>
