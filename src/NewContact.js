@@ -1,5 +1,5 @@
 import { useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const NewContact = ({ addContact }) => {
   //Set state for profile ID
@@ -13,6 +13,8 @@ const NewContact = ({ addContact }) => {
   //Set state for image
   const [imageURL, setImageURL] = useState("");
 
+  const navigate = useNavigate();
+
   function handleClick() {
     const contact = {
       profileID: Math.round(Math.random() * 100000000),
@@ -23,6 +25,7 @@ const NewContact = ({ addContact }) => {
     };
 
     addContact(contact);
+    navigate("/contacts");
   }
 
   return (

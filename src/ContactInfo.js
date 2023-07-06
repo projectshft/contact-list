@@ -1,14 +1,12 @@
-import { Link } from "react-router-dom";
-
-const Contact = ({ contact }) => {
+const ContactInfo = ({ contact }) => {
   return (
-    <Link to={"/contacts/${contact.profileID}"}>
+    <div>
       <h3>Name: {contact.name}</h3>
       <img src={contact.imageURL} />
       <p>Email: {contact.email}</p>
       <p>Phone Number: {contact.phoneNumber}</p>
-    </Link>
+    </div>
   );
 };
 
-export default Contact;
+export default ContactInfo;
