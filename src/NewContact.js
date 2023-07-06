@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const NewContact = ({ addContact }) => {
   //Set state for profile ID
@@ -63,6 +64,10 @@ const NewContact = ({ addContact }) => {
       </div>
     </form>
   );
+};
+
+NewContact.propTypes = {
+  addContact: PropTypes.func,
 };
 
 export default NewContact;
