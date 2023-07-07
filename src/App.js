@@ -3,6 +3,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import ContactsList from "./ContactsList";
 import NewContact from "./NewContact";
 import ContactInfo from "./ContactInfo";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const App = () => {
   //add state for array of contacts
@@ -15,17 +16,19 @@ const App = () => {
 
   return (
     <>
-      <nav>
-        <h1>Carlys Contact List App</h1>
-        <ul>
-          <button>
-            <Link to="/contacts">List</Link>
+      <div>
+        <h1>Contact List</h1>
+        <Link to="/contacts">
+          <button type="button" className="btn btn-primary">
+            List
           </button>
-          <button>
-            <Link to="contacts/new">Add Contact</Link>
+        </Link>
+        <Link to="contacts/new">
+          <button type="button" className="btn btn-primary">
+            Add Contact
           </button>
-        </ul>
-      </nav>
+        </Link>
+      </div>
 
       <Routes>
         <Route path="/" element={<ContactsList contacts={contacts} />} />

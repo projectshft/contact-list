@@ -1,14 +1,18 @@
-import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
 
 const Contact = ({ contact }) => {
+  const navigate = useNavigate();
+
   return (
-    <Link to={"/contacts/${contact.profileID}"}>
-      <h3>Name: {contact.name}</h3>
-      <img src={contact.imageURL} />
-      <p>Email: {contact.email}</p>
-      <p>Phone Number: {contact.phoneNumber}</p>
-    </Link>
+    <tr onClick={() => navigate("/contacts/${contact.profileID}")}>
+      <td scope="row">{contact.name}</td>
+      <td>
+        <img src={contact.imageURL} />
+      </td>
+      <td>{contact.email}</td>
+      <td>{contact.phoneNumber}</td>
+    </tr>
   );
 };
 

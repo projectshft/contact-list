@@ -35,7 +35,8 @@ const NewContact = ({ addContact }) => {
 
       <div>
         <input
-          placeholder="Name"
+          placeholder="Full Name"
+          id="nameInput"
           value={name}
           onChange={(event) => setName(event.target.value)}
         />
@@ -58,7 +59,7 @@ const NewContact = ({ addContact }) => {
           onChange={(event) => setImageURL(event.target.value)}
         />
         <br />
-        <button onClick={handleClick} type="button">
+        <button type="button" className="btn btn-primary" onClick={handleClick}>
           Add Contact
         </button>
       </div>
