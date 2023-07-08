@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 const NewContact = ({ addContact }) => {
@@ -30,40 +30,52 @@ const NewContact = ({ addContact }) => {
   }
 
   return (
-    <form>
-      <h3>Add a New Contact</h3>
-
-      <div>
-        <input
-          placeholder="Full Name"
-          id="nameInput"
-          value={name}
-          onChange={(event) => setName(event.target.value)}
-        />
-        <br />
-        <input
-          placeholder="Email"
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-        />
-        <br />
-        <input
-          placeholder="Phone Number"
-          value={phoneNumber}
-          onChange={(event) => setPhoneNumber(event.target.value)}
-        />
-        <br />
-        <input
-          placeholder="Image URL"
-          value={imageURL}
-          onChange={(event) => setImageURL(event.target.value)}
-        />
-        <br />
-        <button type="button" className="btn btn-primary" onClick={handleClick}>
-          Add Contact
+    <>
+      <h1>Contact List</h1>
+      <Link to="/contacts">
+        <button type="button" className="btn btn-primary">
+          Back
         </button>
-      </div>
-    </form>
+      </Link>
+      <form>
+        <h3>Add a New Contact</h3>
+
+        <div>
+          <input
+            placeholder="Full Name"
+            id="nameInput"
+            value={name}
+            onChange={(event) => setName(event.target.value)}
+          />
+          <br />
+          <input
+            placeholder="Email"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+          />
+          <br />
+          <input
+            placeholder="Phone Number"
+            value={phoneNumber}
+            onChange={(event) => setPhoneNumber(event.target.value)}
+          />
+          <br />
+          <input
+            placeholder="Image URL"
+            value={imageURL}
+            onChange={(event) => setImageURL(event.target.value)}
+          />
+          <br />
+          <button
+            type="button"
+            className="btn btn-primary"
+            onClick={handleClick}
+          >
+            Add Contact
+          </button>
+        </div>
+      </form>
+    </>
   );
 };
 

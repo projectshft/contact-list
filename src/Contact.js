@@ -5,7 +5,11 @@ const Contact = ({ contact }) => {
   const navigate = useNavigate();
 
   return (
-    <tr onClick={() => navigate("/contacts/${contact.profileID}")}>
+    <tr
+      onClick={() => {
+        navigate("/contacts/{contact.profileID}", { state: contact });
+      }}
+    >
       <td scope="row">{contact.name}</td>
       <td>
         <img src={contact.imageURL} />

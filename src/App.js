@@ -16,20 +16,6 @@ const App = () => {
 
   return (
     <>
-      <div>
-        <h1>Contact List</h1>
-        <Link to="/contacts">
-          <button type="button" className="btn btn-primary">
-            List
-          </button>
-        </Link>
-        <Link to="contacts/new">
-          <button type="button" className="btn btn-primary">
-            Add Contact
-          </button>
-        </Link>
-      </div>
-
       <Routes>
         <Route path="/" element={<ContactsList contacts={contacts} />} />
         <Route
@@ -40,7 +26,10 @@ const App = () => {
           path="/contacts/new"
           element={<NewContact addContact={addContact} />}
         />
-        <Route path="/contacts/:profileID" element={<ContactInfo />} />
+        <Route
+          path="/contacts/:profileID"
+          element={<ContactInfo contacts={contacts} />}
+        />
       </Routes>
     </>
   );

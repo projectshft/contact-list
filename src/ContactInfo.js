@@ -1,23 +1,27 @@
-import ContactsList from "./ContactsList";
-import PropTypes from "prop-types";
+import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const ContactInfo = ({ contact }) => {
+const ContactInfo = () => {
+  const location = useLocation();
+  const contact = location.state;
   return (
     <div>
+      <h1>Contact List</h1>
+      <Link to="/contacts">
+        <button type="button" className="btn btn-primary">
+          Back
+        </button>
+      </Link>
       <img src={contact.imageURL} />
       <br />
-      <h3>Name: {contact.name}</h3>
+      <h3>{contact.name}</h3>
       <br />
-      <p>Email: {contact.email}</p>
+      <p>{contact.email}</p>
       <br />
-      <p>Phone Number: {contact.phoneNumber}</p>
+      <p>{contact.phoneNumber}</p>
       <br />
     </div>
   );
-};
-
-ContactsList.propTypes = {
-  contact: PropTypes.object,
 };
 
 export default ContactInfo;
