@@ -10,10 +10,11 @@ const Contact = ({ contact }) => {
         navigate("/contacts/{contact.profileID}", { state: contact });
       }}
     >
-      <td scope="row">{contact.name}</td>
       <td>
-        <img src={contact.imageURL} />
+        <img src={contact.imageURL} className="imgMaxWidth" />
       </td>
+      <td scope="row">{contact.name}</td>
+
       <td>{contact.email}</td>
       <td>{contact.phoneNumber}</td>
     </tr>

@@ -31,36 +31,33 @@ const NewContact = ({ addContact }) => {
 
   return (
     <>
-      <h1>Contact List</h1>
-      <Link to="/contacts">
-        <button type="button" className="btn btn-primary">
-          Back
-        </button>
-      </Link>
-      <form>
-        <h3>Add a New Contact</h3>
+      <h1 className="pageHeader">Contact List</h1>
 
+      <form>
         <div>
           <input
+            class="form-control"
             placeholder="Full Name"
-            id="nameInput"
             value={name}
             onChange={(event) => setName(event.target.value)}
           />
           <br />
           <input
+            class="form-control"
             placeholder="Email"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
           />
           <br />
           <input
+            class="form-control"
             placeholder="Phone Number"
             value={phoneNumber}
             onChange={(event) => setPhoneNumber(event.target.value)}
           />
           <br />
           <input
+            class="form-control"
             placeholder="Image URL"
             value={imageURL}
             onChange={(event) => setImageURL(event.target.value)}

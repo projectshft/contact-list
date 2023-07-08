@@ -8,24 +8,26 @@ const ContactsList = (props) => {
   return (
     <>
       <div>
-        <h1>Contact List</h1>
+        <h1 className="pageHeader">Contact List</h1>
         <Link to="/contacts/new">
-          <button type="button" className="btn btn-primary">
+          <button type="button" className="btn btn-primary addContactBtn">
             Add Contact
           </button>
         </Link>
       </div>
-      <table className="table">
-        <thead>
-          <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Image</th>
-            <th scope="col">Email</th>
-            <th scope="col">Phone Number</th>
-          </tr>
-        </thead>
-        <tbody>{contactListItems}</tbody>
-      </table>
+      <div className="tableWidth">
+        <table className="table table-striped table-hover table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Image</th>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Phone Number</th>
+            </tr>
+          </thead>
+          <tbody>{contactListItems}</tbody>
+        </table>
+      </div>
     </>
   );
 };

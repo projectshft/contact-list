@@ -6,20 +6,23 @@ const ContactInfo = () => {
   const contact = location.state;
   return (
     <div>
-      <h1>Contact List</h1>
-      <Link to="/contacts">
-        <button type="button" className="btn btn-primary">
-          Back
-        </button>
-      </Link>
-      <img src={contact.imageURL} />
-      <br />
-      <h3>{contact.name}</h3>
-      <br />
-      <p>{contact.email}</p>
-      <br />
-      <p>{contact.phoneNumber}</p>
-      <br />
+      <div>
+        <h1 className="pageHeader">Contact List</h1>
+        <Link to="/contacts">
+          <button type="button" className="btn btn-primary backBtn">
+            Back
+          </button>
+        </Link>
+      </div>
+      <div className="contactTile">
+        <img src={contact.imageURL} className="imgMaxWidth" />
+        <br />
+        <h3>{contact.name}</h3>
+        <br />
+        <p>{contact.email}</p>
+        <br />
+        <p>{contact.phoneNumber}</p>
+      </div>
     </div>
   );
 };
