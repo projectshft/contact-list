@@ -26,10 +26,12 @@ form {
 
 .addContactBtn {
   margin-bottom: 3vh;
+  margin-left: 10vh;
 }
 
 .backBtn {
   margin-bottom: 5vh;
+  margin-left: 10vh;
 }
 
 .tableWidth {
