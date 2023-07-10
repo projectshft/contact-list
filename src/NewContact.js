@@ -16,6 +16,9 @@ const NewContact = ({ addContact }) => {
 
   const navigate = useNavigate();
 
+  const emailRE = /^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$/;
+  const phoneNumberRE = /^(\+\d{1,2}\s?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/;
+
   function handleClick() {
     const contact = {
       profileID: Math.round(Math.random() * 100000000),
@@ -25,54 +28,60 @@ const NewContact = ({ addContact }) => {
       imageURL: imageURL,
     };
 
-    addContact(contact);
-    navigate("/contacts");
+    if (name === "" || email === "" || phoneNumber === "" || imageURL === "") {
+      alert("Please fill out all fields");
+    } else if (!emailRE.test(email)) {
+      alert("Please enter a valid email");
+    } else if (!phoneNumberRE.test(phoneNumber)) {
+      alert("Please enter a valid phone number");
+    } else {
+      addContact(contact);
+      navigate("/contacts");
+    }
   }
 
   return (
-    <>
+    <div>
       <h1 className="pageHeader">Contact List</h1>
 
       <form>
-        <div>
-          <input
-            class="form-control"
-            placeholder="Full Name"
-            value={name}
-            onChange={(event) => setName(event.target.value)}
-          />
-          <br />
-          <input
-            class="form-control"
-            placeholder="Email"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-          />
-          <br />
-          <input
-            class="form-control"
-            placeholder="Phone Number"
-            value={phoneNumber}
-            onChange={(event) => setPhoneNumber(event.target.value)}
-          />
-          <br />
-          <input
-            class="form-control"
-            placeholder="Image URL"
-            value={imageURL}
-            onChange={(event) => setImageURL(event.target.value)}
-          />
-          <br />
-          <button
-            type="button"
-            className="btn btn-primary"
-            onClick={handleClick}
-          >
-            Add Contact
-          </button>
-        </div>
+        <input
+          className="form-control"
+          placeholder="Full Name"
+          type="text"
+          value={name}
+          onChange={(event) => setName(event.target.value)}
+        />
+        <br />
+        <input
+          className="form-control"
+          placeholder="Email"
+          type="email"
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
+        />
+        <br />
+        <input
+          className="form-control"
+          placeholder="Phone Number"
+          type="text"
+          value={phoneNumber}
+          onChange={(event) => setPhoneNumber(event.target.value)}
+        />
+        <br />
+        <input
+          className="form-control"
+          placeholder="Image URL"
+          type="url"
+          value={imageURL}
+          onChange={(event) => setImageURL(event.target.value)}
+        />
+        <br />
+        <button type="button" className="btn btn-primary" onClick={handleClick}>
+          Add Contact
+        </button>
       </form>
-    </>
+    </div>
   );
 };
 
