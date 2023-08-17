@@ -1,0 +1,25 @@
+{
+  "contacts": [
+    {
+      "id": 70219577,
+      "name": "Jean-Jacques Rousseau",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Jean-Jacques_Rousseau_%28painted_portrait%29.jpg/430px-Jean-Jacques_Rousseau_%28painted_portrait%29.jpg",
+      "email": "jjrousseau@example.com",
+      "phone": "555-555-5555"
+    },
+    {
+      "id": 92301293,
+      "name": "John Locke",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/John_Locke.jpg/427px-John_Locke.jpg",
+      "email": "jlocke@example.com",
+      "phone": "123-456-7890"
+    },
+    {
+      "id": 10931863,
+      "name": "Jeremy Bentham",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Jeremy_Bentham_by_Henry_William_Pickersgill_detail.jpg",
+      "email": "jbentham@example.com",
+      "phone": "987-654-3210"
+    }
+  ]
+}
