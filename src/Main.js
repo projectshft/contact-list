@@ -1,16 +1,17 @@
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Header from './Header';
+import { Routes, Route } from 'react-router-dom';
 import ContactList from './ContactList';
+import ContactCard from './ContactCard';
 
 const Main = ({contacts}) => (
-    <Container>
-      <Header />
-      <Row>
-        <Col><ContactList contacts={contacts}/></Col>
-      </Row>
-    </Container>
+  <main>
+    <Routes>
+      <Route exact path='/' element={<ContactList contacts={contacts}/>} />
+      <Route path='contacts/:id' element={<ContactCard contacts={contacts} />} />
+    </Routes>
+  </main>
+
+
 );
 
 export default Main;
+

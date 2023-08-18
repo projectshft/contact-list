@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import Header from './Header';
 import Main from './Main';
 import defaultContacts from './contacts.json';
 
@@ -8,11 +8,8 @@ const App = () => {
 
   return (
   <div>
-    <BrowserRouter>
-      <Routes>
-        <Route exact path='/' element={<Main contacts={contacts}/>} />
-      </Routes>
-    </BrowserRouter>
+    <Header />
+    <Main contacts={contacts} />
   </div>
   );
 };

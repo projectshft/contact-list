@@ -1,17 +1,38 @@
+import { useParams, useNavigate } from 'react-router-dom';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import ListGroup from 'react-bootstrap/ListGroup';
 
-const ContactCard = () => {
+const ContactCard = ({contacts}) => {
+  const id = useParams().id;
+  const contact = contacts.find((c) => c.id === parseInt(id));
+
+  const navigate = useNavigate();
+  const handleGoBackClick = () => {
+    navigate('/');
+  };
+
   return (
-    <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
-      <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-      </Card.Body>
-    </Card>
+    <Container style={{display:'flex'}} className="justify-content-center">
+      <Row>
+        <Col>
+          <Card style={{ width: '20rem' }}>
+            <Card.Img variant="top" src={contact.image_url} />
+            <Card.Body>
+              <Card.Title className="text-center">{contact.name}</Card.Title>
+              <ListGroup variant="flush">
+                <ListGroup.Item>Email: {contact.email}</ListGroup.Item>
+                <ListGroup.Item>Phone: {contact.phone}</ListGroup.Item>
+              </ListGroup>
+            </Card.Body>
+          </Card>
+          <Button variant="primary" className="my-2" onClick={handleGoBackClick}>Go Back</Button>
+        </Col>
+      </Row>
+    </Container>
   );
 }
 
