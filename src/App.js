@@ -7,16 +7,14 @@ const App = () => {
   const [contacts, setContacts] = useState(defaultContacts.contacts);
 
   const addContact = (contact) => {
-    setContacts(contacts => {
-      return [...contacts, contact]
-    })
+    setContacts((currentContacts) => [...currentContacts, contact]);
   };
 
   return (
-  <div>
-    <Header />
-    <Main contacts={contacts} addContact={addContact}/>
-  </div>
+    <div>
+      <Header />
+      <Main contacts={contacts} addContact={addContact} />
+    </div>
   );
 };
 
