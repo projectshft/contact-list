@@ -6,10 +6,16 @@ import defaultContacts from './contacts.json';
 const App = () => {
   const [contacts, setContacts] = useState(defaultContacts.contacts);
 
+  const addContact = (contact) => {
+    setContacts(contacts => {
+      return [...contacts, contact]
+    })
+  };
+
   return (
   <div>
     <Header />
-    <Main contacts={contacts} />
+    <Main contacts={contacts} addContact={addContact}/>
   </div>
   );
 };
