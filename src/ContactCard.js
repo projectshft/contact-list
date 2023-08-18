@@ -24,8 +24,8 @@ const ContactCard = ({contacts}) => {
             <Card.Body>
               <Card.Title className="text-center">{contact.name}</Card.Title>
               <ListGroup variant="flush">
-                <ListGroup.Item>Email: {contact.email}</ListGroup.Item>
-                <ListGroup.Item>Phone: {contact.phone}</ListGroup.Item>
+                <ListGroup.Item><span className="fw-bold">Email: </span>{contact.email}</ListGroup.Item>
+                <ListGroup.Item><span className="fw-bold">Phone: </span>{contact.phone}</ListGroup.Item>
               </ListGroup>
             </Card.Body>
           </Card>
