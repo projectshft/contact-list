@@ -10,10 +10,20 @@ const App = () => {
     setContacts((currentContacts) => [...currentContacts, contact]);
   };
 
+  const deleteContact = (id) => {
+    setContacts((currentContacts) =>
+      currentContacts.filter((c) => c.id !== parseInt(id))
+    );
+  };
+
   return (
     <div>
       <Header />
-      <Main contacts={contacts} addContact={addContact} />
+      <Main
+        contacts={contacts}
+        addContact={addContact}
+        deleteContact={deleteContact}
+      />
     </div>
   );
 };

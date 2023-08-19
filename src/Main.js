@@ -4,10 +4,15 @@ import ContactList from './ContactList';
 import ContactCard from './ContactCard';
 import AddContact from './AddContact';
 
-const Main = ({ contacts, addContact }) => (
+const Main = ({ contacts, addContact, deleteContact }) => (
   <main>
     <Routes>
-      <Route path="/" element={<ContactList contacts={contacts} />} />
+      <Route
+        path="/"
+        element={
+          <ContactList contacts={contacts} deleteContact={deleteContact} />
+        }
+      />
       <Route
         path="contacts/:id"
         element={<ContactCard contacts={contacts} />}
@@ -22,7 +27,16 @@ const Main = ({ contacts, addContact }) => (
 
 Main.propTypes = {
   addContact: PropTypes.func,
-  contacts: PropTypes.arrayOf(PropTypes.object),
+  deleteContact: PropTypes.func,
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      image_url: PropTypes.string.isRequired,
+      email: PropTypes.string.isRequired,
+      phone: PropTypes.string.isRequired,
+    })
+  ),
 };
 
 export default Main;

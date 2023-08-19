@@ -3,14 +3,23 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Table from 'react-bootstrap/Table';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrashCan } from '@fortawesome/free-regular-svg-icons';
 import { useNavigate } from 'react-router-dom';
 
-const ContactList = ({ contacts }) => {
+const ContactList = ({ contacts, deleteContact }) => {
   const navigate = useNavigate();
 
   const handleContactSelection = (event) => {
+    if (!event.target.classList.contains('delete-col')) {
+      const { id } = event.target.parentElement.dataset;
+      navigate(`contacts/${id}`);
+    }
+  };
+
+  const handleContactDeletion = (event) => {
     const { id } = event.target.parentElement.dataset;
-    navigate(`contacts/${id}`);
+    deleteContact(id);
   };
 
   return (
@@ -24,6 +33,7 @@ const ContactList = ({ contacts }) => {
                 <th>Name</th>
                 <th>Email</th>
                 <th>Phone</th>
+                <th>Delete Contact</th>
               </tr>
             </thead>
             <tbody>
@@ -43,6 +53,12 @@ const ContactList = ({ contacts }) => {
                   <td className="align-middle">{contact.name}</td>
                   <td className="align-middle">{contact.email}</td>
                   <td className="align-middle">{contact.phone}</td>
+                  <td
+                    className="align-middle text-center delete-col"
+                    onClick={handleContactDeletion}
+                  >
+                    <FontAwesomeIcon icon={faTrashCan} />
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -54,9 +70,16 @@ const ContactList = ({ contacts }) => {
 };
 
 ContactList.propTypes = {
-  contacts: PropTypes.shape({
-    map: PropTypes.func,
-  }),
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      image_url: PropTypes.string.isRequired,
+      email: PropTypes.string.isRequired,
+      phone: PropTypes.string.isRequired,
+    })
+  ),
+  deleteContact: PropTypes.func,
 };
 
 export default ContactList;

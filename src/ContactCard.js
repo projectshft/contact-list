@@ -50,9 +50,15 @@ const ContactCard = ({ contacts }) => {
 };
 
 ContactCard.propTypes = {
-  contacts: PropTypes.shape({
-    find: PropTypes.func,
-  }),
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      image_url: PropTypes.string.isRequired,
+      email: PropTypes.string.isRequired,
+      phone: PropTypes.string.isRequired,
+    })
+  ),
 };
 
 export default ContactCard;
