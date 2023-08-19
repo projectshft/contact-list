@@ -11,14 +11,19 @@ const ContactList = ({ contacts, deleteContact }) => {
   const navigate = useNavigate();
 
   const handleContactSelection = (event) => {
-    if (!event.target.classList.contains('delete-col')) {
+    if (!event.target.classList.contains('click-delete')) {
       const { id } = event.target.parentElement.dataset;
       navigate(`contacts/${id}`);
     }
   };
 
   const handleContactDeletion = (event) => {
-    const { id } = event.target.parentElement.dataset;
+    let { id } = event.target.parentElement.dataset;
+
+    if (event.target.classList.contains('click-delete-icon')) {
+      id = event.target.parentElement.parentElement.dataset.id;
+    }
+
     deleteContact(id);
   };
 
@@ -54,10 +59,14 @@ const ContactList = ({ contacts, deleteContact }) => {
                   <td className="align-middle">{contact.email}</td>
                   <td className="align-middle">{contact.phone}</td>
                   <td
-                    className="align-middle text-center delete-col"
+                    className="align-middle text-center click-delete"
                     onClick={handleContactDeletion}
                   >
-                    <FontAwesomeIcon icon={faTrashCan} />
+                    <FontAwesomeIcon
+                      icon={faTrashCan}
+                      className="click-delete click-delete-icon"
+                      onClick={handleContactDeletion}
+                    />
                   </td>
                 </tr>
               ))}
