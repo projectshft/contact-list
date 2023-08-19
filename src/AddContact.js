@@ -72,12 +72,14 @@ const AddContact = ({ addContact }) => {
                 Please enter phone number in the format 123-456-7890.
               </Form.Text>
             </Form.Group>
-            <Button variant="primary" type="submit">
-              Submit
-            </Button>
-            <Button variant="secondary" onClick={handleCancelClick}>
-              Cancel
-            </Button>
+            <div className="form-buttons">
+              <Button variant="primary" type="submit">
+                Submit
+              </Button>
+              <Button variant="secondary" onClick={handleCancelClick}>
+                Cancel
+              </Button>
+            </div>
           </Form>
         </Col>
       </Row>

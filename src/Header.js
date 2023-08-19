@@ -6,7 +6,7 @@ const Header = () => {
   const handleAddContactClick = () => navigate('/contacts/add');
 
   return (
-    <div className="p-4" style={{ display: 'flex' }}>
+    <div className="header p-4">
       <h1>My Contacts</h1>
       <Button
         variant="primary"

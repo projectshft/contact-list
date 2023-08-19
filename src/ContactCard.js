@@ -19,7 +19,14 @@ const ContactCard = ({ contacts }) => {
   return (
     <Container style={{ display: 'flex' }} className="justify-content-center">
       <Row>
-        <Col>
+        <Col className="pb-3">
+          <Button
+            variant="primary"
+            className="my-2"
+            onClick={handleGoBackClick}
+          >
+            Go Back
+          </Button>
           <Card style={{ width: '20rem' }}>
             <Card.Img variant="top" src={contact.image_url} />
             <Card.Body>
@@ -36,13 +43,6 @@ const ContactCard = ({ contacts }) => {
               </ListGroup>
             </Card.Body>
           </Card>
-          <Button
-            variant="primary"
-            className="my-2"
-            onClick={handleGoBackClick}
-          >
-            Go Back
-          </Button>
         </Col>
       </Row>
     </Container>

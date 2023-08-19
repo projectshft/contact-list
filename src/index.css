@@ -15,3 +15,12 @@ code {
 .contact-image {
   max-height: 100px;
 }
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header {
+  display: flex;
+}
