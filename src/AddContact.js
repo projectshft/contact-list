@@ -65,8 +65,12 @@ const AddContact = ({ addContact }) => {
                 type="tel"
                 name="phone"
                 placeholder="Enter phone"
+                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                 required
               />
+              <Form.Text className="text-muted">
+                Please enter phone number in the format 123-456-7890.
+              </Form.Text>
             </Form.Group>
             <Button variant="primary" type="submit">
               Submit
