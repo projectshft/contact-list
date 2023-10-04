@@ -34,10 +34,10 @@ export default function Root() {
                 contact
               </NavLink>
               <NavLink
-                to="/new"
+                to="/contacts/1"
                 className="list-group-item border-end-0 d-inline-block text-truncate"
               >
-                hello
+                Jordan
               </NavLink>
             </div>
           </div>
