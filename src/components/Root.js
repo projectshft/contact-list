@@ -1,6 +1,7 @@
 import { Outlet, useNavigate, NavLink } from "react-router-dom";
+import ContactList from "./ContactList";
 
-export default function Root() {
+export default function Root({allContacts}) {
   const navigate = useNavigate();
 
   return (
@@ -26,20 +27,7 @@ export default function Root() {
             id="contact-list-container"
             className="col-6 col-md-3 px-0 border-end"
           >
-            <div className="list-group border-0 rounded-0 text-md-start">
-              <NavLink
-                to="/"
-                className="list-group-item border-end-0 d-inline-block text-truncate"
-              >
-                contact
-              </NavLink>
-              <NavLink
-                to="/contacts/1"
-                className="list-group-item border-end-0 d-inline-block text-truncate"
-              >
-                Jordan
-              </NavLink>
-            </div>
+              <ContactList allContacts={allContacts} />
           </div>
         </div>
       </div>

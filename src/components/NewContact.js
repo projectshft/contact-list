@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useNavigate, Link, useSearchParams } from "react-router-dom";
+import { generateContactId } from "../contacts_functions";
+import PropTypes from "prop-types"; // not needed here but needed wherever props are passed
 
-import PropTypes from "prop-types";
-
-export default function NewContact() {
+export default function NewContact({addContact}) {
  const [searchParams, setSearchParams] = useSearchParams({
     name: "",
     phone: "",
@@ -13,13 +13,15 @@ export default function NewContact() {
 
   const navigate = useNavigate();
 
-  const contactId = "/contacts/1"; // example -- this will be a uniquely created id
+  // const contactId = "/contacts/1"; // example -- this will be a uniquely created id
 
   const data = {
     name: searchParams.get("name"),
     phone: searchParams.get("phone"),
     email: searchParams.get("email"),
     profilePicture: searchParams.get("profilePicture"),
+    contactId: `contacts/${generateContactId()}`
+    // contactId: "contacts/1"
   };
 
   return (
@@ -97,7 +99,11 @@ export default function NewContact() {
               />
             </div>
             <button
-              onClick={() => navigate(`${contactId}`, { state: data })}
+              onClick={(e) => {
+                // e.preventDefault();
+                addContact(data);
+                navigate(`/${data.contactId}`, { state: data });
+              }}
               className="btn btn-primary"
             >
               Create Contact
