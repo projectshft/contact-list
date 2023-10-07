@@ -23,7 +23,7 @@ export default function NewContact({ addContact }) {
     contactId: `contacts/${generateContactId()}`,
   };
 
-  console.log(data.phone)
+  // console.log(data.contactId)
 
   return (
     <>

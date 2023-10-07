@@ -11,9 +11,27 @@ function App() {
   const [contactList, setContactList] = useState([]);
 
   const addContact = (data) => {
-    const copyOfContactList = [...contactList];
+    const copyOfContactList = contactList.map((contact) => {
+      const clone = {...contact};
+      return clone;
+    });
     copyOfContactList.push(data)
     setContactList(copyOfContactList);
+  };
+
+  const replaceContact = (data) => {
+    const copyOfContactList = contactList.map((contact) => {
+      if (contact.contactId === data.contactId) {
+        return data;
+      }
+
+      const clone = {...contact};
+      return clone;
+    });
+
+    setContactList(copyOfContactList);
+    console.log(contactList);
+    console.log(copyOfContactList);
   };
 
   const getContact = (contactId) => {
@@ -32,7 +50,7 @@ function App() {
           <Route path="/new" element={<NewContact addContact={addContact} />} />
           <Route path="/contacts/:contactId">
             <Route index element={<Contact getContact={getContact} />} />
-            <Route path="edit" element={<EditContact />} />
+            <Route path="edit" element={<EditContact replaceContact={replaceContact} getContact={getContact} />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Route>

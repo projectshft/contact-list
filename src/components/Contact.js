@@ -42,6 +42,10 @@ export default function Contact({getContact}) {
         <h1>{contact.name}</h1> 
         <h3>{displayPhoneNumber}</h3>
         {contact.email ? <p><strong>Email: </strong><a href={`mailto:${contact.email}`}>{contact.email}</a></p> : ""}
+        <div className="d-flex flex-wrap">
+          <button className="btn btn-success me-2 mt-2" onClick={() => navigate(`/${contact.contactId}/edit`, {state: contact})}>Edit</button>
+          <button className="btn btn-danger mt-2">Delete</button>
+        </div>
       </div>
     </div>
     </>
