@@ -7,7 +7,7 @@ export default function Root({allContacts}) {
   return (
     <>
       <div className="container-fluid">
-        <div className="row d-md-block">
+        <div className="row d-md-block d-block">
           <div className="nav-container col-6 col-md-3 px-0 border-end float-start">
             <div className="navbar navbar-expand navbar-expand-md bg-body-tertiary justify-content-left">
               <input className="m-2 input-group" />

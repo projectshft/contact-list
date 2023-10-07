@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useLocation, useNavigate, Link } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import NotFound from "./NotFound";
 
 export default function Contact({getContact}) {
@@ -11,11 +11,8 @@ export default function Contact({getContact}) {
   const location = useLocation();
 
   const currentContactId = location.pathname.replace(/^\//, "");
-  // if (location.state) {
-  //   currentContactId = location.state.contactId; // we need to use location.pathname -- this will prevent our contacts from disappearing after they're created...
-  // }
 
-  console.log(currentContactId);
+  // console.log(currentContactId); // testing
 
   useEffect(() => {
     if (!getContact(currentContactId)) {
@@ -31,10 +28,21 @@ export default function Contact({getContact}) {
     return <NotFound />;
   }
 
+  const contact = getContact(currentContactId);
+  console.log(contact);
+
   return (
     <>
-      <h1>Contact Name</h1>
-      {location.pathname}
+    <div className="d-flex flex-wrap">
+      <div className="p-2">
+        <img src={contact.profilePicture} alt="contact photo" className="img-thumbnail custom-img" />
+      </div>
+      <div className="p-2">
+        <h1>{contact.name}</h1> 
+        <h3>{contact.phone}</h3>
+        {contact.email ? <p><strong>Email: </strong><a href={`mailto:${contact.email}`}>{contact.email}</a></p> : ""}
+      </div>
+    </div>
     </>
   );
 }
