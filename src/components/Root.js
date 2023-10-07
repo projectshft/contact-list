@@ -7,11 +7,11 @@ export default function Root({allContacts}) {
   return (
     <>
       <div className="container-fluid">
-        <div className="row d-md-block d-block">
+        <div className="row d-md-block">
           <div className="nav-container col-6 col-md-3 px-0 border-end float-start">
-            <div className="navbar navbar-expand-md bg-body-tertiary justify-content-left">
+            <div className="navbar navbar-expand navbar-expand-md bg-body-tertiary justify-content-left">
               <input className="m-2 input-group" />
-              <button className="btn btn-primary me-2 ms-md-0 ms-2" onClick={() => navigate("/new")}>New</button>
+              <button className="btn btn-primary me-2 ms-md-0 ms-0" onClick={() => navigate("/new")}>New</button>
             </div>
           </div>
           <div className="col-6 col-md-9 ps-md-2 pt-2 float-end">

@@ -10,12 +10,12 @@ export default function Contact({getContact}) {
   const navigate = useNavigate();
   const location = useLocation();
 
-  let currentContactId = "undefined";
-  if (location.state) {
-    currentContactId = location.state.contactId; // we need to use location.pathname -- this will prevent our contacts from disappearing after they're created...
-  }
+  const currentContactId = location.pathname.replace(/^\//, "");
+  // if (location.state) {
+  //   currentContactId = location.state.contactId; // we need to use location.pathname -- this will prevent our contacts from disappearing after they're created...
+  // }
 
-  console.log(location);
+  console.log(currentContactId);
 
   useEffect(() => {
     if (!getContact(currentContactId)) {
@@ -34,7 +34,7 @@ export default function Contact({getContact}) {
   return (
     <>
       <h1>Contact Name</h1>
-      {location.state.name}
+      {location.pathname}
     </>
   );
 }
