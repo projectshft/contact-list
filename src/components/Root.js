@@ -10,7 +10,7 @@ export default function Root({allContacts}) {
         <div className="row d-md-block d-block">
           <div className="nav-container col-6 col-md-3 px-0 border-end float-start">
             <div className="navbar navbar-expand navbar-expand-md bg-body-tertiary justify-content-left">
-              <input className="m-2 input-group" />
+              <input className="m-2 input-group" type="search" placeholder="Search for a contact..." />
               <button className="btn btn-primary me-2 ms-md-0 ms-0" onClick={() => navigate("/new")}>New</button>
             </div>
           </div>

@@ -1,10 +1,12 @@
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { useState } from "react";
-import { useNavigate, Link, useSearchParams } from "react-router-dom";
 import { generateContactId } from "../contacts_functions";
 import PropTypes from "prop-types";
+import "react-phone-number-input/style.css";
+import PhoneInput from "react-phone-number-input";
 
-export default function NewContact({addContact}) {
- const [searchParams, setSearchParams] = useSearchParams({
+export default function NewContact({ addContact }) {
+  const [searchParams, setSearchParams] = useSearchParams({
     name: "",
     phone: "",
     email: "",
@@ -18,9 +20,10 @@ export default function NewContact({addContact}) {
     phone: searchParams.get("phone"),
     email: searchParams.get("email"),
     profilePicture: searchParams.get("profilePicture"),
-    contactId: `contacts/${generateContactId()}`
-    // contactId: "contacts/1"
+    contactId: `contacts/${generateContactId()}`,
   };
+
+  console.log(data.phone)
 
   return (
     <>
@@ -38,10 +41,13 @@ export default function NewContact({addContact}) {
                 id="nameInput"
                 value={data.name}
                 onChange={(event) =>
-                  setSearchParams((prev) => {
-                    prev.set("name", event.target.value);
-                    return prev;
-                  }, { replace: true })
+                  setSearchParams(
+                    (prev) => {
+                      prev.set("name", event.target.value);
+                      return prev;
+                    },
+                    { replace: true }
+                  )
                 }
               />
             </div>
@@ -49,16 +55,21 @@ export default function NewContact({addContact}) {
               <label htmlFor="phoneInput" className="form-label">
                 Phone Number
               </label>
-              <input
-                type="tel"
+              <PhoneInput
                 className="form-control"
                 id="phoneInput"
+                defaultCountry="US"
+                placeholder="Enter a phone number"
                 value={data.phone}
-                onChange={(event) =>
-                  setSearchParams((prev) => {
-                    prev.set("phone", event.target.value);
-                    return prev;
-                  }, { replace: true })
+                onChange={(event) => {
+                  setSearchParams(
+                    (prev) => {
+                      prev.set("phone", event);
+                      return prev;
+                    },
+                    { replace: true }
+                  )
+                }
                 }
               />
             </div>
@@ -72,10 +83,13 @@ export default function NewContact({addContact}) {
                 id="emailInput"
                 value={data.email}
                 onChange={(event) =>
-                  setSearchParams((prev) => {
-                    prev.set("email", event.target.value);
-                    return prev;
-                  }, { replace: true })
+                  setSearchParams(
+                    (prev) => {
+                      prev.set("email", event.target.value);
+                      return prev;
+                    },
+                    { replace: true }
+                  )
                 }
               />
             </div>
@@ -89,18 +103,20 @@ export default function NewContact({addContact}) {
                 id="profilePicture"
                 value={data.profilePicture}
                 onChange={(event) =>
-                  setSearchParams((prev) => {
-                    prev.set("profilePicture", event.target.value);
-                    return prev;
-                  }, { replace: true })
+                  setSearchParams(
+                    (prev) => {
+                      prev.set("profilePicture", event.target.value);
+                      return prev;
+                    },
+                    { replace: true }
+                  )
                 }
               />
             </div>
             <button
-              onClick={(e) => {
-                // e.preventDefault();
+              onClick={() => {
                 addContact(data);
-                navigate(`/${data.contactId}`, { state: data });
+                navigate(`/${data.contactId}`);
               }}
               className="btn btn-primary"
             >
@@ -113,6 +129,6 @@ export default function NewContact({addContact}) {
   );
 }
 
-NewContact.propTypes ={
-  addContact: PropTypes.func
+NewContact.propTypes = {
+  addContact: PropTypes.func,
 };
