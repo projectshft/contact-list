@@ -29,19 +29,25 @@ export default function Contact({ getContact, deleteContact }) {
   }
 
   const contact = getContact(currentContactId);
-  const phoneNumber = parsePhoneNumber(contact.phone);
-  let displayPhoneNumber = formatPhoneNumberIntl(phoneNumber.number);
+  let displayPhoneNumber = "";
 
-  if (phoneNumber.country === "US") {
-    displayPhoneNumber = formatPhoneNumber(phoneNumber.number);
+  if (contact.phone) {
+    const phoneNumber = parsePhoneNumber(contact.phone);
+    displayPhoneNumber = formatPhoneNumberIntl(phoneNumber.number);
+
+    if (phoneNumber.country === "US") {
+      displayPhoneNumber = formatPhoneNumber(phoneNumber.number);
+    }
   }
 
   const handleDelete = () => {
-    if (window.confirm("Are you sure you want to delete this contact? This action cannot be undone.")) {
+    if (
+      window.confirm(
+        "Are you sure you want to delete this contact? This action cannot be undone."
+      )
+    ) {
       deleteContact(contact);
       navigate("/");
-    } else {
-      console.log("you didn't delete it");
     }
   };
 
@@ -50,7 +56,10 @@ export default function Contact({ getContact, deleteContact }) {
       <div className="d-flex flex-wrap">
         <div className="p-2">
           <img
-            src={contact.profilePicture}
+            src={
+              contact.profilePicture ||
+              "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+            }
             alt="contact photo"
             className="img-thumbnail custom-img"
           />
@@ -75,17 +84,17 @@ export default function Contact({ getContact, deleteContact }) {
             >
               Edit
             </button>
-            <button className="btn btn-danger mt-2" onClick={handleDelete}>Delete</button>
+            <button className="btn btn-danger mt-2" onClick={handleDelete}>
+              Delete
+            </button>
           </div>
         </div>
       </div>
-
-     
     </>
   );
 }
 
 Contact.propTypes = {
   getContact: PropTypes.func,
-  deleteContact: PropTypes.func
+  deleteContact: PropTypes.func,
 };

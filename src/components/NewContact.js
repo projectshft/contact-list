@@ -23,8 +23,6 @@ export default function NewContact({ addContact }) {
     contactId: `contacts/${Math.round(Math.random() * 100000000).toString(36)}`,
   };
 
-  // console.log(data.contactId)
-
   return (
     <>
       <div className="container-fluid">
@@ -71,6 +69,7 @@ export default function NewContact({ addContact }) {
                   )
                 }
                 }
+                required
               />
             </div>
             <div className="mb-2">

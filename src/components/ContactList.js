@@ -2,8 +2,31 @@ import ContactListItem from "./ContactListItem";
 import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
 
-export default function ContactList({allContacts}) {
-  const contactList = allContacts();
+export default function ContactList({allContacts, sortedContacts}) {
+  let contactList = allContacts();
+
+   const sortContacts = (contactList, value) => {
+    const regex = value.toLowerCase();
+
+    const contacts = contactList
+      .map((contact) => {
+        const clone = { ...contact };
+        return clone;
+      })
+      .filter((contact) => {
+        if (contact.name.toLowerCase().match(regex)) {
+          return true;
+        }
+
+        return false;
+      });
+
+      return contacts;
+  };
+
+  if (sortedContacts !== null && sortedContacts.length > 0) {
+    contactList = sortContacts(contactList, sortedContacts);
+  }
   
   if (contactList.length <= 0) {
     return (
@@ -30,5 +53,6 @@ export default function ContactList({allContacts}) {
 }
 
 ContactList.propTypes = {
-  allContacts: PropTypes.func
+  allContacts: PropTypes.func,
+  sortedContacts: PropTypes.string
 };
