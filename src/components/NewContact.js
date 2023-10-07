@@ -20,7 +20,7 @@ export default function NewContact({ addContact }) {
     phone: searchParams.get("phone"),
     email: searchParams.get("email"),
     profilePicture: searchParams.get("profilePicture"),
-    contactId: `contacts/${generateContactId()}`,
+    contactId: `contacts/${Math.round(Math.random() * 100000000).toString(36)}`,
   };
 
   // console.log(data.contactId)

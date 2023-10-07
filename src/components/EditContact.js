@@ -118,10 +118,13 @@ export default function EditContact({replaceContact, getContact}) {
                 replaceContact(data);
                 navigate(`/${data.contactId}`);
               }}
-              className="btn btn-success"
+              className="btn btn-success me-2"
             >
               Save Changes
             </button>
+            <button onClick={() => {
+              navigate(`/${data.contactId}`);
+            }} className="btn btn-secondary">Discard</button>
           </form>
         </div>
       </div> 
@@ -130,6 +133,6 @@ export default function EditContact({replaceContact, getContact}) {
 }
 
 EditContact.propTypes = {
-  addContact: PropTypes.func,
+  replaceContact: PropTypes.func,
   getContact: PropTypes.func
 };

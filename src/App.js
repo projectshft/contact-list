@@ -30,12 +30,27 @@ function App() {
     });
 
     setContactList(copyOfContactList);
-    console.log(contactList);
-    console.log(copyOfContactList);
   };
 
   const getContact = (contactId) => {
     return contactList.find((element) => element.contactId === contactId);
+  };
+
+  const deleteContact = (data) => {
+    const copyOfContactList = contactList
+    .map((contact) => {
+      const clone = {...contact};
+      return clone;
+    })
+    .filter((contact) => {
+      if (contact.contactId === data.contactId) {
+        return false;
+      }
+      
+      return true;
+    });
+
+    setContactList(copyOfContactList);
   };
 
   const allContacts = () => {
@@ -49,7 +64,7 @@ function App() {
           <Route index element={<StartHere />}/>
           <Route path="/new" element={<NewContact addContact={addContact} />} />
           <Route path="/contacts/:contactId">
-            <Route index element={<Contact getContact={getContact} />} />
+            <Route index element={<Contact getContact={getContact} deleteContact={deleteContact} />} />
             <Route path="edit" element={<EditContact replaceContact={replaceContact} getContact={getContact} />} />
           </Route>
           <Route path="*" element={<NotFound />} />
