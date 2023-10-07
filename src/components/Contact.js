@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import NotFound from "./NotFound";
 import PropTypes from "prop-types";
+import { formatPhoneNumber, parsePhoneNumber, formatPhoneNumberIntl } from "react-phone-number-input";
 
 export default function Contact({getContact}) {
   const navigate = useNavigate();
@@ -24,6 +25,12 @@ export default function Contact({getContact}) {
   }
 
   const contact = getContact(currentContactId);
+  const phoneNumber = parsePhoneNumber(contact.phone);
+  let displayPhoneNumber = formatPhoneNumberIntl(phoneNumber.number);
+  
+  if (phoneNumber.country === "US") {
+    displayPhoneNumber = formatPhoneNumber(phoneNumber.number);
+  }
 
   return (
     <>
@@ -33,7 +40,7 @@ export default function Contact({getContact}) {
       </div>
       <div className="p-2">
         <h1>{contact.name}</h1> 
-        <h3>{contact.phone}</h3>
+        <h3>{displayPhoneNumber}</h3>
         {contact.email ? <p><strong>Email: </strong><a href={`mailto:${contact.email}`}>{contact.email}</a></p> : ""}
       </div>
     </div>
