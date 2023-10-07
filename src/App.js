@@ -24,8 +24,6 @@ function App() {
     return contactList;
   }
 
-  console.log(contactList); // testing
-    // move these functions to contacts_functions -- good for now though
   return (
     <>
       <Routes>

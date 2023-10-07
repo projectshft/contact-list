@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate, Link, useSearchParams } from "react-router-dom";
 import { generateContactId } from "../contacts_functions";
-import PropTypes from "prop-types"; // not needed here but needed wherever props are passed
+import PropTypes from "prop-types";
 
 export default function NewContact({addContact}) {
  const [searchParams, setSearchParams] = useSearchParams({
@@ -12,8 +12,6 @@ export default function NewContact({addContact}) {
   });
 
   const navigate = useNavigate();
-
-  // const contactId = "/contacts/1"; // example -- this will be a uniquely created id
 
   const data = {
     name: searchParams.get("name"),
@@ -114,15 +112,7 @@ export default function NewContact({addContact}) {
     </>
   );
 }
-// MUST include prop types when a component receives props:
 
-//  const Header = ({ name }) => <div>hi {name}</div>;
-
-// Header.propTypes = {
-//   name: PropTypes.string
-// };
-
-// // Same approach for defaultProps too
-// Header.defaultProps = {
-//   name: "Alan"
-// };
+NewContact.propTypes ={
+  addContact: PropTypes.func
+};

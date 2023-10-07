@@ -1,5 +1,6 @@
 import ContactListItem from "./ContactListItem";
 import { NavLink } from "react-router-dom";
+import PropTypes from "prop-types";
 
 export default function ContactList({allContacts}) {
   const contactList = allContacts();
@@ -27,3 +28,7 @@ export default function ContactList({allContacts}) {
     </div>
   )
 }
+
+ContactList.propTypes = {
+  allContacts: PropTypes.func
+};
