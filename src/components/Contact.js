@@ -51,6 +51,8 @@ export default function Contact({ getContact, deleteContact }) {
     }
   };
 
+  const noName = <i>No Name</i>;
+
   return (
     <>
       <div className="d-flex flex-wrap">
@@ -65,7 +67,7 @@ export default function Contact({ getContact, deleteContact }) {
           />
         </div>
         <div className="p-2">
-          <h1>{contact.name}</h1>
+          <h1>{contact.name || noName}</h1>
           <h3>{displayPhoneNumber}</h3>
           {contact.email ? (
             <p>

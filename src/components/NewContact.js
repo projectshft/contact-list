@@ -1,5 +1,4 @@
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { useState } from "react";
 import { generateContactId } from "../contacts_functions";
 import PropTypes from "prop-types";
 import "react-phone-number-input/style.css";

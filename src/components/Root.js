@@ -1,13 +1,12 @@
-import { Outlet, useNavigate, NavLink, useSearchParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { Outlet, useNavigate, useSearchParams } from "react-router-dom";
 import ContactList from "./ContactList";
 import PropTypes from "prop-types";
 
 export default function Root({ allContacts }) {
-  const [searchParams, setSearchParams] = useSearchParams({ contacts: ""});
+  const [searchParams, setSearchParams] = useSearchParams({ contacts: "" });
 
   const searchData = {
-    contacts: searchParams.get("contacts")
+    contacts: searchParams.get("contacts"),
   };
 
   const navigate = useNavigate();
@@ -23,12 +22,10 @@ export default function Root({ allContacts }) {
                 type="search"
                 placeholder="Search for a contact..."
                 onChange={(event) =>
-                  setSearchParams(
-                    (prev) => {
-                      prev.set("contacts", event.target.value);
-                      return prev;
-                    }
-                  )
+                  setSearchParams((prev) => {
+                    prev.set("contacts", event.target.value);
+                    return prev;
+                  })
                 }
               />
               <button
@@ -52,7 +49,10 @@ export default function Root({ allContacts }) {
             id="contact-list-container"
             className="col-6 col-md-3 px-0 border-end"
           >
-            <ContactList allContacts={allContacts} sortedContacts={searchData.contacts}/>
+            <ContactList
+              allContacts={allContacts}
+              sortedContacts={searchData.contacts}
+            />
           </div>
         </div>
       </div>
@@ -61,5 +61,5 @@ export default function Root({ allContacts }) {
 }
 
 Root.propTypes = {
-  allContacts: PropTypes.func
+  allContacts: PropTypes.func,
 };
