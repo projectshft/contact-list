@@ -6,8 +6,6 @@ import PhoneInput from 'react-phone-number-input';
 export default function NewContact({ addContact }) {
   const location = useLocation();
 
-  console.log(location.state);
-
   const [searchParams, setSearchParams] = useSearchParams({
     name: location.state || '',
     phone: '',
