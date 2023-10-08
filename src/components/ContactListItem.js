@@ -1,5 +1,5 @@
-import { NavLink } from "react-router-dom";
-import PropTypes from "prop-types";
+import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export default function ContactListItem({ contact }) {
   const noName = <i>No Name</i>;
@@ -14,6 +14,6 @@ export default function ContactListItem({ contact }) {
   );
 }
 
-ContactListItem.propTypes ={
-  contact: PropTypes.object
+ContactListItem.propTypes = {
+  contact: PropTypes.object,
 };

@@ -1,11 +1,12 @@
-import ContactListItem from "./ContactListItem";
-import { NavLink } from "react-router-dom";
-import PropTypes from "prop-types";
+/* eslint-disable no-shadow */
+import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import ContactListItem from './ContactListItem';
 
-export default function ContactList({allContacts, sortedContacts}) {
+export default function ContactList({ allContacts, sortedContacts }) {
   let contactList = allContacts();
 
-   const sortContacts = (contactList, value) => {
+  const sortContacts = (contactList, value) => {
     const regex = value.toLowerCase();
 
     const contacts = contactList
@@ -21,13 +22,13 @@ export default function ContactList({allContacts, sortedContacts}) {
         return false;
       });
 
-      return contacts;
+    return contacts;
   };
 
   if (sortedContacts !== null && sortedContacts.length > 0) {
     contactList = sortContacts(contactList, sortedContacts);
   }
-  
+
   if (contactList.length <= 0) {
     return (
       <div className="list-group border-0 rounded-0 text-md-start">
@@ -38,21 +39,21 @@ export default function ContactList({allContacts, sortedContacts}) {
           <i>Add a new contact</i>
         </NavLink>
       </div>
-    )
+    );
   }
 
-  const contacts = contactList.map((contact, index) => {
-    return <ContactListItem key={index} contact={contact} />;
-  });
+  const contacts = contactList.map((contact, index) => (
+    <ContactListItem key={index} contact={contact} />
+  ));
 
   return (
     <div className="list-group border-0 rounded-0 text-md-start">
-    {contacts}
+      {contacts}
     </div>
-  )
+  );
 }
 
 ContactList.propTypes = {
   allContacts: PropTypes.func,
-  sortedContacts: PropTypes.string
+  sortedContacts: PropTypes.string,
 };
