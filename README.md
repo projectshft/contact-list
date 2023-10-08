@@ -4,6 +4,8 @@ Hey! This is a contact list app that I built using React and React Router.
 
 ## Run locally
 
+As a prerequisite, make sure you have [Node](https://nodejs.org/en) installed on your machine.
+
 To run locally, fork and clone this repository.
 
 In the directory you want to install this app in, run the following commands in your bash terminal:
