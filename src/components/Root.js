@@ -1,15 +1,21 @@
 import { Outlet, useNavigate, useSearchParams } from "react-router-dom";
 import ContactList from "./ContactList";
 import PropTypes from "prop-types";
+import { useEffect } from "react";
 
 export default function Root({ allContacts }) {
   const [searchParams, setSearchParams] = useSearchParams({ contacts: "" });
+
+  const navigate = useNavigate();
 
   const searchData = {
     contacts: searchParams.get("contacts"),
   };
 
-  const navigate = useNavigate();
+  useEffect(() => {
+    searchData.contacts = "";
+    console.log(searchData.contacts);
+  }, [navigate]);
 
   return (
     <>
@@ -21,6 +27,7 @@ export default function Root({ allContacts }) {
                 className="m-2 input-group"
                 type="search"
                 placeholder="Search for a contact..."
+                value={searchData.contacts || ""}
                 onChange={(event) =>
                   setSearchParams((prev) => {
                     prev.set("contacts", event.target.value);
@@ -30,7 +37,7 @@ export default function Root({ allContacts }) {
               />
               <button
                 className="btn btn-primary me-2 ms-md-0 ms-0"
-                onClick={() => navigate("/new")}
+                onClick={() => navigate("/new", { state: searchData.contacts })}
               >
                 New
               </button>
