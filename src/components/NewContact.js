@@ -17,12 +17,14 @@ export default function NewContact({ addContact }) {
 
   const navigate = useNavigate();
 
+  const generateId = () => Math.round(Math.random() * 100000000).toString(36);
+
   const data = {
     name: searchParams.get('name'),
     phone: searchParams.get('phone'),
     email: searchParams.get('email'),
     profilePicture: searchParams.get('profilePicture'),
-    contactId: `contacts/${Math.round(Math.random() * 100000000).toString(36)}`,
+    contactId: `contacts/${generateId()}`,
   };
 
   return (
