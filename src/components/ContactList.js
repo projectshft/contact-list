@@ -33,7 +33,7 @@ export default function ContactList({ allContacts, sortedContacts }) {
     return (
       <div className="list-group border-0 rounded-0 text-md-start">
         <NavLink
-          to="/new"
+          to="/contacts/new"
           className="list-group-item border-end-0 d-inline-block text-truncate text-center"
         >
           <i>Add a new contact</i>
