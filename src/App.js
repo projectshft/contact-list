@@ -1,24 +1,87 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import { useState } from 'react';
+import Root from './components/Root';
+import StartHere from './components/StartHere';
+import NewContact from './components/NewContact';
+import Contact from './components/Contact';
+import NotFound from './components/NotFound';
+import EditContact from './components/EditContact';
 
 function App() {
+  const [contactList, setContactList] = useState([]);
+
+  const addContact = (data) => {
+    const copyOfContactList = contactList.map((contact) => {
+      const clone = { ...contact };
+      return clone;
+    });
+    copyOfContactList.push(data);
+    setContactList(copyOfContactList);
+  };
+
+  const replaceContact = (data) => {
+    const copyOfContactList = contactList.map((contact) => {
+      if (contact.contactId === data.contactId) {
+        return data;
+      }
+
+      const clone = { ...contact };
+      return clone;
+    });
+
+    setContactList(copyOfContactList);
+  };
+
+  const getContact = (contactId) =>
+    contactList.find((element) => element.contactId === contactId);
+
+  const deleteContact = (data) => {
+    const copyOfContactList = contactList
+      .map((contact) => {
+        const clone = { ...contact };
+        return clone;
+      })
+      .filter((contact) => {
+        if (contact.contactId === data.contactId) {
+          return false;
+        }
+
+        return true;
+      });
+
+    setContactList(copyOfContactList);
+  };
+
+  const allContacts = () => contactList;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<Root allContacts={allContacts} />}>
+        <Route index element={<StartHere />} />
+        <Route
+          path="/contacts/new"
+          element={<NewContact addContact={addContact} />}
+        />
+        <Route path="/contacts/:contactId">
+          <Route
+            index
+            element={
+              <Contact getContact={getContact} deleteContact={deleteContact} />
+            }
+          />
+          <Route
+            path="edit"
+            element={
+              <EditContact
+                replaceContact={replaceContact}
+                getContact={getContact}
+              />
+            }
+          />
+        </Route>
+        <Route path="*" element={<NotFound />} />
+      </Route>
+    </Routes>
   );
 }
 
