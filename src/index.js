@@ -3,7 +3,7 @@
 // Routes that will be needed. Index, adding a contact, individual contacts,
 // The add contact button will route to the add contact page
 // We will need a type form for user input to add a contact
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './HomePage';
@@ -40,7 +40,18 @@ const App = () => {
   const addContact = (newContact) => {
     setContacts([...contacts, newContact]);
   };
+  console.log(contacts);
+  const updateContact = (data) => {
+    try {
+      localStorage.setItem('contacts', JSON.stringify(data));
+    } catch (error) {
+      console.error('Cannot Store Contact', error);
+    }
+  };
 
+  useEffect(() => {
+    updateContact(contacts);
+  }, [contacts]);
   return (
     <BrowserRouter>
       <div>
