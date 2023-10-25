@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const AddContactForm = () => {
   const [name, setName] = useState('');
@@ -7,7 +8,7 @@ const AddContactForm = () => {
   const [phone, setPhone] = useState('');
   const [image, setImage] = useState('');
   const [contacts, setContacts] = useState([]);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   function handleNameChange(e) {
     setName(e.target.value);
@@ -30,11 +31,13 @@ const AddContactForm = () => {
     };
 
     setContacts([...contacts, newContact]);
+
     setName('');
     setEmail('');
     setPhone('');
     setImage('');
-    navigate('/Index');
+    // addContact(newContact);
+    // navigate('/Index');
   }
 
   return (
@@ -143,5 +146,7 @@ const AddContactForm = () => {
     </div>
   );
 };
-
+// AddContactForm.propTypes = {
+//   addContact: PropTypes.func,
+// };
 export default AddContactForm;
