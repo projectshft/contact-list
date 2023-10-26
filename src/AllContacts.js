@@ -1,7 +1,12 @@
 import PropTypes from 'prop-types';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Index({ contacts }) {
-  console.log(contacts);
+  const navigate = useNavigate();
+  const handleRowClick = () => {
+    navigate('/id');
+  };
+
   return (
     <main>
       <div className="container">
@@ -43,18 +48,21 @@ function Index({ contacts }) {
         <div className="container">
           <div className="row">
             <div className="col-md-10 offset-1">
-              <table className="table table-bordered">
+              <table className="table table-bordered table-hover">
                 <thead className="table-dark">
-                  <tr>
-                    <th scope="col">Avatar</th>
+                  <tr className="table-active">
+                    <th scope="col">Profile Picture</th>
                     <th scope="col">Name</th>
                     <th scope="col">Email</th>
                     <th scope="col">Phone Number</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {contacts.map((contact, index) => (
-                    <tr key={index}>
+                  {contacts.map((contact) => (
+                    <tr
+                      key={contact.id}
+                      onClick={() => handleRowClick(console.log('clicked'))}
+                    >
                       <td>
                         <img
                           src={contact.image}

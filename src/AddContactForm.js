@@ -22,7 +22,9 @@ const AddContactForm = ({ addContact }) => {
     setImage(e.target.value);
   }
   function handleAddContact() {
+    const generateId = () => Math.round(Math.random() * 100000000);
     const newContact = {
+      id: generateId(),
       name,
       email,
       phone,
