@@ -11,8 +11,7 @@ const ContactPage = ({ contacts }) => {
   const handleButtonclick = () => {
     navigate('/Index');
   };
-  console.log('id:', id);
-  console.log(contact);
+
   if (!contact) {
     return (
       <div>
