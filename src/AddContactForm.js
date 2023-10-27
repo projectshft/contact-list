@@ -146,6 +146,6 @@ const AddContactForm = ({ addContact }) => {
   );
 };
 AddContactForm.propTypes = {
-  addContact: PropTypes.func,
+  addContact: PropTypes.func.isRequired,
 };
 export default AddContactForm;

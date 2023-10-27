@@ -3,8 +3,9 @@ import { Link, useNavigate } from 'react-router-dom';
 
 function Index({ contacts }) {
   const navigate = useNavigate();
-  const handleRowClick = () => {
-    navigate('/id');
+
+  const handleRowClick = (contactId) => {
+    navigate(`${contactId}`);
   };
 
   return (
@@ -61,7 +62,7 @@ function Index({ contacts }) {
                   {contacts.map((contact) => (
                     <tr
                       key={contact.id}
-                      onClick={() => handleRowClick(console.log('clicked'))}
+                      onClick={() => handleRowClick(contact.id)}
                     >
                       <td>
                         <img
@@ -86,7 +87,7 @@ function Index({ contacts }) {
   );
 }
 Index.propTypes = {
-  contacts: PropTypes.array,
+  contacts: PropTypes.array.isRequired,
 };
 
 export default Index;

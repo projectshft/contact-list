@@ -1,16 +1,12 @@
-// Use Prototypes
-
-// Routes that will be needed. Index, adding a contact, individual contacts,
-// The add contact button will route to the add contact page
-// We will need a type form for user input to add a contact
 import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './HomePage';
 import AddContactForm from './AddContactForm';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import Index from './AllContacts';
+import ContactPage from './ContactPage';
 
 const App = () => {
   const [contacts, setContacts] = useState(
@@ -58,29 +54,30 @@ const App = () => {
     updateContact(contacts);
   }, [contacts]);
 
-  // const clearLocalStorage = () => {
-  //   localStorage.clear();
-  // };
-
-  // clearLocalStorage();
   return (
     <BrowserRouter>
-      <div>
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route path="/Index" element={<Index contacts={contacts} />} />
-          <Route path="/id" element={<Index contacts={contacts} />} />
-          <Route
-            path="/AddContact"
-            element={
-              <AddContactForm
-                addContact={addContact}
-                setContacts={setContacts}
-              />
-            }
-          />
-        </Routes>
-      </div>
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route path="/Index" element={<Index contacts={contacts} />} />
+        <Route
+          path="/Index/:id"
+          element={<ContactPage contacts={contacts} />}
+        />
+        <Route
+          path="/AddContact"
+          element={
+            <AddContactForm addContact={addContact} setContacts={setContacts} />
+          }
+        />
+        <Route
+          path="*"
+          element={
+            <div>
+              <h1>Not Found</h1>
+            </div>
+          }
+        />
+      </Routes>
     </BrowserRouter>
   );
 };
