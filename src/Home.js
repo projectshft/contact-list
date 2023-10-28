@@ -13,8 +13,6 @@ const Home = ({ contacts }) => {
 
   function convertToImgElement(input) {
     const destructuredInput = input;
-    console.log(destructuredInput);
-    console.log(input);
     const inputIsImg = destructuredInput[0].props;
     if (typeof inputIsImg === 'object') {
       const urlString = inputIsImg.src;
