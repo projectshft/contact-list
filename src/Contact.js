@@ -20,9 +20,7 @@ const Contact = ({ contacts }) => {
 
   return (
     <div>
-      <h1>
-        <img src={contact.imgURL} alt="Missing" />
-      </h1>
+      <h1>{contact.imgURL}</h1>
       <h1>
         {contact.name} (ID#{contact.index})
       </h1>

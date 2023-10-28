@@ -11,6 +11,21 @@ const Home = ({ contacts }) => {
     { head: 'Phone', prop: 'phone' },
   ];
 
+  function convertToImgElement(input) {
+    const destructuredInput = input;
+    console.log(destructuredInput);
+    console.log(input);
+    const inputIsImg = destructuredInput[0].props;
+    if (typeof inputIsImg === 'object') {
+      const urlString = inputIsImg.src;
+      const imgElement = (
+        <img src={urlString} alt="Invalid Link" height="150" width="150" />
+      );
+      return imgElement;
+    }
+    return input;
+  }
+
   const contactsTable = (columns, data, key) => (
     <>
       <thead>
@@ -25,7 +40,9 @@ const Home = ({ contacts }) => {
           <tr key={item[key]}>
             {columns.map((col) => (
               <td key={`${item[key]}-${col.prop}`}>
-                <Link to={`/contacts/${item.index}`}>{item[col.prop]}</Link>
+                <Link to={`/contacts/${item.index}`}>
+                  {convertToImgElement([item[col.prop]])}
+                </Link>
               </td>
             ))}
           </tr>
